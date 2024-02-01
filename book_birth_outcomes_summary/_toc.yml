@@ -1,0 +1,31 @@
+# Table of contents
+
+format: jb-book
+root: intro
+parts:
+  - caption: Background on pregnancy and birth
+    chapters:
+    - file: stages
+    - file: interventions
+    - file: routine_data
+    - file: key_papers
+  - caption: Risk factors
+    chapters:
+    - file: fetal_risk_factors
+    - file: cardiotocography
+  - caption: Neonatal outcomes
+    chapters:
+    - file: neo_out_enceph
+    - file: neo_out_hie
+    - file: neo_out_chorioamnionitis
+  - caption: Markers of HIE
+    chapters:
+    - file: neo_out_summary
+    - file: neo_out_ctg
+    - file: neo_out_blood
+  - caption: Outcomes
+    chapters:
+    - file: parental_outcomes
+  - caption: Study design
+    chapters:
+    - file: treatment_paradox
