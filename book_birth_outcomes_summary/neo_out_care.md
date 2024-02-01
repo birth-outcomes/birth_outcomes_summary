@@ -17,17 +17,15 @@ Types of care:
 
 ## Suitability as a model outcome
 
+**Admission to any neonatal care services**
+
 Pros:
 * Want to understand as admission is expensive
 
 Cons:
 * Many of the babies will only need a short period of care and will not have poor long-term outcome
 
-`````{admonition} Unsuitable
-:class: error
-
-Too broad, not definitely linked with poor long-term outcomes
-`````
+**Admission to NICU**
 
 Pros:
 * Babies admitted to NICU will be the most unstable / unwell.
@@ -40,5 +38,7 @@ Cons:
 `````{admonition} Suitable
 :class: warning
 
-Admission and length of stay in NICU is a good marker of poorly neonates - but would it be quite a wide spectrum of reasons for admission?
+**Admission and length of stay in NICU** is a good marker of poorly neonates - but would it be quite a wide spectrum of reasons for admission?
+
+Admission to any neonatal care services is a poor indicator and is not suitable.
 `````

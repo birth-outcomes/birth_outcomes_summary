@@ -68,8 +68,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'neo_out_apgar';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Transfer to neonatal care services" href="neo_out_care.html" />
-    <link rel="prev" title="Umbilical cord blood gas analysis" href="neo_out_blood.html" />
+    <link rel="next" title="NNAP record of encephalopathy" href="neo_out_nnap.html" />
+    <link rel="prev" title="Abnormal CTG" href="neo_out_ctg.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -199,19 +199,20 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Markers of HIE</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="neo_out_summary.html">Summary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_blood.html">Umbilical cord blood gas analysis</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Apgar scores</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_care.html">Transfer to neonatal care services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_cooling.html">Cooling / Moderate Hypothermia</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_cp.html">Cerebral palsy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_death.html">Death</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_intubation.html">Intubation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_meconium.html">Meconium-stained amniotic fluid</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_mri.html">MRI showing basal ganglia damage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_nnap.html">NNAP record of encephalopathy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_resus.html">Neonatal resuscitation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ventilate.html">Mechanical ventilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_blood.html">Umbilical cord blood gas analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_resus.html">Neonatal resuscitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_cp.html">Cerebral palsy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Apgar scores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_nnap.html">NNAP record of encephalopathy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_meconium.html">Meconium-stained amniotic fluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_intubation.html">Intubation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_mri.html">MRI showing basal ganglia damage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_death.html">Death</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Maternal outcomes</span></p>
 <ul class="nav bd-sidenav">
@@ -416,7 +417,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-they-are-calculated">How they are calculated</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-and-association-with-neonatal-outcomes">Interpretation and association with neonatal outcomes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suitability-as-a-model-outcome">Suitability as a model outcome</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
@@ -432,43 +433,71 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="apgar-scores">
 <h1>Apgar scores<a class="headerlink" href="#apgar-scores" title="Link to this heading">#</a></h1>
-<p>Evaluates ‘neonates immediately after birth and in response to resucitation’. They were ‘originally designed to assess need for intervention to establish breathing at 1 minute’, and not as an outcome measure.<a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK470569/">[source]</a></p>
+<p>Apgar scores are the most routinely used measure of the health status of newborns.<a class="reference external" href="https://doi.org/10.1136/bmj.l1656">[source]</a> They evaluate ‘neonates immediately after birth and in response to resucitation’. They were ‘originally designed to assess need for intervention to establish breathing at 1 minute’, and not as an outcome measure.<a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK470569/">[source]</a></p>
 <section id="how-they-are-calculated">
 <h2>How they are calculated<a class="headerlink" href="#how-they-are-calculated" title="Link to this heading">#</a></h2>
-<p>Record score at 1 minute (<strong>Apgar-1</strong>) and 5 minutes (<strong>Apgar-5</strong>). Score of 0-2 for five elements:</p>
-<ul class="simple">
-<li><p><strong>A</strong>ppearance (pale/blue, pink with blue extremeties, pink - note: most will score 1 for color as peripheral cyanosis (blue discoloration of extremeties) is common among normal infants, and also colour can be misleading in non-white infants)</p></li>
-<li><p><strong>P</strong>ulse (heart rate 0, &lt;100bpm, or &gt;100pm)</p></li>
-<li><p><strong>G</strong>rimace (no response to stimulation, grimace to stimulation, cry/cough/sneeze to stimulation)</p></li>
-<li><p><strong>A</strong>ctivity (loose/floppy muscle tone, some tone, flexed muscle tone)</p></li>
-<li><p><strong>R</strong>espiration (not breathing, slow/weak breathing, vigorous crying)<a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK470569/">[source]</a></p></li>
-</ul>
+<p>The Apgar score is typically quantified at 1 minute (<strong>Apgar-1</strong>), 5 minutes (<strong>Apgar-5</strong>) and 10 minutes(<strong>Apgar-10</strong>) after birth.<a class="reference external" href="https://doi.org/10.1136/bmj.l1656">[source]</a></p>
+<p>Score of 0-2 for five elements:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Element</p></th>
+<th class="head"><p>Options</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>A</strong>ppearance</p></td>
+<td><p><ul><li>Pale/blue</li><li>Pink with blue extremeties</li><li>Pink</li></ul></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>P</strong>ulse</p></td>
+<td><p><ul><li>Heart rate 0</li><li>&lt;100bpm</li><li>&gt;100pm</li></ul></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>G</strong>rimace</p></td>
+<td><p><ul><li>No response to stimulation</li><li>Grimace to stimulation</li><li>Cry/cough/sneeze to stimulation</li></ul></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>A</strong>ctivity</p></td>
+<td><p><ul><li>Loose/floppy muscle tone</li><li>Some tone</li><li>Flexed muscle tone</li></ul></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>R</strong>espiration</p></td>
+<td><p><ul><li>Not breathing</li><li>Slow/weak breathing</li><li>Vigorous crying</li></ul></p></td>
+</tr>
+</tbody>
+</table>
+<p>Note: Most will score 1 for color as peripheral cyanosis (blue discoloration of extremeties) is common among normal infants, and also colour can be misleading in non-white infants).</p>
+<p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK470569/">[source]</a></p>
 </section>
-<section id="interpretation">
-<h2>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h2>
+<section id="interpretation-and-association-with-neonatal-outcomes">
+<h2>Interpretation and association with neonatal outcomes<a class="headerlink" href="#interpretation-and-association-with-neonatal-outcomes" title="Link to this heading">#</a></h2>
+<p>Interpretation:</p>
 <ul class="simple">
-<li><p>Apgar score alone is not ‘evidence of asphyxia or proof of intrapartum hypoxia’</p></li>
-<li><p>Low Apgar-1 ‘is not predictive of adverse clinical outcomes or long-term health issues’ as most infants will have normal scores by 5 minutes</p></li>
-<li><p><strong>Apgar-5 &lt; 7</strong> is non-reassuring, and low scores ‘correlate with mortality’ and ‘increased risk of cerebral palsy’ - most infants will ‘not go on to develop cerebral palsy, but lower scores over time increase risk’<a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK470569/">[source]</a></p></li>
+<li><p>Normal: 7-10</p></li>
+<li><p>Needs monitoring for 5 minutes: 4-6</p></li>
+<li><p>Needs immediate attention: &lt;3</p></li>
 </ul>
+<p>Apgar score alone is not ‘evidence of asphyxia or proof of intrapartum hypoxia’.</p>
+<p><strong>Low Apgar-1</strong> ‘is not predictive of adverse clinical outcomes or long-term health issues’ as most infants will have normal scores by 5 minutes</p>
+<p><strong>Low Apgar-5</strong> is non-reassuring, and low scores ‘correlate with mortality’ and ‘increased risk of cerebral palsy’ - most infants will ‘not go on to develop cerebral palsy, but lower scores over time increase risk’.<a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK470569/">[source]</a></p>
 </section>
 <section id="suitability-as-a-model-outcome">
 <h2>Suitability as a model outcome<a class="headerlink" href="#suitability-as-a-model-outcome" title="Link to this heading">#</a></h2>
 <p>Pros:</p>
 <ul class="simple">
 <li><p>Routinely collected</p></li>
+<li><p>Performed for a long time (first devised in 1952, and has since become a very common and routine measure)<a class="reference external" href="https://doi.org/10.1016/j.jclinepi.2004.04.012">[source]</a></p></li>
 </ul>
 <p>Cons:</p>
 <ul class="simple">
-<li><p>Subjective</p></li>
+<li><p>Subjective - most of the items require subjective judgements - most objective is the heart rate which is based on measured FHR<a class="reference external" href="https://doi.org/10.1016/j.jclinepi.2004.04.012">[source]</a></p></li>
+<li><p>Score is calculated without weighting, assuming all variables contribute equally, which is untenable - e.g. importance of heartrate v.s. colour<a class="reference external" href="https://doi.org/10.1016/j.jclinepi.2004.04.012">[source]</a></p></li>
+<li><p>Poor inter-rater reliablity - study of 223 health professionals found 68% agreement among pediatricians/pediatric house staff, and 24% agreement among nurses from community hospitals<a class="reference external" href="https://doi.org/10.1016/j.jclinepi.2004.04.012">[source]</a></p></li>
+<li><p>Apgar-1 is not predictive of outcomes - Apgar-5 does associated with risk of adverse long-term outcomes - but many infants will be fine.</p></li>
 </ul>
-<p><mark>add details around suitability as an outcome</mark></p>
 </section>
 <section id="conclusion">
 <h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
-<div class="warning admonition">
-<p class="admonition-title">Potentially suitable</p>
-<p>Apgar-1 is not useful, but Apgar-5 could be - particularly in combination with other indicators of adverse outcomes. The big benefit of Apgar-5 is that it should be relatively complete, and provides a spectrum of outcomes. However, that is also it’s downside - not specific to HIE.</p>
+<div class="error admonition">
+<p class="admonition-title">Unsuitable</p>
+<p>There are serious issues with the validity and reliability of Apgar scores.</p>
+<p>The only points in its favour would be familiarity and routine collection, and that it is associated with higher risk of poor outcomes.</p>
 </div>
 </section>
 </section>
@@ -504,20 +533,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="neo_out_blood.html"
+       href="neo_out_ctg.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Umbilical cord blood gas analysis</p>
+        <p class="prev-next-title">Abnormal CTG</p>
       </div>
     </a>
     <a class="right-next"
-       href="neo_out_care.html"
+       href="neo_out_nnap.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Transfer to neonatal care services</p>
+        <p class="prev-next-title">NNAP record of encephalopathy</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -538,7 +567,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-they-are-calculated">How they are calculated</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-and-association-with-neonatal-outcomes">Interpretation and association with neonatal outcomes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suitability-as-a-model-outcome">Suitability as a model outcome</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>

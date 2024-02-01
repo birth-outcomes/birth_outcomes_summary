@@ -80,43 +80,43 @@ Signs and symptoms of HIE shortly after birth (in neonates):
 
 ## Summary diagram
 
-```mermaid
+````{mermaid}
   flowchart LR;
 
-    %% Define the nodes and subgraphs
-    causes("Many possible causes<br>(e.g. cord prolapse, breech presentation,<br>uterine rupture, hypotension)")
-    hypoxia("Hypoxia ischaemia (asphyxia)")
-    hie("Hypoxic ischaemic encephalopathy (HIE)")
+    %% Define the nodes
+    causes("Many possible causes<br>(e.g. cord prolapse,<br>breech presentation,<br>uterine rupture,<br>hypotension)")
+    hypoxia("Hypoxia ischaemia<br>(asphyxia)")
+    hie("Hypoxic<br>ischaemic<br>encephalopathy<br>(HIE)")
 
     csection("Caessarean section")
-    cooling("Cooling (moderate hypothermia)")
-    vent("Mechnical ventilation")
+    cooling("Cooling<br>(moderate hypothermia)")
+    vent("Mechnical<br>ventilation")
 
     subgraph "MRI"
-      mri_basal("Basal ganglia thalamus pattern of damage")
-      mri_watershed("Watershed predominant pattern of injury")
+      mri_basal("Basal ganglia thalamus<br>pattern of damage")
+      mri_watershed("Watershed predominant<br>pattern of injury")
     end
 
-    move("Decreased fetal movement")
-    subgraph "Fetal monitoring (cardiotocography)"
-      fhr("Abnormal fetal heart rate")
+    move("Decreased<br>fetal movement")
+    subgraph "Cardiotocography"
+      fhr("Abnormal<br>fetal heart rate")
     end
 
-    breath("Delayed initiation of spontaneous breathing")
-    resp("Respiratory depression")
-    pul_hyp("Pulmonary hypertension")
+    breath("Delayed initiation<br>of spontaneous<br>breathing")
+    resp("Respiratory<br>depression")
+    pul_hyp("Pulmonary<br>hypertension")
     seizures("Seizures")
 
     apgar("Low Apgar scores")
-    ph("Low umbilical cord pH")
+    ph("Low umbilical<br>cord pH")
     cp("Cerebral palsy")
     epilepsy("Epilepsy")
     intell("Intellectual disability")
 
     %% Produce the figure
     causes --> hypoxia;
-    hypoxia -- Severe asphyxia<br>(acute near total/acute profound asphyxia) --> mri_basal;
-    hypoxia -- Less severe asphyxia<br>(partial prolonged asphyxia) --> mri_watershed;
+    hypoxia-->|"Severe asphyxia<br>(acute near total/<br>acute profound<br>asphyxia)"|mri_basal;
+    hypoxia-->|"Less severe<br>asphyxia<br>(partial prolonged<br>asphyxia)"|mri_watershed;
     mri_basal --> hie;
     mri_watershed --> hie;
 
@@ -138,4 +138,4 @@ Signs and symptoms of HIE shortly after birth (in neonates):
     vent -.-> resp;
     vent -.-> pul_hyp;
     vent -.-> seizures;
-```
+````

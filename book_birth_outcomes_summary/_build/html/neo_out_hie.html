@@ -65,6 +65,8 @@ const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'neo_out_hie';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -199,19 +201,20 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Markers of HIE</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="neo_out_summary.html">Summary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_blood.html">Umbilical cord blood gas analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_apgar.html">Apgar scores</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_care.html">Transfer to neonatal care services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_cooling.html">Cooling / Moderate Hypothermia</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_cp.html">Cerebral palsy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_death.html">Death</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_intubation.html">Intubation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_meconium.html">Meconium-stained amniotic fluid</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_mri.html">MRI showing basal ganglia damage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_nnap.html">NNAP record of encephalopathy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_resus.html">Neonatal resuscitation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ventilate.html">Mechanical ventilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_blood.html">Umbilical cord blood gas analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_resus.html">Neonatal resuscitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_cp.html">Cerebral palsy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="neo_out_apgar.html">Apgar scores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_nnap.html">NNAP record of encephalopathy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_meconium.html">Meconium-stained amniotic fluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_intubation.html">Intubation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_mri.html">MRI showing basal ganglia damage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_death.html">Death</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Maternal outcomes</span></p>
 <ul class="nav bd-sidenav">
@@ -522,42 +525,43 @@ document.write(`
 </section>
 <section id="summary-diagram">
 <h2>Summary diagram<a class="headerlink" href="#summary-diagram" title="Link to this heading">#</a></h2>
-<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>  flowchart LR;
+<div class="mermaid">
+              flowchart LR;
 
-    %% Define the nodes and subgraphs
-    causes(&quot;Many possible causes&lt;br&gt;(e.g. cord prolapse, breech presentation,&lt;br&gt;uterine rupture, hypotension)&quot;)
-    hypoxia(&quot;Hypoxia ischaemia (asphyxia)&quot;)
-    hie(&quot;Hypoxic ischaemic encephalopathy (HIE)&quot;)
+    %% Define the nodes
+    causes(&quot;Many possible causes&lt;br&gt;(e.g. cord prolapse,&lt;br&gt;breech presentation,&lt;br&gt;uterine rupture,&lt;br&gt;hypotension)&quot;)
+    hypoxia(&quot;Hypoxia ischaemia&lt;br&gt;(asphyxia)&quot;)
+    hie(&quot;Hypoxic&lt;br&gt;ischaemic&lt;br&gt;encephalopathy&lt;br&gt;(HIE)&quot;)
 
     csection(&quot;Caessarean section&quot;)
-    cooling(&quot;Cooling (moderate hypothermia)&quot;)
-    vent(&quot;Mechnical ventilation&quot;)
+    cooling(&quot;Cooling&lt;br&gt;(moderate hypothermia)&quot;)
+    vent(&quot;Mechnical&lt;br&gt;ventilation&quot;)
 
     subgraph &quot;MRI&quot;
-      mri_basal(&quot;Basal ganglia thalamus pattern of damage&quot;)
-      mri_watershed(&quot;Watershed predominant pattern of injury&quot;)
+      mri_basal(&quot;Basal ganglia thalamus&lt;br&gt;pattern of damage&quot;)
+      mri_watershed(&quot;Watershed predominant&lt;br&gt;pattern of injury&quot;)
     end
 
-    move(&quot;Decreased fetal movement&quot;)
-    subgraph &quot;Fetal monitoring (cardiotocography)&quot;
-      fhr(&quot;Abnormal fetal heart rate&quot;)
+    move(&quot;Decreased&lt;br&gt;fetal movement&quot;)
+    subgraph &quot;Cardiotocography&quot;
+      fhr(&quot;Abnormal&lt;br&gt;fetal heart rate&quot;)
     end
 
-    breath(&quot;Delayed initiation of spontaneous breathing&quot;)
-    resp(&quot;Respiratory depression&quot;)
-    pul_hyp(&quot;Pulmonary hypertension&quot;)
+    breath(&quot;Delayed initiation&lt;br&gt;of spontaneous&lt;br&gt;breathing&quot;)
+    resp(&quot;Respiratory&lt;br&gt;depression&quot;)
+    pul_hyp(&quot;Pulmonary&lt;br&gt;hypertension&quot;)
     seizures(&quot;Seizures&quot;)
 
     apgar(&quot;Low Apgar scores&quot;)
-    ph(&quot;Low umbilical cord pH&quot;)
+    ph(&quot;Low umbilical&lt;br&gt;cord pH&quot;)
     cp(&quot;Cerebral palsy&quot;)
     epilepsy(&quot;Epilepsy&quot;)
     intell(&quot;Intellectual disability&quot;)
 
     %% Produce the figure
     causes --&gt; hypoxia;
-    hypoxia -- Severe asphyxia&lt;br&gt;(acute near total/acute profound asphyxia) --&gt; mri_basal;
-    hypoxia -- Less severe asphyxia&lt;br&gt;(partial prolonged asphyxia) --&gt; mri_watershed;
+    hypoxia--&gt;|&quot;Severe asphyxia&lt;br&gt;(acute near total/&lt;br&gt;acute profound&lt;br&gt;asphyxia)&quot;|mri_basal;
+    hypoxia--&gt;|&quot;Less severe&lt;br&gt;asphyxia&lt;br&gt;(partial prolonged&lt;br&gt;asphyxia)&quot;|mri_watershed;
     mri_basal --&gt; hie;
     mri_watershed --&gt; hie;
 
@@ -579,9 +583,7 @@ document.write(`
     vent -.-&gt; resp;
     vent -.-&gt; pul_hyp;
     vent -.-&gt; seizures;
-</pre></div>
-</div>
-</section>
+        </div></section>
 </section>
 
     <script type="text/x-thebe-config">

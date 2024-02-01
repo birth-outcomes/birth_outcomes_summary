@@ -65,11 +65,13 @@ const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'neo_out_blood';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Apgar scores" href="neo_out_apgar.html" />
-    <link rel="prev" title="Abnormal CTG" href="neo_out_ctg.html" />
+    <link rel="next" title="Neonatal resuscitation" href="neo_out_resus.html" />
+    <link rel="prev" title="Mechanical ventilation" href="neo_out_ventilate.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -199,19 +201,20 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Markers of HIE</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="neo_out_summary.html">Summary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Umbilical cord blood gas analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_apgar.html">Apgar scores</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_care.html">Transfer to neonatal care services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_cooling.html">Cooling / Moderate Hypothermia</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_cp.html">Cerebral palsy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_death.html">Death</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_intubation.html">Intubation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_meconium.html">Meconium-stained amniotic fluid</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_mri.html">MRI showing basal ganglia damage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_nnap.html">NNAP record of encephalopathy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_resus.html">Neonatal resuscitation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ventilate.html">Mechanical ventilation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Umbilical cord blood gas analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_resus.html">Neonatal resuscitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_cp.html">Cerebral palsy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="neo_out_apgar.html">Apgar scores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_nnap.html">NNAP record of encephalopathy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_meconium.html">Meconium-stained amniotic fluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_intubation.html">Intubation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_mri.html">MRI showing basal ganglia damage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_death.html">Death</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Maternal outcomes</span></p>
 <ul class="nav bd-sidenav">
@@ -500,7 +503,8 @@ document.write(`
 <li><p>Mixed acidosis is characterises by low pH, increased PCO<sub>2</sub>, but normal base excess<a class="reference external" href="https://admin.learningstream.com/files/DA1537B2-387C-452A-890E-A227518D8EB6_9/94228/5FetalAcidbase.pdf">[source]</a></p></li>
 </ul>
 <p>Infants with intrauterine growth retardation (IUGR)/growth-restricted infants are at increased risk of metabolic acidosis than normal growth (AGA) infants.<a class="reference external" href="https://doi.org/10.1016/0002-9378(80)90695-X">[source]</a></p>
-<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>  flowchart TD;
+<div class="mermaid">
+              flowchart TD;
 
     %% Define the nodes and subgraphs
     o2(&quot;Oxygen deprivation&lt;br&gt;(decreased pO2)&quot;);
@@ -534,9 +538,7 @@ document.write(`
     co2 --&gt; carb;
     carb --&gt; ph_dec2;
     ph_dec2 --&gt; quick;
-</pre></div>
-</div>
-</section>
+        </div></section>
 <section id="what-are-the-accepted-thresholds-for-these-blood-gases">
 <h2>What are the accepted thresholds for these blood gases?<a class="headerlink" href="#what-are-the-accepted-thresholds-for-these-blood-gases" title="Link to this heading">#</a></h2>
 <p>Some degree of acidemia will always develop during labour, and it is normal to see some decrease in arterial and venous pH and bicarbonate and increase in base deficit.</p>
@@ -588,7 +590,7 @@ document.write(`
 </ul>
 <p>These criteria were derived through consensus though, since existing observal studies can have inconsistent results, partly as a result of the different thresholds used to define abnormality, the variety of outcomes evaluated, and the different variables measured (arterial cord pH, venous cord pH, or base excess) - and it has been suggested that neonatal complications are associated with metabolic acidosis rather than respiratory acidosis.<a class="reference external" href="https://www.bmj.com/content/340/bmj.c1471">[source]</a></p>
 <p><strong>Neonates who just have low pH:</strong> ‘Interestingly, a pH as low as 7.00 is usually tolerated by the fetus without any adverse outcome. Most infants with a cord pH less than 7.00 do not develop neurologic problems after birth, nor even when followed for 6.5 years. An isolated respiratory acidosis is very rarely associated with poor outcomes. Thus, infants born with a pH less than 7.00 and without other abnormal clinical findings typically do not require any further investigation or NICU admission.’<a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK545290/">[source]</a></p>
-<p><strong>Neonates with low pH, high base deficit, and other concerning indicators:</strong> ‘When a pH less than 7.00 and/or a base deficit of more than 12 mmol/L are associated with other abnormal findings such as abnormal fetal heart tracings, 5-minutes Apgar scores equal to or less than 5, a requirement for intubation, they become strong predictors of poor neurological sequelae. Eighty percent of these newborns with clinical indicators of acidemia with a low pH develop seizures in the first few days after birth. Previous studies have shown that cord pH less than 7.00 is proportional to the risk and the severity of neurologic abnormalities. Furthermore, 80% of infants born with a cord pH less than 6.70 develop symptoms and signs of neonatal encephalopathy.’<a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK545290/">[source]</a></p>
+<p><strong>Neonates with low pH, high base deficit, and other concerning indicators:</strong> ‘When a pH less than 7.00 and/or a base deficit of more than 12 mmol/L are associated with other abnormal findings such as abnormal fetal heart tracings, 5-minutes Apgar scores equal to or less than 5, a requirement for intubation, they become strong predictors of poor neurological sequelae. <strong>80%</strong> of these newborns with clinical indicators of acidemia with a low pH develop seizures in the first few days after birth. Previous studies have shown that cord pH less than 7.00 is proportional to the risk and the severity of neurologic abnormalities. Furthermore, <strong>80%</strong> of infants born with a cord pH less than 6.70 develop symptoms and signs of neonatal encephalopathy.’<a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK545290/">[source]</a></p>
 </section>
 <section id="suitability-as-a-model-outcome">
 <h2>Suitability as a model outcome<a class="headerlink" href="#suitability-as-a-model-outcome" title="Link to this heading">#</a></h2>
@@ -602,12 +604,17 @@ document.write(`
 <li><p>Inconsistently recorded - won’t measure it if expect things to be fine</p></li>
 <li><p>Inconsistently measured - anecdotally, it can be often measured from just artery or vein and not both - although guidelines state it should be a paired sample</p></li>
 </ul>
+<p>Considerations:</p>
+<ul class="simple">
+<li><p>Associated with gestational age<a class="reference external" href="https://obgyn.onlinelibrary.wiley.com/doi/pdfdirect/10.3109/00016349.2010.513426">[source]</a></p></li>
+<li><p>Assocaited with length of labour<a class="reference external" href="https://doi.org/10.3109/00016349409006272">[source]</a></p></li>
+</ul>
 </section>
 <section id="conclusion">
 <h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
 <div class="warning admonition">
 <p class="admonition-title">Potentially suitable</p>
-<p>Maybe - but not pH alone - would need a combination of pH and base deficit (to identify metabolic acidosis), and to combine it with other markers (e.g. Apgar, intubation) - and would need to know the source of the blood gas analysis (arterial/venous) - and design would need to consider that these are only measured when there were concerns during labour or birth.</p>
+<p>Maybe - but not pH alone - would need a combination of pH and base deficit (to identify metabolic acidosis), and to combine it with other markers (e.g. Apgar, intubation) - and would need to know the source of the blood gas analysis (arterial/venous) - and design would need to consider that these are only measured when there were concerns during labour or birth. Also need to remember that pH has relationship with gestational age and length of labour.</p>
 </div>
 </section>
 </section>
@@ -643,20 +650,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="neo_out_ctg.html"
+       href="neo_out_ventilate.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Abnormal CTG</p>
+        <p class="prev-next-title">Mechanical ventilation</p>
       </div>
     </a>
     <a class="right-next"
-       href="neo_out_apgar.html"
+       href="neo_out_resus.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Apgar scores</p>
+        <p class="prev-next-title">Neonatal resuscitation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

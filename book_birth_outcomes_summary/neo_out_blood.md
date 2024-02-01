@@ -61,7 +61,7 @@ Metabolic acidosis reflects tissue oxygen debt and therefore is of greater progn
 
 Infants with intrauterine growth retardation (IUGR)/growth-restricted infants are at increased risk of metabolic acidosis than normal growth (AGA) infants.[[source]](https://doi.org/10.1016/0002-9378(80)90695-X)
 
-```mermaid
+````{mermaid}
   flowchart TD;
 
     %% Define the nodes and subgraphs
@@ -96,7 +96,7 @@ Infants with intrauterine growth retardation (IUGR)/growth-restricted infants ar
     co2 --> carb;
     carb --> ph_dec2;
     ph_dec2 --> quick;
-```
+````
 
 ## What are the accepted thresholds for these blood gases?
 
@@ -134,7 +134,7 @@ These criteria were derived through consensus though, since existing observal st
 
 **Neonates who just have low pH:** 'Interestingly, a pH as low as 7.00 is usually tolerated by the fetus without any adverse outcome. Most infants with a cord pH less than 7.00 do not develop neurologic problems after birth, nor even when followed for 6.5 years. An isolated respiratory acidosis is very rarely associated with poor outcomes. Thus, infants born with a pH less than 7.00 and without other abnormal clinical findings typically do not require any further investigation or NICU admission.'[[source]](https://www.ncbi.nlm.nih.gov/books/NBK545290/)
 
-**Neonates with low pH, high base deficit, and other concerning indicators:** 'When a pH less than 7.00 and/or a base deficit of more than 12 mmol/L are associated with other abnormal findings such as abnormal fetal heart tracings, 5-minutes Apgar scores equal to or less than 5, a requirement for intubation, they become strong predictors of poor neurological sequelae. Eighty percent of these newborns with clinical indicators of acidemia with a low pH develop seizures in the first few days after birth. Previous studies have shown that cord pH less than 7.00 is proportional to the risk and the severity of neurologic abnormalities. Furthermore, 80% of infants born with a cord pH less than 6.70 develop symptoms and signs of neonatal encephalopathy.'[[source]](https://www.ncbi.nlm.nih.gov/books/NBK545290/)
+**Neonates with low pH, high base deficit, and other concerning indicators:** 'When a pH less than 7.00 and/or a base deficit of more than 12 mmol/L are associated with other abnormal findings such as abnormal fetal heart tracings, 5-minutes Apgar scores equal to or less than 5, a requirement for intubation, they become strong predictors of poor neurological sequelae. **80%** of these newborns with clinical indicators of acidemia with a low pH develop seizures in the first few days after birth. Previous studies have shown that cord pH less than 7.00 is proportional to the risk and the severity of neurologic abnormalities. Furthermore, **80%** of infants born with a cord pH less than 6.70 develop symptoms and signs of neonatal encephalopathy.'[[source]](https://www.ncbi.nlm.nih.gov/books/NBK545290/)
 
 ## Suitability as a model outcome
 
@@ -146,10 +146,14 @@ Cons:
 * Inconsistently recorded - won't measure it if expect things to be fine
 * Inconsistently measured - anecdotally, it can be often measured from just artery or vein and not both - although guidelines state it should be a paired sample
 
+Considerations:
+* Associated with gestational age[[source]](https://obgyn.onlinelibrary.wiley.com/doi/pdfdirect/10.3109/00016349.2010.513426)
+* Assocaited with length of labour[[source]](https://doi.org/10.3109/00016349409006272)
+
 ## Conclusion
 
 `````{admonition} Potentially suitable
 :class: warning
 
-Maybe - but not pH alone - would need a combination of pH and base deficit (to identify metabolic acidosis), and to combine it with other markers (e.g. Apgar, intubation) - and would need to know the source of the blood gas analysis (arterial/venous) - and design would need to consider that these are only measured when there were concerns during labour or birth.
+Maybe - but not pH alone - would need a combination of pH and base deficit (to identify metabolic acidosis), and to combine it with other markers (e.g. Apgar, intubation) - and would need to know the source of the blood gas analysis (arterial/venous) - and design would need to consider that these are only measured when there were concerns during labour or birth. Also need to remember that pH has relationship with gestational age and length of labour.
 `````

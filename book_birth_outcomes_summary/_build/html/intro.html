@@ -200,19 +200,20 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Markers of HIE</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="neo_out_summary.html">Summary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_blood.html">Umbilical cord blood gas analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_apgar.html">Apgar scores</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_care.html">Transfer to neonatal care services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_cooling.html">Cooling / Moderate Hypothermia</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_cp.html">Cerebral palsy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_death.html">Death</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_intubation.html">Intubation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_meconium.html">Meconium-stained amniotic fluid</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_mri.html">MRI showing basal ganglia damage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_nnap.html">NNAP record of encephalopathy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_resus.html">Neonatal resuscitation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ventilate.html">Mechanical ventilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_blood.html">Umbilical cord blood gas analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_resus.html">Neonatal resuscitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_cp.html">Cerebral palsy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="neo_out_apgar.html">Apgar scores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_nnap.html">NNAP record of encephalopathy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_meconium.html">Meconium-stained amniotic fluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_intubation.html">Intubation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_mri.html">MRI showing basal ganglia damage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_death.html">Death</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Maternal outcomes</span></p>
 <ul class="nav bd-sidenav">
@@ -393,7 +394,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -409,6 +412,18 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-target">The target</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -420,7 +435,16 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="birth-outcomes-summary">
 <h1>Birth outcomes summary<a class="headerlink" href="#birth-outcomes-summary" title="Link to this heading">#</a></h1>
-<p><strong>Obstetrics</strong> is the study of pregnancy, childbirth and the postpartum period.</p>
+<section id="the-problem">
+<h2>The problem<a class="headerlink" href="#the-problem" title="Link to this heading">#</a></h2>
+<p>The main problem is that some clinicians intervene too late, or not at all, in childbirth and the infant ends up with avoidable harm, such as Hypoxic Ischaemic Encephalopathy (HEI), risking long-term disability. A related problem is that other clinicians intervene unnecessarily too often, subjecting the mother to unnecessary interventions, such as Caesarian Section (CS).</p>
+</section>
+<section id="the-target">
+<h2>The target<a class="headerlink" href="#the-target" title="Link to this heading">#</a></h2>
+<p>The ultimate target is to build a machine learning (ML) algorithm that monitors live data during childbirth, taking into account pre-existing risk factors, that alerts clinicians when infant health is at increased risk if intervention is delayed or missed.</p>
+</section>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background on pregnancy and birth</span></p>
 <ul>
@@ -449,19 +473,20 @@ document.write(`
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Markers of HIE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_summary.html">Summary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_blood.html">Umbilical cord blood gas analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_apgar.html">Apgar scores</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_care.html">Transfer to neonatal care services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_cooling.html">Cooling / Moderate Hypothermia</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_cp.html">Cerebral palsy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_death.html">Death</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_intubation.html">Intubation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_meconium.html">Meconium-stained amniotic fluid</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_mri.html">MRI showing basal ganglia damage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_nnap.html">NNAP record of encephalopathy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_resus.html">Neonatal resuscitation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ventilate.html">Mechanical ventilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_blood.html">Umbilical cord blood gas analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_resus.html">Neonatal resuscitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_cp.html">Cerebral palsy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html#what-measurements-are-taken">What measurements are taken?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_apgar.html">Apgar scores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_nnap.html">NNAP record of encephalopathy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_meconium.html">Meconium-stained amniotic fluid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_intubation.html">Intubation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_mri.html">MRI showing basal ganglia damage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_death.html">Death</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -476,6 +501,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="treatment_paradox.html">Study design</a></li>
 </ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -524,7 +550,24 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-target">The target</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

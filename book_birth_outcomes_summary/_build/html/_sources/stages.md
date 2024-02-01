@@ -1,5 +1,7 @@
 # Stages of pregnancy and birth
 
+**Obstetrics** is the study of pregnancy, childbirth and the postpartum period.
+
 **Perinatal** is pregnancy and first 12 months after childbirth - *around (peri) birth (natus)*.
 
 ## Before birth

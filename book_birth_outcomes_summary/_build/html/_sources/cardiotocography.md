@@ -1,5 +1,7 @@
 # Cardiotocography
 
+<mark>consider whether to keep this here, or just keep CTG stuff in FHRMA/ctg_exploratory, and just have the one abnormal CTG page here - depends on how much detail go into each of the risk factors?</mark>
+
 An abormal cardiotocograph (CTG) is one of the risk factors for poor fetal outcomes. This page provides an overview of:
 
 what it is
