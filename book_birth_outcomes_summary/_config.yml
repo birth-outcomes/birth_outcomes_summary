@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Birth Outcomes Summary
+title: Birth Outcomes
 author: Amy Heather
 
 # Force re-execution of notebooks on each build.
