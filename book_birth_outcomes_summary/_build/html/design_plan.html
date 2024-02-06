@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Fetal risk factors &#8212; Birth Outcomes</title>
+    <title>Design plans &#8212; Birth Outcomes</title>
   
   
   
@@ -65,11 +65,10 @@ const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'fetal_risk_factors';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'design_plan';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Cardiotocography" href="cardiotocography.html" />
-    <link rel="prev" title="Key Papers" href="key_papers.html" />
+    <link rel="prev" title="Other design considerations" href="design_other.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,8 +185,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="key_papers.html">Key Papers</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Risk factors</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fetal risk factors</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="fetal_risk_factors.html">Fetal risk factors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cardiotocography.html">Cardiotocography</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Neonatal outcomes</span></p>
@@ -219,12 +218,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="parental_outcomes.html">Parental outcomes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="design_treat_paradox.html">Treatment Paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_account_paradox.html">Accounting for a treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_examples.html">Examples of studies that account for the treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_other.html">Other design considerations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_plan.html">Design plans</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Design plans</a></li>
 </ul>
 
     </div>
@@ -296,7 +295,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ffetal_risk_factors.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdesign_plan.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -326,7 +325,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/fetal_risk_factors.md" target="_blank"
+      <li><a href="_sources/design_plan.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -410,7 +409,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Fetal risk factors</h1>
+    <h1>Design plans</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,7 +419,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rough-notes">Rough notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-aim">Overall aim</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-ideas">Design ideas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mike-s-email-steve-s-comments-research-questions">From Mike’s email + Steve’s comments - Research questions -</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rough-notes-from-meeting">Rough notes from meeting</a></li>
 </ul>
             </nav>
         </div>
@@ -432,64 +436,67 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="fetal-risk-factors">
-<h1>Fetal risk factors<a class="headerlink" href="#fetal-risk-factors" title="Link to this heading">#</a></h1>
-<section id="rough-notes">
-<h2>Rough notes<a class="headerlink" href="#rough-notes" title="Link to this heading">#</a></h2>
-<p><strong>Fetal head position</strong></p>
-<p><strong>Pre-eclampsia</strong></p>
-<p><strong>Abnormal CTG</strong></p>
-<hr>
-<p>From <a class="reference external" href="https://doi.org/10.1542/9781610022255">[source]</a>:</p>
-<p>Genetic</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="design-plans">
+<h1>Design plans<a class="headerlink" href="#design-plans" title="Link to this heading">#</a></h1>
+<section id="overall-aim">
+<h2>Overall aim<a class="headerlink" href="#overall-aim" title="Link to this heading">#</a></h2>
+<p>Using live labour data to predict who is likely to require caessarean, and reduce adverse effects for mother and baby. Combining data from fetus, parent, and CTG. Involves combining (a) risk factors during pregnancy, with (b) live risk factors during labour. Outcome of “X chance” of adverse outcome if don’t go for caessarean or assisted delivery. Decision currently based on experience. Want some more objective evidence that can given women to help them understand and base risks on.</p>
+</section>
+<section id="design-ideas">
+<h2>Design ideas<a class="headerlink" href="#design-ideas" title="Link to this heading">#</a></h2>
+<section id="from-mike-s-email-steve-s-comments-research-questions">
+<h3>From Mike’s email + Steve’s comments - Research questions -<a class="headerlink" href="#from-mike-s-email-steve-s-comments-research-questions" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>How well can we predict poor outcomes during labour? Poor outcomes are defined as:</p>
 <ul class="simple">
-<li><p>Chromosome abnormalities</p></li>
-<li><p>Gene variants/mutations</p></li>
+<li><p>APGAR &lt; 7</p></li>
+<li><p>Use of neonatal ventilation</p></li>
+<li><p>NICU admission</p></li>
+<li><p>Use of neonatal cooling (as a surrogate of risk of HEI)</p></li>
+<li><p>Infant death</p></li>
 </ul>
-<p>Parent environment and lifestyle</p>
+</li>
+<li><p>Can we predict the likely effect of intervention (CS) when predicted outcome is poor?</p>
 <ul class="simple">
-<li><p>Socioeconomic status</p></li>
-<li><p>Social environment</p></li>
-<li><p>Physical environment</p></li>
-<li><p>Radiation</p></li>
-<li><p>Teratogens</p></li>
-<li><p>Nutrition</p></li>
-<li><p>Smoking or secondary exposure to smoke</p></li>
-<li><p>Drug or alcohol abuse</p></li>
-<li><p>Lack of prenatal care</p></li>
+<li><p>This step will likely require the natural experiment of comparing between units with high and low intervention rates, using matched cohorts of labours (or conditioning machine model on a propensity score for likelihood of a mother having a CS). Using machine learning we can estimate a teams’ propensity to use CS; this score allows comparison of different units with different populations.</p></li>
+<li><p>We will also use expert opinion and literature review to build qualitative causal models. These will be articulated using Directional Acyclic Graphs (DAGs), and will inform any machine learning.</p></li>
 </ul>
-<p>Parent reproductive capability and health</p>
+</li>
+<li><p>As research question (2) but examine timing of intervention. There is no simple way to define timing, but possibilities include:</p>
 <ul class="simple">
-<li><p>Age</p></li>
-<li><p>Weight</p></li>
-<li><p>Height</p></li>
-<li><p>Reproductive tract abnormalities</p></li>
-<li><p>Maternal medical disorders</p></li>
-<li><p>Cardiac</p></li>
-<li><p>Respiratory</p></li>
-<li><p>Renal</p></li>
-<li><p>Hematologic disorders (e.g. sickle cell disease, thrombocytopenia)</p></li>
-<li><p>Metabolic disorders (e.g. diabetes, thyroid disorders, phenylketonuria)</p></li>
-<li><p>Epilepsy</p></li>
-<li><p>Emotional status/mental health</p></li>
+<li><p>The presence of multiple (𝑘) risk factors.</p></li>
+<li><p>Length of labour, or length of Stage-II labour.</p></li>
+<li><p>Cervical dilation (Steve: This is the standard method of determining the length of labour. The time from the start is really variable and inaccurate)</p></li>
+<li><p>Contraction rate/force (Steve: Unfortunately, we cannot determine the force of contraction, only the timing which is really important for any changes in the fetal heart rate)</p></li>
 </ul>
-<p>Placenta and membran disorders</p>
+</li>
+<li><p>How acceptable would such a system be to clinicians? How can co-production be used to inform design?</p></li>
+<li><p>(Final stage): How effective is such a tool at changing practice and outcomes? (Trial)</p></li>
+</ol>
+<p>Notes: * All ML models will also employ an explainability model such as SHAP (SHaply Additive exPlanations). When heightened risk is predicted, this will show clinicians what is making the ML model predict high risk.</p>
+</section>
+</section>
+<section id="rough-notes-from-meeting">
+<h2>Rough notes from meeting<a class="headerlink" href="#rough-notes-from-meeting" title="Link to this heading">#</a></h2>
+<p>Can’t use outcomes in classical way because of treatment paradox. May need to reformulate, as this is not a prediction question. In women in labour, is there a way we can predict whose going to need something that allows us to act more effectively. Dave Right statistician screening for down syndrome example – all previous ranked top five predicting down syndrome and so on – doesn’t necessarily tell you best way, as those five together may predict less well than one of those and others, its more complex than that. You’re trying to produce an instrument that allows you to behave differently.</p>
+<p>If definition of problem is avoiding fetal injury, is what is needed a more subtle instrument, or having experts who know what they’re doing.</p>
+<p><strong>Exclude delivery by caessarean</strong> (i.e. only look at untreated) - this is what they did in the Cambridge data - although…</p>
 <ul class="simple">
-<li><p>Implantation (abdominal, tubal, previa)</p></li>
-<li><p>Vessel and cord complications</p></li>
-<li><p>Abruption</p></li>
-<li><p>Premature rupture of membranes and infection</p></li>
+<li><p>Still subject to influence due to forcep delivery and so on – but potentially less issue</p></li>
+<li><p>Takes out highest risk groups</p></li>
 </ul>
-<p>Parent-fetal unit</p>
+<p>Doing a <strong>clinical trial</strong></p>
+<p><strong>Incorporating human opinion</strong> - Judea Pearl, causal inference, would say you cannot tell these things from the data alone. Statisticians are used to only answer from data alone, other things non data, but humans are good at recognising patterns that data isn’t. E.g. a first thing cant be caused by second. But statistics can’t handle. He says you take models through experts of describing what are potential causal routes through here and model them under different conditions. If you expert is right about this causing this, then can predict effect size of this causing this. Gives you a way around this problem – not just relying on data. In stroke, want to be able say causally about link between thrombolysis and outcomes.</p>
+<p>When the clinician thinks the baby is in trouble, what tells you whether it really is or isn’t – that narrows it down to a smaller group where intervention produces less of paradox.</p>
 <ul class="simple">
-<li><p>Multiple gestation</p></li>
-<li><p>Obstetric complications</p></li>
-<li><p>Malposition and malpresentation</p></li>
-<li><p>Cephalopelvic disproportion</p></li>
-<li><p>Abnormal fetal growth and gestation</p></li>
-<li><p>Alloimmusation (erythroblastosis fetalis)</p></li>
-<li><p>Intrauterine infections</p></li>
-<li><p>Pregnancy-induced hypertension</p></li>
+<li><p>majority of sections for fetal distress are not true distress – its abnormal ctg but no fetal compromise</p></li>
+<li><p>correct – define of group not to be worried about</p></li>
+</ul>
+<p>No treatment would be no low outcomes. We have better outcomes as experts intervene. The question is not is the child fine. The question is whether they would’ve been fine if hadn’t intervened, and we don’t know that. Looking for marginal improvement, thing has to be better than expert, and that’s a big ask</p>
+<p>Another way around paradox is how in stroke, say different units do different things, and helps them understand, as propensity to give ceassarean differs between hospitals, and that may allows us to dig into it</p>
+<ul class="simple">
+<li><p>issue will be is that it will be between clinician rather than site</p></li>
+<li><p>will still be site difference in rates even when account for socioeconomic and stuff, so there must be something</p></li>
 </ul>
 </section>
 </section>
@@ -525,22 +532,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="key_papers.html"
+       href="design_other.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Key Papers</p>
+        <p class="prev-next-title">Other design considerations</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="cardiotocography.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Cardiotocography</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -558,7 +556,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rough-notes">Rough notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-aim">Overall aim</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-ideas">Design ideas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mike-s-email-steve-s-comments-research-questions">From Mike’s email + Steve’s comments - Research questions -</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rough-notes-from-meeting">Rough notes from meeting</a></li>
 </ul>
   </nav></div>
 

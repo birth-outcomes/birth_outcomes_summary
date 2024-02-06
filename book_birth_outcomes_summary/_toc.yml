@@ -39,4 +39,8 @@ parts:
     - file: parental_outcomes
   - caption: Study design
     chapters:
-    - file: treatment_paradox
+    - file: design_treat_paradox.md
+    - file: design_account_paradox.md
+    - file: design_examples.md
+    - file: design_other.md
+    - file: design_plan.md

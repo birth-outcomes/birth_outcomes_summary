@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Fetal risk factors &#8212; Birth Outcomes</title>
+    <title>Examples of studies that account for the treatment paradox &#8212; Birth Outcomes</title>
   
   
   
@@ -65,11 +65,11 @@ const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'fetal_risk_factors';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'design_examples';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Cardiotocography" href="cardiotocography.html" />
-    <link rel="prev" title="Key Papers" href="key_papers.html" />
+    <link rel="next" title="Other design considerations" href="design_other.html" />
+    <link rel="prev" title="Accounting for a treatment paradox" href="design_account_paradox.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,8 +186,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="key_papers.html">Key Papers</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Risk factors</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fetal risk factors</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="fetal_risk_factors.html">Fetal risk factors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cardiotocography.html">Cardiotocography</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Neonatal outcomes</span></p>
@@ -219,10 +219,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="parental_outcomes.html">Parental outcomes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="design_treat_paradox.html">Treatment Paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_account_paradox.html">Accounting for a treatment paradox</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_examples.html">Examples of studies that account for the treatment paradox</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Examples of studies that account for the treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_other.html">Other design considerations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_plan.html">Design plans</a></li>
 </ul>
@@ -296,7 +296,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ffetal_risk_factors.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdesign_examples.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -326,7 +326,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/fetal_risk_factors.md" target="_blank"
+      <li><a href="_sources/design_examples.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -410,7 +410,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Fetal risk factors</h1>
+    <h1>Examples of studies that account for the treatment paradox</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,7 +420,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rough-notes">Rough notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commentary-on-prognostic-models-in-obstetrics">Commentary on prognostic models in obstetrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-examples-of-studies-of-neonatal-outcomes-that-have-attempted-to-account-for-the-treatment-paradox">Are there examples of studies of neonatal outcomes that have attempted to account for the treatment paradox?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prep-model">PREP model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -432,65 +437,30 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="fetal-risk-factors">
-<h1>Fetal risk factors<a class="headerlink" href="#fetal-risk-factors" title="Link to this heading">#</a></h1>
-<section id="rough-notes">
-<h2>Rough notes<a class="headerlink" href="#rough-notes" title="Link to this heading">#</a></h2>
-<p><strong>Fetal head position</strong></p>
-<p><strong>Pre-eclampsia</strong></p>
-<p><strong>Abnormal CTG</strong></p>
-<hr>
-<p>From <a class="reference external" href="https://doi.org/10.1542/9781610022255">[source]</a>:</p>
-<p>Genetic</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="examples-of-studies-that-account-for-the-treatment-paradox">
+<h1>Examples of studies that account for the treatment paradox<a class="headerlink" href="#examples-of-studies-that-account-for-the-treatment-paradox" title="Link to this heading">#</a></h1>
+<section id="commentary-on-prognostic-models-in-obstetrics">
+<h2>Commentary on prognostic models in obstetrics<a class="headerlink" href="#commentary-on-prognostic-models-in-obstetrics" title="Link to this heading">#</a></h2>
+<p>‘Historically, the field of obstetrics has been successful in developing prediction models but has been poor in fully validating and thus implementing them effectively… Only two thirds of the papers [62.4%, 164/263] in a large systematic review of prognostic models in obstetrics were found to have presented their models in such a way that external validation would be feasible. This has been highlighted as a concern given the importance of validity in the development of such models.’<a class="reference external" href="https://doi.org/10.5772/intechopen.87311">[Murphy et al. 2019]</a></p>
+<p>‘Certain models can be too complex for routine clinical usage and this may lead to a reluctance on the part of the clinicians to accept them… It is also important that models which have been developed are also validated in a new population as otherwise it may not be possible to generalise them to a different cohort of patients. This is also known as impact analysis and this paper by Reilly et al. highlights that very few prediction models have undergone formal impact analysis or validation. This is essential in order for clinicians to know if the usage of such a model will have a positive or negative effect, i.e. is there a possibility that it will cause harm. The authors highlighted the benefit of having clinicians involved in the development and validation of such models before, during and after implementation.’<a class="reference external" href="https://doi.org/10.5772/intechopen.87311">[Murphy et al. 2019]</a></p>
+</section>
+<section id="are-there-examples-of-studies-of-neonatal-outcomes-that-have-attempted-to-account-for-the-treatment-paradox">
+<h2>Are there examples of studies of neonatal outcomes that have attempted to account for the treatment paradox?<a class="headerlink" href="#are-there-examples-of-studies-of-neonatal-outcomes-that-have-attempted-to-account-for-the-treatment-paradox" title="Link to this heading">#</a></h2>
+<section id="prep-model">
+<h3>PREP model<a class="headerlink" href="#prep-model" title="Link to this heading">#</a></h3>
+<p><strong>Model:</strong> Development and validation of Prediction models for Risks of complications in Early-onset Pre-eclampsia.<a class="reference external" href="https://doi.org/10.1186/s12916-017-0827-3">[Thangaratinam et al. 2017]</a></p>
+<p>This is a prediction model for pre-eclampsia that has been successfully validated. In a 2016 commentary in the British Journal of Obstetrics and Gynaecology (BJOG)<a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">[Cheong-See et al. 2016]</a>, they examined this model to identify what made it succesful and highlighted:</p>
 <ul class="simple">
-<li><p>Chromosome abnormalities</p></li>
-<li><p>Gene variants/mutations</p></li>
+<li><p>Large sample size</p></li>
+<li><p>Standardisation of treatment or intervention</p></li>
+<li><p>Consideration of the initiation of treatment being an outcome itself - i.e. “when starting a treatment is likely to prevent an adverse outcome, those who received the treatment could also be considered to have experienced the outcome”<a class="reference external" href="https://doi.org/10.5772/intechopen.87311">[Murphy et al. 2019]</a></p></li>
 </ul>
-<p>Parent environment and lifestyle</p>
-<ul class="simple">
-<li><p>Socioeconomic status</p></li>
-<li><p>Social environment</p></li>
-<li><p>Physical environment</p></li>
-<li><p>Radiation</p></li>
-<li><p>Teratogens</p></li>
-<li><p>Nutrition</p></li>
-<li><p>Smoking or secondary exposure to smoke</p></li>
-<li><p>Drug or alcohol abuse</p></li>
-<li><p>Lack of prenatal care</p></li>
-</ul>
-<p>Parent reproductive capability and health</p>
-<ul class="simple">
-<li><p>Age</p></li>
-<li><p>Weight</p></li>
-<li><p>Height</p></li>
-<li><p>Reproductive tract abnormalities</p></li>
-<li><p>Maternal medical disorders</p></li>
-<li><p>Cardiac</p></li>
-<li><p>Respiratory</p></li>
-<li><p>Renal</p></li>
-<li><p>Hematologic disorders (e.g. sickle cell disease, thrombocytopenia)</p></li>
-<li><p>Metabolic disorders (e.g. diabetes, thyroid disorders, phenylketonuria)</p></li>
-<li><p>Epilepsy</p></li>
-<li><p>Emotional status/mental health</p></li>
-</ul>
-<p>Placenta and membran disorders</p>
-<ul class="simple">
-<li><p>Implantation (abdominal, tubal, previa)</p></li>
-<li><p>Vessel and cord complications</p></li>
-<li><p>Abruption</p></li>
-<li><p>Premature rupture of membranes and infection</p></li>
-</ul>
-<p>Parent-fetal unit</p>
-<ul class="simple">
-<li><p>Multiple gestation</p></li>
-<li><p>Obstetric complications</p></li>
-<li><p>Malposition and malpresentation</p></li>
-<li><p>Cephalopelvic disproportion</p></li>
-<li><p>Abnormal fetal growth and gestation</p></li>
-<li><p>Alloimmusation (erythroblastosis fetalis)</p></li>
-<li><p>Intrauterine infections</p></li>
-<li><p>Pregnancy-induced hypertension</p></li>
-</ul>
+</section>
+<section id="other">
+<h3>Other<a class="headerlink" href="#other" title="Link to this heading">#</a></h3>
+<p><strong>Incorporation of treatment in the model:</strong> ‘In the prediction of metabolic acidosis in neonates (example 1) there could be an intervention effect present owing to cesarean delivery. An unexpected finding was observed for the relation between intrapartum fever and metabolic acidosis (OR 0.86 [95% CI 0.68–1.08]). Upon inclusion of cesarean delivery in the model, intrapartum fever was positively related to metabolic acidosis (OR 1.08 [95% CI 0.86–1.34]), which was in line with expectations.’<a class="reference external" href="https://doi.org/10.1503/cmaj.120812">[Schuit et al. 2013]</a></p>
+<p><strong>Including an alternative outcome not impacted by treatment paradox:</strong> By including abnormal CTG as a neonatal outcome (alongside stillbirth, early neonatal death, mean birthweight, incidence of small-for-gestational age, neonatal unit admission, and composite of Apgar5&lt;7, pH&lt;7 or neonatal encephalopathy).<a class="reference external" href="https://doi.org/10.1111/aogs.13671">[Bhatia et al. 2019]</a></p>
+</section>
 </section>
 </section>
 
@@ -525,20 +495,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="key_papers.html"
+       href="design_account_paradox.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Key Papers</p>
+        <p class="prev-next-title">Accounting for a treatment paradox</p>
       </div>
     </a>
     <a class="right-next"
-       href="cardiotocography.html"
+       href="design_other.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Cardiotocography</p>
+        <p class="prev-next-title">Other design considerations</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -558,7 +528,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rough-notes">Rough notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commentary-on-prognostic-models-in-obstetrics">Commentary on prognostic models in obstetrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-examples-of-studies-of-neonatal-outcomes-that-have-attempted-to-account-for-the-treatment-paradox">Are there examples of studies of neonatal outcomes that have attempted to account for the treatment paradox?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prep-model">PREP model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
