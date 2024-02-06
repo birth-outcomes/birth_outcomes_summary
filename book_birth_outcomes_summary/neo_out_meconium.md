@@ -9,14 +9,30 @@
 * **Meconium aspiration syndrome (MAS)** - respiratory distress in infants with MSAF that can't otherwise be explained - only developed by 5% infants exposed to MSAF
 * **Cerebral palsy**
 
-[[source]](https://doi.org/10.1016/j.ajog.2022.11.1283)
+[[Gallo et al. 2023]](https://doi.org/10.1016/j.ajog.2022.11.1283)
+
+Figure from [[source]](https://www.respiratorytherapyzone.com/meconium-aspiration-syndrome/):
+
+![Meconium aspiration syndrome (MAS)](images/msaf.png)
+
+## Association with HIE
+
+'The largest study to examine the relationship between MSAF and fetal acidemia included 42,709 term pregnancies, of which 8136 had MSAF. Meconium was associated with a significantly higher rate of umbilical artery pH ≤7.00 (7% [56/8136] vs 3% [95/34,573]; P<.001; odds ratio [OR], 2.5; 95% confidence interval [CI], 1.8–3.4).' 
+
+'However, most neonates born to mothers with MSAF do not have evidence of metabolic acidemia at birth. Indeed, in a recent retrospective study including 3590 deliveries, MSAF was not associated with umbilical artery acidemia, and 80% of neonates with MSAF had a pH ≥7.20.'
+
+'These conflicting results between the 2 largest studies may be explained by differences in the use of intrapartum fetal heart rate monitoring. In the first study, surveillance was performed with intermittent auscultation, whereas in the second study, continuous electronic fetal heart rate monitoring was used. It is possible that improved surveillance allows earlier detection of a compromised fetus, and thus the association between MSAF and umbilical artery acidemia was not observed.'
+
+'It is widely accepted that fetal hypoxia leads to meconium passage. However, experimental studies have challenged this view. For example, maternal aortic constriction in pregnant rabbits to induce fetal distress is not associated with meconium passage, and neither is acute hypoxia of pregnant sheep sufficient to drop the fetal partial pressure of oxygen. Similarly, repeated cord occlusion leading to fetal acidemia is not associated with meconium passage in fetal sheep. A role for the autonomic nervous system in the regulation of pathologic fetal defecation has been proposed. Indeed, sympathetic system blockade, achieved chemically with 6-hydroxydopamine, in the same experimental paradigm of cord occlusion does lead to meconium passage. It is also noteworthy that normal fetal defecation in animal studies is observed in the absence of fetal hypoxemia or acidemia.'
 
 ## Suitability as a model outcome
 
-<mark>add details around suitability as an outcome</mark>
+Cons:
+* Some uncertainty around association between MSAF and HIE (but also some reasonable evidence around it)
+* Not all neonates with MSAF experienced HIE, and not all infants with HIE will have MSAF
 
 `````{admonition} Unsuitable
 :class: error
 
-tbc
+Not specific enough or enough coverage of HIE
 `````
