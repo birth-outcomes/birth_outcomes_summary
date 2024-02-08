@@ -1,4 +1,8 @@
-# Hypoxic ischaemic encephalopathy
+# More on HIE
+
+## Definition of HIE
+
+The definition of HIE was discussed extensively on a prior page, but a few key points are summarised below.
 
 **Hypoxic ischaemic encephalopathy (HIE)** is a type of brain injury that occurs because a hypoxic-ischaemic event prevents adequate blood flow to the infant's brain during prenatal, intrapartum or the postnatal period. 'It occurs in 1.5 to 2.5 per 1000 live births in developed countries'. 'The incidence of HIE has not declined even with advances in obstetric care (i.e. fetal monitoring) aimed at preventing the hypoxic-ischemic event.'[[source]](https://doi.org/10.1053%2Fj.nainr.2011.07.004) Rapid recognition of and response to hypoxic ischaemia is extremely challenging for obstetricians.[[source]](https://doi.org/10.1576/toag.13.3.169.27669)
 

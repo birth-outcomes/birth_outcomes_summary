@@ -1,4 +1,4 @@
-# Chorioamnionitis
+# More on chorioamnionitis
 
 '**Chorioamnionitis (or intra-aminotic infection)** is a term encompassing a broad spectrum of disease during pregnancy that is characterized by **inflammation and/or infection of intrauterine structures** such as the placenta, the chorion and amnion. The clinical presentation of chorioamnionitis can vary based on clinical, microbiologic, and histologic factors which interact and overlap to varying degrees. Signs and symptoms depend on whether a primary inflammatory versus an infectious process is found.'[[Source]](https://doi.org/10.1016%2Fj.vaccine.2019.05.030)
 

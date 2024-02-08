@@ -3,12 +3,14 @@
 format: jb-book
 root: intro
 parts:
-  - caption: Background on neonatal encephalopathy
+  - caption: Background on neonatal encephalopathy (NE)
     chapters:
-    - file: neo_out_enceph
+    - file: neo_out_enceph_basics
+    - file: neo_out_enceph_diagnosis
+    - file: neo_out_enceph_treatment_outcomes
     - file: neo_out_hie
     - file: neo_out_chorio
-  - caption: Indicators of hypoxic ischaemic encephalopathy
+  - caption: Indicators of HIE
     chapters:
     - file: neo_out_summary
     - file: neo_out_care
