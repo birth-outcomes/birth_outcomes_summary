@@ -3,22 +3,12 @@
 format: jb-book
 root: intro
 parts:
-  - caption: Background on pregnancy and birth
-    chapters:
-    - file: stages
-    - file: interventions
-    - file: routine_data
-    - file: key_papers
-  - caption: Risk factors
-    chapters:
-    - file: fetal_risk_factors
-    - file: cardiotocography
-  - caption: Neonatal outcomes
+  - caption: Background on neonatal encephalopathy
     chapters:
     - file: neo_out_enceph
     - file: neo_out_hie
     - file: neo_out_chorio
-  - caption: Markers of HIE
+  - caption: Indicators of hypoxic ischaemic encephalopathy
     chapters:
     - file: neo_out_summary
     - file: neo_out_care
@@ -34,9 +24,6 @@ parts:
     - file: neo_out_intubation
     - file: neo_out_mri
     - file: neo_out_death
-  - caption: Maternal outcomes
-    chapters:
-    - file: parental_outcomes
   - caption: Study design
     chapters:
     - file: design_treat_paradox.md
@@ -44,3 +31,14 @@ parts:
     - file: design_examples.md
     - file: design_other.md
     - file: design_plan.md
+  - caption: Appendices - Background on pregnancy and birth
+    chapters:
+    - file: stages
+    - file: interventions
+  - caption: Appendices - very incomplete/tbc
+    chapters:
+    - file: fetal_risk_factors
+    - file: cardiotocography
+    - file: parental_outcomes
+    - file: routine_data
+    - file: key_papers
