@@ -114,6 +114,18 @@ In NHS guidelines, it doesn't include measurement of lactate.
 
 The American College of Obstetricians and Gynecologists suggests using a cord artery pH < 7.00 and base deficit >= 12.0 mmol/L to indicate metabolic acidosis, since this threshold was found to strongly associate with neonatal morbidity and death. However, use of stationary reference cut-off points can be an issue, as base deficit, pH, pCO2 and lactate can vary with **gestational age**.[[source]](https://obgyn.onlinelibrary.wiley.com/doi/pdfdirect/10.3109/00016349.2010.513426)
 
+## Factors associated with variation in measurements
+
+Some of the challenges with cord blood gas analysis are that there are a few factors that can impact the results obtained:
+* Whether samples are from umbilical **artery or vein**
+* **Length of labour** since mixed metabolic and respiratory acidemia will develop in normal labour over time - and therefore, the normal range of reference values might not be valid for **elective caesarean deliveries**. 'During the process of preparing for and performing a caesarean delivery, factors such as type of anesthesia, extent of sympathetic blockade, aortocaval compression, intravenous fluid loading, oxygenation, vasopressor substances, and predelivery knife-time could influence the neonatal acid-base status'
+* **Timing of cord clamping** - within a few seconds after birth, there will be acidosis (as blood had been centralised during labour to ensure delivery to brain, heart and adrenals, and so low priority organs accumulate acidic metabolities, which then surge back into central circulation when newborn starts to breathe, cry and move) - and because of this, NICE recommend clamping 1 minute after birth rather than immediately
+* **Time from sampling to analysis** - das blood cell metabolism will continue in the same, with pCO2 and lactate increasing, and pH and pO2 decreasing
+* **Base deficit calculation** - BD is a theoretical measure calculated by the blood gase analysed, but the calculation equation used differs among analysers. It can be calculated as 'base deficit in blood (or actual base deficit) or base deficit in extracellular fluid (or standard base deficit). Base deficit in extracellular fluid is advocated for fetal blood because a high partial pressure of CO2 (hypercapnia) is common in newborns without concomitant hypoxia, and hypercapnia has a strong influence on the pH value, then termed respiratory acidosis. An increase in partial pressure of CO2 causes less increase in base deficit in extracellular fluid than in base deficit in blood, thus base deficit in extracellular fluid better represents the metabolic component of acidosis.'
+* **Gestational age** - pH and bicarbonate decrease and pCO2, BDecf, and lactate increase with the progression of pregnancy
+
+[[Olofsson 2023]](https://doi.org/10.1016/j.ajog.2022.07.001)
+
 ## Association with neonatal outcomes
 
 ### Guidelines
@@ -130,26 +142,30 @@ These criteria were derived through consensus though, since existing observal st
 
 I did have statements from a discussion paper on how there is a strong relationship between pH and outcomes when there are other risk factors present - but I became a bit sceptical of some of the studies used to justify this (in particular, the samples used), so instead presented the details on each below, and whether I think they are relevant to us.
 
+My conclusions from these papers - focussing on the the largest and more recent studies - are that:
+* **pH in isolation is an unreliable indicator** for encephalopathy - the majority of infants with encephalopathy had a normal pH, and a small minority of infants with an abnormal pH had encephalopathy.
+* **pH and base deficit in isolation might be an unreliable indicator** - this is based on findings from a study of children with metabolic acidosis but who had appeared healthy - and they had no difference in long-term outcomes - this is not based on a paper of the proportion of children with metabolic acidosis who are fine - hence *might be* unreliable
+
 | Study | Sample | Findings | Caution | Summary |
 | --- | --- | --- | --- | --- |
-| Goodwin et al. 1992 [[source]](https://doi.org/10.1016/0002-9378(92)91728-S) | 129 term infants with pH < 7 | Incidence of HIE was 31% overall - looking by pH level, it was:<br>* 12% for cord pH <7.0<br>* 33% for cord pH <6.9<br>* 60% for cord pH <6.8<br>* 80% for cord pH <6.7<br>In infants with respiratory acidemia (26%), compared with those with similar pH, had similar levels of end-organ injury, but trend towards lower indicidence of HIE. | X | Increasing proportion of infants with low pH go on to have HIE - esp. if metabolic. |
-| Perlman and Risser 1996 [[source]](https://pubmed.ncbi.nlm.nih.gov/8632928/) |  96 infants (of whom 5 went on to develop seizures). These infants were term, admitted to NICU, and high risk hypoxia ischaemia based on one of:<br>* Moderate to thick meconium-stained amniotic fluid (MSAF)<br>* FHR abnormalities<br>* Abruptio placentae<br>* Intubation and positive pressure ventilation in the delivery room<br>* Chest compressions and epinephrine administration as part of resuscitation<br>* 5-minute Apgar <= 5<br>* Arterial pH <= 7.00<br>* Base deficit <= -14 mEq/L | * Cord pH <7.0 and intubation had PPV 50% of seizures<br>* Cord pH <7.0 and Apgar5 ⩽5 had PPV 33.3% of seizures<br>* Cord pH <7.0, intubation and Apgar5 ⩽5 had PPV 80% of seizures | **Caution** - as sample is infants already in NICU and high risk | pH better indicator for seizures when combined with Apgar5 and intubation |
+| Yeh et al. 2012 [[source]](https://doi.org/10.1111/j.1471-0528.2012.03335.x) | 51519 term neonates | Most neonates with neurological morbidity (encephalopathy with seizures and/or death) have normal cord pH values -  more than 75% with those outcomes had a pH above 7.10<br><br>If infants do have a pH <= 7, their relative risk of the outcomes is much higher. However, still only 33 out of 1120 infants with pH <=7.00 had those outcomes (2.9%)<br><br>Outcome was encephalopathy with seizures and/or death - did not include grade 1 encephalopathy or HIE as those are subjective diagnoses, and as grade 1 correlates little with long-term outcomes. | **Caution** - Type of encephalopathy - moderate/severe | Majority (75%+) of neonates with neurological outcome have normal pH<br><br>Only minority (2.9%) of neonates with low pH (<7) have neurological outcome |
+| Hafström et al. 2012 [[source]](https://doi.org/10.1542/peds.2011-2831) (note: can't access paper so based on abstract) | 78 infants with metabolic acidosis (pH<7.05 and base deficit>12mmol/L) who appeared healthy at birth (didn't require special neonatal care, no signs of encephalopathy), then two matched controls for each infants (total 234) - chosen from a cohort of 14687 deliveries | At 6.5 years old, no differences were found in neurological or behavioural problems in need for action of diagnosis, between the control children and the healthy children with metabolic acidosis | **Caution** - focus on children who appeared healthy | No long term outcomes in children with metabolic acidosis who appeared healthy - indicating that's unlikely to be sufficient indicator in isolation |
 | Carter et al. 1998 [[source]](https://doi.org/10.1016/s0022-3476(98)70349-x) | 3238 term newborns (of whom 366 are admitted to NICU) | Predicting NICU admission:<br>* Asphyxia score >=6 had OR 38.5 and PPV 73%<br><br>It goes on to give OR for individual components (not PPV). The asphyxia score was based on graded abnormalities in fetal heart rate monitoring, umbilical arterial base deficit, and 5-minute Apgar.<br><br>Only 11 infants had a score >=6 - of those, 5 had HIE. | **Caution** - as outcome is NICU admission, not HIE |  Combination of pH, abnormal FHR and Apgar5 improves it as an indicator for NICU admission |
-| Yeh et al. 2012 [[source]](https://doi.org/10.1111/j.1471-0528.2012.03335.x) | 51519 term neonates | Most neonates with neurological morbidity have normal cord pH values -  more than 75% of neonates with neurological outcomes examined, including seizures within 24 hours of birth, had a pH above 7.10 | X | Majority of neonates with neurological outcomes have normal pH |
-| Hafström et al. 2012 [[source]](https://doi.org/10.1542/peds.2011-2831) | 
+| Perlman and Risser 1996 [[source]](https://pubmed.ncbi.nlm.nih.gov/8632928/) |  96 infants (of whom 5 went on to develop seizures). These infants were term, admitted to NICU, and high risk hypoxia ischaemia based on one of:<br>* Moderate to thick meconium-stained amniotic fluid (MSAF)<br>* FHR abnormalities<br>* Abruptio placentae<br>* Intubation and positive pressure ventilation in the delivery room<br>* Chest compressions and epinephrine administration as part of resuscitation<br>* 5-minute Apgar <= 5<br>* Arterial pH <= 7.00<br>* Base deficit <= -14 mEq/L | * Cord pH <7.0 and intubation had PPV 50% of seizures<br>* Cord pH <7.0 and Apgar5 ⩽5 had PPV 33.3% of seizures<br>* Cord pH <7.0, intubation and Apgar5 ⩽5 had PPV 80% of seizures | **Caution** - as sample is infants already in NICU and high risk | pH better indicator for seizures when combined with Apgar5 and intubation |
+| Goodwin et al. 1992 [[source]](https://doi.org/10.1016/0002-9378(92)91728-S) | 129 term infants with pH < 7 | Incidence of HIE was 31% overall - looking by pH level, it was:<br>* 12% for cord pH <7.0<br>* 33% for cord pH <6.9<br>* 60% for cord pH <6.8<br>* 80% for cord pH <6.7<br>In infants with respiratory acidemia (26%), compared with those with similar pH, had similar levels of end-organ injury, but trend towards lower indicidence of HIE. | X | Increasing proportion of infants with low pH go on to have HIE - esp. if metabolic. |
 
 From Yeh et al. 2012, percentage of all cases with encephalopathy with seizures or death in each arterial pH group:
 
 ![Percent](images/yeh_percent.png)
 
-From Yeh et al. 2012, relative risk of encephalopathy with seizures or death in each arterial pH group:
-
-![Risk](images/yeh_risk.png)
-
 The key focus here is that we want to know if pH can be a reliable indicator of HIE - and not if its associated with high risk - but if majority of infants with a low pH go on to have HIE. Hence, below are good studies that are not relevant as they are about risk:
 | Study | Sample | pH threshold | Findings |
 | --- | --- | --- | --- |
 | Malin et al. 2010 [[source]](https://doi.org/10.1136%2Fbmj.c1471) | Meta-analysis of 51 studies | pH < 7 to < 7.24 | Hypoxic ischaemic encephalopathy (OR 13.8, 95% CI 6.6-28.9, I<sup>2</sup>=0%)<br>Neonatal mortality (OR 16.9, 95% CI 9.7-29.5, I<sup>2</sup>=0%)<br>Intraventricular haemorrhage or periventricular leucomalacia (OR 2.9, 95% CI 2.1-4.1, I<sup>2</sup>=0%)<br>Cerebral palsy (OR 2.3, 95% CI 1.3-4.2, I<sup>2</sup>=0%) |
+
+From Yeh et al. 2012, relative risk of encephalopathy with seizures or death in each arterial pH group:
+
+![Risk](images/yeh_risk.png)
 
 To add to tables:
 * 'Interestingly, a pH as low as 7.00 is usually tolerated by the fetus without any adverse outcome. Most infants with a cord pH less than 7.00 do not develop neurologic problems after birth, nor even when followed for 6.5 years. An isolated respiratory acidosis is very rarely associated with poor outcomes. Thus, infants born with a pH less than 7.00 and without other abnormal clinical findings typically do not require any further investigation or NICU admission.'[[source]](https://www.ncbi.nlm.nih.gov/books/NBK545290/)
@@ -158,21 +174,20 @@ To add to tables:
 ## Suitability as a model outcome
 
 Pros:
-* pH can become a better predictor if (a) the threshold is lower, (b) it is metabolic acidosis (i.e. combined with base deficit), or (c) it is combined with other indicators of adverse outcomes - the extent to which it improves as an indicator varies
+* pH can improve as a predictor if (a) the threshold is lower, (b) it is metabolic acidosis (i.e. combined with base deficit), or (c) it is combined with other indicators of adverse outcomes - the extent to which it improves as an indicator varies - but often this is about risk of outcome, rather than it being an indicator
 
 Cons:
-* Although pH has a strongly relationship with neonatal outcomes, using it for prognosis as a single indicator, pH alone is a poor marker of adverse neonatal outcomes
-* Inconsistently recorded - won't measure it if expect things to be fine
-* Inconsistently measured - anecdotally, it can be often measured from just artery or vein and not both - although guidelines state it should be a paired sample
-
-Considerations:
-* Associated with gestational age[[source]](https://obgyn.onlinelibrary.wiley.com/doi/pdfdirect/10.3109/00016349.2010.513426)
-* Assocaited with length of labour[[source]](https://doi.org/10.3109/00016349409006272)
+* Many infants with HIE won't have abnormal pH
+* Many infants with abnormal pH won't have HIE
+* There are many confounding factors that influence measurement obtained (artery or vein, length of labour, type of delivery, gestational age, timing of cord clamping, timing from sampling to analysis, base deficit calculation)
+* Biased measurement - more likely if doctors/nurses thought something was wrong
 
 ## Conclusion
 
-`````{admonition} Potentially suitable
-:class: warning
+`````{admonition} Unsuitable
+:class: error
 
-We definitely don't just want pH alone as our outcome. However, if we knew the source (arterial/venous), and modified it as an outcome (i.e. lower threshold, metabolic acidosis, combination with other risk factors), it might become more viable. Would need to remember that pH has relationship with gestational age and length of labour.
+Metabolic acidosis (pH and base deficit), in combination with other indicators, can move us towards a good indicator - but ultimately I don't think it's suitable because:
+* (A) Not all infants with HIE will have abnormal blood gases
+* (B) There are so many confounding factors that influence the measurements obtained
 `````

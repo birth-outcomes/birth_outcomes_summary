@@ -8,6 +8,10 @@ The main problem is that some clinicians intervene too late, or not at all, in c
 
 The ultimate target is to build a machine learning (ML) algorithm that monitors live data during childbirth, taking into account pre-existing risk factors, that alerts clinicians when infant health is at increased risk if intervention is delayed or missed.
 
+## References
+
+Please note that I have provided the references used to acquire information - but that this will often be referring to a review paper that is referencing another source.
+
 ## Navigation
 
 ```{tableofcontents}

@@ -70,8 +70,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'neo_out_blood';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Neonatal resuscitation" href="neo_out_resus.html" />
-    <link rel="prev" title="Mechanical ventilation" href="neo_out_ventilate.html" />
+    <link rel="next" title="Abnormal CTG" href="neo_out_ctg.html" />
+    <link rel="prev" title="Cerebral palsy" href="neo_out_cp.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -194,7 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Neonatal outcomes</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="neo_out_enceph.html">Neonatal encephalopathy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_enceph.html">Neonatal encephalopathy diagnosis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_hie.html">Hypoxic ischaemic encephalopathy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_chorio.html">Chorioamnionitis</a></li>
 </ul>
@@ -204,9 +204,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="neo_out_care.html">Transfer to neonatal care services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_cooling.html">Cooling / Moderate Hypothermia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ventilate.html">Mechanical ventilation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Umbilical cord blood gas analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_resus.html">Neonatal resuscitation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_cp.html">Cerebral palsy</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Umbilical cord blood gas analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="neo_out_apgar.html">Apgar scores</a></li>
@@ -426,6 +426,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-is-it-collected">How is it collected?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-blood-gases-are-analysed-and-why">What blood gases are analysed and why?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-accepted-thresholds-for-these-blood-gases">What are the accepted thresholds for these blood gases?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factors-associated-with-variation-in-measurements">Factors associated with variation in measurements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#association-with-neonatal-outcomes">Association with neonatal outcomes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guidelines">Guidelines</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#studies">Studies</a></li>
@@ -579,6 +580,19 @@ document.write(`
 <p>‘The generally accepted cut off value for a <strong>pathological acidosis</strong> (risk of seizures, moderate to severe HIE and cerebral palsy) is <strong>umbilical arterial pH ≤ 7.0</strong>. It is unlikely that acute acidosis with a pH value greater than 7.0 is directly associated with cerebral palsy.’<a class="reference external" href="https://www.nnuh.nhs.uk/publication/download/babies-with-severe-umbilical-artery-acidosis-cord-arterial-ph-7-1-jcg0322-v3/">[source - Joint NHS Trust Guidelines]</a></p>
 <p>The American College of Obstetricians and Gynecologists suggests using a cord artery pH &lt; 7.00 and base deficit &gt;= 12.0 mmol/L to indicate metabolic acidosis, since this threshold was found to strongly associate with neonatal morbidity and death. However, use of stationary reference cut-off points can be an issue, as base deficit, pH, pCO2 and lactate can vary with <strong>gestational age</strong>.<a class="reference external" href="https://obgyn.onlinelibrary.wiley.com/doi/pdfdirect/10.3109/00016349.2010.513426">[source]</a></p>
 </section>
+<section id="factors-associated-with-variation-in-measurements">
+<h2>Factors associated with variation in measurements<a class="headerlink" href="#factors-associated-with-variation-in-measurements" title="Link to this heading">#</a></h2>
+<p>Some of the challenges with cord blood gas analysis are that there are a few factors that can impact the results obtained:</p>
+<ul class="simple">
+<li><p>Whether samples are from umbilical <strong>artery or vein</strong></p></li>
+<li><p><strong>Length of labour</strong> since mixed metabolic and respiratory acidemia will develop in normal labour over time - and therefore, the normal range of reference values might not be valid for <strong>elective caesarean deliveries</strong>. ‘During the process of preparing for and performing a caesarean delivery, factors such as type of anesthesia, extent of sympathetic blockade, aortocaval compression, intravenous fluid loading, oxygenation, vasopressor substances, and predelivery knife-time could influence the neonatal acid-base status’</p></li>
+<li><p><strong>Timing of cord clamping</strong> - within a few seconds after birth, there will be acidosis (as blood had been centralised during labour to ensure delivery to brain, heart and adrenals, and so low priority organs accumulate acidic metabolities, which then surge back into central circulation when newborn starts to breathe, cry and move) - and because of this, NICE recommend clamping 1 minute after birth rather than immediately</p></li>
+<li><p><strong>Time from sampling to analysis</strong> - das blood cell metabolism will continue in the same, with pCO2 and lactate increasing, and pH and pO2 decreasing</p></li>
+<li><p><strong>Base deficit calculation</strong> - BD is a theoretical measure calculated by the blood gase analysed, but the calculation equation used differs among analysers. It can be calculated as ‘base deficit in blood (or actual base deficit) or base deficit in extracellular fluid (or standard base deficit). Base deficit in extracellular fluid is advocated for fetal blood because a high partial pressure of CO2 (hypercapnia) is common in newborns without concomitant hypoxia, and hypercapnia has a strong influence on the pH value, then termed respiratory acidosis. An increase in partial pressure of CO2 causes less increase in base deficit in extracellular fluid than in base deficit in blood, thus base deficit in extracellular fluid better represents the metabolic component of acidosis.’</p></li>
+<li><p><strong>Gestational age</strong> - pH and bicarbonate decrease and pCO2, BDecf, and lactate increase with the progression of pregnancy</p></li>
+</ul>
+<p><a class="reference external" href="https://doi.org/10.1016/j.ajog.2022.07.001">[Olofsson 2023]</a></p>
+</section>
 <section id="association-with-neonatal-outcomes">
 <h2>Association with neonatal outcomes<a class="headerlink" href="#association-with-neonatal-outcomes" title="Link to this heading">#</a></h2>
 <section id="guidelines">
@@ -595,6 +609,11 @@ document.write(`
 <section id="studies">
 <h3>Studies<a class="headerlink" href="#studies" title="Link to this heading">#</a></h3>
 <p>I did have statements from a discussion paper on how there is a strong relationship between pH and outcomes when there are other risk factors present - but I became a bit sceptical of some of the studies used to justify this (in particular, the samples used), so instead presented the details on each below, and whether I think they are relevant to us.</p>
+<p>My conclusions from these papers - focussing on the the largest and more recent studies - are that:</p>
+<ul class="simple">
+<li><p><strong>pH in isolation is an unreliable indicator</strong> for encephalopathy - the majority of infants with encephalopathy had a normal pH, and a small minority of infants with an abnormal pH had encephalopathy.</p></li>
+<li><p><strong>pH and base deficit in isolation might be an unreliable indicator</strong> - this is based on findings from a study of children with metabolic acidosis but who had appeared healthy - and they had no difference in long-term outcomes - this is not based on a paper of the proportion of children with metabolic acidosis who are fine - hence <em>might be</em> unreliable</p></li>
+</ul>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Study</p></th>
@@ -605,17 +624,17 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Goodwin et al. 1992 <a class="reference external" href="https://doi.org/10.1016/0002-9378(92)91728-S">[source]</a></p></td>
-<td><p>129 term infants with pH &lt; 7</p></td>
-<td><p>Incidence of HIE was 31% overall - looking by pH level, it was:<br>* 12% for cord pH &lt;7.0<br>* 33% for cord pH &lt;6.9<br>* 60% for cord pH &lt;6.8<br>* 80% for cord pH &lt;6.7<br>In infants with respiratory acidemia (26%), compared with those with similar pH, had similar levels of end-organ injury, but trend towards lower indicidence of HIE.</p></td>
-<td><p>X</p></td>
-<td><p>Increasing proportion of infants with low pH go on to have HIE - esp. if metabolic.</p></td>
+<tr class="row-even"><td><p>Yeh et al. 2012 <a class="reference external" href="https://doi.org/10.1111/j.1471-0528.2012.03335.x">[source]</a></p></td>
+<td><p>51519 term neonates</p></td>
+<td><p>Most neonates with neurological morbidity (encephalopathy with seizures and/or death) have normal cord pH values -  more than 75% with those outcomes had a pH above 7.10<br><br>If infants do have a pH &lt;= 7, their relative risk of the outcomes is much higher. However, still only 33 out of 1120 infants with pH &lt;=7.00 had those outcomes (2.9%)<br><br>Outcome was encephalopathy with seizures and/or death - did not include grade 1 encephalopathy or HIE as those are subjective diagnoses, and as grade 1 correlates little with long-term outcomes.</p></td>
+<td><p><strong>Caution</strong> - Type of encephalopathy - moderate/severe</p></td>
+<td><p>Majority (75%+) of neonates with neurological outcome have normal pH<br><br>Only minority (2.9%) of neonates with low pH (&lt;7) have neurological outcome</p></td>
 </tr>
-<tr class="row-odd"><td><p>Perlman and Risser 1996 <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/8632928/">[source]</a></p></td>
-<td><p>96 infants (of whom 5 went on to develop seizures). These infants were term, admitted to NICU, and high risk hypoxia ischaemia based on one of:<br>* Moderate to thick meconium-stained amniotic fluid (MSAF)<br>* FHR abnormalities<br>* Abruptio placentae<br>* Intubation and positive pressure ventilation in the delivery room<br>* Chest compressions and epinephrine administration as part of resuscitation<br>* 5-minute Apgar &lt;= 5<br>* Arterial pH &lt;= 7.00<br>* Base deficit &lt;= -14 mEq/L</p></td>
-<td><p>* Cord pH &lt;7.0 and intubation had PPV 50% of seizures<br>* Cord pH &lt;7.0 and Apgar5 ⩽5 had PPV 33.3% of seizures<br>* Cord pH &lt;7.0, intubation and Apgar5 ⩽5 had PPV 80% of seizures</p></td>
-<td><p><strong>Caution</strong> - as sample is infants already in NICU and high risk</p></td>
-<td><p>pH better indicator for seizures when combined with Apgar5 and intubation</p></td>
+<tr class="row-odd"><td><p>Hafström et al. 2012 <a class="reference external" href="https://doi.org/10.1542/peds.2011-2831">[source]</a> (note: can’t access paper so based on abstract)</p></td>
+<td><p>78 infants with metabolic acidosis (pH&lt;7.05 and base deficit&gt;12mmol/L) who appeared healthy at birth (didn’t require special neonatal care, no signs of encephalopathy), then two matched controls for each infants (total 234) - chosen from a cohort of 14687 deliveries</p></td>
+<td><p>At 6.5 years old, no differences were found in neurological or behavioural problems in need for action of diagnosis, between the control children and the healthy children with metabolic acidosis</p></td>
+<td><p><strong>Caution</strong> - focus on children who appeared healthy</p></td>
+<td><p>No long term outcomes in children with metabolic acidosis who appeared healthy - indicating that’s unlikely to be sufficient indicator in isolation</p></td>
 </tr>
 <tr class="row-even"><td><p>Carter et al. 1998 <a class="reference external" href="https://doi.org/10.1016/s0022-3476(98)70349-x">[source]</a></p></td>
 <td><p>3238 term newborns (of whom 366 are admitted to NICU)</p></td>
@@ -623,24 +642,22 @@ document.write(`
 <td><p><strong>Caution</strong> - as outcome is NICU admission, not HIE</p></td>
 <td><p>Combination of pH, abnormal FHR and Apgar5 improves it as an indicator for NICU admission</p></td>
 </tr>
-<tr class="row-odd"><td><p>Yeh et al. 2012 <a class="reference external" href="https://doi.org/10.1111/j.1471-0528.2012.03335.x">[source]</a></p></td>
-<td><p>51519 term neonates</p></td>
-<td><p>Most neonates with neurological morbidity have normal cord pH values -  more than 75% of neonates with neurological outcomes examined, including seizures within 24 hours of birth, had a pH above 7.10</p></td>
-<td><p>X</p></td>
-<td><p>Majority of neonates with neurological outcomes have normal pH</p></td>
+<tr class="row-odd"><td><p>Perlman and Risser 1996 <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/8632928/">[source]</a></p></td>
+<td><p>96 infants (of whom 5 went on to develop seizures). These infants were term, admitted to NICU, and high risk hypoxia ischaemia based on one of:<br>* Moderate to thick meconium-stained amniotic fluid (MSAF)<br>* FHR abnormalities<br>* Abruptio placentae<br>* Intubation and positive pressure ventilation in the delivery room<br>* Chest compressions and epinephrine administration as part of resuscitation<br>* 5-minute Apgar &lt;= 5<br>* Arterial pH &lt;= 7.00<br>* Base deficit &lt;= -14 mEq/L</p></td>
+<td><p>* Cord pH &lt;7.0 and intubation had PPV 50% of seizures<br>* Cord pH &lt;7.0 and Apgar5 ⩽5 had PPV 33.3% of seizures<br>* Cord pH &lt;7.0, intubation and Apgar5 ⩽5 had PPV 80% of seizures</p></td>
+<td><p><strong>Caution</strong> - as sample is infants already in NICU and high risk</p></td>
+<td><p>pH better indicator for seizures when combined with Apgar5 and intubation</p></td>
 </tr>
-<tr class="row-even"><td><p>Hafström et al. 2012 <a class="reference external" href="https://doi.org/10.1542/peds.2011-2831">[source]</a></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p>Goodwin et al. 1992 <a class="reference external" href="https://doi.org/10.1016/0002-9378(92)91728-S">[source]</a></p></td>
+<td><p>129 term infants with pH &lt; 7</p></td>
+<td><p>Incidence of HIE was 31% overall - looking by pH level, it was:<br>* 12% for cord pH &lt;7.0<br>* 33% for cord pH &lt;6.9<br>* 60% for cord pH &lt;6.8<br>* 80% for cord pH &lt;6.7<br>In infants with respiratory acidemia (26%), compared with those with similar pH, had similar levels of end-organ injury, but trend towards lower indicidence of HIE.</p></td>
+<td><p>X</p></td>
+<td><p>Increasing proportion of infants with low pH go on to have HIE - esp. if metabolic.</p></td>
 </tr>
 </tbody>
 </table>
 <p>From Yeh et al. 2012, percentage of all cases with encephalopathy with seizures or death in each arterial pH group:</p>
 <p><img alt="Percent" src="_images/yeh_percent.png" /></p>
-<p>From Yeh et al. 2012, relative risk of encephalopathy with seizures or death in each arterial pH group:</p>
-<p><img alt="Risk" src="_images/yeh_risk.png" /></p>
 <p>The key focus here is that we want to know if pH can be a reliable indicator of HIE - and not if its associated with high risk - but if majority of infants with a low pH go on to have HIE. Hence, below are good studies that are not relevant as they are about risk:</p>
 <table class="table">
 <thead>
@@ -658,6 +675,8 @@ document.write(`
 </tr>
 </tbody>
 </table>
+<p>From Yeh et al. 2012, relative risk of encephalopathy with seizures or death in each arterial pH group:</p>
+<p><img alt="Risk" src="_images/yeh_risk.png" /></p>
 <p>To add to tables:</p>
 <ul class="simple">
 <li><p>‘Interestingly, a pH as low as 7.00 is usually tolerated by the fetus without any adverse outcome. Most infants with a cord pH less than 7.00 do not develop neurologic problems after birth, nor even when followed for 6.5 years. An isolated respiratory acidosis is very rarely associated with poor outcomes. Thus, infants born with a pH less than 7.00 and without other abnormal clinical findings typically do not require any further investigation or NICU admission.’<a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK545290/">[source]</a></p></li>
@@ -669,25 +688,25 @@ document.write(`
 <h2>Suitability as a model outcome<a class="headerlink" href="#suitability-as-a-model-outcome" title="Link to this heading">#</a></h2>
 <p>Pros:</p>
 <ul class="simple">
-<li><p>pH can become a better predictor if (a) the threshold is lower, (b) it is metabolic acidosis (i.e. combined with base deficit), or (c) it is combined with other indicators of adverse outcomes - the extent to which it improves as an indicator varies</p></li>
+<li><p>pH can improve as a predictor if (a) the threshold is lower, (b) it is metabolic acidosis (i.e. combined with base deficit), or (c) it is combined with other indicators of adverse outcomes - the extent to which it improves as an indicator varies - but often this is about risk of outcome, rather than it being an indicator</p></li>
 </ul>
 <p>Cons:</p>
 <ul class="simple">
-<li><p>Although pH has a strongly relationship with neonatal outcomes, using it for prognosis as a single indicator, pH alone is a poor marker of adverse neonatal outcomes</p></li>
-<li><p>Inconsistently recorded - won’t measure it if expect things to be fine</p></li>
-<li><p>Inconsistently measured - anecdotally, it can be often measured from just artery or vein and not both - although guidelines state it should be a paired sample</p></li>
-</ul>
-<p>Considerations:</p>
-<ul class="simple">
-<li><p>Associated with gestational age<a class="reference external" href="https://obgyn.onlinelibrary.wiley.com/doi/pdfdirect/10.3109/00016349.2010.513426">[source]</a></p></li>
-<li><p>Assocaited with length of labour<a class="reference external" href="https://doi.org/10.3109/00016349409006272">[source]</a></p></li>
+<li><p>Many infants with HIE won’t have abnormal pH</p></li>
+<li><p>Many infants with abnormal pH won’t have HIE</p></li>
+<li><p>There are many confounding factors that influence measurement obtained (artery or vein, length of labour, type of delivery, gestational age, timing of cord clamping, timing from sampling to analysis, base deficit calculation)</p></li>
+<li><p>Biased measurement - more likely if doctors/nurses thought something was wrong</p></li>
 </ul>
 </section>
 <section id="conclusion">
 <h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
-<div class="warning admonition">
-<p class="admonition-title">Potentially suitable</p>
-<p>We definitely don’t just want pH alone as our outcome. However, if we knew the source (arterial/venous), and modified it as an outcome (i.e. lower threshold, metabolic acidosis, combination with other risk factors), it might become more viable. Would need to remember that pH has relationship with gestational age and length of labour.</p>
+<div class="error admonition">
+<p class="admonition-title">Unsuitable</p>
+<p>Metabolic acidosis (pH and base deficit), in combination with other indicators, can move us towards a good indicator - but ultimately I don’t think it’s suitable because:</p>
+<ul class="simple">
+<li><p>(A) Not all infants with HIE will have abnormal blood gases</p></li>
+<li><p>(B) There are so many confounding factors that influence the measurements obtained</p></li>
+</ul>
 </div>
 </section>
 </section>
@@ -723,20 +742,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="neo_out_ventilate.html"
+       href="neo_out_cp.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Mechanical ventilation</p>
+        <p class="prev-next-title">Cerebral palsy</p>
       </div>
     </a>
     <a class="right-next"
-       href="neo_out_resus.html"
+       href="neo_out_ctg.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Neonatal resuscitation</p>
+        <p class="prev-next-title">Abnormal CTG</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -760,6 +779,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-is-it-collected">How is it collected?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-blood-gases-are-analysed-and-why">What blood gases are analysed and why?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-accepted-thresholds-for-these-blood-gases">What are the accepted thresholds for these blood gases?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factors-associated-with-variation-in-measurements">Factors associated with variation in measurements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#association-with-neonatal-outcomes">Association with neonatal outcomes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guidelines">Guidelines</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#studies">Studies</a></li>

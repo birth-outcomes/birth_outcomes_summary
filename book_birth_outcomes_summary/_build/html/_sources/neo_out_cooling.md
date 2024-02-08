@@ -12,6 +12,10 @@ The image below is the criteria for cooling, copied from the [NHS East of Englan
 
 ![Flow diagram with criteria for cooling](images/cooling_criteria.png 'Criteria for cooling')
 
+'A Cochrane systematic review of 11 randomised controlled trials has shown this therapy reduces death and neurodisability in infants with moderate to severe encephalopathy. Despite 46% of infants having developed adverse events related to cooling, it is now the standard treatment for neonatal encephalopathy in high-income countries (HiCs).'[[COHESION - Quirke et al. 2013]](https://doi.org/10.1038/s41390-023-02938-y)
+
+'The recent HELIX (hypothermia for moderate or severe neonatal encephalopathy in low-income and middle-income countries) study showed that not only did therapeutic hypothermia not decrease the combined outcome of death or disability in India, Sri Lanka, and Bangladesh, it significantly increased mortality alone'.[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z) As a result, treatments are now being investigated as stand-alone treatments or adjuvants to therapeutic hypothermia (e.g. erythropoietin, darbepoetin).[[COHESION - Quirke et al. 2013]](https://doi.org/10.1038/s41390-023-02938-y)
+
 ## Suitability as a model outcome
 
 Pros:
