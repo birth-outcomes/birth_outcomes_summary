@@ -21,7 +21,6 @@ Current suggestions below - but subject to change as we continue learn and under
 `````{admonition} Potentially suitable
 :class: warning
 
-* Umbilical cord pH and base deficit (combined with other indicators, with some caveats to account for)
 * Neonatal resuscitation
 * Cerebral palsy diagnosis
 `````
@@ -29,6 +28,7 @@ Current suggestions below - but subject to change as we continue learn and under
 `````{admonition} Unsuitable
 :class: error
 
+* Umbilical cord pH and base deficit
 * Abnormal CTG
 * Apgar
 * NNAP record of encephalopathy

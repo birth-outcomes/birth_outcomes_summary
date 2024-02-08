@@ -31,7 +31,9 @@ Note: Haven't checked all these - but for example of fetal stroke, from a quick 
 
 A variety of methods can be used to diagnose HIE, including the APGAR score, brain imaging, umbilical cord blood gas tests, and developmental evaluations.[[source]](https://hiehelpcenter.org/medical/identifying-hie/tests-evaluations-screening/)
 
-In terms of imaging, magnetic resonance imaging (MRI) is the preferred imaging technique used 'during the first week after birth to determine the extent of brain injury and predict neurodevelopmental outcome in infants with symptoms of HIE'. 'The two main patterns of injury can be distinguished with MRI in the full-term neonate':
+In terms of imaging, magnetic resonance imaging (MRI) is the preferred imaging technique used 'during the first week after birth to determine the extent of brain injury and predict neurodevelopmental outcome in infants with symptoms of HIE'.
+
+'The pattern of injury in HIE depends on the severity, duration, and repetitiveness of the hypoxia-ischemia and can lead to involvement of basal ganglia, thalami, brain stem, and/or cerebral white matter in different combinations.'[[Molloy and Bearer 2018]](https://doi.org/10.1038/s41390-018-0169-7) 'The two main patterns of injury can be distinguished with MRI in the full-term neonate':
 * **Basal ganglia-thalamus pattern (BGT)**.
     * More severe hypoxia ischamia
     * 'When the baby suffers severe or total hypoxia/asphyxia, the insult is called' **acute near total or acute profound asphyxia**.
