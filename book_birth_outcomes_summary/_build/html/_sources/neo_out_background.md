@@ -1,4 +1,32 @@
-# Background and current practice for defining neonatal encephalopathy (NE) and hypoxic ischaemic encephalopathy
+# Current practice for identifying hypoxic ischaemic encephalopathy (HIE)
+
+`````{admonition} Executive summary
+:class: info
+
+**Neonatal encephalopthy (NE)**:
+* NE refers to neurological dysfunction in late pre-term or term infants, characterised by seizures, impaired consciousness, respiratory difficulties and reduced tone.
+* Causes include hypoxia-ischemia, stroke, infection, intracranial hemorrhage, congenital anomalies, neurometabolic and genetic factors. NE can have a single or multiple causes.
+* Approximately 1 to 6 per 1000 term births have NE. In more than half, the cause is unknown. The most common cause is hypoxia ischaemia (referred to as hypoxic-ischemic encephalopathy).
+
+**Hypoxic ischaemic encephalopathy (HIE)**: Our challenge is that there has not been a clear, consistent consensus definition for HIE and NE. The terms have often been used interchangeably (despite HIE actually being a sub-type of NE). Recent recommendations for defining (and thereby identifying/diagnosing/distinguishing HIE) are:
+* Neonatal Data Analysis Unit:
+    * **Diagnostic code for NE or HIE Diagnosis of NE or HIE (severe, moderate, grade 2 or grade 3)**
+    * **OR Therapeutic hypothermia for 2 or more consecutive days**
+* ACOG-AAP task force:
+    * **Presence of sentinel hypoxic or ischaemic event**
+    * **Presence of fetal acidosis and low Apgar**
+    * **Evidence of multiple organ dysfunction**
+    * **Neuroimaging evidence**
+* DEFiNE group - research ongoing to establish consensus definition for NE
+
+The current recommendation is to first diagnose NE, and only diagnose HIE on the basis of sufficient evidence.
+
+A task force hoping to define when you can establish a causal relationship with cerebral palsy required:
+* **Metabolic acidosis** in blood gas analysis
+* **Early onset** of NE
+* **Spastic quadriplegia or dyskinetic type of cerebral palsy**
+* **Exclusion of other etiologies** like trauma, coagulation disorders, infectious conditions, or genetic disorders
+`````
 
 ## Neonatal encephalopathy (NE)
 
@@ -28,53 +56,24 @@ NE **does not have to have a single cause** - for example, you could distinguish
 
 **Focusing on HIE...**
 
-The exact cause of HIE is often not identified. Causes include:
-* Cord prolapse
-* Uterine rupture
-* Abruptio placenta
-* Placenta previa
-* Maternal hypotension
-* Breech presentation
-* Should dystonia[[source]](https://doi.org/10.1053%2Fj.nainr.2011.07.004)
+The exact cause of HIE is often not identified. Causes include cord prolapse, uterine rupture, abruptio placenta, placenta previa, maternal hypotension, breech presentation, should dystonia[[source]](https://doi.org/10.1053%2Fj.nainr.2011.07.004)
 
 There have been several medical malpractice claims related to HIE. This list of causes from [Michigan Cerbral Palsy Attornerys](https://www.michigancerebralpalsyattorneys.com/causes-and-risk-factors-of-cerebral-palsy/labor-and-delivery-problems/hypoxic-ischemic-encephalopathy-hie/hypoxic-ischemic-encephalopathy-hie-infographic/) includes some examples that relate to that.
-* **Birth trauma** - delayed emergency C-section, prolonged and arrested labour, post-term pregnancy, anaesthesia mistakes, intracrainal haemmhorage, fetal monitoring errors
-* **Abnormal size and presentation** - cephalopelvic disproportion (CPD), breech presentation, face presentation, macrosomia
-* **Labour and delivery problems** - miuse of pitocin or cytotec, uterine rupture, placental abruption, umbilical cord problems (prolapse, compression, nuchal and short), placenta previa, uteroplacental insufficiency, premature rupture of membranes
-* **Maternal health problems** - pre-eclampsia, polyhydramnios, oligohydramnios
-* **Infant health problems** - fetal stroke, mismanagement of fetal respiration after delivery, mismanaged of fetal anemia after delivery
+* Birth trauma - delayed emergency C-section, prolonged and arrested labour, post-term pregnancy, anaesthesia mistakes, intracrainal haemmhorage, fetal monitoring errors
+* Abnormal size and presentation - cephalopelvic disproportion (CPD), breech presentation, face presentation, macrosomia
+* Labour and delivery problems - miuse of pitocin or cytotec, uterine rupture, placental abruption, umbilical cord problems (prolapse, compression, nuchal and short), placenta previa, uteroplacental insufficiency, premature rupture of membranes
+* Maternal health problems - pre-eclampsia, polyhydramnios, oligohydramnios
+* Infant health problems - fetal stroke, mismanagement of fetal respiration after delivery, mismanaged of fetal anemia after delivery
 
 Note: Haven't checked all these - but for example of fetal stroke, from a quick google, it appears that HIE and neonatal stroke can often occur together, and that it seems more that the asphyxia is then a risk factor for stroke.
 
-Signs and symptoms of HIE before birth include:
-* 'Decreased fetal movement
-* Severe maternal cramping (often accompanied by severe back pain)
-* Abnormal fetal heart rate
-* Abnormal contraction pattern
-* Vaginal bleeding
-* Abnormally low or high maternal weight gain
-* Maternal high blood pressure'
+### Signs of HIE
 
-Signs and symptoms of HIE shortly after birth (in neonates):
-* 'Low Apgar scores at five or 10 minutes
-* Seizures
-* Difficulty feeding
-* Breathing problems
-* Hypotonia (low muscle tone)
-* Organ problems (failure, damage)
-* Acidemia (low pH in umbilical cord blood gas tests)
-* Abnormal response to light
-* State of abnormal consciousness (hyperalert or lethargic)
-* Coma'
+Signs and symptoms of HIE before birth include: 'decreased fetal movement, severe maternal cramping (often accompanied by severe back pain), abnormal fetal heart rate, abnormal contraction pattern, vaginal bleeding, abnormally low or high maternal weight gain, maternal high blood pressure'.
 
-'In some children with HIE, especially those with mild to moderate HIE, obvious signs and symptoms of an oxygen-depriving event may not be present at the time of birth... HIE may beconme more evident later in infancy.' Signs and symptoms of HIE during infancy and early childhood:
-* 'Impaired motor function
-* Delayed developmental milestones
-* Seizure disorder
-* Delayed growth
-* Hearing and visual impairments'
+Signs and symptoms of HIE shortly after birth (in neonates) include: 'low Apgar scores at five or 10 minutes, seizures, difficulty feeding, breathing problems, hypotonia (low muscle tone), organ problems (failure, damage), acidemia (low pH in umbilical cord blood gas tests), abnormal response to light, state of abnormal consciousness (hyperalert or lethargic), coma'
 
-[[Source]](https://hiehelpcenter.org/medical/identifying-hie/sign-symptoms/)
+'**In some children with HIE, especially those with mild to moderate HIE, obvious signs and symptoms of an oxygen-depriving event may not be present at the time of birth**... HIE may beconme more evident later in infancy.' Signs and symptoms of HIE during infancy and early childhood include: 'impaired motor function, delayed developmental milestones, seizure disorder, delayed growth, hearing and visual impairments'. [[Source]](https://hiehelpcenter.org/medical/identifying-hie/sign-symptoms/)
 
 ### Incidence
 
@@ -131,7 +130,7 @@ Clear diagnosis is crucial for parents to help them to access accurate prognosti
 
 An early diagnosis is also crucial - as, for example, treatment with therapeutic hypothermia must be within the first six hours of injury for optimum benefit.[[COHESION - Quirke et al. 2013]](https://doi.org/10.1038/s41390-023-02938-y)
 
-## Recommendations
+## Recommendations and precedent for diagnosing/identifying HIE
 
 ### Neonatal Data Analysis Unit and the Department of Health
 

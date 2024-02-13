@@ -10,10 +10,7 @@ In designing this research study, we want to explore possible outcomes that coul
 * Interventions
 * Diagnoses
 
-As noted previously ("challenge 1"), the definition of HIE has often been ambiguous and variable, although there are now some recommendations aorund what evidence indicates HIE has occured (to guide diagnosis), and there is ongoing work to develop consensus definitions.
-
-
-The concluding recommendations for each of the outcomes explored on the following pages and copied below.
+As on the prior page, attempts to diagnose/define/identify HIE are varied, with several different indicators used. I have explored these indicators (and others that have been mentioned or used elsewhere) in the following pages, and made concluding recommendations for each of the outcomes, which I have copied below. This should be read **in the context of the recommendations** on the previous page, such as those from the Neonatal Data Analysis Unit and the Task Force. The method of identifying HIE could involve a single indicator or combintions (AND / OR) of indicators.
 
 `````{admonition} Recommended
 :class: seealso
