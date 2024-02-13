@@ -1,5 +1,12 @@
 # More on HIE
 
+`````{admonition} Executive summary
+:class: info
+
+* There are many possible reasons for hypoxic ischaemia to develop (e.g. cord prolapsy, breech presentation, uterin rupture...)
+* There are two patterns of injury: (a) less severe hypoxia ischaemia - prolonged partial asphyxia - causing watershed predominant patter of injury on MRI, and (b) more severe hypoxia ischaemia - acute near total/acute profound asphyxia - causing basal ganglia-thalamus pattern of injury on MRI - which is associated with dyskinetic cerebral palsy
+`````
+
 ## Definition of HIE
 
 The definition of HIE was discussed extensively on a prior page, but a few key points are summarised below.

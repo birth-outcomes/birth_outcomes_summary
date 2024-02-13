@@ -1,5 +1,13 @@
 # Challenge 1: Identifying the type of NE - in particular, hypoxic ischaemic encephalopathy (HIE)
 
+`````{admonition} Executive summary
+:class: info
+
+* The terms "NE" and "HIE" have often been used interchangeably, but HIE is a sub-group of NE. This is in part due to ambiguous and varied definitions used, without a clear consensus.
+* There are concerns that a diagnosis of HIE is over-utilised and given on insufficient evidence. It is recommended that clinicians start with a diagnosis of NE, and only classify it as HIE once they have sufficient evidence. An American task force state this evidence to be (a) hypoxic ischaemic event during birth, (b) fetal acidosis and low Apgar, (c) multiple organ dysfunction, and (d) neuroimaging evidence
+* The DEFiNE group is an ongoing collaborative study to establish a consensus definition for NE, classifying subgroups and their diagnostic criteria.
+`````
+
 ## What are the challenges in identifying the cause of NE?
 
 Diagnosis of HIE or asphyxia is often over-utilised in practice and not clinically justified by the limited data at birth.[[Chalak et al. 2019]](https://doi.org/10.1038/s41390-019-0547-9)
@@ -34,7 +42,7 @@ The American Colleges of Obstetrics, Gynecology, and Pediatrics (ACOG-AAP) task 
 
 1. The presence of a **sentinel hypoxic or ischemic event** occurring immediately before, during or after birth - e.g. a rupture uterus, severe abruption placentae, or fetal heart rate monitor patterns consistent with an acute peripartum or intrapartum event
 
-2. The presence of **fetal acidosis** ((pH < 7.0 or base deficit ≥12 mmol/L)) **low Apgar** scores (Apgar score <5 at 5 and 10 min)
+2. The presence of **fetal acidosis** ((pH < 7.0 or base deficit ≥12 mmol/L)) and **low Apgar** scores (Apgar score <5 at 5 and 10 min)
 
 3. Evidence of **multiple organ dysfunction** affecting the heart, liver, or kidneys
 
