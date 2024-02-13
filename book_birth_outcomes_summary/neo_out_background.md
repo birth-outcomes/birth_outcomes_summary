@@ -1,14 +1,111 @@
-# Challenge 1: Identifying the type of NE - in particular, hypoxic ischaemic encephalopathy (HIE)
+# Background and current practice for defining neonatal encephalopathy (NE) and hypoxic ischaemic encephalopathy
 
-`````{admonition} Executive summary
-:class: info
+## Neonatal encephalopathy (NE)
 
-* The terms "NE" and "HIE" have often been used interchangeably, but HIE is a sub-group of NE. This is in part due to ambiguous and varied definitions used, without a clear consensus.
-* There are concerns that a diagnosis of HIE is over-utilised and given on insufficient evidence. It is recommended that clinicians start with a diagnosis of NE, and only classify it as HIE once they have sufficient evidence. An American task force state this evidence to be (a) hypoxic ischaemic event during birth, (b) fetal acidosis and low Apgar, (c) multiple organ dysfunction, and (d) neuroimaging evidence
-* The DEFiNE group is an ongoing collaborative study to establish a consensus definition for NE, classifying subgroups and their diagnostic criteria.
-`````
+### Broad definition of NE
 
-## What are the challenges in identifying the cause of NE?
+Neonatal encephalopathy (NE) refers to brain disease, damage or malfunction, as a result of perinatal brain injury. The broad clinical definition of NE is that it is:
+* A neurological syndrome
+* In infants born at or beyond 35 weeks of gestation (late pre-term or term)
+* Characterised by:
+  * Seizures
+  * Impaired levels of consciousness
+  * Difficulties initiating and maintaining respiration
+  * Reduced tone and reflexes[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z)[[COHESION - Quirke et al. 2013]](https://doi.org/10.1038/s41390-023-02938-y)
+
+### Causes of NE
+
+Possible causes of NE include:
+* **Hypoxia ischaemia** (most common cause, "hypoxia" means low levels of oxygen in blood flowing to tissues, and "ischaemia" means blood flow (and therefore oxygen) is restricted/reduced to tissues) (this has sometimes been referred to as asphyxia, perinatal asphyxia, or birth asphyxia - but these terminology are not recommended) (when this is the case, it is referred to as **hypoxic-ischemic encephalopathy**)
+* **Perinatal/neonatal stroke** (ischemic perinatal stroke (IPS) is the leading known cause of hemiplegic CP [[source]](https://doi.org/10.1016/j.gpeds.2022.100025))
+* **Infection** (chorioamnionitis)
+* **Intracranial haemorrhage** (bleed in the skull/brain)
+* **Congenital brain anomalies/malformations** (brain 'abnormalities present at birth that can result from developmental disruptions at various embryonic or fetal stages'[[source]](https://doi.org/10.1016/j.spen.2022.100973))
+* **Neurometabolic** (extensive and diverse set of neurometabolic disorders that can impact the neonatal prain, presentation is non-specific and can mimic acquired things like HIE and sepsis. They are rare, and are primarily genetic disorders leading to disruption of enzyme activity, cellular transport, or energy production [[source]](https://journals.lww.com/topicsinmri/fulltext/2018/08000/neurometabolic_disorders_of_the_newborn.1.aspx))
+* **Genetic and epigenetics factors**[[COHESION - Quirke et al. 2013]](https://doi.org/10.1038/s41390-023-02938-y)[[Source - NHS East of England Guidelines for Management of Infants with Suspected HIE]](https://www.eoeneonatalpccsicnetwork.nhs.uk/wp-content/uploads/2021/10/HIE-Guideline.pdf)
+
+NE **does not have to have a single cause** - for example, you could distinguish between hypoxia-ischaemia alone, a combination of other etiologies with hypoxia ischaemia, or non-HI-related etiology.[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z) 'Sentinel events such as cord prolapse, uterine rupture, or abruptio placentae may be clearly associated with HIE but often HIE is a **secondary** event. Therefore although hypoxia-ischemia may be involved
+
+**Focusing on HIE...**
+
+The exact cause of HIE is often not identified. Causes include:
+* Cord prolapse
+* Uterine rupture
+* Abruptio placenta
+* Placenta previa
+* Maternal hypotension
+* Breech presentation
+* Should dystonia[[source]](https://doi.org/10.1053%2Fj.nainr.2011.07.004)
+
+There have been several medical malpractice claims related to HIE. This list of causes from [Michigan Cerbral Palsy Attornerys](https://www.michigancerebralpalsyattorneys.com/causes-and-risk-factors-of-cerebral-palsy/labor-and-delivery-problems/hypoxic-ischemic-encephalopathy-hie/hypoxic-ischemic-encephalopathy-hie-infographic/) includes some examples that relate to that.
+* **Birth trauma** - delayed emergency C-section, prolonged and arrested labour, post-term pregnancy, anaesthesia mistakes, intracrainal haemmhorage, fetal monitoring errors
+* **Abnormal size and presentation** - cephalopelvic disproportion (CPD), breech presentation, face presentation, macrosomia
+* **Labour and delivery problems** - miuse of pitocin or cytotec, uterine rupture, placental abruption, umbilical cord problems (prolapse, compression, nuchal and short), placenta previa, uteroplacental insufficiency, premature rupture of membranes
+* **Maternal health problems** - pre-eclampsia, polyhydramnios, oligohydramnios
+* **Infant health problems** - fetal stroke, mismanagement of fetal respiration after delivery, mismanaged of fetal anemia after delivery
+
+Note: Haven't checked all these - but for example of fetal stroke, from a quick google, it appears that HIE and neonatal stroke can often occur together, and that it seems more that the asphyxia is then a risk factor for stroke.
+
+Signs and symptoms of HIE before birth include:
+* 'Decreased fetal movement
+* Severe maternal cramping (often accompanied by severe back pain)
+* Abnormal fetal heart rate
+* Abnormal contraction pattern
+* Vaginal bleeding
+* Abnormally low or high maternal weight gain
+* Maternal high blood pressure'
+
+Signs and symptoms of HIE shortly after birth (in neonates):
+* 'Low Apgar scores at five or 10 minutes
+* Seizures
+* Difficulty feeding
+* Breathing problems
+* Hypotonia (low muscle tone)
+* Organ problems (failure, damage)
+* Acidemia (low pH in umbilical cord blood gas tests)
+* Abnormal response to light
+* State of abnormal consciousness (hyperalert or lethargic)
+* Coma'
+
+'In some children with HIE, especially those with mild to moderate HIE, obvious signs and symptoms of an oxygen-depriving event may not be present at the time of birth... HIE may beconme more evident later in infancy.' Signs and symptoms of HIE during infancy and early childhood:
+* 'Impaired motor function
+* Delayed developmental milestones
+* Seizure disorder
+* Delayed growth
+* Hearing and visual impairments'
+
+[[Source]](https://hiehelpcenter.org/medical/identifying-hie/sign-symptoms/)
+
+### Incidence
+
+Below are some incidence estimates from a few difference sources.
+
+NE:
+* 1.15 million infants per annum.[[COHESION - Quirke et al. 2013]](https://doi.org/10.1038/s41390-023-02938-y)
+* Affects 2 to 6 per 1000 term births.[[Russ et al. 2021]](https://doi.org/10.1542/neo.22-3-e148), or in 1-3 per 1000 term births[[Hagberg et al. 2016]](https://doi.org/10.1016%2Fj.nbd.2015.09.011)
+
+Unknown cause:
+* In more than half of cases of encephalopathy, the cause is **unidentified**.[[Molloy et al. 2018]](https://doi.org/10.1038/s41390-018-0169-7)
+
+Hypoxia ischaemia as cause of NE:
+* Hypoxia ischaemia contributes to approximately 29% of neonatal encephalopathy.[[COHESION - Quirke et al. 2013]](https://doi.org/10.1038/s41390-023-02938-y)
+* Hypoxic ischaemic encephalopathy accounts for 1.5 per 1000 term births.[[Russ et al. 2021]](https://doi.org/10.1542/neo.22-3-e148)
+* Hypoxia ischaemia is known to be 'the sole instigator of encephalopathy in an estimated 7% of infants with NE. The Vermont Oxford Network Neonatal Encephalopathy Registry found that an asphyxia event accounted for 15% and inflammation 24% of cases of NE with other maternal etiologies also implicated'.[[Molloy and Bearer 2018]](https://doi.org/10.1038/s41390-018-0169-7)
+* 'Some authors state that HIE is the cause of NE in 50%–80% of cases based on clinical, EEG, and MRI criteria.'[[Molloy and Bearer 2018]](https://doi.org/10.1038/s41390-018-0169-7)
+* 'The incidence of HIE has not declined even with advances in obstetric care (i.e. fetal monitoring) aimed at preventing the hypoxic-ischemic event.'[[source]](https://doi.org/10.1053%2Fj.nainr.2011.07.004) Rapid recognition of and response to hypoxic ischaemia is extremely challenging for obstetricians.[[source]](https://doi.org/10.1576/toag.13.3.169.27669)
+* The greatest burden of NE is in **low-middle-income** countries.[[COHESION - Quirke et al. 2013]](https://doi.org/10.1038/s41390-023-02938-y)
+
+This section is in no way comprehensive - these are just a couple of random statistics from various sources in varying cohorts - on outcomes of infants with HIE:
+* 'Around 20%–50% of infants with HIE die early in infancy, and 25%–60% of surviving infants have long-term neurological disorders such as cerebral palsy, epilepsy, intellectual disability, and learning disabilities'.[[source]](https://doi.org/10.3345/cep.2020.01459)
+* In a study of mild HIE, 4.1% (17/414) infants had the composite outcome, whilst 0.9% (4786/504661) without HIE had it. Infants with mild HIE are four times as likely to be diagnosed with the composite outcome (HR 4.42, 95% CI 2.75–7.12) compared with infants without HIE (outcome was composite of cerebral palsy, epilepsy, intellectual disability and death up to 6 years of age)[[source]](https://doi.org/10.1111/1471-0528.17533)
+* By the age of 2, 40 to 60% of infants with HIE will either die or have severe disabilities.[[source]](https://doi.org/10.1053%2Fj.nainr.2011.07.004) These include:
+    * **Intellectual disability**
+    * **Epilepsy**
+    * **Cerebral palsy (CP)**
+
+## Diagnosing HIE
+
+### Challenge 1: Identifying cause
 
 Diagnosis of HIE or asphyxia is often over-utilised in practice and not clinically justified by the limited data at birth.[[Chalak et al. 2019]](https://doi.org/10.1038/s41390-019-0547-9)
 
@@ -16,7 +113,7 @@ Diagnosis of HIE or asphyxia is often over-utilised in practice and not clinical
 
 For HIE, it is also **difficult to quantify the dose, duration and severity** of hypoxia ischaemia. However, it is also important that a consensus definition is reached for mild HE, which has been variably defined. This is particular as the risk/benefit of providing therapeutic hypothermia to mild NE is not yet well characterised and trials are required.[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z)
 
-## What is the problem with the terminology?
+### Challenge 2: Terminology
 
 The definition for neonatal encephalopathy (as presented on the last page) does not **does not specify subgroups, etiology, or guide management**. This ambiguity has been criticised as hindering case definition, collaborative research, and data synthesis and confusing families and caregivers.[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z)
 
@@ -24,7 +121,7 @@ Moreover, the terms "neonatal encephalopathy" and "hypoxic ischaemic encephalopa
 
 A systematic review of 67 RCTs from 1998 to 2022 found notable variation in terminology - 56/67 referred to HIE, whilst 16 referred to NE - and yet the most common inclusion criteria were not necessarily specific to HIE - Apgar scores, metabolic acidosis, reduced level of consciousness, reduced tone, and abnormal reflexes.[[COHESION - Quirke et al. 2013]](https://doi.org/10.1038/s41390-023-02938-y)
 
-## Why is this important?
+### Importance
 
 It is beneficial to understand the aetiology of NE. It can lead to the development of targeted adjunctive therapies related to the underlying mechanism and development of preventative strategies.[[Chalak et al. 2019]](https://doi.org/10.1038/s41390-019-0547-9) 'NE could be stratified by etiology. Subclassification and consensus definition will allow better collaboration and development of appropriate therapies for each subgroup, as a single “magic bullet” therapy is unlikely to treat all potential causes of NE.'[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z)
 
@@ -52,7 +149,7 @@ This group definied **brain injuries occurring during or soon after birth** as f
 
 However, they found that data on signs of NE were not consistent over time - the fields used to define "altered tone" and "altered consciousness" only began from October 2010 onwards. Therefore, for this project, they dropped those and just looked for "seizures".
 
-#### Focus on HIE definition
+**Focus on HIE definition...**
 
 In the briefing paper circulated before their meeting, they note that the current definition used by Each Baby Counts (Royal College of Obstetricians and Gynaecologists national quality improvement programme) is:
 * Greater than or equal to 37 weeks gestation at birth
