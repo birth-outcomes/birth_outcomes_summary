@@ -3,24 +3,25 @@
 `````{admonition} Executive summary
 :class: info
 
-**Outcome:** -
+**Outcome:** Measurements of pH, base deficit/excess, pO<sub>2</sub> and pCO<sub>2</sub>. Various thresholds exist, but combined pH and base deficit can indicate metabolic acidosis, which has greater clinical significance.
 
 **Specific to HIE?**
-* -
+* No - many infants with abnormal pH won't have HIE (only 2.9% of infants with low pH had NE w/ seizures and/or death in 2012 study) - unless you look at a very low cord pH (e.g. <6.7), but that will be very few infants
 
 **Which infants with HIE?**
-* -
+* Only some - in a study of infants with NE w/ seizures and/or death, 75% of the infants with that outcome had a normal pH
 
 **Any other benefits or caveats not already mentioned?**
-* -
+* Many factors that can influence measurements - (a) artery or vein, (b) length of labour and elective caesarean, (c) timing of cord clamping, (d) timing from sampling to analysis, (e) base deficit calculation, (f) gestational age
+* Whether measurement occurs is biased (more likely if something was wrong)
 
-**Conclusion:** Potentially recommended. Must (a) consider metabolic acidosis (i.e. base deficit, not just pH), (b) not require low pH (as many infants with HIE won't have low pH), and (c) not base decision only on low pH (as many infants with low pH won't have HIE)
+**Conclusion:** Potentially recommended. Must (a) consider metabolic acidosis, (b) not require low pH (as many infants with HIE won't have low pH), and (c) not base decision only on low pH (as many infants with low pH won't have HIE)
 `````
 
 
 ## When is umbilical cord blood gas analysed?
 
-'Umbilical cord blood gas analysis is recommended by NICE **whenever there has been a concern** about the baby either in labour or immediately following birth.'[[source]]((https://www.nnuh.nhs.uk/publication/download/babies-with-severe-umbilical-artery-acidosis-cord-arterial-ph-7-1-jcg0322-v3/))
+'Umbilical cord blood gas analysis is recommended by NICE **whenever there has been a concern** about the baby either in labour or immediately following birth.'[Joint Trust Guidelines (ref below)]
 
 Examples of when NHS Milton Keynes guidelines suggest cord blood must be taken are:
 * All emergency caesarean sections and instrumental births
@@ -44,7 +45,7 @@ Blood can be collected from the:
     * Less accurate as mainly reflects placental metabolism rather than fetal metabolism - as the umbilical vein carries oxygenated blood to the fetus from the placenta.
     * During umbilical cord compression, the venous flow will compress more than the arterial flow (as veins are more compressible than arteries). The fetus will respond by extracting more oxygen, hence eliminating more CO2 through the umbilical artieries, but the umbilical venous acid-base status will reamin equilibriated by the normally functioning placenta [[source]](https://www.ncbi.nlm.nih.gov/books/NBK545290/)
 
-Due to these differences, it is important to take **paired** arterial and venous cord blood samples. If only a single sample is taken, there is no way of knowing if it is arterial or venous.[[source]]((https://www.nnuh.nhs.uk/publication/download/babies-with-severe-umbilical-artery-acidosis-cord-arterial-ph-7-1-jcg0322-v3/))
+Due to these differences, it is important to take **paired** arterial and venous cord blood samples. If only a single sample is taken, there is no way of knowing if it is arterial or venous.[Joint Trust Guideline (ref below)]
 
 It is also important to note the **timing** of the samples:
 * Clamped umbilical cord (isolated) will have reliable pH, pO2 and pCO2 up to 60 minutes after bith
@@ -128,7 +129,7 @@ According to NHS trust guidelines[source [1] and [2]], the normal blood gas valu
 
 In NHS guidelines, it doesn't include measurement of lactate.
 
-'The generally accepted cut off value for a **pathological acidosis** (risk of seizures, moderate to severe HIE and cerebral palsy) is **umbilical arterial pH ≤ 7.0**. It is unlikely that acute acidosis with a pH value greater than 7.0 is directly associated with cerebral palsy.'[[source - Joint NHS Trust Guidelines]](https://www.nnuh.nhs.uk/publication/download/babies-with-severe-umbilical-artery-acidosis-cord-arterial-ph-7-1-jcg0322-v3/)
+'The generally accepted cut off value for a **pathological acidosis** (risk of seizures, moderate to severe HIE and cerebral palsy) is **umbilical arterial pH ≤ 7.0**. It is unlikely that acute acidosis with a pH value greater than 7.0 is directly associated with cerebral palsy.'[Joint NHS Trust Guidelines (ref below)]
 
 The American College of Obstetricians and Gynecologists suggests using a cord artery pH < 7.00 and base deficit >= 12.0 mmol/L to indicate metabolic acidosis, since this threshold was found to strongly associate with neonatal morbidity and death. However, use of stationary reference cut-off points can be an issue, as base deficit, pH, pCO2 and lactate can vary with **gestational age**.[[source]](https://obgyn.onlinelibrary.wiley.com/doi/pdfdirect/10.3109/00016349.2010.513426)
 
@@ -209,3 +210,10 @@ Metabolic acidosis (pH and base deficit), in combination with other indicators, 
 * (A) Not all infants with HIE will have abnormal blood gases
 * (B) There are so many confounding factors that influence the measurements obtained
 `````
+
+## References
+
+Throughout this jupyter book, the hyperlinks for each reference are provided within the test. However, for the Joint Trust Guidelines referenced above, the link produces an error message, as it is a download link. Instead, the details for this document are provided below:
+* Joint Trust Guideline for the Management of Babies with Severe Umbilical Artery Acidosis (Cord Arterial pH≤7.1)
+* Author/s: Shastri, Roy Author/s title: SpR Neonatology, Consultant Neonatologist Approved by: CGAP Date approved: 10/06/2022 Review date: 10/06/2025 Available via Trust Docs Version: 3 Trust Docs ID: 1356
+* "www.nnuh.nhs.uk/publication/download/babies-with-severe-umbilical-artery-acidosis-cord-arterial-ph-7-1-jcg0322-v3/"

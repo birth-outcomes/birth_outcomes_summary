@@ -192,7 +192,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="neo_out_apgar.html">Apgar scores</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_nnap.html">NNAP record of encephalopathy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_meconium.html">Meconium-stained amniotic fluid</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_intubation.html">Intubation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_mri.html">MRI evidence</a></li>
@@ -423,16 +422,23 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnosing-hie">Diagnosing HIE</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1-identifying-cause">Challenge 1: Identifying cause</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1-identifying-cause">Challenge 1: Identifying cause</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-diagnosis-of-ne">Initial diagnosis of NE</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-2-terminology">Challenge 2: Terminology</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importance">Importance</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommendations-and-precedent-for-diagnosing-identifying-hie">Recommendations and precedent for diagnosing/identifying HIE</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neonatal-data-analysis-unit-and-the-department-of-health">Neonatal Data Analysis Unit and the Department of Health</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-hie-from-the-american-colleges-of-obstetrics-gynecology-and-pediatrics-acog-aap-task-force">Definition of HIE from the American Colleges of Obstetrics, Gynecology, and Pediatrics (ACOG-AAP) Task Force</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#establishing-causal-relationship-with-cerebral-palsy-from-the-american-congress-of-obstetricians-and-gynecologists-task-force-on-neonatal-encephalopathy-and-cerebral-palsy">Establishing causal relationship with cerebral palsy from the American Congress of Obstetricians and Gynecologists Task Force on Neonatal Encephalopathy and Cerebral Palsy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-diagnosis-of-ne-and-then-hie">Initial diagnosis of NE and then HIE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-hie-from-the-american-college-of-obstetrics-gynecology-and-pediatrics-acog-aap-task-force">Definition of HIE from the American College of Obstetrics, Gynecology, and Pediatrics (ACOG-AAP) Task Force</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#neonatal-encephalopathy">Neonatal encephalopathy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#neonatal-signs-consistent-with-hypoxia-ischaemia">Neonatal signs consistent with hypoxia-ischaemia</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#type-and-timing-of-contributing-factors-that-are-consistent-with-hypoxia-ischaemia">Type and timing of contributing factors that are consistent with hypoxia-ischaemia</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#caveat">Caveat</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-define-group">The DEFiNE group</a></li>
 </ul>
 </li>
@@ -457,31 +463,27 @@ document.write(`
 <li><p>Causes include hypoxia-ischemia, stroke, infection, intracranial hemorrhage, congenital anomalies, neurometabolic and genetic factors. NE can have a single or multiple causes.</p></li>
 <li><p>Approximately 1 to 6 per 1000 term births have NE. In more than half, the cause is unknown. The most common cause is hypoxia ischaemia (referred to as hypoxic-ischemic encephalopathy).</p></li>
 </ul>
-<p><strong>Hypoxic ischaemic encephalopathy (HIE)</strong>: Our challenge is that there has not been a clear, consistent consensus definition for HIE and NE. The terms have often been used interchangeably (despite HIE actually being a sub-type of NE). Recent recommendations for defining (and thereby identifying/diagnosing/distinguishing HIE) are:</p>
+<p><strong>Hypoxic ischaemic encephalopathy (HIE)</strong>: Our challenge is that there has not been a clear, consistent consensus definition for HIE and NE. The terms have often been used interchangeably (despite HIE actually being a sub-type of NE). The current recommendation is to first diagnose NE, and only diagnose HIE on the basis of sufficient evidence. Recent recommendations for defining (and thereby identifying/diagnosing/distinguishing HIE) are:</p>
 <ul class="simple">
-<li><p>Neonatal Data Analysis Unit:</p>
+<li><p>Neonatal Data Analysis Unit (required one of):</p>
 <ul>
 <li><p><strong>Diagnostic code for NE or HIE Diagnosis of NE or HIE (severe, moderate, grade 2 or grade 3)</strong></p></li>
 <li><p><strong>OR Therapeutic hypothermia for 2 or more consecutive days</strong></p></li>
 </ul>
 </li>
-<li><p>ACOG-AAP task force:</p>
+<li><p>ACOG-AAP task force (more likely HIE with more of these factors):</p>
 <ul>
-<li><p><strong>Presence of sentinel hypoxic or ischaemic event</strong></p></li>
-<li><p><strong>Presence of fetal acidosis and low Apgar</strong></p></li>
-<li><p><strong>Evidence of multiple organ dysfunction</strong></p></li>
+<li><p><strong>Apgar-5 and Apgar-10 &lt; 5</strong></p></li>
+<li><p><strong>Umbilical artery pH &lt;7 and/or base deficit &gt;= 12mmol/L</strong></p></li>
+<li><p><strong>Multiple organ dysfunction</strong></p></li>
 <li><p><strong>Neuroimaging evidence</strong></p></li>
+<li><p><strong>Presence of sentinel hypoxic or ischaemic event</strong></p></li>
+<li><p><strong>Abnormal FHR</strong></p></li>
+<li><p><strong>Spastic Quadriplegia or Dyskinetic Cerebral Palsy</strong></p></li>
+<li><p><strong>Other causes ruled out</strong></p></li>
 </ul>
 </li>
 <li><p>DEFiNE group - research ongoing to establish consensus definition for NE</p></li>
-</ul>
-<p>The current recommendation is to first diagnose NE, and only diagnose HIE on the basis of sufficient evidence.</p>
-<p>A task force hoping to define when you can establish a causal relationship with cerebral palsy required:</p>
-<ul class="simple">
-<li><p><strong>Metabolic acidosis</strong> in blood gas analysis</p></li>
-<li><p><strong>Early onset</strong> of NE</p></li>
-<li><p><strong>Spastic quadriplegia or dyskinetic type of cerebral palsy</strong></p></li>
-<li><p><strong>Exclusion of other etiologies</strong> like trauma, coagulation disorders, infectious conditions, or genetic disorders</p></li>
 </ul>
 </div>
 <section id="neonatal-encephalopathy-ne">
@@ -575,6 +577,11 @@ document.write(`
 <p>Diagnosis of HIE or asphyxia is often over-utilised in practice and not clinically justified by the limited data at birth.<a class="reference external" href="https://doi.org/10.1038/s41390-019-0547-9">[Chalak et al. 2019]</a></p>
 <p><strong>Identifying the precise causal pathway is often challenging</strong>. ‘Careful clinical phenotyping may help differentiation of NE by cause. This requires examination of the obstetric course and fetal monitoring records; careful and repeated neurological examination; early multichannel EEG or aEEG recordings of background brain activity; MRI and ultrasound brain imaging; and microbiological, biochemical and genetic analysis to rule out sepsis, inborn errors of metabolism, or epileptic encephalopathies, where indicated’.<a class="reference external" href="https://doi.org/10.1038/s41390-023-02775-z">[DEFiNE - Molloy et al. 2023]</a></p>
 <p>For HIE, it is also <strong>difficult to quantify the dose, duration and severity</strong> of hypoxia ischaemia. However, it is also important that a consensus definition is reached for mild HE, which has been variably defined. This is particular as the risk/benefit of providing therapeutic hypothermia to mild NE is not yet well characterised and trials are required.<a class="reference external" href="https://doi.org/10.1038/s41390-023-02775-z">[DEFiNE - Molloy et al. 2023]</a></p>
+<section id="initial-diagnosis-of-ne">
+<h4>Initial diagnosis of NE<a class="headerlink" href="#initial-diagnosis-of-ne" title="Link to this heading">#</a></h4>
+<p>‘It is difficult to prove the presence of cerebral hypoxic ischemia with the exception of well characterized animal models and particular cases of neonatal stroke.’
+<a class="reference external" href="https://doi.org/10.1038/s41390-018-0169-7">[Molloy and Bearer 2018]</a> ‘As such, many prominent bodies, including the American Academy of Pediatrics and the British Association of Perinatal Medicine (BAPM), advocate for using NE until the exact aetiology is determined.’<a class="reference external" href="https://doi.org/10.1038/s41390-023-02938-y">[COHESION - Quirke et al. 2013]</a> This means that using descriptive terminology like NE is preferable in the newborn period, before workup and course are known, rather than an etiology-based definition like HIE, which implies a single known etiology.<a class="reference external" href="https://doi.org/10.1038/s41390-023-02775-z">[DEFiNE - Molloy et al. 2023]</a> Clinical categorization, such as NE caused by sepsis, genetic causes, stroke, or those with a multifocal origin is required to ensure targeted management where possible for non-HIE causes.<a class="reference external" href="https://doi.org/10.1038/s41390-023-02775-z">[DEFiNE - Molloy et al. 2023]</a></p>
+</section>
 </section>
 <section id="challenge-2-terminology">
 <h3>Challenge 2: Terminology<a class="headerlink" href="#challenge-2-terminology" title="Link to this heading">#</a></h3>
@@ -645,15 +652,43 @@ document.write(`
 </ul>
 <p><a class="reference external" href="https://assets.publishing.service.gov.uk/media/5a82446ced915d74e6236ad3/Report_on_brain_injury_occurring_during_or_soon_after_birth.pdf">[Gale et al. 2017]</a></p>
 </section>
-<section id="definition-of-hie-from-the-american-colleges-of-obstetrics-gynecology-and-pediatrics-acog-aap-task-force">
-<h3>Definition of HIE from the American Colleges of Obstetrics, Gynecology, and Pediatrics (ACOG-AAP) Task Force<a class="headerlink" href="#definition-of-hie-from-the-american-colleges-of-obstetrics-gynecology-and-pediatrics-acog-aap-task-force" title="Link to this heading">#</a></h3>
-<p>The American Colleges of Obstetrics, Gynecology, and Pediatrics (ACOG-AAP) task force defined HIE as a <strong>restrospectively designated diagnosis - i.e. you start with a diagnosis of NE</strong> and then subsequency - based on accumulated evidence - subclassify it as HIE. Their recommend that a diagnosis includes:</p>
+<section id="definition-of-hie-from-the-american-college-of-obstetrics-gynecology-and-pediatrics-acog-aap-task-force">
+<h3>Definition of HIE from the American College of Obstetrics, Gynecology, and Pediatrics (ACOG-AAP) Task Force<a class="headerlink" href="#definition-of-hie-from-the-american-college-of-obstetrics-gynecology-and-pediatrics-acog-aap-task-force" title="Link to this heading">#</a></h3>
+<p>The American Colleges of Obstetrics, Gynecology, and Pediatrics (ACOG-AAP) task force defined HIE as a <strong>restrospectively designated diagnosis - i.e. you start with a diagnosis of NE</strong> and then subsequency - based on accumulated evidence - subclassify it as HIE.</p>
+<p>They make recommendations - although recognise that ‘knowledge gaps still preclude a definitive test or set of markers that accurately identifies, with high sensitivity and specificity, an infant in whom neonatal encephalopathy is attributable to an acute intrapartum event’.</p>
+<p>Their latest recommended assessment for HIE is <a class="reference external" href="https://doi.org/10.1097/01.AOG.0000445580.65983.d2">[American College of Obstetricians and Gynecologists’ Task Force on Neonatal Encephalopathy 2014]</a>. Prior recommendations include that detailed in <a class="reference external" href="https://doi.org/10.1016/S0029-7844(03)00574-X">[Hankins and Speet 2003]</a>.</p>
+<section id="neonatal-encephalopathy">
+<h4>Neonatal encephalopathy<a class="headerlink" href="#neonatal-encephalopathy" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Born at or beyond 35 weeks</p></li>
+<li><p>Manifested by a subnormal level of consciousness or seizures, and often accompanied by difficulty with initiating and maintaining respiration and depression of tone and reflexes.</p></li>
+<li><p>Attributing cause to hypoxia ischaemia: ‘In confirmed cases of neonatal encephalopathy, the following assessment will determine the likelihood that an acute peripartum or intrapartum event was a contributor. This list is based on the premise that neonatal encephalopathy that is due to acute hypoxia–ischemia will be accompanied by abnormal neonatal signs and be associated with contributing events in close temporal proximity to labor and delivery. The goal of the assessment is to compile a constellation of markers concerning neonatal status, contributing events, and developmental outcome to determine if they are consistent with acute hypoxia–ischemia and may not be explained by other etiologies. Thus, <strong>when more of the elements from each of the item categories are met, it becomes increasingly more likely that peripartum or intrapartum hypoxia–ischemia played a role in the pathogenesis of neonatal encephalopathy</strong>.’</p></li>
+</ul>
+<p><a class="reference external" href="https://doi.org/10.1097/01.AOG.0000445580.65983.d2">[American College of Obstetricians and Gynecologists’ Task Force on Neonatal Encephalopathy 2014]</a></p>
+</section>
+<section id="neonatal-signs-consistent-with-hypoxia-ischaemia">
+<h4>Neonatal signs consistent with hypoxia-ischaemia<a class="headerlink" href="#neonatal-signs-consistent-with-hypoxia-ischaemia" title="Link to this heading">#</a></h4>
 <ol class="arabic simple">
-<li><p>The presence of a <strong>sentinel hypoxic or ischemic event</strong> occurring immediately before, during or after birth - e.g. a rupture uterus, severe abruption placentae, or fetal heart rate monitor patterns consistent with an acute peripartum or intrapartum event</p></li>
-<li><p>The presence of <strong>fetal acidosis</strong> ((pH &lt; 7.0 or base deficit ≥12 mmol/L)) and <strong>low Apgar</strong> scores (Apgar score &lt;5 at 5 and 10 min)</p></li>
-<li><p>Evidence of <strong>multiple organ dysfunction</strong> affecting the heart, liver, or kidneys</p></li>
-<li><p><strong>Neuroimaging evidence</strong> of acute brain injury with MRI or magnetic resonance spectroscopy, (a) consistent with hypoxia ischaemia and excluding other causes, and (b) consistent with acute peripartum or intrapartum event (i.e. timing)<a class="reference external" href="https://doi.org/10.1038/s41390-019-0547-9">[Chalak et al. 2019]</a> <a class="reference external" href="https://doi.org/10.1038/s41390-023-02775-z">[DEFiNE - Molloy et al. 2023]</a></p></li>
+<li><p><strong>Apgar-5 and Apgar-10 less than 5</strong> (and unlikely if Apgar-5 greater than or equal to 7)</p></li>
+<li><p><strong>Fetal umbilical artery pH less than 7 and/or base deficit greater than or equal to 12 mmol/L</strong> (and unlikely if pH &gt;7.20)</p></li>
+<li><p><strong>Neuroimaging evidence</strong> of acute brain injury with MRI or magnetic resonance spectroscopy, consistent with hypoxia ischaemia</p></li>
+<li><p><strong>Multiple organ dysfunction</strong></p></li>
 </ol>
+<p><a class="reference external" href="https://doi.org/10.1097/01.AOG.0000445580.65983.d2">[American College of Obstetricians and Gynecologists’ Task Force on Neonatal Encephalopathy 2014]</a></p>
+</section>
+<section id="type-and-timing-of-contributing-factors-that-are-consistent-with-hypoxia-ischaemia">
+<h4>Type and timing of contributing factors that are consistent with hypoxia-ischaemia<a class="headerlink" href="#type-and-timing-of-contributing-factors-that-are-consistent-with-hypoxia-ischaemia" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Sential <strong>hypoxic or ischaemic event</strong> just before or during labour and delivery (A ruptured uterus Severe abruptio placentae Umbilical cord prolapse Amniotic fluid embolus with coincident severe and prolonged maternal hypotension and hypoxemia Maternal cardiovascular collapse Fetal exsanguination from either vasa previa or massive fetomaternal hemorrhage)</p></li>
+<li><p><strong>Fetal heart rate (FHR)</strong> patterns consistent with hypoxia ischaemia - (a) category II fetal heart rate pattern lasting 60 minutes or more that was identified on initial presentation with persistently minimal or absent variability and lacking accelerations, even in the absence of decelerations (b) Category I fetal heart rate pattern that converts to Category III (c) Additional fetal heart rate patterns that develop after a Category I fetal heart rate pattern on presentation, which may suggest intrapartum timing of a hypoxic–ischemic event, include tachycardia with recurrent decelerations and persistent minimal variability with recurrent decelerations</p></li>
+<li><p><strong>Neuroimaging evidence</strong> on timing and type of brain injury patterns - e.g. there are several well-defined patterns of brain injury and their evolution on MRI that are typical of hypoxic–ischemic cerebral injury in the newborn, including deep nuclear gray matter or watershed cortical injury. If a different pattern of brain injury or evolution of injury exists on MRI, then alternative diagnoses should be actively pursued (eg, metabolic and genetic investigations).</p></li>
+<li><p><strong>No evidence</strong> of other proximal or distal factors that could be contributing - in the presence of other significant risk factors—such as abnormal fetal growth, maternal infection, fetomaternal hemorrhage, neonatal sepsis, and chronic placental lesions—an acute intrapartum event as the sole underlying pathogenesis of neonatal encephalopathy becomes much less likely.</p></li>
+<li><p><strong>Spastic Quadriplegia or Dyskinetic Cerebral Palsy</strong> - other subtypes of cerebral palsy are less likely to be associated with acute intrapartum hypoxic–ischemic events - and other developmental abnormalities may occur, but they are not specific to acute intrapartum hypoxic–ischemic encephalopathy and may arise from a variety of other causes</p></li>
+</ol>
+<p><a class="reference external" href="https://doi.org/10.1097/01.AOG.0000445580.65983.d2">[American College of Obstetricians and Gynecologists’ Task Force on Neonatal Encephalopathy 2014]</a></p>
+</section>
+<section id="caveat">
+<h4>Caveat<a class="headerlink" href="#caveat" title="Link to this heading">#</a></h4>
 <p>This definition may exclude some cases of HIE due to factors like:</p>
 <ul class="simple">
 <li><p>Milder acidosis</p></li>
@@ -664,21 +699,6 @@ document.write(`
 <li><p>Incomplete data collection<a class="reference external" href="https://doi.org/10.1038/s41390-023-02775-z">[DEFiNE - Molloy et al. 2023]</a></p></li>
 </ul>
 </section>
-<section id="establishing-causal-relationship-with-cerebral-palsy-from-the-american-congress-of-obstetricians-and-gynecologists-task-force-on-neonatal-encephalopathy-and-cerebral-palsy">
-<h3>Establishing causal relationship with cerebral palsy from the American Congress of Obstetricians and Gynecologists Task Force on Neonatal Encephalopathy and Cerebral Palsy<a class="headerlink" href="#establishing-causal-relationship-with-cerebral-palsy-from-the-american-congress-of-obstetricians-and-gynecologists-task-force-on-neonatal-encephalopathy-and-cerebral-palsy" title="Link to this heading">#</a></h3>
-<p>In order to establish a <strong>causal relationship</strong> between an acute intrapartum interruption of placental blood flow and later cerebral palsy, the American Congress of Obstetricians and Gynecologists Task Force on Neonatal Encephalopathy and Cerebral Palsy require:</p>
-<ol class="arabic simple">
-<li><p>Evidence of <strong>metabolic acidosis</strong> in fetal umbilical cord arterial blood obtained at delivery</p></li>
-<li><p><strong>Early onset of NE</strong></p></li>
-<li><p><strong>Spastic quadriplegia or dyskinetic</strong> type of cerebral palsy</p></li>
-<li><p><strong>Exclusion</strong> of other identifiable etiologies such as trauma, coagulation disorders, infectious conditions, or genetic disorders<a class="reference external" href="https://doi.org/10.1038/s41390-019-0547-9">[Chalak et al. 2019]</a></p></li>
-</ol>
-</section>
-<section id="initial-diagnosis-of-ne-and-then-hie">
-<h3>Initial diagnosis of NE and then HIE<a class="headerlink" href="#initial-diagnosis-of-ne-and-then-hie" title="Link to this heading">#</a></h3>
-<p>‘It is difficult to prove the presence of cerebral hypoxic ischemia with the exception of well characterized animal models and particular cases of neonatal stroke.’
-<a class="reference external" href="https://doi.org/10.1038/s41390-018-0169-7">[Molloy and Bearer 2018]</a></p>
-<p>‘As such, many prominent bodies, including the American Academy of Pediatrics and the British Association of Perinatal Medicine (BAPM), advocate for using NE until the exact aetiology is determined.’<a class="reference external" href="https://doi.org/10.1038/s41390-023-02938-y">[COHESION - Quirke et al. 2013]</a> This means that using descriptive terminology like NE is preferable in the newborn period, before workup and course are known, rather than an etiology-based definition like HIE, which implies a single known etiology.<a class="reference external" href="https://doi.org/10.1038/s41390-023-02775-z">[DEFiNE - Molloy et al. 2023]</a> Clinical categorization, such as NE caused by sepsis, genetic causes, stroke, or those with a multifocal origin is required to ensure targeted management where possible for non-HIE causes.<a class="reference external" href="https://doi.org/10.1038/s41390-023-02775-z">[DEFiNE - Molloy et al. 2023]</a></p>
 </section>
 <section id="the-define-group">
 <h3>The DEFiNE group<a class="headerlink" href="#the-define-group" title="Link to this heading">#</a></h3>
@@ -759,16 +779,23 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnosing-hie">Diagnosing HIE</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1-identifying-cause">Challenge 1: Identifying cause</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1-identifying-cause">Challenge 1: Identifying cause</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-diagnosis-of-ne">Initial diagnosis of NE</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-2-terminology">Challenge 2: Terminology</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importance">Importance</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommendations-and-precedent-for-diagnosing-identifying-hie">Recommendations and precedent for diagnosing/identifying HIE</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neonatal-data-analysis-unit-and-the-department-of-health">Neonatal Data Analysis Unit and the Department of Health</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-hie-from-the-american-colleges-of-obstetrics-gynecology-and-pediatrics-acog-aap-task-force">Definition of HIE from the American Colleges of Obstetrics, Gynecology, and Pediatrics (ACOG-AAP) Task Force</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#establishing-causal-relationship-with-cerebral-palsy-from-the-american-congress-of-obstetricians-and-gynecologists-task-force-on-neonatal-encephalopathy-and-cerebral-palsy">Establishing causal relationship with cerebral palsy from the American Congress of Obstetricians and Gynecologists Task Force on Neonatal Encephalopathy and Cerebral Palsy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-diagnosis-of-ne-and-then-hie">Initial diagnosis of NE and then HIE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-hie-from-the-american-college-of-obstetrics-gynecology-and-pediatrics-acog-aap-task-force">Definition of HIE from the American College of Obstetrics, Gynecology, and Pediatrics (ACOG-AAP) Task Force</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#neonatal-encephalopathy">Neonatal encephalopathy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#neonatal-signs-consistent-with-hypoxia-ischaemia">Neonatal signs consistent with hypoxia-ischaemia</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#type-and-timing-of-contributing-factors-that-are-consistent-with-hypoxia-ischaemia">Type and timing of contributing factors that are consistent with hypoxia-ischaemia</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#caveat">Caveat</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-define-group">The DEFiNE group</a></li>
 </ul>
 </li>

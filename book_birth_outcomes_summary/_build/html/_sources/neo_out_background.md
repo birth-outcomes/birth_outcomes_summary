@@ -8,24 +8,20 @@
 * Causes include hypoxia-ischemia, stroke, infection, intracranial hemorrhage, congenital anomalies, neurometabolic and genetic factors. NE can have a single or multiple causes.
 * Approximately 1 to 6 per 1000 term births have NE. In more than half, the cause is unknown. The most common cause is hypoxia ischaemia (referred to as hypoxic-ischemic encephalopathy).
 
-**Hypoxic ischaemic encephalopathy (HIE)**: Our challenge is that there has not been a clear, consistent consensus definition for HIE and NE. The terms have often been used interchangeably (despite HIE actually being a sub-type of NE). Recent recommendations for defining (and thereby identifying/diagnosing/distinguishing HIE) are:
-* Neonatal Data Analysis Unit:
+**Hypoxic ischaemic encephalopathy (HIE)**: Our challenge is that there has not been a clear, consistent consensus definition for HIE and NE. The terms have often been used interchangeably (despite HIE actually being a sub-type of NE). The current recommendation is to first diagnose NE, and only diagnose HIE on the basis of sufficient evidence. Recent recommendations for defining (and thereby identifying/diagnosing/distinguishing HIE) are:
+* Neonatal Data Analysis Unit (required one of):
     * **Diagnostic code for NE or HIE Diagnosis of NE or HIE (severe, moderate, grade 2 or grade 3)**
     * **OR Therapeutic hypothermia for 2 or more consecutive days**
-* ACOG-AAP task force:
-    * **Presence of sentinel hypoxic or ischaemic event**
-    * **Presence of fetal acidosis and low Apgar**
-    * **Evidence of multiple organ dysfunction**
+* ACOG-AAP task force (more likely HIE with more of these factors):
+    * **Apgar-5 and Apgar-10 < 5**
+    * **Umbilical artery pH <7 and/or base deficit >= 12mmol/L** 
+    * **Multiple organ dysfunction**
     * **Neuroimaging evidence**
+    * **Presence of sentinel hypoxic or ischaemic event**
+    * **Abnormal FHR**
+    * **Spastic Quadriplegia or Dyskinetic Cerebral Palsy**
+    * **Other causes ruled out**
 * DEFiNE group - research ongoing to establish consensus definition for NE
-
-The current recommendation is to first diagnose NE, and only diagnose HIE on the basis of sufficient evidence.
-
-A task force hoping to define when you can establish a causal relationship with cerebral palsy required:
-* **Metabolic acidosis** in blood gas analysis
-* **Early onset** of NE
-* **Spastic quadriplegia or dyskinetic type of cerebral palsy**
-* **Exclusion of other etiologies** like trauma, coagulation disorders, infectious conditions, or genetic disorders
 `````
 
 ## Neonatal encephalopathy (NE)
@@ -112,6 +108,12 @@ Diagnosis of HIE or asphyxia is often over-utilised in practice and not clinical
 
 For HIE, it is also **difficult to quantify the dose, duration and severity** of hypoxia ischaemia. However, it is also important that a consensus definition is reached for mild HE, which has been variably defined. This is particular as the risk/benefit of providing therapeutic hypothermia to mild NE is not yet well characterised and trials are required.[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z)
 
+#### Initial diagnosis of NE
+
+'It is difficult to prove the presence of cerebral hypoxic ischemia with the exception of well characterized animal models and particular cases of neonatal stroke.'
+[[Molloy and Bearer 2018]](https://doi.org/10.1038/s41390-018-0169-7) 'As such, many prominent bodies, including the American Academy of Pediatrics and the British Association of Perinatal Medicine (BAPM), advocate for using NE until the exact aetiology is determined.'[[COHESION - Quirke et al. 2013]](https://doi.org/10.1038/s41390-023-02938-y) This means that using descriptive terminology like NE is preferable in the newborn period, before workup and course are known, rather than an etiology-based definition like HIE, which implies a single known etiology.[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z) Clinical categorization, such as NE caused by sepsis, genetic causes, stroke, or those with a multifocal origin is required to ensure targeted management where possible for non-HIE causes.[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z) 
+
+
 ### Challenge 2: Terminology
 
 The definition for neonatal encephalopathy (as presented on the last page) does not **does not specify subgroups, etiology, or guide management**. This ambiguity has been criticised as hindering case definition, collaborative research, and data synthesis and confusing families and caregivers.[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z)
@@ -175,17 +177,42 @@ The decision decided upon in their consensus meeting for HIE was:
 [[Gale et al. 2017]](https://assets.publishing.service.gov.uk/media/5a82446ced915d74e6236ad3/Report_on_brain_injury_occurring_during_or_soon_after_birth.pdf)
 
 
-### Definition of HIE from the American Colleges of Obstetrics, Gynecology, and Pediatrics (ACOG-AAP) Task Force
+### Definition of HIE from the American College of Obstetrics, Gynecology, and Pediatrics (ACOG-AAP) Task Force
 
-The American Colleges of Obstetrics, Gynecology, and Pediatrics (ACOG-AAP) task force defined HIE as a **restrospectively designated diagnosis - i.e. you start with a diagnosis of NE** and then subsequency - based on accumulated evidence - subclassify it as HIE. Their recommend that a diagnosis includes:
+The American Colleges of Obstetrics, Gynecology, and Pediatrics (ACOG-AAP) task force defined HIE as a **restrospectively designated diagnosis - i.e. you start with a diagnosis of NE** and then subsequency - based on accumulated evidence - subclassify it as HIE.
 
-1. The presence of a **sentinel hypoxic or ischemic event** occurring immediately before, during or after birth - e.g. a rupture uterus, severe abruption placentae, or fetal heart rate monitor patterns consistent with an acute peripartum or intrapartum event
+They make recommendations - although recognise that 'knowledge gaps still preclude a definitive test or set of markers that accurately identifies, with high sensitivity and specificity, an infant in whom neonatal encephalopathy is attributable to an acute intrapartum event'.
 
-2. The presence of **fetal acidosis** ((pH < 7.0 or base deficit ≥12 mmol/L)) and **low Apgar** scores (Apgar score <5 at 5 and 10 min)
+Their latest recommended assessment for HIE is [[American College of Obstetricians and Gynecologists’ Task Force on Neonatal Encephalopathy 2014]](https://doi.org/10.1097/01.AOG.0000445580.65983.d2). Prior recommendations include that detailed in [[Hankins and Speet 2003]](https://doi.org/10.1016/S0029-7844(03)00574-X).
 
-3. Evidence of **multiple organ dysfunction** affecting the heart, liver, or kidneys
+#### Neonatal encephalopathy
 
-4. **Neuroimaging evidence** of acute brain injury with MRI or magnetic resonance spectroscopy, (a) consistent with hypoxia ischaemia and excluding other causes, and (b) consistent with acute peripartum or intrapartum event (i.e. timing)[[Chalak et al. 2019]](https://doi.org/10.1038/s41390-019-0547-9) [[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z)
+* Born at or beyond 35 weeks
+* Manifested by a subnormal level of consciousness or seizures, and often accompanied by difficulty with initiating and maintaining respiration and depression of tone and reflexes. 
+* Attributing cause to hypoxia ischaemia: 'In confirmed cases of neonatal encephalopathy, the following assessment will determine the likelihood that an acute peripartum or intrapartum event was a contributor. This list is based on the premise that neonatal encephalopathy that is due to acute hypoxia–ischemia will be accompanied by abnormal neonatal signs and be associated with contributing events in close temporal proximity to labor and delivery. The goal of the assessment is to compile a constellation of markers concerning neonatal status, contributing events, and developmental outcome to determine if they are consistent with acute hypoxia–ischemia and may not be explained by other etiologies. Thus, **when more of the elements from each of the item categories are met, it becomes increasingly more likely that peripartum or intrapartum hypoxia–ischemia played a role in the pathogenesis of neonatal encephalopathy**.'
+
+[[American College of Obstetricians and Gynecologists’ Task Force on Neonatal Encephalopathy 2014]](https://doi.org/10.1097/01.AOG.0000445580.65983.d2)
+
+#### Neonatal signs consistent with hypoxia-ischaemia
+
+1. **Apgar-5 and Apgar-10 less than 5** (and unlikely if Apgar-5 greater than or equal to 7)
+2. **Fetal umbilical artery pH less than 7 and/or base deficit greater than or equal to 12 mmol/L** (and unlikely if pH >7.20)
+3. **Neuroimaging evidence** of acute brain injury with MRI or magnetic resonance spectroscopy, consistent with hypoxia ischaemia
+4. **Multiple organ dysfunction**
+
+[[American College of Obstetricians and Gynecologists’ Task Force on Neonatal Encephalopathy 2014]](https://doi.org/10.1097/01.AOG.0000445580.65983.d2)
+
+#### Type and timing of contributing factors that are consistent with hypoxia-ischaemia
+
+1. Sential **hypoxic or ischaemic event** just before or during labour and delivery (A ruptured uterus Severe abruptio placentae Umbilical cord prolapse Amniotic fluid embolus with coincident severe and prolonged maternal hypotension and hypoxemia Maternal cardiovascular collapse Fetal exsanguination from either vasa previa or massive fetomaternal hemorrhage)
+2. **Fetal heart rate (FHR)** patterns consistent with hypoxia ischaemia - (a) category II fetal heart rate pattern lasting 60 minutes or more that was identified on initial presentation with persistently minimal or absent variability and lacking accelerations, even in the absence of decelerations (b) Category I fetal heart rate pattern that converts to Category III (c) Additional fetal heart rate patterns that develop after a Category I fetal heart rate pattern on presentation, which may suggest intrapartum timing of a hypoxic–ischemic event, include tachycardia with recurrent decelerations and persistent minimal variability with recurrent decelerations
+3. **Neuroimaging evidence** on timing and type of brain injury patterns - e.g. there are several well-defined patterns of brain injury and their evolution on MRI that are typical of hypoxic–ischemic cerebral injury in the newborn, including deep nuclear gray matter or watershed cortical injury. If a different pattern of brain injury or evolution of injury exists on MRI, then alternative diagnoses should be actively pursued (eg, metabolic and genetic investigations).
+4. **No evidence** of other proximal or distal factors that could be contributing - in the presence of other significant risk factors—such as abnormal fetal growth, maternal infection, fetomaternal hemorrhage, neonatal sepsis, and chronic placental lesions—an acute intrapartum event as the sole underlying pathogenesis of neonatal encephalopathy becomes much less likely.
+5. **Spastic Quadriplegia or Dyskinetic Cerebral Palsy** - other subtypes of cerebral palsy are less likely to be associated with acute intrapartum hypoxic–ischemic events - and other developmental abnormalities may occur, but they are not specific to acute intrapartum hypoxic–ischemic encephalopathy and may arise from a variety of other causes
+
+[[American College of Obstetricians and Gynecologists’ Task Force on Neonatal Encephalopathy 2014]](https://doi.org/10.1097/01.AOG.0000445580.65983.d2)
+
+#### Caveat
 
 This definition may exclude some cases of HIE due to factors like:
 * Milder acidosis
@@ -194,25 +221,6 @@ This definition may exclude some cases of HIE due to factors like:
 * Progressive, subacute evolution of HIE
 * Incomplete data, such as outcomes that do not include severe motor deficit
 * Incomplete data collection[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z)
-
-### Establishing causal relationship with cerebral palsy from the American Congress of Obstetricians and Gynecologists Task Force on Neonatal Encephalopathy and Cerebral Palsy
-
-In order to establish a **causal relationship** between an acute intrapartum interruption of placental blood flow and later cerebral palsy, the American Congress of Obstetricians and Gynecologists Task Force on Neonatal Encephalopathy and Cerebral Palsy require:
-
-1. Evidence of **metabolic acidosis** in fetal umbilical cord arterial blood obtained at delivery
-
-2. **Early onset of NE**
-
-3. **Spastic quadriplegia or dyskinetic** type of cerebral palsy
-
-4. **Exclusion** of other identifiable etiologies such as trauma, coagulation disorders, infectious conditions, or genetic disorders[[Chalak et al. 2019]](https://doi.org/10.1038/s41390-019-0547-9)
-
-### Initial diagnosis of NE and then HIE
-
-'It is difficult to prove the presence of cerebral hypoxic ischemia with the exception of well characterized animal models and particular cases of neonatal stroke.'
-[[Molloy and Bearer 2018]](https://doi.org/10.1038/s41390-018-0169-7)
-
-'As such, many prominent bodies, including the American Academy of Pediatrics and the British Association of Perinatal Medicine (BAPM), advocate for using NE until the exact aetiology is determined.'[[COHESION - Quirke et al. 2013]](https://doi.org/10.1038/s41390-023-02938-y) This means that using descriptive terminology like NE is preferable in the newborn period, before workup and course are known, rather than an etiology-based definition like HIE, which implies a single known etiology.[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z) Clinical categorization, such as NE caused by sepsis, genetic causes, stroke, or those with a multifocal origin is required to ensure targeted management where possible for non-HIE causes.[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z) 
 
 ### The DEFiNE group
 

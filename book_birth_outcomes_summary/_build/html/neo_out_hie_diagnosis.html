@@ -192,7 +192,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="neo_out_apgar.html">Apgar scores</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_nnap.html">NNAP record of encephalopathy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_meconium.html">Meconium-stained amniotic fluid</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_intubation.html">Intubation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_mri.html">MRI evidence</a></li>
@@ -426,6 +425,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sarnat-score">Sarnat score</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnosis-of-ne-in-nnap">Diagnosis of NE in NNAP</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-considerations">Other considerations</a></li>
 </ul>
             </nav>
@@ -440,6 +440,24 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="diagnostic-codes-for-hie">
 <h1>Diagnostic codes for HIE<a class="headerlink" href="#diagnostic-codes-for-hie" title="Link to this heading">#</a></h1>
+<div class="info admonition">
+<p class="admonition-title">Executive summary</p>
+<p><strong>Outcome:</strong> Diagnosis of HIE in clinical records</p>
+<p><strong>Specific to HIE?</strong></p>
+<ul class="simple">
+<li><p>For the HIE diagnosis code, yes. However, a French study found half of newborns with this code were not confirmed to have HIE from secondary datasets they linked with</p></li>
+<li><p>If using more general codes for NE, then no.</p></li>
+</ul>
+<p><strong>Which infants with HIE?</strong></p>
+<ul class="simple">
+<li><p>Those who were diagnosed (not certain on factors that make this more or less likely). However, a French study found that 37% of infants identified to have HIE in a secondary dataset were not identified in the medical records with the HIE diagnosis code.</p></li>
+</ul>
+<p><strong>Any other benefits or caveats not already mentioned?</strong></p>
+<ul class="simple">
+<li><p>NA</p></li>
+</ul>
+<p><strong>Conclusion:</strong> Potentially recommended. A French validation suggested half of infants coded with HIE were false positive, and that over a third of infants with HIE were not identified. Uncertain for English data, or for codes beyond ICD P91.6, but their findings make me cautious.</p>
+</div>
 <section id="id1">
 <h2>Diagnostic codes for HIE<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>Infants can be given a diagnosis of HIE or NE. In their project on brain injury from 2010 to 2015, the Neonatal Data Analysis Unit at Imperial use these diagnostic codes in the National Neonatal Research Dataset (NRRD) to identify HIE (or from therapeutic hypothermia). They used:</p>
@@ -506,6 +524,21 @@ document.write(`
 <li><p><strong>Stage 3 (severe)</strong>: stupor, flaccidity, small to mid position pupils that react poorly to light, decreased stretch reflexes, hypothermia and absent Moro. <a class="reference external" href="https://doi.org/10.1002%2F14651858.CD003311.pub3">[Cochrane Neonatal Group]</a></p></li>
 </ul>
 </section>
+</section>
+<section id="diagnosis-of-ne-in-nnap">
+<h2>Diagnosis of NE in NNAP<a class="headerlink" href="#diagnosis-of-ne-in-nnap" title="Link to this heading">#</a></h2>
+<p>The National Neonatal Audit Programme includes a measure of encephalopathy in babies born at 35 weeks gestational age or above, within the first three full calendar days after birth.</p>
+<p>Encephalopathy is categorised if the baby was admitted to neonatal care for at least 72 hours and the daily summaries from those 72 hours include two or more of the following neurological signs in the same daily data summary:</p>
+<ul class="simple">
+<li><p><strong>Abnormal tone</strong></p></li>
+<li><p><strong>Lethargic or comatose consciousness</strong></p></li>
+<li><p><strong>Convulsions</strong></p></li>
+</ul>
+<p>These details were captured on BadgerNet in daily summary forms (forms are created for each baby for each calendar day where they are an inpatient on a neonatal unit).</p>
+<p><a class="reference external" href="https://www.rcpch.ac.uk/sites/default/files/2019-02/NNAP%202018%20Audit%20Measures%20Guide%20v1.3%20FINAL.pdf">[source]</a></p>
+<p>In the 2019 NNAP report on data from 2018, there was 0.01% missing data. However, I imagine this assumes incompletion of tone and consciousness and convulsions means no encephalopathy, when actually it could be failure to complete record?</p>
+<p>However, NE does not appear to be in the latest NNAP Audit Measures <a class="reference external" href="https://www.rcpch.ac.uk/sites/default/files/2024-01/2024_nnap_audit_measures_guide_v1.0_0.pdf">[source]</a>.</p>
+<p>They don’t have a measure specific to HIE - this just broadly tries to identify NE based on the broad definition of NE.</p>
 </section>
 <section id="other-considerations">
 <h2>Other considerations<a class="headerlink" href="#other-considerations" title="Link to this heading">#</a></h2>
@@ -588,6 +621,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sarnat-score">Sarnat score</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnosis-of-ne-in-nnap">Diagnosis of NE in NNAP</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-considerations">Other considerations</a></li>
 </ul>
   </nav></div>

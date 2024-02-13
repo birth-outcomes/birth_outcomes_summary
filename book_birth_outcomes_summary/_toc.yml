@@ -16,7 +16,6 @@ parts:
     - file: neo_out_blood
     - file: neo_out_ctg
     - file: neo_out_apgar
-    - file: neo_out_nnap
     - file: neo_out_meconium
     - file: neo_out_intubation
     - file: neo_out_mri

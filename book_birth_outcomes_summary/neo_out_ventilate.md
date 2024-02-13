@@ -14,7 +14,7 @@
 **Any other benefits or caveats not already mentioned?**
 * NA
 
-**Conclusion:** Potentially recommended. Half to three quarters of infants with HIE will receive mechanical ventilation - although it's important to note that these figures were all from infants who were receiving therapeutic hypothermia, so it wouldn't improve on just knowing infants received therapeutic hypothermia, and doesn't inform us on overall how many infants received it. Moreover, it woun't be the only reason infants are ventilated. Therefore, this indicator might be beneficial in combination with other indicators of HIE, but alone, is not reliable.
+**Conclusion:** Potentially recommended. Half to three quarters of infants with HIE will receive mechanical ventilation - although it's important to note that these figures were all from infants who were receiving therapeutic hypothermia, so it wouldn't improve on just knowing infants received therapeutic hypothermia, and doesn't inform us on overall how many infants received it. Moreover, it woun't be the only reason infants are ventilated. Therefore, this indicator might be beneficial in combination with other indicators of HIE - or in absence of, for example, therapeutic hypothermia - but alone, is not reliable.
 `````
 
 ## Mechanical ventilation

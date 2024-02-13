@@ -1,5 +1,23 @@
 # Diagnostic codes for HIE
 
+`````{admonition} Executive summary
+:class: info
+
+**Outcome:** Diagnosis of HIE in clinical records
+
+**Specific to HIE?**
+* For the HIE diagnosis code, yes. However, a French study found half of newborns with this code were not confirmed to have HIE from secondary datasets they linked with
+* If using more general codes for NE, then no.
+
+**Which infants with HIE?**
+* Those who were diagnosed (not certain on factors that make this more or less likely). However, a French study found that 37% of infants identified to have HIE in a secondary dataset were not identified in the medical records with the HIE diagnosis code.
+
+**Any other benefits or caveats not already mentioned?**
+* NA
+
+**Conclusion:** Potentially recommended. A French validation suggested half of infants coded with HIE were false positive, and that over a third of infants with HIE were not identified. Uncertain for English data, or for codes beyond ICD P91.6, but their findings make me cautious.
+`````
+
 ## Diagnostic codes for HIE
 
 Infants can be given a diagnosis of HIE or NE. In their project on brain injury from 2010 to 2015, the Neonatal Data Analysis Unit at Imperial use these diagnostic codes in the National Neonatal Research Dataset (NRRD) to identify HIE (or from therapeutic hypothermia). They used:
@@ -60,6 +78,25 @@ The use of sarnat staging for HIE was:
 * **Stage 1 (mild)**: hyperalertness, hyper‐reflexia, dilated pupils, tachycardia, absence of seizures;
 * **Stage 2 (moderate)**: lethargy, hyper‐reflexia, miosis, bradycardia, seizures, hypotonia with weak suck and Moro;
 * **Stage 3 (severe)**: stupor, flaccidity, small to mid position pupils that react poorly to light, decreased stretch reflexes, hypothermia and absent Moro. [[Cochrane Neonatal Group]](https://doi.org/10.1002%2F14651858.CD003311.pub3)
+
+## Diagnosis of NE in NNAP
+
+The National Neonatal Audit Programme includes a measure of encephalopathy in babies born at 35 weeks gestational age or above, within the first three full calendar days after birth.
+
+Encephalopathy is categorised if the baby was admitted to neonatal care for at least 72 hours and the daily summaries from those 72 hours include two or more of the following neurological signs in the same daily data summary:
+* **Abnormal tone**
+* **Lethargic or comatose consciousness**
+* **Convulsions**
+
+These details were captured on BadgerNet in daily summary forms (forms are created for each baby for each calendar day where they are an inpatient on a neonatal unit).
+
+[[source]](https://www.rcpch.ac.uk/sites/default/files/2019-02/NNAP%202018%20Audit%20Measures%20Guide%20v1.3%20FINAL.pdf)
+
+In the 2019 NNAP report on data from 2018, there was 0.01% missing data. However, I imagine this assumes incompletion of tone and consciousness and convulsions means no encephalopathy, when actually it could be failure to complete record?
+
+However, NE does not appear to be in the latest NNAP Audit Measures [[source]](https://www.rcpch.ac.uk/sites/default/files/2024-01/2024_nnap_audit_measures_guide_v1.0_0.pdf).
+
+They don't have a measure specific to HIE - this just broadly tries to identify NE based on the broad definition of NE.
 
 ## Other considerations
 
