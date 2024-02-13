@@ -1,5 +1,13 @@
 # Challenge 1: Identifying the type of NE - in particular, hypoxic ischaemic encephalopathy (HIE)
 
+`````{admonition} Executive summary
+:class: info
+
+* The terms "NE" and "HIE" have often been used interchangeably, but HIE is a sub-group of NE. This is in part due to ambiguous and varied definitions used, without a clear consensus.
+* There are concerns that a diagnosis of HIE is over-utilised and given on insufficient evidence. It is recommended that clinicians start with a diagnosis of NE, and only classify it as HIE once they have sufficient evidence. An American task force state this evidence to be (a) hypoxic ischaemic event during birth, (b) fetal acidosis and low Apgar, (c) multiple organ dysfunction, and (d) neuroimaging evidence
+* The DEFiNE group is an ongoing collaborative study to establish a consensus definition for NE, classifying subgroups and their diagnostic criteria.
+`````
+
 ## What are the challenges in identifying the cause of NE?
 
 Diagnosis of HIE or asphyxia is often over-utilised in practice and not clinically justified by the limited data at birth.[[Chalak et al. 2019]](https://doi.org/10.1038/s41390-019-0547-9)
@@ -28,13 +36,56 @@ An early diagnosis is also crucial - as, for example, treatment with therapeutic
 
 ## Recommendations
 
+### Neonatal Data Analysis Unit and the Department of Health
+
+The Department of Health commissioned the Neonatal Data Analysis Unit (NDAU) at Imperial College London to extract data from the National Neonatal Research Database (NNRD) and to calculate annual rates for Brain injuries occurring during or soon after birth for England from 2010 to 2015. As part of this work, they had to develop a definition and methodology for identifying brain injury. The working definition is copied below (as well as on the prior page about definitions of NE & HIE).
+
+This group definied **brain injuries occurring during or soon after birth** as followed:
+* Population - all babies admitted to a neonatal unit
+* Time period after birth - all brain injuries detected during neonatal unit stay
+* Conditions included -
+    - **Signs** consistent with **neonatal encephalopathy** in term or near term infants (**altered tone, altered consciousness, seizures**)
+    - **Diagnosis** of intracranial haemorrhage, perinatal stroke, hypoxic ischaemic encephalopathy (HIE), central nervous system infection, or kernicterus (bilirubin encephalopathy) in any infants
+    - Preterm white matter disease (periventricular leukomalacia) in pre-term infants
+* Denominator - all live births
+* Exclusions - congenital encephalopathies (including inborn errors of metabolism), congenital infections, and congenital brain abnormalities
+
+However, they found that data on signs of NE were not consistent over time - the fields used to define "altered tone" and "altered consciousness" only began from October 2010 onwards. Therefore, for this project, they dropped those and just looked for "seizures".
+
+#### Focus on HIE definition
+
+In the briefing paper circulated before their meeting, they note that the current definition used by Each Baby Counts (Royal College of Obstetricians and Gynaecologists national quality improvement programme) is:
+* Greater than or equal to 37 weeks gestation at birth
+* Any of the following diagnosis codes entered into Diagnosis at discharge field:
+    * Severe Hypoxic Ischaemic Encephalopathy (HIE)
+    * Severe Neonatal Encephalopathy
+    * Grade 3 Hypoxic Ischaemic Encephalopathy (HIE)
+* OR meet one of the following criteria from daily variables, within first 7 days:
+    * Decreased central tone and comatose and seizures
+    * Received therapeutic hypothermia (cooling)
+    * Receiving diagnosis (daily data variable) of severe (grade 3) Hypoxic Ischaemic Encephalopathy (HIE)
+
+They note that defining HIE by treatment means:
+* It will include infants who do not develop detectable brain injury
+* It may discourage use of treatment in borderline cases
+
+In the briefing paper, they offer some options of definitions to be considered, for HIE these were:
+* Daily variables observed within first 72 hours, and therapeutic hypothermia needs to be received for 3 consecutive days
+
+The decision decided upon in their consensus meeting for HIE was:
+* **Diagnosis of NE or HIE (severe, moderate, grade 2 or grade 3)**
+* **Therapeutic hypothermia for 2 or more consecutive days**
+
+[[Gale et al. 2017]](https://assets.publishing.service.gov.uk/media/5a82446ced915d74e6236ad3/Report_on_brain_injury_occurring_during_or_soon_after_birth.pdf)
+
+
 ### Definition of HIE from the American Colleges of Obstetrics, Gynecology, and Pediatrics (ACOG-AAP) Task Force
 
 The American Colleges of Obstetrics, Gynecology, and Pediatrics (ACOG-AAP) task force defined HIE as a **restrospectively designated diagnosis - i.e. you start with a diagnosis of NE** and then subsequency - based on accumulated evidence - subclassify it as HIE. Their recommend that a diagnosis includes:
 
 1. The presence of a **sentinel hypoxic or ischemic event** occurring immediately before, during or after birth - e.g. a rupture uterus, severe abruption placentae, or fetal heart rate monitor patterns consistent with an acute peripartum or intrapartum event
 
-2. The presence of **fetal acidosis** ((pH < 7.0 or base deficit ≥12 mmol/L)) **low Apgar** scores (Apgar score <5 at 5 and 10 min)
+2. The presence of **fetal acidosis** ((pH < 7.0 or base deficit ≥12 mmol/L)) and **low Apgar** scores (Apgar score <5 at 5 and 10 min)
 
 3. Evidence of **multiple organ dysfunction** affecting the heart, liver, or kidneys
 

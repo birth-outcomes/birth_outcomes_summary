@@ -9,14 +9,14 @@ parts:
     - file: neo_out_enceph_diagnosis
     - file: neo_out_enceph_treatment_outcomes
     - file: neo_out_hie
-    - file: neo_out_chorio
   - caption: Indicators of HIE
     chapters:
     - file: neo_out_summary
-    - file: neo_out_care
     - file: neo_out_cooling
+    - file: neo_out_care
     - file: neo_out_ventilate
     - file: neo_out_resus
+    - file: neo_out_hie_diagnosis
     - file: neo_out_cp
     - file: neo_out_blood
     - file: neo_out_ctg
@@ -37,8 +37,9 @@ parts:
     chapters:
     - file: stages
     - file: interventions
-  - caption: Appendices - very incomplete/tbc
+  - caption: Appendices - archived or tbc
     chapters:
+    - file: neo_out_chorio
     - file: fetal_risk_factors
     - file: cardiotocography
     - file: parental_outcomes

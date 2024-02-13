@@ -22,6 +22,8 @@ In 2016, the seventh edition of the NRP guidelines stopped recommending 'routine
 
 We understand that now intubation and suctioning is only used if you are actively resuscitating and unable to move the chest.
 
+'Most infants adapt well to extra-uterine life but some require help with stabilisation, or resuscitation. Up to 85% breathe spontaneously without intervention; a further 10% respond after drying, stimulation and airway opening manoeuvres; approximately 5% receive positive pressure ventilation. **Intubation rates vary between 0.4 and 2%**. Fewer than 0.3% of infants receive chest compressions and only 0.05% receive adrenaline.'[[source]](https://www.resus.org.uk/library/2021-resuscitation-guidelines/newborn-resuscitation-and-support-transition-infants-birth)
+
 ## Suitability as a model outcome
 
 Using intubation as an indicator for meconium at delivery would not be a viable outcome as newborns are no longer intubated for this. In historical data, you would see a shift from it being used to not.

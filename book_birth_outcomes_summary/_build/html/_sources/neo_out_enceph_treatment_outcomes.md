@@ -1,5 +1,12 @@
 # Challenge 2: Outcomes for trials
 
+`````{admonition} Executive summary
+:class: info
+
+* Trials of NE have not used consistent outcome measures
+* The Cohesion group was a collaborative study that defined a core outcome set for trials of NE treatments - these were (a) survival, (b) brain injury on imaging, (c) neurological status at discharge, (d) cerebral palsy, (e) general cognitive ability, (f) quality of life of the child, and (g) adverse events
+`````
+
 ## What is the problem?
 
 'A significant obstacle in determining the effectiveness of new treatments for neonatal encephalopathy is the lack of standardisation in the outcomes measured and reported in randomised trials.' 'This heterogeneity in outcome reporting can be minimised by developing a core outcome set (COS). A COS is an agreed standardised set of outcomes that should be measured and reported as a minimum in all studies related to a particular health condition. Other outcomes may be measured and reported by trialists, but the COS is the minimum number of outcomes that should be measured and reported in all studies.'[[COHESION - Quirke et al. 2013]](https://doi.org/10.1038/s41390-023-02938-y)

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Death &#8212; Birth Outcomes</title>
+    <title>Diagnostic codes for HIE &#8212; Birth Outcomes</title>
   
   
   
@@ -65,11 +65,11 @@ const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'neo_out_death';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'neo_out_hie_diagnosis';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Treatment Paradox" href="design_treat_paradox.html" />
-    <link rel="prev" title="MRI showing basal ganglia damage" href="neo_out_mri.html" />
+    <link rel="next" title="Cerebral palsy" href="neo_out_cp.html" />
+    <link rel="prev" title="Neonatal resuscitation" href="neo_out_resus.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -192,7 +192,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="neo_out_care.html">Transfer to neonatal care services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ventilate.html">Mechanical ventilation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_resus.html">Neonatal resuscitation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_hie_diagnosis.html">Diagnostic codes for HIE</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Diagnostic codes for HIE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_cp.html">Cerebral palsy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_blood.html">Umbilical cord blood gas analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
@@ -202,7 +202,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="neo_out_meconium.html">Meconium-stained amniotic fluid</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_intubation.html">Intubation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_mri.html">MRI showing basal ganglia damage</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Death</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_death.html">Death</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design</span></p>
 <ul class="nav bd-sidenav">
@@ -296,7 +296,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fneo_out_death.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fneo_out_hie_diagnosis.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -326,7 +326,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/neo_out_death.md" target="_blank"
+      <li><a href="_sources/neo_out_hie_diagnosis.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -410,7 +410,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Death</h1>
+    <h1>Diagnostic codes for HIE</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,9 +420,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#causes-of-perinatal-morality">Causes of perinatal morality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#association-between-hie-and-death">Association between HIE and death</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suitability-as-a-model-outcome">Suitability as a model outcome</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Diagnostic codes for HIE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#icd-10-codes-for-hie">ICD-10 codes for HIE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snomed-ct-codes-for-hie">SNOMED CT codes for HIE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-of-diagnostic-codes-for-hie">Validation of diagnostic codes for HIE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grades-of-hie">Grades of HIE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grades-on-nhs-records">Grades on NHS records</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sarnat-score">Sarnat score</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-considerations">Other considerations</a></li>
 </ul>
             </nav>
         </div>
@@ -434,45 +443,78 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="death">
-<h1>Death<a class="headerlink" href="#death" title="Link to this heading">#</a></h1>
-<section id="causes-of-perinatal-morality">
-<h2>Causes of perinatal morality<a class="headerlink" href="#causes-of-perinatal-morality" title="Link to this heading">#</a></h2>
-<p>The MBRRACE-UK Perinatal Mortality Surveillance Report on UK perinatal deaths for births in the UK in 2021 provides extensive information on the causes of perinatal death.</p>
-<p>Causes of stillbirths:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="diagnostic-codes-for-hie">
+<h1>Diagnostic codes for HIE<a class="headerlink" href="#diagnostic-codes-for-hie" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>Diagnostic codes for HIE<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Infants can be given a diagnosis of HIE or NE. In their project on brain injury from 2010 to 2015, the Neonatal Data Analysis Unit at Imperial use these diagnostic codes in the National Neonatal Research Dataset (NRRD) to identify HIE (or from therapeutic hypothermia). They used:</p>
 <ul class="simple">
-<li><p>33.2% placental causes</p></li>
-<li><p>9.3% due to congenital anomalies</p></li>
-<li><p>4.7% cord-related causes</p></li>
-<li><p>4.5% due to infection</p></li>
-<li><p>33.3% unknown cause</p></li>
+<li><p>Severe Hypoxic Ischaemic Encephalopathy (HIE)</p></li>
+<li><p>Severe Neonatal Encephalopathy</p></li>
+<li><p>Grade 3 Hypoxic Ischaemic Encephalopathy (HIE)</p></li>
+<li><p>Moderate Hypoxic Ischaemic Encephalopathy (HIE)</p></li>
+<li><p>Moderate Neonatal Encephalopathy</p></li>
+<li><p>Grade 2 Hypoxic Ischaemic Encephalopathy (HIE)</p></li>
 </ul>
-<p>Causes of neonatal deaths:</p>
+<p><a class="reference external" href="https://assets.publishing.service.gov.uk/media/5a82446ced915d74e6236ad3/Report_on_brain_injury_occurring_during_or_soon_after_birth.pdf">[Gale et al. 2017]</a></p>
+<p>These diagnoses were from any Diagnosis field. The NRRD has patient diagnoses at admission to neonatal critical care, at discharge from neonatal care, and in neonatal critical care daily care data. These diagnoses are either <strong>ICD</strong> or <strong>SNOMED CT</strong>.<a class="reference external" href="https://www.datadictionary.nhs.uk/data_sets/clinical_data_sets/national_neonatal_data_set/national_neonatal_data_set_-_episodic_and_daily_care.html">[source]</a></p>
+<section id="icd-10-codes-for-hie">
+<h3>ICD-10 codes for HIE<a class="headerlink" href="#icd-10-codes-for-hie" title="Link to this heading">#</a></h3>
+<p>P91.6 - Hypoxic ischaemic encephalopathy of a newborn</p>
+<p>P21 - Birth asphyxia</p>
 <ul class="simple">
-<li><p>32.6% due to congenital anomalies</p></li>
-<li><p>14.2% due to extreme prematurity</p></li>
-<li><p>14.0% due to neurological causes</p></li>
-<li><p>9% due to cardio-respiratory causes</p></li>
-<li><p>7.7% due to infection</p></li>
-<li><p>Neonatal deaths attributed to intrapartum causes remain low at 2.2% (a rate of 0.04 per 1,000 live births in 2021). However, an additional 11.1% of neonatal deaths of babies born from 32 weeks’ gestational age (0.18 per 1,000 live births) were attributed to Hypoxic Ischemic Encephalopathy (HIE), a type of brain injury caused by lack of oxygen to the baby’s brain around the time of birth.</p></li>
+<li><p>P21.0 - Severe birth asphyxia - Pulse less than 100 per minute at birth and falling or steady, respiration absent or gasping, colour poor, tone absent; Asphyxia with 1-minute Apgar score 0-3; White asphyxia</p></li>
+<li><p>P21.1 - Mild and moderate birth asphyxia - Normal respiration not established within one minute, but heart rate 100 or above, some muscle tone present, some response to stimulation; Asphyxia with 1-minute Apgar score 4-7; Blue asphyxia</p></li>
+<li><p>P21.9 - Birth asphyxia, unspecified</p></li>
 </ul>
-<p><a class="reference external" href="https://timms.le.ac.uk/mbrrace-uk-perinatal-mortality/surveillance/#causes-of-death">[MBRRACE-UK]</a></p>
+<p><a class="reference external" href="https://icd.who.int/browse10/2019/en">[source]</a></p>
 </section>
-<section id="association-between-hie-and-death">
-<h2>Association between HIE and death<a class="headerlink" href="#association-between-hie-and-death" title="Link to this heading">#</a></h2>
-<p>Not all infants with HIE will die. In the US, the overall mortality rate of HIE is 15% to 25% with 40% to 50% of survivors developing long-term neurologic disabilities.<a class="reference external" href="https://doi.org/10.1016/j.ajog.2022.06.002">[Acun et al. 2022]</a></p>
-</section>
-<section id="suitability-as-a-model-outcome">
-<h2>Suitability as a model outcome<a class="headerlink" href="#suitability-as-a-model-outcome" title="Link to this heading">#</a></h2>
-<p>Cons:</p>
+<section id="snomed-ct-codes-for-hie">
+<h3>SNOMED CT codes for HIE<a class="headerlink" href="#snomed-ct-codes-for-hie" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Variety of reasons for neonatal death, won’t all be preventable, relatively small proportion due to HIE</p></li>
-<li><p>Not all neonates who experience HIE will die</p></li>
+<li><p>Hypoxic-ischemic coma</p></li>
+<li><p>Fetal hypoxia</p></li>
+<li><p>Hypoxia of brain</p></li>
+<li><p>Perinatal hypoxia</p></li>
 </ul>
-<div class="error admonition">
-<p class="admonition-title">Unsuitable</p>
-<p>Too broad. Unless we know cause of death - and, in which case, particular causes would be the marker</p>
-</div>
+</section>
+</section>
+<section id="validation-of-diagnostic-codes-for-hie">
+<h2>Validation of diagnostic codes for HIE<a class="headerlink" href="#validation-of-diagnostic-codes-for-hie" title="Link to this heading">#</a></h2>
+<p>A French study aimed to validate ICD-10 codes for moderate to severe HIE in hospital discharge databases through linkage of those data to a national population-based cohort of newborns with moderate and severe HIE. They found that:</p>
+<ul class="simple">
+<li><p>67% of HIE cases were identified using the diagnostic code (P91.6)</p></li>
+<li><p>Half of the newborns encoded with P91.6 were not confirmed HIE</p></li>
+</ul>
+<p>They state that this was consistent with previous validation studies showing poor performance of diagnosis codes for identifying newborn morbidities in healthcare administrative databases.<a class="reference external" href="https://doi.org/10.1016/j.jpeds.2024.113950">[Ego et al. 2024]</a></p>
+</section>
+<section id="grades-of-hie">
+<h2>Grades of HIE<a class="headerlink" href="#grades-of-hie" title="Link to this heading">#</a></h2>
+<section id="grades-on-nhs-records">
+<h3>Grades on NHS records<a class="headerlink" href="#grades-on-nhs-records" title="Link to this heading">#</a></h3>
+<p>NHS records can include a grade indicating the observed level of HIE - these are:</p>
+<ul class="simple">
+<li><p>None (code 0)</p></li>
+<li><p>Mild (code 1)</p></li>
+<li><p>Moderate (code 2)</p></li>
+<li><p>Severe (code 3)<a class="reference external" href="https://www.datadictionary.nhs.uk/attributes/hypoxic_ischemic_encephalopathy_grade.html">[source]</a></p></li>
+</ul>
+<p>I’m not certain what the criteria for these grades are, and whether they might be to do with the Sarnat score or not…</p>
+</section>
+<section id="sarnat-score">
+<h3>Sarnat score<a class="headerlink" href="#sarnat-score" title="Link to this heading">#</a></h3>
+<p>In 1976, Sarnat and Sarnat published a study that included a ‘staging system for the sequential evolution of clinical signs and EEG changes was intended to facilitate formulation of prognosis for neurologic outcome.’ ‘Modifications of the Sarnat Scoring System have been employed in the major trials of therapeutic hypothermia for neonatal hypoxic-ischemic encephalopathy (HIE) to identify neonates at highest risk for abnormal neurodevelopmental outcome’.<a class="reference external" href="https://doi.org/10.1038%2Fs41390-020-01143-5">[Mrelashvili et al. 2020]</a></p>
+<p>The use of sarnat staging for HIE was:</p>
+<ul class="simple">
+<li><p><strong>Stage 1 (mild)</strong>: hyperalertness, hyper‐reflexia, dilated pupils, tachycardia, absence of seizures;</p></li>
+<li><p><strong>Stage 2 (moderate)</strong>: lethargy, hyper‐reflexia, miosis, bradycardia, seizures, hypotonia with weak suck and Moro;</p></li>
+<li><p><strong>Stage 3 (severe)</strong>: stupor, flaccidity, small to mid position pupils that react poorly to light, decreased stretch reflexes, hypothermia and absent Moro. <a class="reference external" href="https://doi.org/10.1002%2F14651858.CD003311.pub3">[Cochrane Neonatal Group]</a></p></li>
+</ul>
+</section>
+</section>
+<section id="other-considerations">
+<h2>Other considerations<a class="headerlink" href="#other-considerations" title="Link to this heading">#</a></h2>
+<p>Ford et al. 2007  looking at the accuracy of routinely collected hospital discharge data in Australia for identifying neonatal morbidity, and found the <strong>procedures tended to be more accurately recorded than diagnoses</strong>.<a class="reference external" href="https://doi.org/10.1186/1472-6963-7-188">[Ford et al. 2007]</a></p>
 </section>
 </section>
 
@@ -507,20 +549,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="neo_out_mri.html"
+       href="neo_out_resus.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">MRI showing basal ganglia damage</p>
+        <p class="prev-next-title">Neonatal resuscitation</p>
       </div>
     </a>
     <a class="right-next"
-       href="design_treat_paradox.html"
+       href="neo_out_cp.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Treatment Paradox</p>
+        <p class="prev-next-title">Cerebral palsy</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -540,9 +582,18 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#causes-of-perinatal-morality">Causes of perinatal morality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#association-between-hie-and-death">Association between HIE and death</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suitability-as-a-model-outcome">Suitability as a model outcome</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Diagnostic codes for HIE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#icd-10-codes-for-hie">ICD-10 codes for HIE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snomed-ct-codes-for-hie">SNOMED CT codes for HIE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-of-diagnostic-codes-for-hie">Validation of diagnostic codes for HIE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grades-of-hie">Grades of HIE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grades-on-nhs-records">Grades on NHS records</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sarnat-score">Sarnat score</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-considerations">Other considerations</a></li>
 </ul>
   </nav></div>
 

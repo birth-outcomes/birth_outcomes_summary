@@ -91,6 +91,12 @@ Signs and symptoms of HIE shortly after birth (in neonates):
 
 [[Source]](https://hiehelpcenter.org/medical/identifying-hie/sign-symptoms/)
 
+## Statistics
+
+This section is in no way comprehensive - these are just a couple of random statistics from various sources in varying cohorts:
+* 'Around 20%–50% of infants with HIE die early in infancy, and 25%–60% of surviving infants have long-term neurological disorders such as cerebral palsy, epilepsy, intellectual disability, and learning disabilities'.[[source]](https://doi.org/10.3345/cep.2020.01459)
+* In a study of mild HIE, 4.1% (17/414) infants had the composite outcome, whilst 0.9% (4786/504661) without HIE had it. Infants with mild HIE are four times as likely to be diagnosed with the composite outcome (HR 4.42, 95% CI 2.75–7.12) compared with infants without HIE (outcome was composite of cerebral palsy, epilepsy, intellectual disability and death up to 6 years of age)[[source]](https://doi.org/10.1111/1471-0528.17533)
+ 
 ## Summary diagram
 
 ````{mermaid}

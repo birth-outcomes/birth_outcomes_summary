@@ -68,8 +68,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'neo_out_summary';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Transfer to neonatal care services" href="neo_out_care.html" />
-    <link rel="prev" title="More on chorioamnionitis" href="neo_out_chorio.html" />
+    <link rel="next" title="Therapeutic hypothermia" href="neo_out_cooling.html" />
+    <link rel="prev" title="More on HIE" href="neo_out_hie.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,15 +184,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="neo_out_enceph_diagnosis.html">Challenge 1: Identifying the type of NE - in particular, hypoxic ischaemic encephalopathy (HIE)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_enceph_treatment_outcomes.html">Challenge 2: Outcomes for trials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_hie.html">More on HIE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_chorio.html">More on chorioamnionitis</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indicators of HIE</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_cooling.html">Therapeutic hypothermia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_care.html">Transfer to neonatal care services</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neo_out_cooling.html">Cooling / Moderate Hypothermia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ventilate.html">Mechanical ventilation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_resus.html">Neonatal resuscitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_hie_diagnosis.html">Diagnostic codes for HIE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_cp.html">Cerebral palsy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_blood.html">Umbilical cord blood gas analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
@@ -217,8 +217,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="stages.html">Stages of pregnancy and birth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interventions.html">Interventions during labour</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices - very incomplete/tbc</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices - archived or tbc</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="neo_out_chorio.html">More on chorioamnionitis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fetal_risk_factors.html">Fetal risk factors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cardiotocography.html">Cardiotocography</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parental_outcomes.html">Parental outcomes</a></li>
@@ -396,7 +397,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -412,6 +415,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-into-various-outcomes">Research into various outcomes</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -423,6 +434,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h1>
+<section id="research-into-various-outcomes">
+<h2>Research into various outcomes<a class="headerlink" href="#research-into-various-outcomes" title="Link to this heading">#</a></h2>
 <p>For this research project, we need to identify a <strong>preventable adverse neonatal outcomes</strong> - i.e. outcome impacted by obstetrician decisions during delivery. Two examples are hypoxic ischaemic encephalopathy (HIE) or chorioamnionitis - and for now, we have focused on HIE.</p>
 <p>In designing this research study, we want to explore possible outcomes that could be used to indicate that an infant has experienced HIE. The term ‘outcome’ is used fairly loosly to refer any indicators, including:</p>
 <ul class="simple">
@@ -431,36 +444,42 @@ document.write(`
 <li><p>Interventions</p></li>
 <li><p>Diagnoses</p></li>
 </ul>
-<p>Current suggestions below - but subject to change as we continue learn and understand and read more:</p>
+<p>As noted previously (“challenge 1”), the definition of HIE has often been ambiguous and variable, although there are now some recommendations aorund what evidence indicates HIE has occured (to guide diagnosis), and there is ongoing work to develop consensus definitions.</p>
+<p>The concluding recommendations for each of the outcomes explored on the following pages and copied below.</p>
 <div class="seealso admonition">
-<p class="admonition-title">Suitable</p>
+<p class="admonition-title">Recommended</p>
 <ul class="simple">
-<li><p>Admission to neonatal intensive care unit (NICU)</p></li>
-<li><p>Cooling/moderate hypothermia</p></li>
-<li><p>Mechanical ventilation</p></li>
+<li><p><strong>Therapeutic hypothermia:</strong> Alone, this outcome is specific to HIE and should capture moderate to severe HIE cases. Requires consideration of whether certain units would be more likely to treat certain infants (either over time, or who don’t meet the accepted criteria).</p></li>
 </ul>
 </div>
 <div class="warning admonition">
-<p class="admonition-title">Potentially suitable</p>
+<p class="admonition-title">Potentially recommended</p>
 <ul class="simple">
-<li><p>Neonatal resuscitation</p></li>
-<li><p>Cerebral palsy diagnosis</p></li>
+<li><p><strong>Transfer to neonatal care services</strong> - Alone, this is not suitable as 95%+ of admitted infants will not have HIE. However, in combination with other indicators of HIE, it could support identifying more unwell infants with HIE (most unwell, if focussed on NICU).</p></li>
+<li><p><strong>Mechanical ventilation</strong> - Potentially recommended. Half to three quarters of infants with HIE will receive mechanical ventilation - although it’s important to note that these figures were all from infants who were receiving therapeutic hypothermia, so it wouldn’t improve on just knowing infants received therapeutic hypothermia, and doesn’t inform us on overall how many infants received it. Moreover, it woun’t be the only reason infants are ventilated. Therefore, this indicator might be beneficial in combination with other indicators of HIE, but alone, is not reliable.</p></li>
 </ul>
 </div>
 <div class="error admonition">
-<p class="admonition-title">Unsuitable</p>
+<p class="admonition-title">Not recommended</p>
 <ul class="simple">
+<li></li>
+</ul>
+</div>
+<p>To resort:</p>
+<ul class="simple">
+<li><p>Diagnostic codes for HIE</p></li>
+<li><p>Neonatal resuscitation</p></li>
+<li><p>Cerebral palsy diagnosis</p></li>
 <li><p>Umbilical cord pH and base deficit</p></li>
 <li><p>Abnormal CTG</p></li>
 <li><p>Apgar</p></li>
 <li><p>NNAP record of encephalopathy</p></li>
 <li><p>Meconium-stained amniotic fluid</p></li>
-<li><p>Transfer to any neonatal care services</p></li>
 <li><p>Intubation</p></li>
 <li><p>MRI showing basal ganglia damage</p></li>
 <li><p>Death</p></li>
 </ul>
-</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -494,20 +513,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="neo_out_chorio.html"
+       href="neo_out_hie.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">More on chorioamnionitis</p>
+        <p class="prev-next-title">More on HIE</p>
       </div>
     </a>
     <a class="right-next"
-       href="neo_out_care.html"
+       href="neo_out_cooling.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Transfer to neonatal care services</p>
+        <p class="prev-next-title">Therapeutic hypothermia</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -518,7 +537,20 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-into-various-outcomes">Research into various outcomes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

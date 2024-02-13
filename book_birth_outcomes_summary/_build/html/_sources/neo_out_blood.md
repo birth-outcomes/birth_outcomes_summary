@@ -1,5 +1,23 @@
 # Umbilical cord blood gas analysis
 
+`````{admonition} Executive summary
+:class: info
+
+**Outcome:** -
+
+**Specific to HIE?**
+* -
+
+**Which infants with HIE?**
+* -
+
+**Any other benefits or caveats not already mentioned?**
+* -
+
+**Conclusion:** Potentially recommended. Must (a) consider metabolic acidosis (i.e. base deficit, not just pH), (b) not require low pH (as many infants with HIE won't have low pH), and (c) not base decision only on low pH (as many infants with low pH won't have HIE)
+`````
+
+
 ## When is umbilical cord blood gas analysed?
 
 'Umbilical cord blood gas analysis is recommended by NICE **whenever there has been a concern** about the baby either in labour or immediately following birth.'[[source]]((https://www.nnuh.nhs.uk/publication/download/babies-with-severe-umbilical-artery-acidosis-cord-arterial-ph-7-1-jcg0322-v3/))
