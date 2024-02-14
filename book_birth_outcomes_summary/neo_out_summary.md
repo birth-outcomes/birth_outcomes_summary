@@ -25,7 +25,7 @@ As on the prior page, attempts to diagnose/define/identify HIE are varied, with 
 
 * **Diagnostic codes for HIE** - Potentially recommended. A French validation suggested half of infants coded with HIE were false positive, and that over a third of infants with HIE were not identified. Uncertain for English data, or for codes beyond ICD P91.6, but their findings make me cautious.
 * **Transfer to neonatal care services** - Alone, this is not suitable as 95%+ of admitted infants will not have HIE. However, in combination with other indicators of HIE, it could support identifying more unwell infants with HIE (most unwell, if focussed on NICU).
-* **Mechanical ventilation** - Potentially recommended. Half to three quarters of infants with HIE will receive mechanical ventilation - although it's important to note that these figures were all from infants who were receiving therapeutic hypothermia, so it wouldn't improve on just knowing infants received therapeutic hypothermia, and doesn't inform us on overall how many infants received it. Moreover, it woun't be the only reason infants are ventilated. Therefore, this indicator might be beneficial in combination with other indicators of HIE - or in absence of, for example, therapeutic hypothermia - but alone, is not reliable.
+* **Resuscitation** - Potentially recommended. Resuscitation (e.g. mechanical ventilation, CPR, adrenaline) is often required in infants with HIE and infants who receive therapeutic hypothermia. However, not all infants need it, and not all infants who need it will have HIE, so should not use alone as an indicator. You might focus on a particular type of resuscitation - e.g. mechanical ventilation. Intubation may also be used as part of resuscitation (but no longer an indicator for meconium at delivery, as newborns are no longer intubated for this)
 * **Umbilical cord blood gas analysis** - Potentially recommended. Must (a) consider metabolic acidosis, (b) not require low pH (as many infants with HIE won't have low pH), and (c) not base decision only on low pH (as many infants with low pH won't have HIE)
 `````
 
@@ -36,7 +36,6 @@ As on the prior page, attempts to diagnose/define/identify HIE are varied, with 
 `````
 
 To resort:
-* **Neonatal resuscitation**
 * **Cerebral palsy diagnosis**
 * **Abnormal CTG**
 * **Apgar**
