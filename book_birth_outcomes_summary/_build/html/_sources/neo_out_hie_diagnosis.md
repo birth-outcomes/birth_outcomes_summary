@@ -1,4 +1,4 @@
-# Diagnostic codes for HIE
+# 🟠 Diagnostic codes for HIE
 
 `````{admonition} Executive summary
 :class: info
@@ -15,7 +15,7 @@
 **Any other benefits or caveats not already mentioned?**
 * NA
 
-**Conclusion:** Potentially recommended. A French validation suggested half of infants coded with HIE were false positive, and that over a third of infants with HIE were not identified. Uncertain for English data, or for codes beyond ICD P91.6, but their findings make me cautious.
+**Conclusion:** Potentially recommended. A French validation suggested half of infants coded with HIE were false positive, and that over a third of infants with HIE were not identified. Uncertain for English data, or for codes beyond ICD P91.6.
 `````
 
 ## Diagnostic codes for HIE

@@ -1,4 +1,4 @@
-# Umbilical cord blood gas analysis
+# 🟠 Umbilical cord blood gas analysis
 
 `````{admonition} Executive summary
 :class: info
@@ -50,7 +50,7 @@ Due to these differences, it is important to take **paired** arterial and venous
 It is also important to note the **timing** of the samples:
 * Clamped umbilical cord (isolated) will have reliable pH, pO2 and pCO2 up to 60 minutes after bith
 * Unclamped (remianing in continuity with the placenta) will be unreliable as early as 20 minutes after delivery since ongoing placental metabolism will obscure the measurements
-* Lactate levels obtained more than 20 minutes after birth will be unreliable regardless of whether they are from a clamped or unclamped cord.[[source]](((https://www.nnuh.nhs.uk/publication/download/babies-with-severe-umbilical-artery-acidosis-cord-arterial-ph-7-1-jcg0322-v3/)))
+* Lactate levels obtained more than 20 minutes after birth will be unreliable regardless of whether they are from a clamped or unclamped cord.[Joint Trust Guidelines (ref below)]
 
 NHS Milton Keynes Guidelines state that the samples should be taken from a **double clamped** segment of cord so it's isolated from the placenta.[[source]](https://www.mkuh.nhs.uk/wp-content/uploads/2018/10/4257-Cord-Blood-Analysis-Guideline.pdf)
 

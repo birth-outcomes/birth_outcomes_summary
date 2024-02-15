@@ -1,4 +1,4 @@
-# Resuscitation
+# 🟠 Resuscitation
 
 `````{admonition} Executive summary
 :class: info

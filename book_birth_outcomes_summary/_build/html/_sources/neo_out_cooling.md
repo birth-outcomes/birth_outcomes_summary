@@ -1,4 +1,4 @@
-# Therapeutic hypothermia
+# 🟢 Therapeutic hypothermia
 
 `````{admonition} Executive summary
 :class: info
@@ -16,7 +16,7 @@
 * Some units offered it in 2000s (inconsistent across country), but NICE guidance recommending use came out in 2010, and became more widespread use by 2011 - so there will be change over time and across the country in use
 * Will include infants who do not go on to develop detectable brain injury
 
-**Conclusion:** Recommended. Alone, this outcome is specific to HIE and should capture moderate to severe HIE cases. Requires consideration of whether certain units would be more likely to treat certain infants (either over time, or who don't meet the accepted criteria).
+**Conclusion:** Recommended. Alone, this outcome is specific to HIE and should capture moderate to severe HIE cases. Requires consideration of whether certain units would be more likely to treat certain infants (either over time, or who don't meet the accepted criteria). Do be aware though that use of this as an outcome means that your definition of HIE is that criteria used to decide whether infants require cooling.
 `````
 
 ## What is it?
@@ -56,7 +56,7 @@ The image below is the criteria for cooling, copied from the [NHS East of Englan
 * 36 weeks gestation or older
 * Apgar, resuscitation, pH, base deficit
 * Altered state of consciousness or coma, and seizues, abnormal reflexes, hypotonia, or weak or absent suck
-* 30min amplitude integrated electroencephalography (aEEG) and abnormal/seizure/suppressed activity
+* 30min amplitude integrated electroencephalography (aEEG) -  an aEEG is a trend analysis of 1-2 channels of EEG, and visual patterns allow the reviewer to assess the severity of encepahlopathy and to monitor for seizures [[Abend et al. 2011]](https://doi.org/10.1080/1086508X.2011.11079816) - and abnormal activity, suppressed activity or seizure activity.
 
 These are the TOBY guidance, and they are followed by the vast majority of NICUs in the UK.[[source]](https://www.infantjournal.co.uk/pdf/inf_101_7241.pdf)
 

@@ -1,4 +1,4 @@
-# MRI evidence
+# 🟠 Neuroimaging evidence
 
 `````{admonition} Executive summary
 :class: info
@@ -6,22 +6,27 @@
 **Outcome:** MRI evidence of brain damage can help detect/diagnose HIE, and basal ganglia damage is associated with more severe asphyxia and outcomes like cerebral palsy.
 
 **Specific to HIE?**
-* -
+* Not certain whether it distinguishes cause of injury (i.e. HIE different patterns to NE of other causes) - but there are patterns typical of HIE infants, so it does help support the case for HIE in that sense.
 
 **Which infants with HIE?**
-* -
+* NHS guidelines recommend that all neonates with clinical signs of acquired brain injury or neonatal encephalopathy should undergo neuroimaging
 
 **Any other benefits or caveats not already mentioned?**
 * Uncertain on how this would be reported in medical records, and how available / what format this information would be
 
-**Conclusion:** -
+**Conclusion:** Potentially recommended. Not certain whether this data would be available, and whether it would be in a format we could interpret (i.e. without knowledge of MRI, just notes with conclusions of professional). Would definitely indicate brain injury occurred. Not certain whether it distinguishes cause of injury (i.e. HIE different patterns to NE of other causes) - but there are patterns typical of HIE infants, so it does help support the case for HIE in that sense.
 `````
 
-<mark>do all infants with suspected HIE get an MRI?</mark>
+## Neuroimaging recommendations
 
-## MRI and patterns of injury in HIE
+NHS guidelines recommend that all neonates with clinical signs of acquired brain injury or neonatal encephalopathy should undergo neuroimaging.[[source]](https://www.eoeneonatalpccsicnetwork.nhs.uk/wp-content/uploads/2022/06/IMAGING-THE-ENCEPHALOPATHIC-INFANT.pdf) In terms of imaging, magnetic resonance imaging (MRI) is the preferred imaging technique used 'during the first week after birth to determine the extent of brain injury and predict neurodevelopmental outcome in infants with symptoms of HIE'. 
 
-In terms of imaging, magnetic resonance imaging (MRI) is the preferred imaging technique used 'during the first week after birth to determine the extent of brain injury and predict neurodevelopmental outcome in infants with symptoms of HIE'.
+## Patterns of injury
+
+From NHS guidelines:
+* Following moderate or severe HIE, particularly following a documented sentinel event, abnormal signal intensity is most commonly detected in the basal ganglia and thalami, corticospinal tracts, the subcortical white matter, and regional cortex
+* Extensive and dominant white matter and cortical injury is suggestive of additional chronic hypoxic ischaemic compromise as may be indicated by fetal growth restriction (FGR) and/or poor fetal movements. It may also complicate symptomatic hypoglycaemia and /or bacterial or viral infection e.g. Parecho virus.
+* On MR spectroscopy high lactate (suggestive of tissue hypoxia and ischaemia) and low N-acetyl aspartate (reflects neuronal injury) within the basal ganglia and thalami is often seen.[[source]](https://www.eoeneonatalpccsicnetwork.nhs.uk/wp-content/uploads/2022/06/IMAGING-THE-ENCEPHALOPATHIC-INFANT.pdf)
 
 'The pattern of injury in HIE depends on the severity, duration, and repetitiveness of the hypoxia-ischemia and can lead to involvement of basal ganglia, thalami, brain stem, and/or cerebral white matter in different combinations.'[[Molloy and Bearer 2018]](https://doi.org/10.1038/s41390-018-0169-7) 'The two main patterns of injury can be distinguished with MRI in the full-term neonate':
 * **Basal ganglia-thalamus pattern (BGT)**.

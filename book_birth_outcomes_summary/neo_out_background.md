@@ -1,4 +1,4 @@
-# Current practice for identifying hypoxic ischaemic encephalopathy (HIE)
+# Examples of identifying hypoxic ischaemic encephalopathy (HIE)
 
 `````{admonition} Executive summary
 :class: info
@@ -21,6 +21,20 @@
     * **Abnormal FHR**
     * **Spastic Quadriplegia or Dyskinetic Cerebral Palsy**
     * **Other causes ruled out**
+* Criteria for therapeutic hypothermia (must meet all three):
+    * One of:
+        * **Apgar-10 <=5**
+        * **Continued need resuscitation at 10min**
+        * **pH < 7** 
+        * **Base deficit >= 16mmol/L**
+    * **Altered state of consciousness** (lethargy, stupor, or coma) and one of:
+        * **Seizures**
+        * **Abnormal reflexes**
+        * **Hypotonia**
+        * **Weak/absent suck**
+    * A 30min aEEG with **abnormal, supressed or seizure activity**
+* Kurinczuk et al. 2010, and Ellenberg and Nelson 2012
+    * **Presence of sentinel event** like uterine rupture, major placental abruption, or cord prolapse (and NOT features that are not specific to hypoxia ischaemia)
 * DEFiNE group - research ongoing to establish consensus definition for NE
 `````
 
@@ -76,6 +90,7 @@ Signs and symptoms of HIE shortly after birth (in neonates) include: 'low Apgar 
 Below are some incidence estimates from a few difference sources.
 
 NE:
+* 'The reported incidence of NE from different studies ranges from about 2.0 to 6.0 per 1000 live births. The incidence of HIE ranges from about 1.0 to 8.0, excluding the estimate from Nigeria. There are, however, several difficulties in interpreting these figures. With the exception of the data from Derby, UK where three retrospective analyses were conducted using similar methods over a 20 year period no two sets of investigators used the same case definition for either NE or HIE. Furthermore, only two of the estimates of NE incidence and three of the HIE estimates come from studies which were population-based'.[[Kurinczuk et a. 2010]](https://doi.org/10.1016/j.earlhumdev.2010.05.010)
 * 1.15 million infants per annum.[[COHESION - Quirke et al. 2013]](https://doi.org/10.1038/s41390-023-02938-y)
 * Affects 2 to 6 per 1000 term births.[[Russ et al. 2021]](https://doi.org/10.1542/neo.22-3-e148), or in 1-3 per 1000 term births[[Hagberg et al. 2016]](https://doi.org/10.1016%2Fj.nbd.2015.09.011)
 
@@ -114,7 +129,7 @@ For HIE, it is also **difficult to quantify the dose, duration and severity** of
 [[Molloy and Bearer 2018]](https://doi.org/10.1038/s41390-018-0169-7) 'As such, many prominent bodies, including the American Academy of Pediatrics and the British Association of Perinatal Medicine (BAPM), advocate for using NE until the exact aetiology is determined.'[[COHESION - Quirke et al. 2013]](https://doi.org/10.1038/s41390-023-02938-y) This means that using descriptive terminology like NE is preferable in the newborn period, before workup and course are known, rather than an etiology-based definition like HIE, which implies a single known etiology.[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z) Clinical categorization, such as NE caused by sepsis, genetic causes, stroke, or those with a multifocal origin is required to ensure targeted management where possible for non-HIE causes.[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z) 
 
 
-### Challenge 2: Terminology
+### Challenge 2: Defining HIE (and terminology)
 
 The definition for neonatal encephalopathy (as presented on the last page) does not **does not specify subgroups, etiology, or guide management**. This ambiguity has been criticised as hindering case definition, collaborative research, and data synthesis and confusing families and caregivers.[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z)
 
@@ -221,6 +236,24 @@ This definition may exclude some cases of HIE due to factors like:
 * Progressive, subacute evolution of HIE
 * Incomplete data, such as outcomes that do not include severe motor deficit
 * Incomplete data collection[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z)
+
+### Criteria for therapeutic hypothermia
+
+These are detailed more on the therapeutic hypothermia page, but the image below is the criteria for cooling, copied from the [NHS East of England Guidelines for Management of Infants with Suspected HIE](https://www.eoeneonatalpccsicnetwork.nhs.uk/wp-content/uploads/2021/10/HIE-Guideline.pdf).
+
+![Flow diagram with criteria for cooling](images/cooling_criteria.png 'Criteria for cooling')
+
+### Kurinczuk et al. 2010, and Ellenberg and Nelson 2012
+
+[Kurinczuk et al. 2010](https://doi.org/10.1016/j.earlhumdev.2010.05.010) wrote a best practice guideline on epidemiology of neonatal encephalopathy and hypoxic–ischaemic encephalopathy. [Ellenberg and Nelson 2012](https://doi.org/10.1111/dmcn.12016) conducted a review of studies on intrapartum risks of cerebral palsy.
+
+Kurinczuk et al. 2010 state - with reference to the ACOP-AAP 2002 - that HIE should just be used to define a sub-set of cases of NE where there is evidence of a **recent, usually intrapartum, hypoxic ischaemic cause of the NE**.[[Kurinczuk et al. 2010]](https://doi.org/10.1016/j.earlhumdev.2010.05.010) This refers to the **occurence of sentinel events** like uterine rupture, major placental abruption, or cord prolapse.[[Ellenberg and Nelson 2012]](https://doi.org/10.1111/dmcn.12016)
+
+Typically, the presence of indirect clinical markers alongside features of encephalopathy are used to imply occurence of hypoxia ischaemia. However, they argue that you should use NEITHER of these - so NOT...
+* **Findings that could result from a variety of etiologic factors** like abnormal fetal heart rate or meconium in the amniotic fluid.
+* **Signs of brain injury itself** (seizures, encephalopathy)
+
+The former is in the context of stating that seizures or encephalopathy are evidence that hypoxia-ischaemia occurred and was the cause. This is because uses those features in that way produces a tautological situation due to circular reasoning - that (a) presence of injury is marker that intrapartum complications occurred, and (b) presence of injury is the consequence of those complications - and so, it reaffirms the assumed connections between intrapartum events and NE, since the features were used to identify cases and to define NE. These signs of brain injury are clinical features, and don't reflect the underlying cause as being hypoxia.
 
 ### The DEFiNE group
 
