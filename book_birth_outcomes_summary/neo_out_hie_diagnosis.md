@@ -1,4 +1,4 @@
-# 🟠 Diagnostic codes for HIE
+# Diagnostic codes for HIE
 
 `````{admonition} Executive summary
 :class: info

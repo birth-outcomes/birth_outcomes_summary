@@ -1,4 +1,4 @@
-# 🟠 Neuroimaging evidence
+# Neuroimaging evidence
 
 `````{admonition} Executive summary
 :class: info

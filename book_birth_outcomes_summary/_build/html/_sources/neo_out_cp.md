@@ -1,4 +1,4 @@
-# 🟠 Cerebral palsy
+# Cerebral palsy
 
 `````{admonition} Executive summary
 :class: info

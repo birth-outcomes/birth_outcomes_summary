@@ -1,4 +1,4 @@
-# 🟠 Resuscitation
+# Resuscitation
 
 `````{admonition} Executive summary
 :class: info
@@ -12,7 +12,7 @@
 * Those with most breathing difficulties/respiratory distress - but not all infants with HIE will require it. Estimates vary, but studies of infants receiving therapeutic hypothermia have estimated that apx. 50 to 80% of those infants require mechnical ventilation
 
 **Any other benefits or caveats not already mentioned?**
-* -
+* NA
 
 **Conclusion:** Potentially recommended. Resuscitation (e.g. mechanical ventilation, CPR, adrenaline) is often required in infants with HIE and infants who receive therapeutic hypothermia. However, not all infants need it, and not all infants who need it will have HIE, so should not use alone as an indicator. You might focus on a particular type of resuscitation - e.g. mechanical ventilation. Intubation may also be used as part of resuscitation (but no longer an indicator for meconium at delivery, as newborns are no longer intubated for this)
 `````

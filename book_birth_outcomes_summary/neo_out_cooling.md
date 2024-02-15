@@ -1,4 +1,4 @@
-# 🟢 Therapeutic hypothermia
+# Therapeutic hypothermia
 
 `````{admonition} Executive summary
 :class: info

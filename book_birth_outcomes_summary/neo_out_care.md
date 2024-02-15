@@ -1,4 +1,4 @@
-# 🟠 Transfer to neonatal care services
+# Transfer to neonatal care services
 
 `````{admonition} Executive summary
 :class: info

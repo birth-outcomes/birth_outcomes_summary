@@ -3,19 +3,26 @@
 format: jb-book
 root: intro
 parts:
+  - caption: Background
+    chapters:
+    - file: stages
+    - file: interventions
+    - file: research_groups
   - caption: Identifying HIE cases
     chapters:
     - file: neo_out_background
     - file: neo_out_summary
     - file: neo_out_cooling
-    - file: neo_out_care
-    - file: neo_out_resus
-    - file: neo_out_blood
     - file: neo_out_hie_diagnosis
+    - file: neo_out_blood
+    - file: neo_out_sentinel
+    - file: neo_out_resus
+    - file: neo_out_meconium
+    - file: neo_out_care
     - file: neo_out_cp
     - file: neo_out_mri
+    - file: neo_out_enceph_symptoms
     - file: neo_out_apgar
-    - file: neo_out_meconium
     - file: neo_out_death
     - file: neo_out_ctg
   - caption: Study design
@@ -25,10 +32,6 @@ parts:
     - file: design_examples.md
     - file: design_other.md
     - file: design_plan.md
-  - caption: Appendices - Background on pregnancy and birth
-    chapters:
-    - file: stages
-    - file: interventions
   - caption: Appendices - archived or tbc
     chapters:
     - file: neo_out_enceph_treatment_outcomes

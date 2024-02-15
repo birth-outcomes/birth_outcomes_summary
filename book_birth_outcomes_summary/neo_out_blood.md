@@ -1,4 +1,4 @@
-# 🟠 Umbilical cord blood gas analysis
+# Umbilical cord blood gas analysis
 
 `````{admonition} Executive summary
 :class: info

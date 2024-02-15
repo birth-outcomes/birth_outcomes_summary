@@ -1,8 +1,26 @@
 # Abnormal CTG
 
-**Cardiotocography (CTG)**: Fetal heartbeat (*cardio*) + uterine contractions (*toco*) + drawing representing recording (*graphy*)
+`````{admonition} Executive summary
+:class: info
+
+**Outcome:** Abnormal patterns in cardiotocography (CTG)
+
+**Specific to HIE?**
+* There are particular patterns that can be indicated of a hypoxic event
+
+**Which infants with HIE?**
+* Sometimes there can be no evidence that hypoxia has occurred in the CTG
+
+**Any other benefits or caveats not already mentioned?**
+* Very high intra- and inter-observer variability in CTG interpretation
+* Likely either have to interpret CTG yourself, or the medical record will just say the CTG was "abnormal" and not why
+
+**Conclusion:** Not recommended. The high intra- and inter-observer variability in interpretation, likely minimal record of decision in records, and challenges in automated interpretation (and challenges of even getting that data) - along with the fact that this can have high false positive and false negative - mean I wouldn't recommend this.
+`````
 
 # What measurements are taken?
+
+**Cardiotocography (CTG)**: Fetal heartbeat (*cardio*) + uterine contractions (*toco*) + drawing representing recording (*graphy*)
 
 CTG involves simultaneously recording:
 1. The **fetal heart rate (FHR)** (bpm).
@@ -79,18 +97,3 @@ Challenges with CTGs:
 * **Stage of labour** - a feature/pattern might be considered non-reassuring in the first stage of labour but normal in the second stage where contractions become more intense. It's likely that the later stages of the CTG contain data pertaining to outcome as the CTG ends with the time of birth - however, there is also more noise and motion artifacts. Classifier performance varies with the stage of labour. Therefore many studies will omit second stage data - but that may reduce the clinical usefulness of a decision support tool in practice [[source]](https://www.frontiersin.org/articles/10.3389/frai.2021.765210/full)
 * **Complexity of FHR** - There has been significant progress in the domain of adult heart rate variability but not for FHR. The visual inspection of FHR is tricky because of the complexity of FHR dynamics, regulated by several neurological feedback loops. The application of most clinical guidelines often result in significant inter- and intra-observed variability. This drives the force of the search for an objective evaluation of the CTG signal.[[source]](https://link.springer.com/chapter/10.1007/978-3-319-64265-9_9)
 * **Other factors** - Many studies have showed that the CTG signal itself is not sufficient and that supplemental clinical information is needed for making the correct decision like - APGAR score; Biochemical markers (pH value, base excess, base deficit); Family and mother anamneses, risk factors and other factors
-
-## Suitability as a model outcome
-
-Cons:
-* High intra- and inter-observer variability in CTG interpretation
-* Record of abnormal CTG may be inconsistent/lack detail beyond just "it was abnormal" - in which case, would need the raw CTG and to identify what was abnormal - and that may not be what the obstetrician thought was abnormal
-* Challenges above like acute events, no signs on CTG, stage of labour, complexity of FHR
-
-## Conclusion
-
-`````{admonition} Unsuitable
-:class: error
-
-There is high intra- and inter-observer variability in CTG interpretation and although a consensus opinion would improve the outcome's validity, the poor association between an abnormal CTG and adverse neonatal outcomes ultimately means this would not be an appropriate outcome. Note: Although we don't want to use it as an outcome to tell us HIE as occurred, we can use it as a risk factor to help predict occurence of HIE.
-`````

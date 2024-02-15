@@ -1,4 +1,4 @@
-# 🔴 Death
+# Death
 
 `````{admonition} Executive summary
 :class: info
