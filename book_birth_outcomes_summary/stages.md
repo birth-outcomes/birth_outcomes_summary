@@ -50,3 +50,13 @@ There are several different ways that the baby's age will be measured:
 Since 'most women know when their last period began but not when ovulation occurred,' the gestational age is often 'used when estimating the date of delivery'.
 
 [[source]](https://doi.org/10.1542/peds.2004-1915)
+
+## Premature birth
+
+* **Extremely pre-term** - born at or before 28 weeks gestation
+* **Very pre-term** - born between 28 and 32 weeks gestation
+* **Moderate to late pre-term** - born between 32 and 37 weeks gestation
+* **Pre-term** - born before 37 weeks gestation
+* **Term** - born at or after 37 weeks gestation
+
+[[source]](https://www.bliss.org.uk/parents/in-hospital/about-neonatal-care/what-is-neonatal-care)

@@ -1,17 +1,6 @@
-# Study design
+# Study design in the context of the treatment paradox
 
-## Broad aims
-
-Using live labour data to predict who is likely to require caessarean, and reduce adverse effects for mother and baby. Combining data from fetus, parent, and CTG. Involves combining (a) risk factors during pregnancy, with (b) live risk factors during labour. Outcome of "X chance" of adverse outcome if don't go for caessarean or assisted delivery. Decision currently based on experience. Want some more objective evidence that can given women to help them understand and base risks on.
-
-Can’t use outcomes in classical way because of treatment paradox. May need to reformulate, as this is not a prediction question. In women in labour, is there a way we can predict whose going to need something that allows us to act more effectively. Dave Right statistician screening for down syndrome example – all previous ranked top five predicting down syndrome and so on – doesn’t necessarily tell you best way, as those five together may predict less well than one of those and others, its more complex than that. You’re trying to produce an instrument that allows you to behave differently. 
-
-spend 3 billion on care and 7.8 billion on claims.
-* vast majority of delivers by caessarean or forceps are fine
-* acting too late has risk of poor outcomes and of cerbral palsy
-* most common legal composition is acute total collapse - babies heart rate suddenly drops from high, and if goes on for 10-15 min, baby usually has CP is survive, and basal ganglia damage
-
-if definition of problem is avoiding fetal injury, is what is needed a more subtle instrument, or havgin experts who know what they’re doing. 
+# Rough notes from meeting
 
 
 ## Treatment paradox

@@ -1,4 +1,15 @@
-# Hypoxic ischaemic encephalopathy
+# More on HIE
+
+`````{admonition} Executive summary
+:class: info
+
+* There are many possible reasons for hypoxic ischaemia to develop (e.g. cord prolapsy, breech presentation, uterin rupture...)
+* There are two patterns of injury: (a) less severe hypoxia ischaemia - prolonged partial asphyxia - causing watershed predominant patter of injury on MRI, and (b) more severe hypoxia ischaemia - acute near total/acute profound asphyxia - causing basal ganglia-thalamus pattern of injury on MRI - which is associated with dyskinetic cerebral palsy
+`````
+
+## Definition of HIE
+
+The definition of HIE was discussed extensively on a prior page, but a few key points are summarised below.
 
 **Hypoxic ischaemic encephalopathy (HIE)** is a type of brain injury that occurs because a hypoxic-ischaemic event prevents adequate blood flow to the infant's brain during prenatal, intrapartum or the postnatal period. 'It occurs in 1.5 to 2.5 per 1000 live births in developed countries'. 'The incidence of HIE has not declined even with advances in obstetric care (i.e. fetal monitoring) aimed at preventing the hypoxic-ischemic event.'[[source]](https://doi.org/10.1053%2Fj.nainr.2011.07.004) Rapid recognition of and response to hypoxic ischaemia is extremely challenging for obstetricians.[[source]](https://doi.org/10.1576/toag.13.3.169.27669)
 
@@ -31,7 +42,9 @@ Note: Haven't checked all these - but for example of fetal stroke, from a quick 
 
 A variety of methods can be used to diagnose HIE, including the APGAR score, brain imaging, umbilical cord blood gas tests, and developmental evaluations.[[source]](https://hiehelpcenter.org/medical/identifying-hie/tests-evaluations-screening/)
 
-In terms of imaging, magnetic resonance imaging (MRI) is the preferred imaging technique used 'during the first week after birth to determine the extent of brain injury and predict neurodevelopmental outcome in infants with symptoms of HIE'. 'The two main patterns of injury can be distinguished with MRI in the full-term neonate':
+In terms of imaging, magnetic resonance imaging (MRI) is the preferred imaging technique used 'during the first week after birth to determine the extent of brain injury and predict neurodevelopmental outcome in infants with symptoms of HIE'.
+
+'The pattern of injury in HIE depends on the severity, duration, and repetitiveness of the hypoxia-ischemia and can lead to involvement of basal ganglia, thalami, brain stem, and/or cerebral white matter in different combinations.'[[Molloy and Bearer 2018]](https://doi.org/10.1038/s41390-018-0169-7) 'The two main patterns of injury can be distinguished with MRI in the full-term neonate':
 * **Basal ganglia-thalamus pattern (BGT)**.
     * More severe hypoxia ischamia
     * 'When the baby suffers severe or total hypoxia/asphyxia, the insult is called' **acute near total or acute profound asphyxia**.
@@ -78,6 +91,12 @@ Signs and symptoms of HIE shortly after birth (in neonates):
 
 [[Source]](https://hiehelpcenter.org/medical/identifying-hie/sign-symptoms/)
 
+## Statistics
+
+This section is in no way comprehensive - these are just a couple of random statistics from various sources in varying cohorts:
+* 'Around 20%–50% of infants with HIE die early in infancy, and 25%–60% of surviving infants have long-term neurological disorders such as cerebral palsy, epilepsy, intellectual disability, and learning disabilities'.[[source]](https://doi.org/10.3345/cep.2020.01459)
+* In a study of mild HIE, 4.1% (17/414) infants had the composite outcome, whilst 0.9% (4786/504661) without HIE had it. Infants with mild HIE are four times as likely to be diagnosed with the composite outcome (HR 4.42, 95% CI 2.75–7.12) compared with infants without HIE (outcome was composite of cerebral palsy, epilepsy, intellectual disability and death up to 6 years of age)[[source]](https://doi.org/10.1111/1471-0528.17533)
+ 
 ## Summary diagram
 
 ````{mermaid}
