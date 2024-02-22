@@ -87,145 +87,220 @@ What can you do then? You can design study where C-Y doesn't exist as you requir
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-#### Inclusion of mediators
-
-<mark> i don't understand the explanation given below </mark>
-
-We could include lung cell damage, as it is one of the mediators of this relationship. However, we **don't need to include mediators**, when our goal is to estimate the effect of smoking on lung cancer. (It would be pretty impossible to cause all mediators normally anway, as we don't have information on them).
-
-If we do **include mediators, our question is then about conditional independence** - is the relationship between smoking and lung cancer **conditional** on lung cell damage. We can do this by restricting analysing to subset of individuals with particular level of cell damage, which we would represent in the DAG using a square box around cell damage. In the subset with cell damage, we check for association between smoking and lung cancer.
-
-According to the graph, effect of smoking is entirely mediated through cell damage - so learning they are a smoker should provide no additional information with respect to risk of developing lung cancer.
-* If someone with cell damage has 10% chance of cancer, being a smoker shouldn't change that number
-* If someone without cell damage has 1% chance of cancer, being a smoker (without damage) shouldn't change that number
-* In this case, it would be no conditional association between smoking and lung cancer, for all levels of cell damage
-
-So if no direct arrow from smoking to lung cancer, we are saying there is no association between smoking and lung cancer conditioned on lung cell damage, even though smoking has a causal effect on lung cancer.
-
-Note: Arrows on causal graphs are not deterministic - i.e. doesn't mean every smoker will see cell damage - as some will never, and some non-smokers will develop it.
-
-````{mermaid}
-  flowchart LR;
-
-    cig("Smoking");
-    lung("Lung cancer");
-    cell("Lung cell damage");
-
-    cig --> cell;
-    cell --> lung;
-````
-
-````{mermaid}
-  flowchart LR;
-
-    cig("Smoking");
-    lung("Lung cancer");
-    cell("Lung cell damage");
-
-    cig --> lung;
-    cig --> cell;
-    cell --> lung;
-````
-
-Another example...
-
-Causal DAG representing belief that aspirin can only reduce risk of stroke through reduction of platelet aggregation
-
-````{mermaid}
-  flowchart LR;
-
-    asp("Aspirin"):::white;
-    plat("Platelet aggregation"):::white;
-    stroke("Stroke"):::white;
-
-    asp --> plat;
-    plat --> stroke;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-Causal DAG representing finding that aspirin is associated with stroke, conditionally on platelet aggregation (i.e. find association even when condition)
-
-````{mermaid}
-  flowchart LR;
-
-    asp("Aspirin"):::white;
-    plat("Platelet aggregation"):::white;
-    stroke("Stroke"):::white;
-
-    asp --> plat;
-    plat --> stroke;
-    asp --> stroke;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-Causal DAG representing finding that aspirin is not associated with stroke (unconditionally).
-
-#### Selection bias: causal structures with common effects
-
-If genetic factor doesn't have causal effect on environmental factor (as in graph), then we **don't expect to see an association** - they are **independent**. The environmental factor is distributed in the population independently of genetics. Learning an individual has a genetic factor should provide no additional information on environmental exposure.
-
-````{mermaid}
-  flowchart LR;
-
-    gene("Genetic factor"):::white;
-    env("Environmental factor"):::white;
-    cancer("Cancer"):::white;
-
-    gene --> cancer;
-    env --> cancer;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-The common effect cancer is a **collider** as two arrows collide with it. A collider blocks the flow of association along the path they lie on.
-
-Above was the unconditional/marginal association. We can look at whether genes and environment are associated conditional on cancer. We can just look at people who developed cancer, and see if proportion exposed to environment is different depending on genetic.
-
-As the cancer is caused by gene or environment, if they have cancer and not genetic, they're more likely to have environment - not because genetic protects against environmental factor, but because something must have caused it. Hence, we expect an **inverse association** between the genetic and environmental factor when we condition on cancer. There is a conditional association between A and Y within levels of L. In this case, it is an inverse association. This is a **biased effect estimate**.
-
-In this case, when a component of the association is due to selecting a subset of the population (e.g. just looking at cancer patients), we say there is a **selection bias**.
-
-We can **induce** selection bias by conditioning on the downstream consequence of a collider - e.g. if cancer is collider, and surgery is consequence of cancer, if we condition on surgery, we expect to see inverse association between genetic and environment conditional on surgery (just as we did for the collider cancer).
-
-Summary: We expect conditioning on a common effect of treatment and outcome to result in bias.
-
-In the graph, when you condition on cancer, draw black box
-
-````{mermaid}
-  flowchart LR;
-
-    gene("Genetic factor"):::white;
-    env("Environmental factor"):::white;
-    cancer("Cancer"):::black;
-
-    gene --> cancer;
-    env --> cancer;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-#### Faithfulness
-
-Faithfulness is the result of opposite effects of exactly equal magnitude - e.g. if aspirin caused stroke for half of poppulation and prevented it in the other half, then causal dag is correct (as aspirin affects stroke) but no association is observed (as they cancel each other out). In that case, we say the joint distribution of the data is not faithful to the causal DAG.
-
-These perfect cancellations are rare and we don't expect them to happen in practice, so we can safetly say lack of D-seperation means non-zero association. So - 
-* **D-seperation = statistical independence**
-* **All paths blocked = no association**
-
-#### Why do DAG?
-
-* Helps identify problems in study design and guide data analysis
-* More precise and efficient than writing many pages of assumptions
-
 ## Time-varying treatments
 
+### Time-varying treatments
 
+We have often discussed fixed treatments that do not vary over time e.g.
+* Vitamin D at time of conception
+* Hepatitus B vaccine at certain time in life
+
+However, we are often interested in time-varying treatments, which are treatments that may take different values for a single individual over time, e.g.
+* Medical treatments
+* Lifestyle habits
+* Employment status
+* Occupational exposures
+
+Example:
+* Diseases that cause anemia (low haemoglobin) e.g. kidney disease, cancer. Effective treatment for anemia is erythropoietin (EPO). Doctors need to decide how much EPO is needed - giving more for lower levels of haemoglobin.
+* We want to know if there is an arrow from A to Y, and the magnitude of the effect
+* Arrow from L to A as haemoglobin level determines dose of EPO
+* U is unmeasured variable disease severity, with arrow to Y, as more severe disease leads to increased mortality, and arrow to l as more severe disease leads to lower haemoglobin
+* This causal graph shows confounding for effect of EPO on mortality (our research Q) as there is common cause of A and Y (U) (i.e. open backdoor path between A and Y). This graph assumes no selection or measurement bias
+
+````{mermaid}
+  flowchart LR;
+
+    l("L: Haemoglobin"):::white;
+    a("A: EPO"):::white;
+    y("Y: Death"):::white;
+    u("U: Disease severity"):::white;
+
+    l --> a;
+    a --> y;
+    u --> y;
+    u --> l;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
+This causal graph shows EPO as time-varying treatment (as they regularly check haemoglobin levels and decide how much EPO to give).
+* A0 and A1 are dose at each time point. Arrow between as dose in past may influence dose in future.
+* Death outcome is also time variant (whether dead in week 1 or in week 2). No death in week 0 as that determines whether in study
+* Could have arrow from y1 to a1, and y1 to y2, as whether dead in week 1 determines those (but omit due to clutter)
+* L also time variant. l0 to a0 and a1 as past haemoglobin values may affect future treatment decision
+* Could also add time variant u0 and u1 with severity of disease over time. All of those share time-fixed U would could represent individuals susceptibility to having a sever disease. for simplicity, just show U
+
+For example, if comparing always treat with EPO v.s. never treat with EPO, need to know values of these things at each time point.
+
+````{mermaid}
+  flowchart LR;
+
+    a0("A0: EPO dose at week 0"):::white;
+    a1("A1: EPO dose at week 1"):::white;
+    y1("Y1: Death in week 1"):::white;
+    y2("Y2: Death in week 2"):::white;
+    l0("L0: Haemoglobin at week 0"):::white;
+    l1("L1: Haemoglobin at week 1"):::white;
+    u("U: Disease severity"):::white;
+
+    a0 --> y1;
+    u --> y1;
+    u --> l0;
+    l0 --> a0;
+    l0 --> a1;
+    a0 --> a1;
+    u --> l1;
+    l1 --> a1;
+    a1 --> y2;
+    u --> y2;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
+Actual study includes many more weeks but for most purposes, two time points are enough to represent the main features of the causal structure when there is time varying treatment. These will often be two arbritary time points (K and K+1) (rather than 0 and 1).
+
+````{mermaid}
+  flowchart LR;
+
+    ak("A<sub>K</sub>: EPO dose"):::white;
+    ak1("A<sub>K+1</sub>: EPO dose"):::white;
+    yk1("Y<sub>K+1</sub>: Death"):::white;
+    yk2("Y<sub>K+2</sub>: Death"):::white;
+    lk("L<sub>K</sub>: Haemoglobin"):::white;
+    lk1("L<sub>K+1</sub>: Haemoglobin"):::white;
+    u("U: Disease severity"):::white;
+
+    ak --> yk1;
+    u --> yk1;
+    u --> lk;
+    lk --> ak;
+    lk --> ak1;
+    ak --> ak1;
+    u --> lk1;
+    lk1 --> ak1;
+    ak1 --> yk2;
+    u --> yk2;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
+The consequence of a time-varying treatment is **time-varying confounding**. In that study, we're not interested in effect of EPO at A0, A1, or any other particular timepoint - we're interested in the effect of a treatment strategy sustained over time. The effect of the treatment is the joint effect of A0, A1, etc., and so confounding can be found at each of those points, and so we have time-varying confounding. It's time variant as
+* **Different values at different timepoints**
+* **Confounder at several time points** (e.g. use L0 to block backdoor path between A0 and Y1, and between A0 and Y2). In the example above, the minimal set of variables you'd need to condition for would be L0 and L1 (wouldn't need to for U as doing for L0 and L1 blocks the backdoor paths)
+
+Valid causal inference for time-fixed treatments requires measuring and justing for all time-fixed confounders.
+
+Valid causal inference for time-varying treatments requires measuring and adjusting for all time-fixed and time-varying confounders. To estimate effect of treatment strategies sustained over time, need data not only on the time-varying treatments, but also on the time-varying and time-fixed prognostic factors associated with treatment decisions. If we don't have sufficient information on confounders, as always, no adjustment method will be able to yield an unbiased effect estimate.
+
+#### Treatment-confounder feedback
+
+However, when we have time-varying treatments and confounders, even if all confounders are correctly measured, and even if there is no selection or measurement biases, we may still get biased effect estimates.
+
+The DAG above is incomplete - it's missing arrow from A0 (AK) to L1 (LK+1), as EPO at timepoint K impacts haemoglobin at timepoint K+1. Once we add that, the causal graph represents a feedback process between the time-varying treatment A and time-varying confounder L - there is **treatment-confounder feedback**. So this only when the **confounder is impacted by prior treatment**. When this feedback is present, conventional methods for confounding adjustment don't work (stratificiation, outcome regression, propensity score matching, etc).
+
+````{mermaid}
+  flowchart LR;
+
+    ak("A<sub>K</sub>: EPO dose"):::white;
+    ak1("A<sub>K+1</sub>: EPO dose"):::white;
+    yk1("Y<sub>K+1</sub>: Death"):::white;
+    yk2("Y<sub>K+2</sub>: Death"):::white;
+    lk("L<sub>K</sub>: Haemoglobin"):::white;
+    lk1("L<sub>K+1</sub>: Haemoglobin"):::white;
+    u("U: Disease severity"):::white;
+
+    ak --> yk1;
+    u --> yk1;
+    u --> lk;
+    lk --> ak;
+    lk --> ak1;
+    ak --> ak1;
+    ak --> lk1;
+    u --> lk1;
+    lk1 --> ak1;
+    ak1 --> yk2;
+    u --> yk2;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
+If we condition on the Ls, they should block all the backdoor paths between treatment and outcome - so effect due to time-variant confounding should disappear, so all that remains is effect due to time-variant treatment. However, as we have AK --> LK+1 (treatment confounder feedback), conditioning on LK+1 meant this path that was previously blocked is now open: AK --> LK+1 --> U --> YK+1 - it has introduced selection bias.
+
+This would be the same if it wasn't AK --> LK+1, but instead, if AK and LK+1 both had a common cause. So treatment-confounder feedback is both:
+* When time-variant confounder is affected by prior treatment, or
+* When time-variant treatment and time-variant confounder share a cause
+
+If the time-varying confounder also affects the outcome (e.g. LK+1 --> YK+2), it will be impossible to estimate the total effect of the treatment.
+
+We need other methods to handle these settings - **g-methods**. There are three types: g-formula, g-estimation, inverse probability weighting, and their extensions.
+
+````{mermaid}
+  flowchart LR;
+
+    ak("A<sub>K</sub>: EPO dose"):::white;
+    ak1("A<sub>K+1</sub>: EPO dose"):::white;
+    yk1("Y<sub>K+1</sub>: Death"):::white;
+    yk2("Y<sub>K+2</sub>: Death"):::white;
+    lk("L<sub>K</sub>: Haemoglobin"):::black;
+    lk1("L<sub>K+1</sub>: Haemoglobin"):::black;
+    u("U: Disease severity"):::white;
+
+    ak --> yk1;
+    u --> yk1;
+    u --> lk;
+    lk --> ak;
+    lk --> ak1;
+    ak --> ak1;
+    ak --> lk1;
+    u --> lk1;
+    lk1 --> ak1;
+    ak1 --> yk2;
+    u --> yk2;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
+### Example: HIV and ART
+
+Randomised controlled trials of new antiretroviral therapy (ART) for HIV found it was effective and reduced morality by more than half.
+
+Observational of clinical data to look at real world effect of ART did not detect much benefit for new combination therapies - no increased survival among those taking ART. What was wrong with the studies?
+
+They were adjusting for lots of confounders - e.g. CD4 count - and yet could not eliminate the bias. Some people say there must be lots of unmeasured confounding. However, the more time-varying confounders were adjusted for, the more biased the effect estimate seemed to be. The problem was treatment-confounder feedback - the value of CD4 count was impacted by earlier treatment - in this case, the bias was in the opposite direction.
+
+There is a way to identify whether the bias is due to incomplete adjustment for confounding or for incorrect adjustment for time-varying confounders - and that is to use G-methods to adjust for the time-varying confounders. When they used G-methods, the effect estimates were much closer to the ARTs.
+
+````{mermaid}
+  flowchart LR;
+
+    ak("A<sub>K</sub><br>ART"):::white;
+    
+    lk("L<sub>K</sub><br>CD4 count"):::black;
+    u("U<br>Immuno-suppression status"):::white;
+    yk1("Y<sub>K+1</sub><br>Mortality"):::white;
+    lk1("L<sub>K+1</sub><br>CD4 count"):::black;
+    ak1("A<sub>K+1</sub><br>ART"):::white;
+    yk2("Y<sub>K+2</sub><br>Mortality"):::white;
+    
+    lk --> ak;
+    u --> lk; 
+    u --> yk1;
+    u --> lk1;
+    lk1 --> ak1;
+    u --> yk2;
+    ak --> lk1;
+    
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
+<mark>look more into methods of conditioning for things and confound adustment methods</mark>
 
 # Notes from R
 
