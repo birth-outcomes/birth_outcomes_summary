@@ -100,13 +100,17 @@ The DAG is drawn based on expert knowledge, including arrows when you believe th
 
 If expert knowledge is insufficient for us to rule out a direct effect of E on D, then we should draw an arrow.
 
+Note: Arrows on causal graphs are not deterministic - i.e. doesn't mean every person with exposure will see outcome - as some will never, and some without outcome will develop it.
+
 [[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
 ### What is the purpose of DAGs?
 
-* They make sure we illustrate and identify our sources of biases (assumptions)[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home) - for although they are based on assumptions, so are analytic models.[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
+* They make sure we illustrate and identify our sources of biases (assumptions)
+    * More precise and efficient than writing pages of assumptions[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+    * Although they are based on assumptions, so are analytic models.[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
 * They indicate when associations or independence should be expected.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-* They can help determine whether the effect of interest can be identified from available data, and help us clarify our study question[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
+* They can help determine whether the effect of interest can be identified from available data, and help us clarify our study question[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf) - and to identify problems in the study design[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
 ### How do you construct a DAG?
 
@@ -205,14 +209,133 @@ There has been some disagreement on how these should be included/notation within
 
 **Mediators** are variables that lie in the causal path between the two other variables (e.g. between exposure and outcome), and they tell you how or why an effect takes place.[[source]](https://www.scribbr.co.uk/faqs/why-should-you-include-mediators-and-moderators-in-your-study/)
 
+You might condition on a mediator if you are interested in the **direct effect of treatment on outcome that doesn't pass through mediator**.
+
+Example: In racial disparity studies, will condition on mediators like socioeconomic, education, location (often though **matching** on these characteristics),  to allow you to isolate the unique effect of race that is not explainable by those pathways. [[source]](https://stats.stackexchange.com/questions/488048/dag-are-there-situations-where-adjusting-for-mediators-is-reasonable)
+
+````{mermaid}
+  flowchart LR;
+
+    race("Race"):::white;
+    outcome("Outcome"):::white;
+    ses("Socioeconomic status"):::black;
+    ed("Education"):::black;
+    loc("Location"):::black;
+
+    race -->|?| outcome;
+    race --> ses; ses --> outcome;
+    race --> ed; ed --> outcome;
+    race --> loc; loc --> outcome;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
+If you do not have a direct arrow between the treatment and outcome, and only via the mediator, this implies that this is the only way in which the treatment can cause the outcome, and that if you know the mediator is present, knowing whether or not the treatment was present should have no impact on the outcome.
+
+````{mermaid}
+  flowchart LR;
+
+    treat("Treatment"):::white;
+    med("Mediator"):::white;
+    out("Outcome"):::white;
+
+    treat --> med;
+    med --> out;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
 ## Confounding
 
 **Confounders** are variables that **cause BOTH the treatment/exposure and outcomes**.
+
+Example - smoking causes yellow fingers and lung cancer - if we don't condition on it, we expect to see an association between yellow fingers and lung cancer (known as a **marginal/unconditional** association)
+
+````{mermaid}
+  flowchart LR;
+
+    cig("Smoking"):::white;
+    lung("Lung cancer"):::white;
+    yellow("Yellow fingers"):::white;
+
+    cig --> lung;
+    cig --> yellow;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
+If we do condition on smoking, we expect to see no association between yellow fingers and lung cancers (i.e. they are "**not associated conditional on** smoking)
+
+````{mermaid}
+  flowchart LR;
+
+    cig("Smoking"):::black;
+    lung("Lung cancer"):::white;
+    yellow("Yellow fingers"):::white;
+
+    cig --> lung;
+    cig --> yellow;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
 
 ## Colliders
 
 **Colliders** are descendents of two other variables - i.e. common effect - with two arrows from the parents pointing to ("colliding with") the descendent node.
 
+Example: A genetic factor and an environmental factor causing cancer. These are **independent** - i.e. genetic factor doesn't have causal effect on environmental factor - and so we don't expect to see an association between genetic and environment (unconditional/marginal association).
+
+````{mermaid}
+  flowchart LR;
+
+    gene("Genetic factor"):::white;
+    env("Environmental factor"):::white;
+    cancer("Cancer"):::white;
+
+    gene --> cancer;
+    env --> cancer;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
+However, if we condition on cancer - such as by just selecting people who have cancer - we will find an **inverse association** between genetics and environment (as if cancer wasn't caused by one, it was by the other). This biased effect estimate is referred to as **selection bias**.
+
+````{mermaid}
+  flowchart LR;
+
+    gene("Genetic factor"):::white;
+    env("Environmental factor"):::white;
+    cancer("Cancer"):::black;
+
+    gene --> cancer;
+    env --> cancer;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
+We can **induce** selection bias by conditioning on the downstream consequence of a collider - e.g. if cancer is collider, and surgery is consequence of cancer, if we condition on surgery, we expect to see inverse association between genetic and environment conditional on surgery (just as we did for the collider cancer).
+
+````{mermaid}
+  flowchart LR;
+
+    gene("Genetic factor"):::white;
+    env("Environmental factor"):::white;
+    cancer("Cancer"):::white;
+    surgery("Surgery"):::black;
+
+    gene --> cancer;
+    env --> cancer;
+    cancer --> surgery;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
 
 ## Conditioning
 
@@ -390,6 +513,16 @@ Path from A to Y is **open**:
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
 ````
+
+[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+
+### Faithfulness
+
+Faithfulness is the result of opposite effects of exactly equal magnitude - e.g. if aspirin caused stroke for half of poppulation and prevented it in the other half, then causal dag is correct (as aspirin affects stroke) but no association is observed (as they cancel each other out). In that case, we say the joint distribution of the data is not faithful to the causal DAG.
+
+These perfect cancellations are rare and we don't expect them to happen in practice, so we can safetly say lack of D-seperation means non-zero association. So - 
+* **D-seperation = statistical independence**
+* **All paths blocked = no association**
 
 [[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
