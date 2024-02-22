@@ -8,6 +8,13 @@
 
 Causal models can be represented visually using causal diagrams.
 
+## Counterfactuals
+
+When we're talking about one thing causing another, this is based in counterfactuals. **Counterfactuals** (or equivalent concepts) are needed to define causal effects. Knowing the counterfactual outcomes can be referred to as knowing the outcomes under treatment and under no treatment. For example, I know ingesting the poison killed John, because if John hadn't ingested the poison, I know he would have lived.
+
+Causal inference for an individual (generating individual causal effects) is general impossible in health and social sciences (as you can't go back in time and not give them the outcome) - instead, causal inference focusses on average causal effect when comparing groups of individuals.
+
+
 ## Introduction to causal diagrams
 
 Causal diagrams - **directed acyclic graphs (DAGs)** - depict causal relationship between different variables. Two key components are **nodes** and **arrows**. They are:
@@ -514,215 +521,99 @@ These perfect cancellations are rare and we don't expect them to happen in pract
 
 [[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
-## Drawing a DAG for our research question
+## Time-varying treatments and confounders
 
-### My attempt
+A time-varying treatment one that can take different values over time - (e.g. whether or not receive medicine, or dose of medicine, at multiple different timepoints) - as opposed to fixed treatments that do not vary over time (e.g. whether took vitamin D at time of conception).
 
-*This may be right or wrong - still learning...*
-
-#### Caesarean decisions
-
-A key thing to know is what causes need for caesarean - and whether those are also things that cause HIE (similar to hypoxia).
-
-Panda et al. 2018 - Clinicians’ views of factors influencing decision-making for caesarean section: A systematic review and metasynthesis of qualitative, quantitative and mixed methods studies - https://doi.org/10.1371%2Fjournal.pone.0200941 - some of the mentioned reasons across the world...
-* Perceived risk of CS v.s. vaginal birth - e.g. concerns related to risk of urinary and fecal incontinence and pelvic floor collapse following vaginal births
-* Perceived safety of CS - e.g. believing CS could reduce risks of and prevent complications for women living in isolated areas
-* Women requesting CS (which itself is influenced by socio-cultural perspectives, women’s preferences, demands, obstetricians’ beliefs in women’s right and autonomy to choose a CS, and their perception of women’s anxiety and fear)
-* Clinical reasons -
-  * previous CS
-  * risk of anorectal trauma
-  * preventing perineal injury, urinary and anal incontinence
-  * maternal age
-  * obesity
-  * previous birth complications
-  * risk of pelvic prolapse
-  * uterine rupture
-  * medical conditions like mypoia and previous abortions
-  * breech presentation
-  * previous classical CS
-  * fetal distress
-  * malpresentation
-  * dystocia
-  * placenta previa
-  * umbilical cord collapse
-* Fear of litigation / medico-legal problems
-* Lack of resources (e.g. not enough experienced clinicians to facilitate natural birth, availability of personal for emergency CS, availability of anaesthesia, access to basic infrastructure, access to emergency care facilities)
-* Type of health care coverage (private/public)
-* Hospital policies
-* Clinician characteristics - personal convenience, clinician demographics, confidence and skills
-
-#### Research question
-
-(1) Should we have done a caesarean? If we had done one, or if we had done one earlier, would it have prevented HIE?
-
-(2) Should we have done that caesarean? Did doing the caesarean cause harm when infant was otherwise alright?
-
-As I understand it, (1) is more the focus - the relationship of caesarean and HIE - rather than the relationship between caesarean and any outcome.
-
-In that case, our DAG starts with:
+Example: EPO used to treat anemia, dose is based on haemoglobin level, which itself depends on disease severity.
 
 ````{mermaid}
   flowchart LR;
 
-    A("Treatment (A)<br><b>Caesarean</b>"):::white;
-    Y("Outcome (Y)<br><b>Hypoxic ischaemic<br>encephalopathy (HIE)</b>"):::white;
+    l("L: Haemoglobin"):::white;
+    a("A: EPO"):::white;
+    y("Y: Death"):::white;
+    u("U: Disease severity"):::white;
 
-    A -->|?| Y;
+    l --> a;
+    a --> y;
+    u --> y;
+    u --> l;
 
-    classDef white fill:#FFFFFF, stroke:#FFFFFF;
-    classDef black fill:#FFFFFF, stroke:#000000;
-    classDef empty width:0px,height:0px;
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-#### DAG
+To show that we have **time-varying** components, we refer to:
+* L and A at timepoint K (e.g. week 0)
+* Y, L and A at timepoint K+1 (e.g. week 1)
+* Y at timepoint K+2 (e.g. week 2)
 
-**Research question**: Should we have done a caesarean or not - did it prevent HIE, or would it have prevented HIE.
+Actual study includes many more weeks but for most purposes, two time points are enough to represent the main features of the causal structure when there is time varying treatment. These will often be two arbritary time points (K and K+1) (rather than 0 and 1).
 
-**Treatment (A)**: Caesarean
+You'll notice that a consequence of the time-varying treatment is time-varying confounder and outcome. A confounder is time-varying when it can take different values at different timepoint, and confound at different timepoints.
 
-**Outcome (Y)**: Hypoxic ischaemic encephalopathy
-
-**Unmeasured confounder (U)**: Hypoxia
-
-**Confounders (L)**:
-* Abnormal fetal heart rate (FHR) - since its an indicator of hypoxia - it causes our decision to do caesarean, and means that HIE is more likely.
-* Sentinal events - since they cause hypoxia and can also cause decision to do a caesarean
-
-**Moderator**: Timing of caesarean (as how soon notice abnormal FHR and how quickly decide to do caesarean (not just whether they do it) influences the likelihood of HIE).
-
-It is time-varying, but I don't think there is treatment-confounder feedback, as the decision to do a caeasarean ends this (since you don't have caesarean, then see impact on FHR, and then do another caesarean).
+With the example below, the minimal set of variables you'd need to condition for would be L0 and L1 (wouldn't need to for U as doing for L0 and L1 blocks the backdoor paths)
 
 ````{mermaid}
   flowchart LR;
 
-    L_sen("Confounder (L)<br><b>Sentinal event</b>"):::white;
-    L_fhr("Confounder (L)<br><b>Abnormal FHR</b>"):::white;
-    U("Unmeasured confounder (U)<br><b>Hypoxia/Asphyxia</b>"):::white;
-    A("Treatment (A)<br><b>Caesarean</b>"):::important;
-    Y("Outcome (Y)<br><b>Hypoxic ischaemic<br>encephalopathy (HIE)</b>"):::important;
-    Empty[ ]:::empty;
-    Mod("Moderator<br><b>Timing of caesarean</b>"):::white;
-    
-    L_sen --> U; L_sen --> A;
-    Mod --> Empty;
-    A --- Empty; Empty -->|?| Y;
-    U --> L_fhr; L_fhr --> A; U --> Y;
-  
-    classDef white fill:#FFFFFF, stroke:#FFFFFF;
-    classDef black fill:#FFFFFF, stroke:#000000;
-    classDef empty width:0px,height:0px;
-    classDef important fill:#DDF2D1, stroke: #FFFFFF;
+    ak("A<sub>K</sub>: EPO dose"):::white;
+    ak1("A<sub>K+1</sub>: EPO dose"):::white;
+    yk1("Y<sub>K+1</sub>: Death"):::white;
+    yk2("Y<sub>K+2</sub>: Death"):::white;
+    lk("L<sub>K</sub>: Haemoglobin"):::white;
+    lk1("L<sub>K+1</sub>: Haemoglobin"):::white;
+    u("U: Disease severity"):::white;
+
+    ak --> yk1;
+    u --> yk1;
+    u --> lk;
+    lk --> ak;
+    lk --> ak1;
+    ak --> ak1;
+    u --> lk1;
+    lk1 --> ak1;
+    ak1 --> yk2;
+    u --> yk2;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-Another representation with diagnostic error in HIE...
+However, if there is **treatment-confounder feedback**, then conventional adjustment methods - even if closing all back door paths - will still not be able to yield an unbiased estimate.
+
+Our DAG above was incomplete - in this scenario, treatment at timepoint K will impact the confounder (levels of haemoglobin) at timepoint K+1. This is referred to as **treatment-confounder feedback** - when the later confounder is impacted by prior treatment.
+
+We'll get a biased estimate if we condition on the Ls, as conditioning on L<sub>K+1</sub> will open a path that was previously blocked: A<sub>K</sub> to L<sub>K+1</sub> to U to Y<sub>K</sub>. Hence, we have introduced selection bias.
+
+If the time-varying confounder also affects the outcome (e.g. L<sub>K+1</sub> --> Y<sub>K+2</sub>), it will be impossible to estimate the total effect of the treatment.
+
+We need other methods to handle these settings: **G-methods**.
 
 ````{mermaid}
   flowchart LR;
 
-    L_sen("Confounder (L)<br><b>Sentinal event</b>"):::white;
-    L_fhr("Confounder (L)<br><b>Abnormal FHR</b>"):::white;
-    U("Unmeasured confounder (U)<br><b>Hypoxia/Asphyxia</b>"):::white;
-    A("Treatment (A)<br><b>Caesarean</b>"):::important;
-    Y("Outcome (Y)<br><b>Hypoxic ischaemic<br>encephalopathy (HIE)</b>"):::important;
-    Empty[ ]:::empty;
-    Mod("Moderator<br><b>Timing of caesarean</b>"):::white;
-    Y*("Y* Mismeasurement of HIE"):::white;
-    Yerr("Measurement error in HIE"):::white;
-    
-    L_sen --> U; L_sen --> A;
-    Mod --> Empty;
-    A --- Empty; Empty -->|?| Y;
-    U --> L_fhr; L_fhr --> A; U --> Y;
-    Y --> Y*;
-    Yerr --> Y*;
-  
-    classDef white fill:#FFFFFF, stroke:#FFFFFF;
-    classDef black fill:#FFFFFF, stroke:#000000;
-    classDef empty width:0px,height:0px;
-    classDef important fill:#DDF2D1, stroke: #FFFFFF;
+    ak("A<sub>K</sub>: EPO dose"):::white;
+    ak1("A<sub>K+1</sub>: EPO dose"):::white;
+    yk1("Y<sub>K+1</sub>: Death"):::white;
+    yk2("Y<sub>K+2</sub>: Death"):::white;
+    lk("L<sub>K</sub>: Haemoglobin"):::black;
+    lk1("L<sub>K+1</sub>: Haemoglobin"):::black;
+    u("U: Disease severity"):::white;
+
+    ak --> yk1;
+    u --> yk1;
+    u --> lk;
+    lk --> ak;
+    lk --> ak1;
+    ak --> ak1;
+    ak --> lk1;
+    u --> lk1;
+    lk1 --> ak1;
+    ak1 --> yk2;
+    u --> yk2;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
 ````
-
-
-Another representation - instead of a moderator - of the time-varying treatment...
-
-````{mermaid}
-  flowchart LR;
-
-    AK("A<sub>K</sub><br><b>Caesarean</b>"):::white;
-    AK1("A<sub>K+1</sub><br><b>Caesarean</b>"):::white;
-
-    YK1("Y<sub>K+1</sub><br><b>Hypoxic ischaemic<br>encephalopathy (HIE)</b>"):::white;
-    YK2("Y<sub>K+2</sub><br><b>Hypoxic ischaemic<br>encephalopathy (HIE)</b>"):::white;
-    U("U<br><b>Hypoxia/Asphyxia</b>"):::white;
-    LK("Confounder (L<sub>K</sub>)<br>Abnormal FHR"):::white;
-    LK1("Confounder (L<sub>K+1</sub>)<br>Abnormal FHR"):::white;
-
-    AK --> YK1;
-    LK --> AK;
-    U --> LK;
-    U --> YK1;
-    U --> LK1;
-    LK1 --> AK1;
-    AK1 --> YK2;
-    U --> YK2;
-
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF;
-    classDef black fill:#FFFFFF, stroke:#000000;
-    classDef empty width:0px,height:0px;
-````
-
-A representation including cooling and later outcomes (don't think need all this...)...
-
-````{mermaid}
-  flowchart LR;
-
-    A("Caesarean"):::white;
-    Y("HIE at birth"):::white;
-    U("Hypoxia/Asphyxia"):::white;
-    L("Abnormal FHR"):::white;
-    Cool("Cooling"):::white;
-    Ylater("HIE a bit later"):::white;
-    Dis("Morbidity and mortality"):::white;
-
-    A -->|?| Y;
-    U --> L;
-    L --> A;
-    U --> Y;
-    Y --> Cool;
-    Cool --> Ylater;
-    Ylater --> Dis;
-
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF;
-    classDef black fill:#FFFFFF, stroke:#000000;
-    classDef empty width:0px,height:0px;
-````
-
-### Example: Leith et al. 2023
-
-Leith et al. 2023 - A predictive model for perinatal hypoxic ischemic encephalopathy using linked maternal and neonatal hospital data - http://dx.doi.org/10.1016/j.annepidem.2023.11.011.
-
-Focus: Predicting HIE
-
-Due to the large number of factors in the final model, to make the graph easier to read we have combined similar factors into groups as follows:
-* Maternal characteristics: age, race, payer, metropolitan residence, history of stillbirth, tobacco use.
-* Chronic conditions: diabetes, hypertension, total number of chronic conditions.
-* Antepartum complications: decreased fetal movement, polyhydramnios, amniotic fluid infection, intrauterine acidosis, cord compression, placental infarct.
-* Intrapartum complications: septicemia, hypertonic contractions, uterine inertia, prolonged 2nd stage.
-* Presentation: malpresentation, breech delivery, shoulder dystocia.
-* Emergency: sentinel event, fetal heart rate abnormalities.
-
-This DAG was created using DAGitty.
-
-![DAG from Leith et al. 2023](images/leith_2023_dag.jpg)
-
-### Example: Badurdeen et al. 2024
-
-Badurdeen et al. 2024 - Early Hyperoxemia and 2-year Outcomes in Infants with Hypoxic-ischemic Encephalopathy: A Secondary Analysis of the Infant Cooling Evaluation Trial - https://doi.org/10.1016/j.jpeds.2024.113902
-
-Focus: Causal relationship between exposure to early hyperoxemia (following resus) and death or major disability in infants with hypoxic ischaemic encephalopathy
-
-Context: Hyperoxemia is an increase in arterial oxygen partial pressure to more than 120mmHg. The exposure of interest with hyperoxemic exposure following resuscitation.
-
-![DAG from Badurdeen et al. 2024](images/badurdeen_2024_dag.jpg)
