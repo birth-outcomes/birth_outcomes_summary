@@ -87,6 +87,47 @@ What can you do then? You can design study where C-Y doesn't exist as you requir
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
+## Confounding
+
+### Controlling for confounding
+
+#### Randomisation
+
+Randomise to receive treatment - removes common cause of treatment and outcome.
+
+This is best method.
+
+Although even in randomised trial, we can't randomise whether people adhere to their assigned treatment.
+
+#### Methods based on measuring enough variables to block all backdoor paths between A and Y
+
+**Stratification** - e.g. restrict analysis to subset of study population with particular value of confounder - or do analysis in each stratum of confounder, and then pool the effect estimates - and most sophisticated way of doing is regression analysis. This is represented by drawing box on DAG.
+
+**Matching** - e.g. matching each person with treatment and confounder, with someone with treatment and not confounder, and with someone who did not have treatment or confounder. Analysis is restricted to matched people. As the treatment and no treatment groups are matched on confounder, if there is association, then not due to confounder, as adjusted for it. This can't be represented in DAG, because non-faithfulness - the association to a backdoor path is exactly cancelled by the matched subset.
+
+Sometimes construct **propensity score** (which is a function of the confounders) and then do stratification or matching based on the propensity score (rather than the confounders themselves).
+
+G-METHOD: **Inverse probability weighting** - estimate probability of receiving treatment level actually received (and these probabilities witll be different depending on whether had confounder) - then compute inverse probability (1/probability) - then compute association between treatment and outcome, but each person is counted as many times as their inverse probability weight indicates.
+
+* Person with heart disease treated with aspirin. Had a 50% chance of actually being treated with aspirin. Inverse probability weight 1/0.5 = 2.
+
+Inverse probability weighting eliminates the backdoor through L.
+
+G-METHOD: **Standardisation** - mathematically equivalent to inverse probability weighting - sometimes known as the **G-formula**
+
+G-METHOD: **G-estimation**
+
+What do all of these methods have in common?
+* They require data on the confounders that block the backdoor path. If those data are available, then the choice of one of these methods over the others is often a matter of personal taste. Unless the treatment is time-varying -- then we have to go to G-methods. But if the data on the confounders are not available, then the method will not eliminate all the bias, and the magnitude of the residual bias will depend on how much of the backdoor path remains open.
+* They require knowledge about the true causal DAG. If we don't know the true casual DAG, then we don't know the backdoor paths that we need to block.
+
+
+#### Methods that are alternatives to blocking backdoor paths
+
+e.g. instrumental variable estimation
+
+These methods are popular in economics, but often not general enough to adjust for confounding in many other settings (e.g. when treatment of interest changes over time) (as in time-varying treatments below).
+
 ## Time-varying treatments
 
 ### Time-varying treatments
@@ -301,6 +342,32 @@ There is a way to identify whether the bias is due to incomplete adjustment for 
 ````
 
 <mark>look more into methods of conditioning for things and confound adustment methods</mark>
+
+## Causal SWIGs
+
+### Example: EPO
+
+EPO treats aneamia for people with serious kidney disease. In 2000s, the US were using much more EPO than doctors in Europe. Patients with end-stage renal disease need dialysis one or a few times a week, so have to spend a few hours in those facilities. In US, many of those are run by for-profit companies. Each pateint was paid fixed amount per dialysis session plus cost of EPO. However, the facilies bought EPO at a discount and charged government full price, and so more EPO used meant more profit, incentivising patients to be given higher doses of EPO. Patients in Europe receiving less EPO were not doing worse than the US patients. In fact, very high doses of EPO might be harmful and increase risk of cardiovascular disease, but no large randomised trials of EPO dosing in patients with end-stage renal disease, so conducted observational studies.
+
+One of these was to perform a study that uses G-methods to adjust for time-varying confounding (for which there is alot in this situation as current EPO dose affects future haemoglobin values) and they estimated the mortality risk that would have been obesrved if all patients had received low dose, medium dose or high doses, and estimated no mortality differences.
+
+After this was published, they realised the analysis was not helpful for doctors who had to decide how much EPO to give. In fact, their sophisticated analysis was quite naive.
+
+### Counterfactuals
+
+**Counterfactuals** (or equivalent concepts) are needed to define causal effects. Knowing the counterfactual outcomes can be referred to as knowing the outcomes under treatment and under no treatment.
+
+Causal inference for an individual (generating individual causal effects) is general impossible in health and social sciences (as you can't go back in time and not give them the outcome) - instead, causal inference focusses on average causal effect when comparing groups of individuals.
+
+### Exchangeability
+
+What we do is treat one group and not another group, then compare the average outcomes. That's how we quantify average causal effect / group level effect. And that's what we're referring to when we say causal effect.
+
+Randomisation makes the groups exchangeable, and allows us to interpret association as causation. Exchangeability means there are no confounders.
+
+You can also express exchangeability in the language of counterfactuals.
+* In the RCT, 11% die in treatment group and 1% die in treatment group
+* So in each group, the average counterfactual outcome under treatment is 0.11 and under no treatment is 0.01 - so, the distribution of the counterfactual outcomes (Y under treatment and Y under no treatment) is the same in the treated and untreated group - so the counterfactual outcomes are independent of the actual treatment
 
 # Notes from R
 
