@@ -1,5 +1,7 @@
 # Treatment Paradox
 
+<mark>Will need to integrate with theory around causal inference</mark>
+
 `````{admonition} Executive summary
 :class: info
 

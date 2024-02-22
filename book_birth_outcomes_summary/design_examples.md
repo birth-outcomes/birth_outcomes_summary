@@ -46,6 +46,7 @@ Responses: https://www.bmj.com/content/367/bmj.l5678/rapid-responses
 
 ### Examples to look at
 
+* https://doi.org/10.1111/cdoe.12634 - Caesarean delivery and early childhood caries: Estimation with marginal structural models in Brazilian pre-schoolers - Ladeira et al. 2021
 * https://bmjopen.bmj.com/content/bmjopen/10/11/e038845.full.pdf - Protocol for development and validation of a clinical prediction model for adverse pregnancy outcomes in women with gestational diabetes - Cooray et al. 2020
     * Addressing the treatment paradox (in this case with insulin) is a challenge in prediction modelling studies. The traditional approach has been to accept predictions in the context of current care. However, this does not remove the possibility that a potentially useful model may appear to perform poorly due to the confounding effect of the judicious application of effective interventions to individual’s whom clinicians subjectively assess to be at high risk of the outcome of interest.
     * Two solutions to address the problem of treatment paradox in prediction modelling studies have been advocated.50
@@ -64,6 +65,7 @@ Responses: https://www.bmj.com/content/367/bmj.l5678/rapid-responses
 * https://jamanetwork.com/journals/jamapediatrics/fullarticle/2792041 - Developmental Outcomes for Children After Elective Birth at 39 Weeks’ Gestation - Lindquist et al. 2022
 * https://doi.org/10.1186%2Fs12887-018-1324-3 - Mode of delivery and short-term infant health outcomes: a prospective cohort study in a peri-urban Indian population - Gondwe et al. 2018
 * https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7755743/ - Mode of delivery, type of labor, and measures of adiposity from childhood to teenage: Project Viva - Mueller et al. 2021
+* https://doi.org/10.1111/cdoe.12634 - Caesarean delivery and early childhood caries: Estimation with marginal structural models in Brazilian pre-schoolers
 
 ### Other
 

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Research groups &#8212; Birth Outcomes</title>
+    <title>Causal diagrams for this research study &#8212; Birth Outcomes</title>
   
   
   
@@ -65,11 +65,13 @@ const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'research_groups';</script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'design_causal_hie';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Examples of identifying hypoxic ischaemic encephalopathy (HIE)" href="neo_out_background.html" />
-    <link rel="prev" title="Interventions during labour" href="interventions.html" />
+    <link rel="next" title="Methods to deal with confounding" href="design_confounding_methods.html" />
+    <link rel="prev" title="Causal inference" href="design_causal.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -179,10 +181,10 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="stages.html">Stages of pregnancy and birth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interventions.html">Interventions during labour</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Research groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="research_groups.html">Research groups</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Identifying HIE cases</span></p>
 <ul class="nav bd-sidenav">
@@ -204,10 +206,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="design_treat_paradox.html">Treatment Paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_causal.html">Causal inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_causal_hie.html">Causal diagrams for this research study</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Causal diagrams for this research study</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_confounding_methods.html">Methods to deal with confounding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_account_paradox.html">Accounting for a treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_examples.html">Examples of studies that account for the treatment paradox</a></li>
@@ -294,7 +296,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fresearch_groups.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdesign_causal_hie.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -324,7 +326,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/research_groups.md" target="_blank"
+      <li><a href="_sources/design_causal_hie.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -408,7 +410,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Research groups</h1>
+    <h1>Causal diagrams for this research study</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -418,10 +420,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groups">Groups</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collaborations">Collaborations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conferences-and-workshops">Conferences and Workshops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projects">Projects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#context-reasons-for-doing-a-caesarean">Context: Reasons for doing a caesarean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-question">Research question</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dags">DAGs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attempt-1">Attempt 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attempt-2">Attempt 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attempt-3">Attempt 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attempt-4">Attempt 4</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#external-examples-that-involve-hie">External examples that involve HIE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-leith-et-al-2023">Example: Leith et al. 2023</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-badurdeen-et-al-2024">Example: Badurdeen et al. 2024</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -433,31 +445,207 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="research-groups">
-<h1>Research groups<a class="headerlink" href="#research-groups" title="Link to this heading">#</a></h1>
-<p>This is a non-comprehensive list of some of the research teams, projects and conferences in this field.</p>
-<section id="groups">
-<h2>Groups<a class="headerlink" href="#groups" title="Link to this heading">#</a></h2>
-<p><strong>Neonatal Data Analysis Unit</strong>, part of the Neonatal Medicine Research group at <strong>Imperial College London,</strong> led by Professor Neena Modi. Founded to support the management and development of the National Neonatal Research Database (NNRD).<a class="reference external" href="https://www.imperial.ac.uk/neonatal-data-analysis-unit/neonatal-data-analysis-unit/">[website]</a></p>
-<p><strong>Oxford Labour Monitoring</strong> group in the Nuffield Department for Women’s and Reproductive Health at the <strong>University of Oxford</strong> lead by Antoniya Georgieva.<a class="reference external" href="https://www.wrh.ox.ac.uk/research/oxfordlabourmonitoringgroup">[website]</a></p>
-<p><strong>National Perinatal Epidemiology Unit</strong> at the <strong>University of Oxford</strong>. Wide range of research focusses, including involvement research around care of the compromised term infant, and running TOBY trials of therapeutic hypothermia.</p>
-<p><strong>Discipline of Paediatric Medicine</strong> at the <strong>University of Dublin Trinity College</strong>. Wide range of research projects including e.g. GEMINI Project: GEnder and inflaMmatIoN In neonatal encephalopathy. Pi Professor Eleanor Molloy 2019-22.<a class="reference external" href="https://www.tcd.ie/medicine/paediatrics/">[website]</a></p>
-<p><strong>INFANT team</strong> at <strong>University College Cork</strong> who developed automated system recognising patterns in electrical brain activity in infants with neonatal encephalopathy.</p>
-<p><strong>Pediatric, Newborn, and Fetal Developmental Neuroscience (Brigham Infant Brain Studies, BIBS)</strong> in the Department of Pediatrics at Brigham and Women’s Hospital.<a class="reference external" href="https://www.brighamandwomens.org/pediatrics/research/pediatric-newborn-and-fetal-development-neuroscience-research">[website]</a></p>
-<p><strong>Perinatal and developmental neurology</strong> research in Paediatrics and Child Health - Clinical and Experimental Sciences at the <strong>University of Southampton</strong>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="causal-diagrams-for-this-research-study">
+<h1>Causal diagrams for this research study<a class="headerlink" href="#causal-diagrams-for-this-research-study" title="Link to this heading">#</a></h1>
+<section id="context-reasons-for-doing-a-caesarean">
+<h2>Context: Reasons for doing a caesarean<a class="headerlink" href="#context-reasons-for-doing-a-caesarean" title="Link to this heading">#</a></h2>
+<p>A key thing to know is what causes need for caesarean - and whether those are also things that cause HIE (similar to hypoxia).</p>
+<p>Panda et al. 2018 - Clinicians’ views of factors influencing decision-making for caesarean section: A systematic review and metasynthesis of qualitative, quantitative and mixed methods studies - <a class="reference external" href="https://doi.org/10.1371%2Fjournal.pone.0200941">https://doi.org/10.1371%2Fjournal.pone.0200941</a> - some of the mentioned reasons across the world…</p>
+<ul class="simple">
+<li><p>Perceived risk of CS v.s. vaginal birth - e.g. concerns related to risk of urinary and fecal incontinence and pelvic floor collapse following vaginal births</p></li>
+<li><p>Perceived safety of CS - e.g. believing CS could reduce risks of and prevent complications for women living in isolated areas</p></li>
+<li><p>Women requesting CS (which itself is influenced by socio-cultural perspectives, women’s preferences, demands, obstetricians’ beliefs in women’s right and autonomy to choose a CS, and their perception of women’s anxiety and fear)</p></li>
+<li><p>Clinical reasons -</p>
+<ul>
+<li><p>previous CS</p></li>
+<li><p>risk of anorectal trauma</p></li>
+<li><p>preventing perineal injury, urinary and anal incontinence</p></li>
+<li><p>maternal age</p></li>
+<li><p>obesity</p></li>
+<li><p>previous birth complications</p></li>
+<li><p>risk of pelvic prolapse</p></li>
+<li><p>uterine rupture</p></li>
+<li><p>medical conditions like mypoia and previous abortions</p></li>
+<li><p>breech presentation</p></li>
+<li><p>previous classical CS</p></li>
+<li><p>fetal distress</p></li>
+<li><p>malpresentation</p></li>
+<li><p>dystocia</p></li>
+<li><p>placenta previa</p></li>
+<li><p>umbilical cord collapse</p></li>
+</ul>
+</li>
+<li><p>Fear of litigation / medico-legal problems</p></li>
+<li><p>Lack of resources (e.g. not enough experienced clinicians to facilitate natural birth, availability of personal for emergency CS, availability of anaesthesia, access to basic infrastructure, access to emergency care facilities)</p></li>
+<li><p>Type of health care coverage (private/public)</p></li>
+<li><p>Hospital policies</p></li>
+<li><p>Clinician characteristics - personal convenience, clinician demographics, confidence and skills</p></li>
+</ul>
 </section>
-<section id="collaborations">
-<h2>Collaborations<a class="headerlink" href="#collaborations" title="Link to this heading">#</a></h2>
-<p><strong>Health Research Board Neonatal Encephalopathy PhD Training Network (NEPTuNE)</strong> which supports PhD projects.<a class="reference external" href="https://nbci.ie/about-neptune/">[website]</a></p>
-<p><strong>Neonatal and Children’s Brain Consortium Ireland</strong><a class="reference external" href="https://nbci.ie/">[website]</a></p>
+<section id="research-question">
+<h2>Research question<a class="headerlink" href="#research-question" title="Link to this heading">#</a></h2>
+<p>(1) Should we have done a caesarean? If we had done one, or if we had done one earlier, would it have prevented HIE?</p>
+<p>(2) Should we have done that caesarean? Did doing the caesarean cause harm when infant was otherwise alright?</p>
+<p>As I understand it, (1) is more the focus - the relationship of caesarean and HIE - rather than the relationship between caesarean and any outcome.</p>
+<p>In that case, our DAG starts with:</p>
+<div class="mermaid">
+              flowchart LR;
+
+    A(&quot;Treatment (A)&lt;br&gt;&lt;b&gt;Caesarean&lt;/b&gt;&quot;):::white;
+    Y(&quot;Outcome (Y)&lt;br&gt;&lt;b&gt;Hypoxic ischaemic&lt;br&gt;encephalopathy (HIE)&lt;/b&gt;&quot;):::white;
+
+    A --&gt;|?| Y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+        </div></section>
+<section id="dags">
+<h2>DAGs<a class="headerlink" href="#dags" title="Link to this heading">#</a></h2>
+<section id="attempt-1">
+<h3>Attempt 1<a class="headerlink" href="#attempt-1" title="Link to this heading">#</a></h3>
+<p><strong>Research question</strong>: Should we have done a caesarean or not - did it prevent HIE, or would it have prevented HIE.</p>
+<p><strong>Treatment (A)</strong>: Caesarean</p>
+<p><strong>Outcome (Y)</strong>: Hypoxic ischaemic encephalopathy</p>
+<p><strong>Unmeasured confounder (U)</strong>: Hypoxia</p>
+<p><strong>Confounders (L)</strong>:</p>
+<ul class="simple">
+<li><p>Abnormal fetal heart rate (FHR) - since its an indicator of hypoxia - it causes our decision to do caesarean, and means that HIE is more likely.</p></li>
+<li><p>Sentinal events - since they cause hypoxia and can also cause decision to do a caesarean</p></li>
+</ul>
+<p><strong>Moderator</strong>: Timing of caesarean (as how soon notice abnormal FHR and how quickly decide to do caesarean (not just whether they do it) influences the likelihood of HIE).</p>
+<p>It is time-varying, but I don’t think there is treatment-confounder feedback, as the decision to do a caeasarean ends this (since you don’t have caesarean, then see impact on FHR, and then do another caesarean).</p>
+<div class="mermaid">
+              flowchart LR;
+
+    L_sen(&quot;Confounder (L)&lt;br&gt;&lt;b&gt;Sentinal event&lt;/b&gt;&quot;):::white;
+    L_fhr(&quot;Confounder (L)&lt;br&gt;&lt;b&gt;Abnormal FHR&lt;/b&gt;&quot;):::white;
+    U(&quot;Unmeasured confounder (U)&lt;br&gt;&lt;b&gt;Hypoxia/Asphyxia&lt;/b&gt;&quot;):::white;
+    A(&quot;Treatment (A)&lt;br&gt;&lt;b&gt;Caesarean&lt;/b&gt;&quot;):::important;
+    Y(&quot;Outcome (Y)&lt;br&gt;&lt;b&gt;Hypoxic ischaemic&lt;br&gt;encephalopathy (HIE)&lt;/b&gt;&quot;):::important;
+    Empty[ ]:::empty;
+    Mod(&quot;Moderator&lt;br&gt;&lt;b&gt;Timing of caesarean&lt;/b&gt;&quot;):::white;
+    
+    L_sen --&gt; U; L_sen --&gt; A;
+    Mod --&gt; Empty;
+    A --- Empty; Empty --&gt;|?| Y;
+    U --&gt; L_fhr; L_fhr --&gt; A; U --&gt; Y;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef important fill:#DDF2D1, stroke: #FFFFFF;
+        </div></section>
+<section id="attempt-2">
+<h3>Attempt 2<a class="headerlink" href="#attempt-2" title="Link to this heading">#</a></h3>
+<p>Another representation with diagnostic error in HIE…</p>
+<div class="mermaid">
+              flowchart LR;
+
+    L_sen(&quot;Confounder (L)&lt;br&gt;&lt;b&gt;Sentinal event&lt;/b&gt;&quot;):::white;
+    L_fhr(&quot;Confounder (L)&lt;br&gt;&lt;b&gt;Abnormal FHR&lt;/b&gt;&quot;):::white;
+    U(&quot;Unmeasured confounder (U)&lt;br&gt;&lt;b&gt;Hypoxia/Asphyxia&lt;/b&gt;&quot;):::white;
+    A(&quot;Treatment (A)&lt;br&gt;&lt;b&gt;Caesarean&lt;/b&gt;&quot;):::important;
+    Y(&quot;Outcome (Y)&lt;br&gt;&lt;b&gt;Hypoxic ischaemic&lt;br&gt;encephalopathy (HIE)&lt;/b&gt;&quot;):::important;
+    Empty[ ]:::empty;
+    Mod(&quot;Moderator&lt;br&gt;&lt;b&gt;Timing of caesarean&lt;/b&gt;&quot;):::white;
+    Y*(&quot;Y* Mismeasurement of HIE&quot;):::white;
+    Yerr(&quot;Measurement error in HIE&quot;):::white;
+    
+    L_sen --&gt; U; L_sen --&gt; A;
+    Mod --&gt; Empty;
+    A --- Empty; Empty --&gt;|?| Y;
+    U --&gt; L_fhr; L_fhr --&gt; A; U --&gt; Y;
+    Y --&gt; Y*;
+    Yerr --&gt; Y*;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef important fill:#DDF2D1, stroke: #FFFFFF;
+        </div></section>
+<section id="attempt-3">
+<h3>Attempt 3<a class="headerlink" href="#attempt-3" title="Link to this heading">#</a></h3>
+<p>Another representation - instead of a moderator - of the time-varying treatment…</p>
+<div class="mermaid">
+              flowchart LR;
+
+    AK(&quot;A&lt;sub&gt;K&lt;/sub&gt;&lt;br&gt;&lt;b&gt;Caesarean&lt;/b&gt;&quot;):::white;
+    AK1(&quot;A&lt;sub&gt;K+1&lt;/sub&gt;&lt;br&gt;&lt;b&gt;Caesarean&lt;/b&gt;&quot;):::white;
+
+    YK1(&quot;Y&lt;sub&gt;K+1&lt;/sub&gt;&lt;br&gt;&lt;b&gt;Hypoxic ischaemic&lt;br&gt;encephalopathy (HIE)&lt;/b&gt;&quot;):::white;
+    YK2(&quot;Y&lt;sub&gt;K+2&lt;/sub&gt;&lt;br&gt;&lt;b&gt;Hypoxic ischaemic&lt;br&gt;encephalopathy (HIE)&lt;/b&gt;&quot;):::white;
+    U(&quot;U&lt;br&gt;&lt;b&gt;Hypoxia/Asphyxia&lt;/b&gt;&quot;):::white;
+    LK(&quot;Confounder (L&lt;sub&gt;K&lt;/sub&gt;)&lt;br&gt;Abnormal FHR&quot;):::white;
+    LK1(&quot;Confounder (L&lt;sub&gt;K+1&lt;/sub&gt;)&lt;br&gt;Abnormal FHR&quot;):::white;
+
+    AK --&gt; YK1;
+    LK --&gt; AK;
+    U --&gt; LK;
+    U --&gt; YK1;
+    U --&gt; LK1;
+    LK1 --&gt; AK1;
+    AK1 --&gt; YK2;
+    U --&gt; YK2;
+
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+        </div></section>
+<section id="attempt-4">
+<h3>Attempt 4<a class="headerlink" href="#attempt-4" title="Link to this heading">#</a></h3>
+<p>A representation including cooling and later outcomes (don’t think need all this…)…</p>
+<div class="mermaid">
+              flowchart LR;
+
+    A(&quot;Caesarean&quot;):::white;
+    Y(&quot;HIE at birth&quot;):::white;
+    U(&quot;Hypoxia/Asphyxia&quot;):::white;
+    L(&quot;Abnormal FHR&quot;):::white;
+    Cool(&quot;Cooling&quot;):::white;
+    Ylater(&quot;HIE a bit later&quot;):::white;
+    Dis(&quot;Morbidity and mortality&quot;):::white;
+
+    A --&gt;|?| Y;
+    U --&gt; L;
+    L --&gt; A;
+    U --&gt; Y;
+    Y --&gt; Cool;
+    Cool --&gt; Ylater;
+    Ylater --&gt; Dis;
+
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+        </div></section>
 </section>
-<section id="conferences-and-workshops">
-<h2>Conferences and Workshops<a class="headerlink" href="#conferences-and-workshops" title="Link to this heading">#</a></h2>
-<p><strong>Signal Process and Monitoring in Labour (SPaM) in Labour Workshop</strong> - ran in 2015, 2017, 2019 and 2022. Next on 1-3 July 2024 in Italy.<a class="reference external" href="https://www.wrh.ox.ac.uk/research/spam-in-labour-workshop">[website]</a> <a class="reference external" href="https://sites.unica.it/spam2024/">[SPaM 2024 website]</a></p>
-<p><strong>International Newborn Brain Conference Series</strong></p>
+<section id="external-examples-that-involve-hie">
+<h2>External examples that involve HIE<a class="headerlink" href="#external-examples-that-involve-hie" title="Link to this heading">#</a></h2>
+<section id="example-leith-et-al-2023">
+<h3>Example: Leith et al. 2023<a class="headerlink" href="#example-leith-et-al-2023" title="Link to this heading">#</a></h3>
+<p>Leith et al. 2023 - A predictive model for perinatal hypoxic ischemic encephalopathy using linked maternal and neonatal hospital data - <a class="reference external" href="http://dx.doi.org/10.1016/j.annepidem.2023.11.011">http://dx.doi.org/10.1016/j.annepidem.2023.11.011</a>.</p>
+<p>Focus: Predicting HIE</p>
+<p>Due to the large number of factors in the final model, to make the graph easier to read we have combined similar factors into groups as follows:</p>
+<ul class="simple">
+<li><p>Maternal characteristics: age, race, payer, metropolitan residence, history of stillbirth, tobacco use.</p></li>
+<li><p>Chronic conditions: diabetes, hypertension, total number of chronic conditions.</p></li>
+<li><p>Antepartum complications: decreased fetal movement, polyhydramnios, amniotic fluid infection, intrauterine acidosis, cord compression, placental infarct.</p></li>
+<li><p>Intrapartum complications: septicemia, hypertonic contractions, uterine inertia, prolonged 2nd stage.</p></li>
+<li><p>Presentation: malpresentation, breech delivery, shoulder dystocia.</p></li>
+<li><p>Emergency: sentinel event, fetal heart rate abnormalities.</p></li>
+</ul>
+<p>This DAG was created using DAGitty.</p>
+<p><img alt="DAG from Leith et al. 2023" src="_images/leith_2023_dag.jpg" /></p>
 </section>
-<section id="projects">
-<h2>Projects<a class="headerlink" href="#projects" title="Link to this heading">#</a></h2>
+<section id="example-badurdeen-et-al-2024">
+<h3>Example: Badurdeen et al. 2024<a class="headerlink" href="#example-badurdeen-et-al-2024" title="Link to this heading">#</a></h3>
+<p>Badurdeen et al. 2024 - Early Hyperoxemia and 2-year Outcomes in Infants with Hypoxic-ischemic Encephalopathy: A Secondary Analysis of the Infant Cooling Evaluation Trial - <a class="reference external" href="https://doi.org/10.1016/j.jpeds.2024.113902">https://doi.org/10.1016/j.jpeds.2024.113902</a></p>
+<p>Focus: Causal relationship between exposure to early hyperoxemia (following resus) and death or major disability in infants with hypoxic ischaemic encephalopathy</p>
+<p>Context: Hyperoxemia is an increase in arterial oxygen partial pressure to more than 120mmHg. The exposure of interest with hyperoxemic exposure following resuscitation.</p>
+<p><img alt="DAG from Badurdeen et al. 2024" src="_images/badurdeen_2024_dag.jpg" /></p>
+</section>
 </section>
 </section>
 
@@ -492,20 +680,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="interventions.html"
+       href="design_causal.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Interventions during labour</p>
+        <p class="prev-next-title">Causal inference</p>
       </div>
     </a>
     <a class="right-next"
-       href="neo_out_background.html"
+       href="design_confounding_methods.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Examples of identifying hypoxic ischaemic encephalopathy (HIE)</p>
+        <p class="prev-next-title">Methods to deal with confounding</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -525,10 +713,20 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groups">Groups</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collaborations">Collaborations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conferences-and-workshops">Conferences and Workshops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projects">Projects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#context-reasons-for-doing-a-caesarean">Context: Reasons for doing a caesarean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-question">Research question</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dags">DAGs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attempt-1">Attempt 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attempt-2">Attempt 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attempt-3">Attempt 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attempt-4">Attempt 4</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#external-examples-that-involve-hie">External examples that involve HIE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-leith-et-al-2023">Example: Leith et al. 2023</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-badurdeen-et-al-2024">Example: Badurdeen et al. 2024</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

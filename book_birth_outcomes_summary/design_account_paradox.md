@@ -36,6 +36,11 @@ Unsuitable:
 * Matthew Sperrin, Glen P. Martin, Rose Sisk, Niels Peek, Missing data should be handled differently for prediction than for description or causal explanation, Journal of Clinical Epidemiology, 10.1016/j.jclinepi.2020.03.028, 125, (183-187), (2020).
 * Rose Sisk, Lijing Lin, Matthew Sperrin, Jessica K Barrett, Brian Tom, Karla Diaz-Ordaz, Niels Peek, Glen P Martin, Informative presence and observation in routine health data: A review of methodology for clinical risk prediction, Journal of the American Medical Informatics Association, 10.1093/jamia/ocaa242, 28, 1, (155-166), (2020).
 * Pajouheshnia R, Schuster NA, Groenwold RH, Rutten FH, Moons KG, Peelen LM. Accounting for time-dependent treatment use when developing a prognostic model from observational data: A review of methods. Statistica Neerlandica. 2020;74(1):38–51. Available from: https://onlinelibrary.wiley.com/doi/abs/10.1111/stan.12193.
+* Using marginal structural models to adjust for treatment drop-in when developing clinical prediction models - https://doi.org/10.1002/sim.7913
+* https://arxiv.org/abs/2308.13026 - Assessing model performance for counterfactual predictions
+    * estimating and evaluating counterfactual prediction models is challenging because one does not observe the full set of potential outcomes for all individuals.
+* https://www.criticalcare.theclinics.com/article/S0749-0704(23)00011-8/abstract - Making the Improbable Possible: Generalizing Models Designed for a Syndrome-Based, Heterogeneous Patient Landscape
+* https://arxiv.org/abs/2209.06101 - Evaluating individualized treatment effect predictions: a model-based perspective on discrimination and calibration assessment
 
 ## Methods that might be suitable for us
 
