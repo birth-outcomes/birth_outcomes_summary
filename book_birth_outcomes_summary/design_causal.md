@@ -92,6 +92,10 @@ In an observational study, there will be other variables that would explain why 
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
+
+**How do you know when to include mediators**
+* We start the DAG with adding the treatment (A) and outcome (Y) that we are interested in, and then build around it. As we are interested in the **total effect of A on Y**, we don't need to specify the mechanisms through which A may affect Y (i.e. don't need any m ediators between A and Y)
+
 [[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
 ### When should you draw arrows?
@@ -106,6 +110,8 @@ Note: Arrows on causal graphs are not deterministic - i.e. doesn't mean every pe
 
 ### What is the purpose of DAGs?
 
+We don't draw causal diagrams as an exact, accurate representation of the world - instead, we draw causal DAGs to help us think about possible sources of bias when making causal inferences.
+
 * They make sure we illustrate and identify our sources of biases (assumptions)
     * More precise and efficient than writing pages of assumptions[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
     * Although they are based on assumptions, so are analytic models.[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
@@ -113,6 +119,8 @@ Note: Arrows on causal graphs are not deterministic - i.e. doesn't mean every pe
 * They can help determine whether the effect of interest can be identified from available data, and help us clarify our study question[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf) - and to identify problems in the study design[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
 ### How do you construct a DAG?
+
+*The order here doesn't particular matter - the key thing is to start with the research question and then build from there*.
 
 1. Start with research question - A (treatment/exposure) and Y (outcome), and indicate with "?"
 
@@ -128,45 +136,19 @@ Note: Arrows on causal graphs are not deterministic - i.e. doesn't mean every pe
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-2. Add **moderators** (affect direction/strength of A --> Y)
+2. Add **measured confounders (L)** (cause A and Y). 
 
-````{mermaid}
-  flowchart LR;
+3. Add **unmeasured confounders (U)** (even though we don't measure, we need to include, as they are a common cause of A and Y)
 
-    A("A (treatment/exposure)"):::white;
-    Y("Y (outcome)"):::white;
-    Empty[ ]:::empty;
-    Mod("Moderator"):::white;
+4. Add **selection nodes** - e.g. if some people lost to follow-up (C1) and some remain to end (C0), our analysis is restricted to C0. In the example of loss to follow up, this is temporarily between A and Y with box around it (which means that only individuals with certain values of C are included in the analysis, as we're essentially conditioning on it)
 
-    Mod --> Empty;
-    A --- Empty; Empty -->|?| Y;
+5. Add **moderators** (affect direction/strength of A --> Y)
 
-    classDef white fill:#FFFFFF, stroke:#FFFFFF;
-    classDef black fill:#FFFFFF, stroke:#000000;
-    classDef empty width:0px,height:0px;
-````
+6. Add **mediators** (on causal pathway between A and Y - included if you want to know effect of A on Y when not mediated by the provided mediators)
 
-3. Add **mediators** (on causal pathway between A and Y)
+7. Add nodes for **mismeasured variables** - if believe it's mismeasured, have node with * that points from variable, with another representing measurement error.
 
-````{mermaid}
-  flowchart LR;
-
-    A("A (treatment/exposure)"):::white;
-    Y("Y (outcome)"):::white;
-    Empty[ ]:::empty;
-    Mod("Moderator"):::white;
-    M("Mediator"):::white;
-
-    Mod --> Empty;
-    A --- Empty; Empty -->|?| Y;
-    A --> M; M --> Y;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF;
-    classDef black fill:#FFFFFF, stroke:#000000;
-    classDef empty width:0px,height:0px;
-````
-
-4. Add **confounders** (cause A and Y)
+8. Everytime you add a new variable to the DAG, you need to conside whether it has common causes with any other variables (its not just about common causes of A and Y). For example, if you believe measurement of Y is affected by whether person is on treatment, draw arrow from A to measurement error for Y
 
 ````{mermaid}
   flowchart LR;
@@ -176,23 +158,29 @@ Note: Arrows on causal graphs are not deterministic - i.e. doesn't mean every pe
     Empty[ ]:::empty;
     Mod("Moderator"):::white;
     M("Mediator"):::white;
-    C("Confounder"):::white;
+    L("L (confounder)"):::white;
+    U("U (unmeasured confounder)"):::white;
+    C("C (selection node)"):::black;
+    Y*("Y* (mismeasured outcome)"):::white;
+    UY("U<sub>Y</sub> (measurement error for Y)"):::white;
 
     Mod --> Empty;
     A --- Empty; Empty -->|?| Y;
     A --> M; M --> Y;
-    C --> A; C --> Y;
-
+    L --> A; L --> Y;
+    U --> L; U --> Y;
+    A --> C;
+    L --> C;
+    Y --> Y*;
+    UY --> Y*;
+    A --> UY;
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF;
     classDef black fill:#FFFFFF, stroke:#000000;
     classDef empty width:0px,height:0px;
 ````
 
-5. Consider other relevant variables:
-    * **Common causes** of any 2 variables in the DAG - including unmeasured and unmeasurable common causes
-    * **Selection variables** (i.e. inclusion criteria)
-    * Don't need variables that cause Y but not A (although might include if for xeample you want to compare to other studies that did adjust for that variable)
+Don't need variables that cause Y but not A (although might include if for example you want to compare to other studies that did adjust for that variable)
 
 There can often be more than one appropriate DAG, and alternate DAGs can make excellent sensitivity analyses.[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
 
@@ -249,7 +237,7 @@ If you do not have a direct arrow between the treatment and outcome, and only vi
 
 ## Confounding
 
-**Confounders** are variables that **cause BOTH the treatment/exposure and outcomes**.
+**Confounders** are variables that **cause BOTH the treatment/exposure and outcomes**. Informally, it occurs when there is an open backdoor path between the treatment/exposure and outcome, and you could say a confounder is a variable that - possibly together with other variables - can be used to block the backdoor path between the treatment and outcome.
 
 Example - smoking causes yellow fingers and lung cancer - if we don't condition on it, we expect to see an association between yellow fingers and lung cancer (known as a **marginal/unconditional** association)
 
@@ -354,7 +342,7 @@ Scenarios where we may want to condition...
 **(1) To control for confounding**. A back door path is a connection between A and Y that doesn't follow the path of the arrows - for example, along the path of a confounder. If we condition on the variable in that path (i.e. control for confounding), then we close that back door path and remove the non-causal association.
 * If we don't do this, we will get **confounding bias** (where a common cause of A and Y is not blocked).
 
-**(2) To open a path blocked by a collider**.<mark>is this good or bad?</mark>
+**(2) To open a path blocked by a collider**.
 * **Collider bias** = conditioning on common effects
 * **Selection bias** = type of collider bias where the common effect is selection into the study - occurs when a common effect is conditioned on such that there is now a conditional association between A and Y
 * **Berkson's bias** = type of selection bias in which selection of cases into the study depends on hospitalisation, and the treatment is another diase, or a cause of another disease, which also results in hospitalisation
@@ -528,23 +516,213 @@ These perfect cancellations are rare and we don't expect them to happen in pract
 
 ## Drawing a DAG for our research question
 
-**This might be wrong**. Current attempt:
+### My attempt
+
+*This may be right or wrong - still learning...*
+
+#### Caesarean decisions
+
+A key thing to know is what causes need for caesarean - and whether those are also things that cause HIE (similar to hypoxia).
+
+Panda et al. 2018 - Clinicians’ views of factors influencing decision-making for caesarean section: A systematic review and metasynthesis of qualitative, quantitative and mixed methods studies - https://doi.org/10.1371%2Fjournal.pone.0200941 - some of the mentioned reasons across the world...
+* Perceived risk of CS v.s. vaginal birth - e.g. concerns related to risk of urinary and fecal incontinence and pelvic floor collapse following vaginal births
+* Perceived safety of CS - e.g. believing CS could reduce risks of and prevent complications for women living in isolated areas
+* Women requesting CS (which itself is influenced by socio-cultural perspectives, women’s preferences, demands, obstetricians’ beliefs in women’s right and autonomy to choose a CS, and their perception of women’s anxiety and fear)
+* Clinical reasons -
+  * previous CS
+  * risk of anorectal trauma
+  * preventing perineal injury, urinary and anal incontinence
+  * maternal age
+  * obesity
+  * previous birth complications
+  * risk of pelvic prolapse
+  * uterine rupture
+  * medical conditions like mypoia and previous abortions
+  * breech presentation
+  * previous classical CS
+  * fetal distress
+  * malpresentation
+  * dystocia
+  * placenta previa
+  * umbilical cord collapse
+* Fear of litigation / medico-legal problems
+* Lack of resources (e.g. not enough experienced clinicians to facilitate natural birth, availability of personal for emergency CS, availability of anaesthesia, access to basic infrastructure, access to emergency care facilities)
+* Type of health care coverage (private/public)
+* Hospital policies
+* Clinician characteristics - personal convenience, clinician demographics, confidence and skills
+
+#### Research question
+
+(1) Should we have done a caesarean? If we had done one, or if we had done one earlier, would it have prevented HIE?
+
+(2) Should we have done that caesarean? Did doing the caesarean cause harm when infant was otherwise alright?
+
+As I understand it, (1) is more the focus - the relationship of caesarean and HIE - rather than the relationship between caesarean and any outcome.
+
+In that case, our DAG starts with:
 
 ````{mermaid}
   flowchart LR;
 
-    A("Treatment<br><b>Caesarean</b>"):::white;
-    Y("Outcome<br><b>Hypoxic ischaemic<br>encephalopathy (HIE)</b>"):::white;
+    A("Treatment (A)<br><b>Caesarean</b>"):::white;
+    Y("Outcome (Y)<br><b>Hypoxic ischaemic<br>encephalopathy (HIE)</b>"):::white;
+
+    A -->|?| Y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+````
+
+#### DAG
+
+**Research question**: Should we have done a caesarean or not - did it prevent HIE, or would it have prevented HIE.
+
+**Treatment (A)**: Caesarean
+
+**Outcome (Y)**: Hypoxic ischaemic encephalopathy
+
+**Unmeasured confounder (U)**: Hypoxia
+
+**Confounders (L)**:
+* Abnormal fetal heart rate (FHR) - since its an indicator of hypoxia - it causes our decision to do caesarean, and means that HIE is more likely.
+* Sentinal events - since they cause hypoxia and can also cause decision to do a caesarean
+
+**Moderator**: Timing of caesarean (as how soon notice abnormal FHR and how quickly decide to do caesarean (not just whether they do it) influences the likelihood of HIE).
+
+It is time-varying, but I don't think there is treatment-confounder feedback, as the decision to do a caeasarean ends this (since you don't have caesarean, then see impact on FHR, and then do another caesarean).
+
+````{mermaid}
+  flowchart LR;
+
+    L_sen("Confounder (L)<br><b>Sentinal event</b>"):::white;
+    L_fhr("Confounder (L)<br><b>Abnormal FHR</b>"):::white;
+    U("Unmeasured confounder (U)<br><b>Hypoxia/Asphyxia</b>"):::white;
+    A("Treatment (A)<br><b>Caesarean</b>"):::important;
+    Y("Outcome (Y)<br><b>Hypoxic ischaemic<br>encephalopathy (HIE)</b>"):::important;
     Empty[ ]:::empty;
     Mod("Moderator<br><b>Timing of caesarean</b>"):::white;
-    C("Confounder<br><b>Hypoxia/Asphyxia</b>"):::white;
-
+    
+    L_sen --> U; L_sen --> A;
     Mod --> Empty;
     A --- Empty; Empty -->|?| Y;
-    C --> A; C --> Y;
+    U --> L_fhr; L_fhr --> A; U --> Y;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef important fill:#DDF2D1, stroke: #FFFFFF;
+````
+
+Another representation with diagnostic error in HIE...
+
+````{mermaid}
+  flowchart LR;
+
+    L_sen("Confounder (L)<br><b>Sentinal event</b>"):::white;
+    L_fhr("Confounder (L)<br><b>Abnormal FHR</b>"):::white;
+    U("Unmeasured confounder (U)<br><b>Hypoxia/Asphyxia</b>"):::white;
+    A("Treatment (A)<br><b>Caesarean</b>"):::important;
+    Y("Outcome (Y)<br><b>Hypoxic ischaemic<br>encephalopathy (HIE)</b>"):::important;
+    Empty[ ]:::empty;
+    Mod("Moderator<br><b>Timing of caesarean</b>"):::white;
+    Y*("Y* Mismeasurement of HIE"):::white;
+    Yerr("Measurement error in HIE"):::white;
+    
+    L_sen --> U; L_sen --> A;
+    Mod --> Empty;
+    A --- Empty; Empty -->|?| Y;
+    U --> L_fhr; L_fhr --> A; U --> Y;
+    Y --> Y*;
+    Yerr --> Y*;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef important fill:#DDF2D1, stroke: #FFFFFF;
+````
+
+
+Another representation - instead of a moderator - of the time-varying treatment...
+
+````{mermaid}
+  flowchart LR;
+
+    AK("A<sub>K</sub><br><b>Caesarean</b>"):::white;
+    AK1("A<sub>K+1</sub><br><b>Caesarean</b>"):::white;
+
+    YK1("Y<sub>K+1</sub><br><b>Hypoxic ischaemic<br>encephalopathy (HIE)</b>"):::white;
+    YK2("Y<sub>K+2</sub><br><b>Hypoxic ischaemic<br>encephalopathy (HIE)</b>"):::white;
+    U("U<br><b>Hypoxia/Asphyxia</b>"):::white;
+    LK("Confounder (L<sub>K</sub>)<br>Abnormal FHR"):::white;
+    LK1("Confounder (L<sub>K+1</sub>)<br>Abnormal FHR"):::white;
+
+    AK --> YK1;
+    LK --> AK;
+    U --> LK;
+    U --> YK1;
+    U --> LK1;
+    LK1 --> AK1;
+    AK1 --> YK2;
+    U --> YK2;
 
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF;
     classDef black fill:#FFFFFF, stroke:#000000;
     classDef empty width:0px,height:0px;
 ````
+
+A representation including cooling and later outcomes (don't think need all this...)...
+
+````{mermaid}
+  flowchart LR;
+
+    A("Caesarean"):::white;
+    Y("HIE at birth"):::white;
+    U("Hypoxia/Asphyxia"):::white;
+    L("Abnormal FHR"):::white;
+    Cool("Cooling"):::white;
+    Ylater("HIE a bit later"):::white;
+    Dis("Morbidity and mortality"):::white;
+
+    A -->|?| Y;
+    U --> L;
+    L --> A;
+    U --> Y;
+    Y --> Cool;
+    Cool --> Ylater;
+    Ylater --> Dis;
+
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+````
+
+### Example: Leith et al. 2023
+
+Leith et al. 2023 - A predictive model for perinatal hypoxic ischemic encephalopathy using linked maternal and neonatal hospital data - http://dx.doi.org/10.1016/j.annepidem.2023.11.011.
+
+Focus: Predicting HIE
+
+Due to the large number of factors in the final model, to make the graph easier to read we have combined similar factors into groups as follows:
+* Maternal characteristics: age, race, payer, metropolitan residence, history of stillbirth, tobacco use.
+* Chronic conditions: diabetes, hypertension, total number of chronic conditions.
+* Antepartum complications: decreased fetal movement, polyhydramnios, amniotic fluid infection, intrauterine acidosis, cord compression, placental infarct.
+* Intrapartum complications: septicemia, hypertonic contractions, uterine inertia, prolonged 2nd stage.
+* Presentation: malpresentation, breech delivery, shoulder dystocia.
+* Emergency: sentinel event, fetal heart rate abnormalities.
+
+This DAG was created using DAGitty.
+
+![DAG from Leith et al. 2023](images/leith_2023_dag.jpg)
+
+### Example: Badurdeen et al. 2024
+
+Badurdeen et al. 2024 - Early Hyperoxemia and 2-year Outcomes in Infants with Hypoxic-ischemic Encephalopathy: A Secondary Analysis of the Infant Cooling Evaluation Trial - https://doi.org/10.1016/j.jpeds.2024.113902
+
+Focus: Causal relationship between exposure to early hyperoxemia (following resus) and death or major disability in infants with hypoxic ischaemic encephalopathy
+
+Context: Hyperoxemia is an increase in arterial oxygen partial pressure to more than 120mmHg. The exposure of interest with hyperoxemic exposure following resuscitation.
+
+![DAG from Badurdeen et al. 2024](images/badurdeen_2024_dag.jpg)
