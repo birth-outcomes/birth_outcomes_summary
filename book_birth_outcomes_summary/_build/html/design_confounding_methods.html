@@ -6,8 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; Birth Outcomes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Methods to deal with confounding &#8212; Birth Outcomes</title>
   
   
   
@@ -64,11 +65,11 @@ const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({startOnLoad:true});</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
-    <link rel="index" title="Index" href="#" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'design_confounding_methods';</script>
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Accounting for a treatment paradox" href="design_account_paradox.html" />
+    <link rel="prev" title="Causal diagrams for this research study" href="design_causal_hie.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -129,8 +130,6 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -205,11 +204,11 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="design_treat_paradox.html">Treatment Paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_causal.html">Causal inference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_causal_hie.html">Causal diagrams for this research study</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_confounding_methods.html">Methods to deal with confounding</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Methods to deal with confounding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_account_paradox.html">Accounting for a treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_examples.html">Examples of studies that account for the treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_other.html">Other design considerations</a></li>
@@ -295,7 +294,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgenindex.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdesign_confounding_methods.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -307,6 +306,54 @@ const thebe_selector_output = ".output, .cell_output"
   </span>
 <span class="btn__text-container">Open issue</span>
 </a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/design_confounding_methods.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
 </li>
       
   </ul>
@@ -348,7 +395,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -359,11 +408,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1></h1>
+    <h1>Methods to deal with confounding</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#randomisation">Randomisation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-to-block-back-door-paths">Methods to block back door paths</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-that-are-alternatives-to-blocking-backdoor-paths">Methods that are alternatives to blocking backdoor paths</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -373,13 +432,67 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
+  <section class="tex2jax_ignore mathjax_ignore" id="methods-to-deal-with-confounding">
+<h1>Methods to deal with confounding<a class="headerlink" href="#methods-to-deal-with-confounding" title="Link to this heading">#</a></h1>
+<p><mark>Will need to integrate with the page on methods to account for treatment paradox</mark></p>
+<p>ROUGH NOTES…</p>
+<section id="randomisation">
+<h2>Randomisation<a class="headerlink" href="#randomisation" title="Link to this heading">#</a></h2>
+<p>Randomise to receive treatment - removes common cause of treatment and outcome.</p>
+<p>This is best method.</p>
+<p>Although even in randomised trial, we can’t randomise whether people adhere to their assigned treatment.</p>
+<p>Randomisation makes groups exchangeable. <strong>Exchangeability</strong> is when there are no confounders, so whatever treatment group each person was randomised too, we still would’ve seen the same outcomes in whichever were treated v.s. not, the groups are exchangeable. You can also express exchangeability in the language of counterfactuals.</p>
+<ul class="simple">
+<li><p>In the RCT, 11% die in treatment group and 1% die in treatment group</p></li>
+<li><p>So in each group, the average counterfactual outcome under treatment is 0.11 and under no treatment is 0.01 - so, the distribution of the counterfactual outcomes (Y under treatment and Y under no treatment) is the same in the treated and untreated group - so the counterfactual outcomes are independent of the actual treatment</p></li>
+</ul>
+</section>
+<section id="methods-to-block-back-door-paths">
+<h2>Methods to block back door paths<a class="headerlink" href="#methods-to-block-back-door-paths" title="Link to this heading">#</a></h2>
+<p><strong>Stratification</strong> - e.g. restrict analysis to subset of study population with particular value of confounder - or do analysis in each stratum of confounder, and then pool the effect estimates - and most sophisticated way of doing is regression analysis. This is represented by drawing box on DAG.</p>
+<p><strong>Matching</strong> - e.g. matching each person with treatment and confounder, with someone with treatment and not confounder, and with someone who did not have treatment or confounder. Analysis is restricted to matched people. As the treatment and no treatment groups are matched on confounder, if there is association, then not due to confounder, as adjusted for it. This can’t be represented in DAG, because non-faithfulness - the association to a backdoor path is exactly cancelled by the matched subset.</p>
+<p>Sometimes construct <strong>propensity score</strong> (which is a function of the confounders) and then do stratification or matching based on the propensity score (rather than the confounders themselves).</p>
+<p>G-METHOD: <strong>Inverse probability weighting</strong> - estimate probability of receiving treatment level actually received (and these probabilities witll be different depending on whether had confounder) - then compute inverse probability (1/probability) - then compute association between treatment and outcome, but each person is counted as many times as their inverse probability weight indicates.</p>
+<ul class="simple">
+<li><p>Person with heart disease treated with aspirin. Had a 50% chance of actually being treated with aspirin. Inverse probability weight 1/0.5 = 2.</p></li>
+</ul>
+<p>Inverse probability weighting eliminates the backdoor through L.</p>
+<p>G-METHOD: <strong>Standardisation</strong> - mathematically equivalent to inverse probability weighting - sometimes known as the <strong>G-formula</strong></p>
+<p>G-METHOD: <strong>G-estimation</strong></p>
+<p>What do all of these methods have in common?</p>
+<ul class="simple">
+<li><p>They require data on the confounders that block the backdoor path. If those data are available, then the choice of one of these methods over the others is often a matter of personal taste. Unless the treatment is time-varying – then we have to go to G-methods. But if the data on the confounders are not available, then the method will not eliminate all the bias, and the magnitude of the residual bias will depend on how much of the backdoor path remains open.</p></li>
+<li><p>They require knowledge about the true causal DAG. If we don’t know the true casual DAG, then we don’t know the backdoor paths that we need to block.</p></li>
+</ul>
+<p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+</section>
+<section id="methods-that-are-alternatives-to-blocking-backdoor-paths">
+<h2>Methods that are alternatives to blocking backdoor paths<a class="headerlink" href="#methods-that-are-alternatives-to-blocking-backdoor-paths" title="Link to this heading">#</a></h2>
+<p>e.g. instrumental variable estimation</p>
+<p>These methods are popular in economics, but often not general enough to adjust for confounding in many other settings (e.g. when treatment of interest changes over time) (as in time-varying treatments below).</p>
+<p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+</section>
+</section>
 
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
-</div>
-
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -391,6 +504,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="design_causal_hie.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Causal diagrams for this research study</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="design_account_paradox.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Accounting for a treatment paradox</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -398,7 +529,22 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#randomisation">Randomisation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-to-block-back-door-paths">Methods to block back door paths</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-that-are-alternatives-to-blocking-backdoor-paths">Methods that are alternatives to blocking backdoor paths</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

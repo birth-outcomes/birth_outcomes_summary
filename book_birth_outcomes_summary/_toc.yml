@@ -27,11 +27,14 @@ parts:
     - file: neo_out_ctg
   - caption: Study design
     chapters:
-    - file: design_treat_paradox.md
-    - file: design_account_paradox.md
-    - file: design_examples.md
-    - file: design_other.md
-    - file: design_plan.md
+    - file: design_treat_paradox
+    - file: design_causal
+    - file: design_causal_hie
+    - file: design_confounding_methods
+    - file: design_account_paradox
+    - file: design_examples
+    - file: design_other
+    - file: design_plan
   - caption: Appendices - archived or tbc
     chapters:
     - file: neo_out_enceph_treatment_outcomes

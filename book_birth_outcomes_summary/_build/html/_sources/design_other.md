@@ -1,10 +1,8 @@
 # Other design considerations
 
-Beyond the treatment paradox, there are other reasons why we might see unexpected relationships in prediction models.
+Beyond the treatment paradox, there are other reasons why we might see unexpected relationships in prediction models, or other challenges we might face.
 
-## Chance
-
-We can see an unexpected predictor-outcome relationship due to chance, particularly if our sample size is small.[[Schuit et al. 2013]](https://doi.org/10.1503/cmaj.120812)
+**Paragraph on unexpected findings and noticing them:** 'When the direction of a predictor–outcome relation is well-established in both the literature and in clinical experience, it is easy to identify unexpected (or incorrect) findings. Things become complicated when there is no pre-existing knowledge and it is unknown what direction is to be expected. Then, one has to make assumptions on the relation, and therefore it is called an unexpected finding rather than an incorrect finding. A more subtle unexpected finding occurs when the direction of a predictor–outcome association is as expected, but the magnitude of the effect is larger or smaller than expected.'[[source]](https://doi.org/10.1503/cmaj.120812)
 
 ## Misclassification
 
@@ -32,3 +30,7 @@ If both predictor and outcome affect probability of selecting participant for in
 'The effect of a predictor may differ across subgroups of patients. This is referred to as a differential predictor effect, interaction, effect modification or heterogeneity of the predictor. When heterogeneity is not accounted for in the prediction model, the observed predictor effect is a (weighted) average of predictor effects within the different subgroups. If the predictor–outcome relations across subgroups are opposite, the direction of the observed relation depends on the proportional contributions of the subgroups.'
 
 'In the prognostic model of metabolic acidosis in neonates (example 1), the effect of intrapartum fever on metabolic acidosis (OR 0.86 [95% CI 0.68–1.08]) was unexpected. Alongside the impact of misclassifying the presence of fever (see Misclassification), this unexpected finding could also have been the result of an interaction between intrapartum fever and epidural analgesia among women who received epidural analgesia (OR 0.47 [95% CI 0.35–0.64]) versus women without epidural analgesia (OR 3.16 [95% CI 2.16–4.64]).'[[Schuit et al. 2013]](https://doi.org/10.1503/cmaj.120812)
+
+## Chance
+
+We can see an unexpected predictor-outcome relationship due to chance, particularly if our sample size is small.[[Schuit et al. 2013]](https://doi.org/10.1503/cmaj.120812)

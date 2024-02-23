@@ -206,6 +206,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="design_treat_paradox.html">Treatment Paradox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_causal.html">Causal inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_causal_hie.html">Causal diagrams for this research study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_confounding_methods.html">Methods to deal with confounding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_account_paradox.html">Accounting for a treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_examples.html">Examples of studies that account for the treatment paradox</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Other design considerations</a></li>
@@ -415,11 +418,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chance">Chance</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#misclassification">Misclassification</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-bias">Selection bias</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-effects-confounding">Mixed effects (confounding)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heterogeneity">Heterogeneity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chance">Chance</a></li>
 </ul>
             </nav>
         </div>
@@ -433,11 +436,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="other-design-considerations">
 <h1>Other design considerations<a class="headerlink" href="#other-design-considerations" title="Link to this heading">#</a></h1>
-<p>Beyond the treatment paradox, there are other reasons why we might see unexpected relationships in prediction models.</p>
-<section id="chance">
-<h2>Chance<a class="headerlink" href="#chance" title="Link to this heading">#</a></h2>
-<p>We can see an unexpected predictor-outcome relationship due to chance, particularly if our sample size is small.<a class="reference external" href="https://doi.org/10.1503/cmaj.120812">[Schuit et al. 2013]</a></p>
-</section>
+<p>Beyond the treatment paradox, there are other reasons why we might see unexpected relationships in prediction models, or other challenges we might face.</p>
+<p><strong>Paragraph on unexpected findings and noticing them:</strong> ‘When the direction of a predictor–outcome relation is well-established in both the literature and in clinical experience, it is easy to identify unexpected (or incorrect) findings. Things become complicated when there is no pre-existing knowledge and it is unknown what direction is to be expected. Then, one has to make assumptions on the relation, and therefore it is called an unexpected finding rather than an incorrect finding. A more subtle unexpected finding occurs when the direction of a predictor–outcome association is as expected, but the magnitude of the effect is larger or smaller than expected.’<a class="reference external" href="https://doi.org/10.1503/cmaj.120812">[source]</a></p>
 <section id="misclassification">
 <h2>Misclassification<a class="headerlink" href="#misclassification" title="Link to this heading">#</a></h2>
 <p>Unexpected findings can occur due to problems with the predictors - e.g.</p>
@@ -462,6 +462,10 @@ document.write(`
 <h2>Heterogeneity<a class="headerlink" href="#heterogeneity" title="Link to this heading">#</a></h2>
 <p>‘The effect of a predictor may differ across subgroups of patients. This is referred to as a differential predictor effect, interaction, effect modification or heterogeneity of the predictor. When heterogeneity is not accounted for in the prediction model, the observed predictor effect is a (weighted) average of predictor effects within the different subgroups. If the predictor–outcome relations across subgroups are opposite, the direction of the observed relation depends on the proportional contributions of the subgroups.’</p>
 <p>‘In the prognostic model of metabolic acidosis in neonates (example 1), the effect of intrapartum fever on metabolic acidosis (OR 0.86 [95% CI 0.68–1.08]) was unexpected. Alongside the impact of misclassifying the presence of fever (see Misclassification), this unexpected finding could also have been the result of an interaction between intrapartum fever and epidural analgesia among women who received epidural analgesia (OR 0.47 [95% CI 0.35–0.64]) versus women without epidural analgesia (OR 3.16 [95% CI 2.16–4.64]).’<a class="reference external" href="https://doi.org/10.1503/cmaj.120812">[Schuit et al. 2013]</a></p>
+</section>
+<section id="chance">
+<h2>Chance<a class="headerlink" href="#chance" title="Link to this heading">#</a></h2>
+<p>We can see an unexpected predictor-outcome relationship due to chance, particularly if our sample size is small.<a class="reference external" href="https://doi.org/10.1503/cmaj.120812">[Schuit et al. 2013]</a></p>
 </section>
 </section>
 
@@ -529,11 +533,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chance">Chance</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#misclassification">Misclassification</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-bias">Selection bias</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-effects-confounding">Mixed effects (confounding)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heterogeneity">Heterogeneity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chance">Chance</a></li>
 </ul>
   </nav></div>
 

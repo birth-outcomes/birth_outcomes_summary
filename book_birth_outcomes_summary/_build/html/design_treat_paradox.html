@@ -70,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'design_treat_paradox';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Accounting for a treatment paradox" href="design_account_paradox.html" />
+    <link rel="next" title="Causal inference" href="design_causal.html" />
     <link rel="prev" title="Abnormal CTG" href="neo_out_ctg.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -208,6 +208,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Treatment Paradox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_causal.html">Causal inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_causal_hie.html">Causal diagrams for this research study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_confounding_methods.html">Methods to deal with confounding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_account_paradox.html">Accounting for a treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_examples.html">Examples of studies that account for the treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_other.html">Other design considerations</a></li>
@@ -417,7 +420,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rationale">Rationale</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-treatment-paradox">What is a treatment paradox?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-treatment-paradox-for-neonatal-outcomes">The treatment paradox for neonatal outcomes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1:</a></li>
@@ -439,14 +441,14 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="treatment-paradox">
 <h1>Treatment Paradox<a class="headerlink" href="#treatment-paradox" title="Link to this heading">#</a></h1>
-<section id="rationale">
-<h2>Rationale<a class="headerlink" href="#rationale" title="Link to this heading">#</a></h2>
-<p>‘Obstetrics focuses on the early identification of pregnancies at risk of adverse outcomes to plan targeted intervention. Clinicians often use probabilistic reasoning, intuitively based on clinical history and tests, to assess the risk of complications in a mother or fetus; however, they need to be aware of false-positive and false-negative test results in their clinical decision-making. Prediction models (also known as prognostic models) provide individualised risk estimates for clinically important outcomes in patients with a particular disease or condition.1 Derived using statistical models, they include multiple predictors, such as age, previous history, and, increasingly, biomarkers. Although clinicians’ intuition has a place and a role in prediction, it has been shown that statistical prediction models give more accurate prognosis than clinicians can achieve working on their own.2 As in other clinical fields, the development and use of prediction models in obstetrics has limitations.3 In the development phase there are many statistical challenges, including: the ascertainment of a suitable sample size; the choice of candidate predictors; reliable measurement of the outcome and predictors; the identification of important predictors and their functional form; and internal validation, potentially including bootstrap resampling and cross-validation, as well as shrinkage for potential over-optimism in model performance.4 Most, if not all, models perform well when they are internally validated; however, the use of prediction models has been hampered by a distinct lack of research into the external validation of prediction models distant from the specific population that they were developed in, and the assessment of models on the behaviour of doctors and on patient outcomes. Another issue that limits clinical use, and which is the focus for this commentary, is the handling of interventions in the prediction model.’<a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">[source]</a></p>
-<p>‘When the direction of a predictor–outcome relation is well-established in both the literature and in clinical experience, it is easy to identify unexpected (or incorrect) findings. Things become complicated when there is no pre-existing knowledge and it is unknown what direction is to be expected. Then, one has to make assumptions on the relation, and therefore it is called an unexpected finding rather than an incorrect finding. A more subtle unexpected finding occurs when the direction of a predictor–outcome association is as expected, but the magnitude of the effect is larger or smaller than expected.’<a class="reference external" href="https://doi.org/10.1503/cmaj.120812">[source]</a></p>
-</section>
+<p><mark>Will need to integrate with theory around causal inference</mark></p>
+<div class="info admonition">
+<p class="admonition-title">Executive summary</p>
+<p>A <strong>treatment paradox</strong> is when we have a predictor with a strong relationship with the outcome which, when present, triggers a treatment to be delivered. For example, we don’t see a relationship between outcomes and time to wait for a caesaraen, as when the situation is worse, the infants will be delivered more quickly.</p>
+</div>
 <section id="what-is-a-treatment-paradox">
 <h2>What is a treatment paradox?<a class="headerlink" href="#what-is-a-treatment-paradox" title="Link to this heading">#</a></h2>
-<p>A <strong>treatment paradox</strong> (or “intervention effect”, or “treatment use in a validation study”) is ‘when a strong prognostic factor of an adverse outcome triggers an effective treatment, thus reducing incidence of the outcome, and meaning that the prognostic factor that initiated the treatment will appear to have a poorer prognostic performance than it actually has.’ This can lead to an underestimation of adverse outcomes for people with tthat prognostic factor.</p>
+<p>A <strong>treatment paradox</strong> (or “intervention effect”, or “treatment use in a validation study”) is ‘when a strong prognostic factor of an adverse outcome triggers an effective treatment, thus reducing incidence of the outcome, and meaning that the prognostic factor that initiated the treatment will appear to have a poorer prognostic performance than it actually has.’ This can lead to an underestimation of adverse outcomes for people with that prognostic factor.</p>
 <p>In order for a treatment paradox to occur, two criteria must occur:</p>
 <ol class="arabic simple">
 <li><p>The prognostic factor has a strong relationship with the outcome</p></li>
@@ -592,11 +594,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="design_account_paradox.html"
+       href="design_causal.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Accounting for a treatment paradox</p>
+        <p class="prev-next-title">Causal inference</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -616,7 +618,6 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rationale">Rationale</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-treatment-paradox">What is a treatment paradox?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-treatment-paradox-for-neonatal-outcomes">The treatment paradox for neonatal outcomes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1:</a></li>
