@@ -14,23 +14,35 @@ A **treatment** paradox is when a prognostic factor (a) has a strong relationshi
 
 ## The difference between predictive and etiological research
 
-### Definitions
+### Types of research
 
-**Predictive research** aims to predict an outcome with the **best accuracy**. It doesn't matter whether predictors are causal or not - just focussed on best prediction. We're interested in associations (i.e. relationships aren't directional)
+Scientific research can be categorised into descriptive, predictive and etiological research.
 
-**Etiological research** aims to uncover **causal effects** - i.e. **causal inference**.
-* We want an unbiased estimate of the effect of X and Y - i.e. estimate of the causal effect of an exposure on an outcome
-* It is important that relationships are **directional**, as these directions are required to support interventional reasoning.
-* The goal is to control for other variables in such a way that the effect size obtained matches that which we would find if the target predictor was manipulated in a controlled intervention (experience/RCT)
-* To perform causal inference, we first start by drawing a **causal diagram**, which then guides methodological choices.
-* Causal inference for an individual (generating individual causal effects) is general ly impossible in health and social sciences (as you can't go back in time and not give them the outcome) - instead, causal inference focusses on **average causal effect** when comparing groups of individuals.
-* When we're talking about one thing causing another, this is based in counterfactuals. **Counterfactuals** (or equivalent concepts) are needed to define causal effects. Knowing the counterfactual outcomes can be referred to as knowing the outcomes under treatment and under no treatment. For example, I know ingesting the poison killed John, because if John hadn't ingested the poison, I know he would have lived.
+**Descriptive research** aims to summarise the characteristics of a group (or person).[[Hamaker et al. 2020]](https://doi.org/10.1016/j.dcn.2020.100867)
 
-[[Ramspek et al. 2021]](https://link.springer.com/article/10.1007/s10654-021-00794-w) [[source]](https://stats.stackexchange.com/questions/56909/what-is-the-relation-between-causal-inference-and-prediction)[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS) 
+**Predictive research** aims to predict an outcome with the **best accuracy**.[[Ramspek et al. 2021]](https://link.springer.com/article/10.1007/s10654-021-00794-w)  It doesn't matter whether predictors are causal or not - just focussed on best prediction. We're interested in associations (i.e. relationships aren't directional).[[source]](https://stats.stackexchange.com/questions/56909/what-is-the-relation-between-causal-inference-and-prediction)
 
-### Confusion
+**Etiological research** (or "explanatory" research) aims to uncover **causal effects** - i.e. **causal inference**. It is important that relationships are **directional**, as these directions are required to support interventional reasoning.[[source]](https://stats.stackexchange.com/questions/56909/what-is-the-relation-between-causal-inference-and-prediction)
 
-**These are commonly conflated**. The findings of etiological and predictive research can often get conflated when reported and interpreted - a review of observational studies found that 26% (46 / 180) observational cohort studies conflated between etiology and prediction.
+### Causal inference
+
+In etiogical research, we want an unbiased estimate of the effect of X and Y - i.e. estimate of the causal effect of an exposure on an outcome[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)  
+
+To **define a causal effect**, we use the **potential outcomes framework** (also known as counterfactural or equivalent concepts approach)
+* **Counterfactuals** are a comparison between what is and what might have been (e.g. treatment v.s. no treatment).
+* For example, I know ingesting the poison killed John, because if John hadn't ingested the poison, I know he would have lived.
+* We are often focussed on **interventions** (i.e. variables that can be manipulated), as they fit well in the potential outcomes framework. Although other variables like age, race and gender can have causal effects, they do not fit as cleanly in the potential outcomes framework.[[source]](https://www.coursera.org/learn/crash-course-in-causality/lecture/Lgb6O/hypothetical-interventions) Rubin states that *"if you are not talking about an intervention, you can't talk about causality"* - i.e. we're defining causality using counterfactuals, which is about the counterfactual effects of the intervention[[source]](https://baselbiometrics.github.io/home/docs/trainings/20210202/1_Moffa.pdf)
+
+Causal inference for an individual (generating **individual causal effects**) is generallly impossible in health and social sciences (as you can't go back in time and not give them the outcome) - instead, causal inference focusses on **average causal effect** when comparing groups of individuals.[[source]](https://hummedia.manchester.ac.uk/institutes/methods-manchester/docs/CausalInference.pdf)
+
+### Confusion and controversy around causality
+
+Why?
+* Causally unrelated variables can be highly correlated
+* Results may be reported in a way that is careful to avoid referring to any causal relationships, but it will often still naturally be read and interpreted as causal
+* Even if there is a causal relationship, sometimes the direction is unclear - would need to carefully examine the temporal relationships between the variables[[source]](https://www.coursera.org/learn/crash-course-in-causality/lecture/x4UMR/confusion-over-causality)
+
+In practice, prediction and causation are commonly **conflated**. A review of observational studies found that 26% (46 / 180) observational cohort studies conflated between etiology and prediction -
 * In causal studies, this was mainly due to selection of covariates based on their ability to predict **without taking causal structure into account**.
 * In prediction studies, this was mainly due to **causal interpretation** of covariates included in a prediction model.
 
@@ -137,7 +149,34 @@ The consequence of this is a lack of **generalisability**.[[Schuit et al. 2013]]
 * Pre-term birth, tocolytics, and birth outcomes[[Cheong-See et al. 2016]](https://doi.org/10.1111/1471-0528.13859) (tocolytics are drugs used to slow/stop contractions, typically given to women in pre-term labour)
 * Pre-eclampsia, treatments (e.g. magnesium sulphate and parenteral antihypertensives), length of delivery, etc.[[Cheong-See et al. 2016]](https://doi.org/10.1111/1471-0528.13859)
 
-## Our study: are we interested in prediction or causation?
+## Choosing between prediction and causality
+
+### Sometimes we're interested in both
+
+Many problems will require a **combination of prediction and causation**.
+* "Pure forecasting task" - e.g. just want to predict whether or not it will rain, and don't care why/what caused the rain
+* "Pure causation task" - e.g. performing a rain dance presumed to save dying crops, only if it actually causes rain
+* Combination of the two - e.g. if planning assignment of fire inspectors across a city, should (a) predict will establishment will be in violation of fire codes, and (b) estimate causal effect on establishment's behaviour of receiving an inspection or not
+
+Beck et al. 2018 also argue that **prediction remains relevant even if you're only interested in understanding causal effects**. Explanations that invoke causal mechanisms always make predictions - specifically, predictions about what will happen under an intervention. 'Whether they do so explicitly or not, that is, causal claims necessarily make predictions; thus it is both fair and arguably useful to hold them accountable for the accuracy of the predictions they make.' They therefore argue that the **predictive performance of models and of explanations** is important to include (e.g. R<sup>2</sup>, MAE, RMSE, AUC, accuracy, recall, F1).[[Beck et al. 2018]](https://doi.org/10.31219/osf.io/u6vz5)
+
+### The ladder of causality
+
+Judea Pearl proposed the '**Ladder of Causality**' to categorise different levels of causal thinking, with increasing levels of difficulty.
+
+| Level | Typical activity | Typical questions | Examples |
+| --- | --- | --- | --- |
+| **Association** | Seeing | What is?<br>How would seeing X change my belief in Y? | What does a symptom tell me about a disease?<br>What does a survey tell us about the election results? |
+| **Intervention** | Doing | What if?<br>What if I do X? | What if I take aspirin, will my headachbe be cured?<br>What if we ban cigarettes? |
+| **Counterfactuals** | Imagining, retrospection | Why?<br>Was it X that caused Y?<br> What if I had acted differently? | Was it aspirin that stopped my headache?<br>Would Kennedy be alive had Oswald not shot him?<br>What if I had not been smoking the past two years? |
+
+[[source]](https://cacm.acm.org/magazines/2019/3/234929-the-seven-tools-of-causal-inference-with-reflections-on-machine-learning/fulltext?mobile=false)
+
+#### What's the difference between intervention and counterfactuals?
+
+With interventions, you ask what will happen on average if you perform an action. With counterfactuals, you ask what would have happened if you had performed a different action. These two queries are mathematically distinct as they require different levels of information to be answered (counterfactuals need more information to be answered)'.[[source]](https://stats.stackexchange.com/questions/379799/difference-between-rungs-two-and-three-in-the-ladder-of-causation)
+
+## Conclusion: our study - are we interested in prediction or causation?
 
 We are interested in whether and when caesareans should be performed, to prevent the development of hypoxic ischaemic encephalopathy.
 
@@ -170,3 +209,18 @@ If we drew a causal diagram (simplified), we might see that the relationship is 
     classDef empty width:0px,height:0px;
     classDef important fill:#DDF2D1, stroke: #FFFFFF;
 ````
+
+### Current recommendation
+
+On the surface, you may assume we just want to predict outcomes, but (a) we're interested in causal relationships - hence why we're so concerned by the treatment paradox, and (b) the application of making treatment decisions requires understanding of counterfactuals.
+
+To **demonstrate existence of the treatment paradox** (by comparison to models that are causal), and to allow comparability to other studies:
+* **Prediction model (association)** - can we predict HIE
+
+To actually **explore the proposed research question**:
+* **Causality (intervention)** - what is the causal relationship between caesarean and HIE?
+* **Counterfactuals** - what would have happened if we had done or not done the caesarean?
+
+We should:
+* Reporting predictive accuracy of all models
+* Being explicitly clear which variables in a model were considered in design of the causal model (to avoid Table 2 fallacy)
