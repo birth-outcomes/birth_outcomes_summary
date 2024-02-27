@@ -18,7 +18,7 @@ Causal inference for an individual (generating individual causal effects) is gen
 ## Introduction to causal diagrams
 
 Causal diagrams - **directed acyclic graphs (DAGs)** - depict causal relationship between different variables. Two key components are **nodes** and **arrows**. They are:
-* **Directed** - as arrows have a single direction that represents known causal effects (based on prior knowledge)
+* **Directed** - as arrows have a single direction (unidirectional) that represents known causal effects (based on prior knowledge)
 * **Acyclic** - as nodes cannot have a directed path from itself back to itself
 
 ````{mermaid}
@@ -122,6 +122,7 @@ We don't draw causal diagrams as an exact, accurate representation of the world 
 * They make sure we illustrate and identify our sources of biases (assumptions)
     * More precise and efficient than writing pages of assumptions[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
     * Although they are based on assumptions, so are analytic models.[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
+    * Although investigators often feel some discomfort in deciding what causal effects do and do not exist on the basis of prior knowledge, the advantage of this approach is that it makes these assumptions explicit (and hence transparent).[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS) 
 * They indicate when associations or independence should be expected.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 * They can help determine whether the effect of interest can be identified from available data, and help us clarify our study question[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf) - and to identify problems in the study design[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
@@ -189,7 +190,11 @@ We don't draw causal diagrams as an exact, accurate representation of the world 
 
 Don't need variables that cause Y but not A (although might include if for example you want to compare to other studies that did adjust for that variable)
 
-There can often be more than one appropriate DAG, and alternate DAGs can make excellent sensitivity analyses.[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
+There can often be more than one appropriate DAG, and alternate DAGs can make excellent sensitivity analyses.
+
+[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
+
+[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
 ## Moderators
 
@@ -203,6 +208,8 @@ There has been some disagreement on how these should be included/notation within
 ## Mediators
 
 **Mediators** are variables that lie in the causal path between the two other variables (e.g. between exposure and outcome), and they tell you how or why an effect takes place.[[source]](https://www.scribbr.co.uk/faqs/why-should-you-include-mediators-and-moderators-in-your-study/)
+
+A path that includes a mediator is often called an **indirect effect** or indirect causal path. In contrast, the arrow directly connecting the treatment and outcome represents the **direct causal effect** of the treatment on the outcome that is not due to changes in the mediator.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS) 
 
 You might condition on a mediator if you are interested in the **direct effect of treatment on outcome that doesn't pass through mediator**.
 
@@ -242,9 +249,11 @@ If you do not have a direct arrow between the treatment and outcome, and only vi
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-## Confounding
+## Confounders
 
-**Confounders** are variables that **cause BOTH the treatment/exposure and outcomes**. Informally, it occurs when there is an open backdoor path between the treatment/exposure and outcome, and you could say a confounder is a variable that - possibly together with other variables - can be used to block the backdoor path between the treatment and outcome.
+**Confounders** are variables that **cause BOTH the treatment/exposure and outcomes**. Informally, it occurs when there is an open backdoor path between the treatment/exposure and outcome, and you could say a confounder is a variable that - possibly together with other variables - can be used to block the backdoor path between the treatment and outcome.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+
+It is recommended that confounders are selected based on **prior knowledge**, rather than based on variables identified from the data.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
 
 Example - smoking causes yellow fingers and lung cancer - if we don't condition on it, we expect to see an association between yellow fingers and lung cancer (known as a **marginal/unconditional** association)
 
@@ -278,11 +287,13 @@ If we do condition on smoking, we expect to see no association between yellow fi
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
+[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+
 ## Colliders
 
 **Colliders** are descendents of two other variables - i.e. common effect - with two arrows from the parents pointing to ("colliding with") the descendent node.
 
-Example: A genetic factor and an environmental factor causing cancer. These are **independent** - i.e. genetic factor doesn't have causal effect on environmental factor - and so we don't expect to see an association between genetic and environment (unconditional/marginal association).
+Example: A genetic factor and an environmental factor causing cancer. These are **independent** - i.e. genetic factor doesn't have causal effect on environmental factor - and so we don't expect to see an association between genetic and environment (unconditional/marginal association).[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
 ````{mermaid}
   flowchart LR;
@@ -298,7 +309,9 @@ Example: A genetic factor and an environmental factor causing cancer. These are 
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-However, if we condition on cancer - such as by just selecting people who have cancer - we will find an **inverse association** between genetics and environment (as if cancer wasn't caused by one, it was by the other). This biased effect estimate is referred to as **selection bias**.
+Colliders naturally block back-door paths. Controlling for a collider will open the back-door path, thereby introducing confounding.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
+
+For example, if we condition on cancer - such as by just selecting people who have cancer - we will find an **inverse association** between genetics and environment (as if cancer wasn't caused by one, it was by the other). This biased effect estimate is referred to as **selection bias**.
 
 ````{mermaid}
   flowchart LR;
@@ -314,7 +327,7 @@ However, if we condition on cancer - such as by just selecting people who have c
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-We can **induce** selection bias by conditioning on the downstream consequence of a collider - e.g. if cancer is collider, and surgery is consequence of cancer, if we condition on surgery, we expect to see inverse association between genetic and environment conditional on surgery (just as we did for the collider cancer).
+We can **induce** selection bias by conditioning on the downstream consequence of a collider - e.g. if cancer is collider, and surgery is consequence of cancer, if we condition on surgery, we expect to see inverse association between genetic and environment conditional on surgery (just as we did for the collider cancer).[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
 ````{mermaid}
   flowchart LR;
@@ -328,6 +341,32 @@ We can **induce** selection bias by conditioning on the downstream consequence o
     env --> cancer;
     cancer --> surgery;
 
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
+Collider bias may also be present when neither the exposure nor the outcome is a direct cause of the collider variable. An example is **M-bias**.
+
+In this example...
+* Focus: beta-blocker use and risk of ARDS
+* Might be tempted to adjust for crackles as you might think its a confounder... 1) heart failure leads to both chronic β-blocker therapy and crackles, and 2) pneumonia causes both ARDS and crackles
+* However, crackles is actually a collider on the back-door path of chronic β-blocker therapy ← heart failure → crackles ← pneumonia → ARDS. Adjusting for the presence of crackles opens this back-door path, introducing confounding. Ignoring the presence of crackles would be the right thing to do.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
+
+````{mermaid}
+  flowchart TD;
+
+    beta("Beta blocker use"):::white;
+    ards("Acute respiratory distress syndrome (ARDS)"):::white;
+    hf("Heart failure"):::white;
+    pneu("Pneumonia"):::white;
+    crackles("Crackles"):::black;
+
+    hf --> beta;
+    hf --> crackles;
+    pneu --> crackles;
+    pneu --> ards;
+    beta -->|?| ards;
+  
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
 ````
@@ -617,3 +656,161 @@ We need other methods to handle these settings: **G-methods**.
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
 ````
+
+[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+
+## Terminology
+
+Lederer et al. 2018 recommend that, by acknowledging the intent, it is reasonable to use the labels:
+* **Causal association**
+* **Effect estimate**
+
+But not:
+* Causal effect
+* Exposure has an 'effect' or 'impact' on outcome
+* Exposure 'protects against' or 'promotes' outcome
+
+As these make claims of causality that should be avoided without substantial evidence of a true causal effect.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
+
+## Variable selection
+
+For causal inference, it is **NOT** recommended to:
+* Use P value-based and model-based variable selection methods (including forward, backward, and stepwise selection) - since they ignore the causal structure underlying the hypothesis and treat confounders and colliders similarly
+* Use methods that rely on model fit or related constructs (e.g. R<sup>2</sup>, Akaike information criterion, and Bayesian information criterion) - since these rely heavily on the available data, in which causal relationships may or may not have been captured and may or may not be evident, and specification of model and arbitrary variables included will drive observed associations with outcome
+* Use selection of variables that, when included in a model, change the magnitude of the effect estimate of the exposure of interest, to identify confounders
+* Identify multiple 'independent predictors' through purposeful or automated variable selection - if the authors have hypotheses about each variable, then a separate model for each variable should be generated - or a prediction model could be developed, if prediction, rather than causal inference, is the goal of the analysis
+
+[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
+
+## Presentation of association of outcome with other variables
+
+'Causal models are typically designed to test an association between a **single exposure and an outcome**. The additional independent variables in a model (often called “covariates”) **serve to control for confounding**. The observed associations between these covariates and the outcome have not been subject to the same approach to control of confounding as the exposure' (i.e. they themselves have not been corrected for confounding - *and they shouldn't and didn't have to be*). 'Therefore, **residual confounding and other biases often heavily influence these associations**.'
+
+'This situation is known as “**Table 2 fallacy**,” a term arising from the practice of presenting effect estimates for all independent variables in “Table 2”.' It is strongly recommended that these effect estimates are **not presented**.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
+
+Hartig 2019 discusses how this may not be practical in some fields (they give example of ecology) where you rarely have a clear target variable/hypothesis, but suggest instead that's important to explicitly state/seperate reasonablly controlled varaibles from possibly confounded variables.[[source]](https://theoreticalecology.wordpress.com/2019/04/14/mediators-confounders-colliders-a-crash-course-in-causal-inference/)
+
+## Example cases
+
+### Example: Oestrogen and endometrial cancer
+
+In 1970s, women began to receive oestrogren after menopause. Some studies in 1975/6 found that women receiving oestrogen had higher risk of diagnosis with endometrical cancer than women not receiving them. Why? Possibilities include...
+1. Oestrogens cause cancer
+2. Oestrogens can cause uterine bleeding, so women receive a uterine exam, during which the cancer (which is often silent, asymptomatic, and otherwise not diagnosed) is noticed and diagnosed - this phenomenon is called **ascertainment bias**
+
+How do we decide which explanation is right?
+
+* Yale researchers restricted the data analysis to women with uterine bleeding (regardless of whether they were on oestrogens), since they should all have the same likelihood of uterine exams and existing cancer being diagnosed. If there still an association, oestrogen causative.
+* Boston researchers argued we would find association even in women who bleed and even if they don't cause cancer, and so that this approach would still have ascertainment bias.
+
+Explanation one.
+````{mermaid}
+  flowchart LR;
+
+    a("A: Oestrogens"):::white;
+    u("U: Cancer (unmeasured)"):::white;
+    y("Y: Cancer (diagnosed)"):::white;
+
+    a --> u;
+    u --> y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
+Explanation two.
+````{mermaid}
+  flowchart LR;
+
+    a("A: Oestrogens"):::white;
+    u("U: Cancer (unmeasured)"):::white;
+    y("Y: Cancer (diagnosed)"):::white;
+    c("C: Uterine bleeding"):::white;
+
+    a --> c;
+    u --> c;
+    c --> y;
+    u --> y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
+Restrict analysis to women who bleed. If association still found, must be path of A --> U --> Y. Boston argued could still exist.
+* Conditioning on C blocks path A-C-Y
+* However, we still have path of A-C-U-Y, and C is collider on that path, so when condition on C, it becomes open (and conditioning on C is what we do when we restrict analysis to bleeders)
+
+So Boston were right. 
+
+````{mermaid}
+  flowchart LR;
+
+    a("A: Oestrogens"):::white;
+    u("U: Cancer (unmeasured)"):::white;
+    y("Y: Cancer (diagnosed)"):::white;
+    c("C: Uterine bleeding"):::black;
+
+    a --> c;
+    u --> c;
+    c --> y;
+    u --> y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
+What can you do then? You can design study where C-Y doesn't exist as you require all women to be screened for cancer frequently regardless of whether they bleed. If no association between A and Y, then we know there is no causal effect of A on U. If you still found association, then A must cause U.
+
+````{mermaid}
+  flowchart LR;
+
+    a("A: Oestrogens"):::white;
+    u("U: Cancer (unmeasured)"):::white;
+    y("Y: Cancer (diagnosed)"):::white;
+    c("C: Uterine bleeding"):::white;
+
+    a --> c;
+    u --> c;
+    u --> y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
+[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+
+### Example: HIV and ART
+
+Randomised controlled trials of new antiretroviral therapy (ART) for HIV found it was effective and reduced morality by more than half.
+
+Observational of clinical data to look at real world effect of ART did not detect much benefit for new combination therapies - no increased survival among those taking ART. What was wrong with the studies?
+
+They were adjusting for lots of confounders - e.g. CD4 count - and yet could not eliminate the bias. Some people say there must be lots of unmeasured confounding. However, the more time-varying confounders were adjusted for, the more biased the effect estimate seemed to be. The problem was treatment-confounder feedback - the value of CD4 count was impacted by earlier treatment - in this case, the bias was in the opposite direction.
+
+There is a way to identify whether the bias is due to incomplete adjustment for confounding or for incorrect adjustment for time-varying confounders - and that is to use G-methods to adjust for the time-varying confounders. When they used G-methods, the effect estimates were much closer to the ARTs.
+
+````{mermaid}
+  flowchart LR;
+
+    ak("A<sub>K</sub><br>ART"):::white;
+    
+    lk("L<sub>K</sub><br>CD4 count"):::black;
+    u("U<br>Immuno-suppression status"):::white;
+    yk1("Y<sub>K+1</sub><br>Mortality"):::white;
+    lk1("L<sub>K+1</sub><br>CD4 count"):::black;
+    ak1("A<sub>K+1</sub><br>ART"):::white;
+    yk2("Y<sub>K+2</sub><br>Mortality"):::white;
+    
+    lk --> ak;
+    u --> lk; 
+    u --> yk1;
+    u --> lk1;
+    lk1 --> ak1;
+    u --> yk2;
+    ak --> lk1;
+    
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
+[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
