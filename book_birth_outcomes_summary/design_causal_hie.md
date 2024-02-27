@@ -215,3 +215,53 @@ Focus: Causal relationship between exposure to early hyperoxemia (following resu
 Context: Hyperoxemia is an increase in arterial oxygen partial pressure to more than 120mmHg. The exposure of interest with hyperoxemic exposure following resuscitation.
 
 ![DAG from Badurdeen et al. 2024](images/badurdeen_2024_dag.jpg)
+
+## Example of complicated relationships in obstetrics in context of treatment paradox
+
+Pre-eclampsia is hypothesised to cause cerebral palsy. It is also associated with higher risk of medically indicated (ordered by the physician) pre-term birth - and pre-term birth is also associated with higher risk of cerebral palsy.
+
+You could adjust for pre-term birth or gestational age like a confounding variable. However, pre-term birth is a intermediate between pre-eclampsia and cerebral palsy, and not a common cause of both. Therefore, this adjustment (overadjustment) takes away from the detrimental effect of pre-elcampsia, mediated through pre-term birth - attenuating the effect or event reversing it.
+
+In an early study, pre-eclampsia was found to be protective in pre-term infants and detrimental for those born later. However, we expect pre-eclampsia to be detrimental for all infants. This finding could be as the analysis seperated out pre-term births and later births, closing the causal path between pre-eclampsia and cerebral palsy via pre-term birth.[[Williams et al. 2018]](https://doi.org/10.1038/s41390-018-0071-3)
+
+
+````{mermaid}
+  flowchart LR;
+
+    %% Define the nodes and subgraphs
+    eclam("Pre-eclampsia")
+    preterm("Preterm birth")
+    cp("Cerebral palsy")
+
+    %% Produce the figure
+    eclam --> preterm;
+    preterm --> cp;
+    eclam --> cp;
+````
+
+However, it's likely more complex. In a more realistic directed acyclic graph (DAG) below, chorioamnionitis is added. It is another cause of pre-term birth and cerebral palsy.
+
+Gestational age, as a shared effect of pre-eclampsia and chorioamnionitis, acts as a **collider**. This is the opposite of a confounder (where a common cause of exposure and outcome is not controlled for) - instead, a collider is when the exposure and outcome (or factors causing) each influence a common third variable, and that variable is controlled for in the design. Controlling for a collider can result in a distorted association betwene the exposure and outcome, when actually none exists.
+
+In this model, if we look in a group of pre-term infants:
+* Babies born to mothers with pre-eclampsia will be less likely to have chorioamnionitis and vice versa
+* The effect of pre-eclampsia will be compared with the effect of chorioamnionitis on cerebral palsy, and will falsy appear to be protective - the estimated direct causal effect of pre-eclampsia on the outcome will be biased (through the effect of chorioamnionitis)
+
+Hence, although widely used, conditioning on gestational at birth in studies of prenatal exposures and their relationship to postnatal outcomes may not reduce but actually lead to bias through overadjustment and faulty comparisons, and generate counterintuitive results and apparent changes of effect in different groups of patients.[[Williams et al. 2018]](https://doi.org/10.1038/s41390-018-0071-3)
+
+````{mermaid}
+  flowchart LR;
+
+    %% Define the nodes and subgraphs
+    chor("Chorioamnionitis")
+    eclam("Pre-eclampsia")
+    preterm("Preterm birth")
+    cp("Cerebral palsy")
+
+    %% Produce the figure
+    chor --> preterm;
+    eclam --> preterm;
+    chor --> cp;
+    preterm --> cp;
+    eclam --> cp;
+````

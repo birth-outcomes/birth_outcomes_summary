@@ -1,128 +1,8 @@
-# Causal inference
-
-## What is causal inference?
-
-'Causal inference is the examination of causal associations to estimate the **causal effect of an exposure on an outcome**.'[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS) 
-
-'Assume we look at the effect of a target variable (something that could be manipulated = predictor) on another variable (the outcome = response) in the presence of other (non-target) variables. The goal of a causal analysis is is to control for these other variables, in such a way that we obtain the **same effect size** for the target variable that we would if the target predictor was manipulated in a **controlled intervention** (= experiment).'[[source]](https://theoreticalecology.wordpress.com/2019/04/14/mediators-confounders-colliders-a-crash-course-in-causal-inference/)
-
-Causal models can be represented visually using causal diagrams.
-
-### Counterfactuals
-
-When we're talking about one thing causing another, this is based in counterfactuals. **Counterfactuals** (or equivalent concepts) are needed to define causal effects. Knowing the counterfactual outcomes can be referred to as knowing the outcomes under treatment and under no treatment. For example, I know ingesting the poison killed John, because if John hadn't ingested the poison, I know he would have lived.
-
-Causal inference for an individual (generating individual causal effects) is general impossible in health and social sciences (as you can't go back in time and not give them the outcome) - instead, causal inference focusses on average causal effect when comparing groups of individuals.
-
-### Causal inference v.s. prediction
-
-Clinical studies are often classified as having either a:
-* **Descriptive aim**
-* **Etiological aim** - to uncover causal effects
-* **Predictive aim** - to forecast an outcome with the best accuracy[[Ramspek et al. 2021]](https://link.springer.com/article/10.1007/s10654-021-00794-w)
-
-What is the difference between etiological and predictive research?
-* **Different methods**
-* In predictive research, doesn't matter whether predictors are causal or not - just focussed on best prediction, and finding associations (i.e. relationships aren't directional)
-* In etiological research, we want an unbiased estimate of the effect of X and Y, and it is important that relationships are directional, as these directions are required to support interventional reasoning[[source]](https://stats.stackexchange.com/questions/56909/what-is-the-relation-between-causal-inference-and-prediction)
-
-The findings of etiological and predictive research can often get **conflated** when reported and interpreted - a review of observational studies found that 26% (46 / 180) observational cohort studies conflated between etiology and prediction.
-* In causal studies, this was mainly due to selection of covariates based on their ability to predict **without taking causal structure into account**
-* In prediction studies, this was mainly due to **causal interpretation** of covariates included in a prediction model.
-
-In the case of **counterfactual prediction modelling** (which answers ‘what if’ questions on prognosis related to interventions) **prediction and etiology intentionally collide**.[[Ramspek et al. 2021]](https://link.springer.com/article/10.1007/s10654-021-00794-w)
-
-### Explainability v.s. causality
-
-'Explainability may be a ‘weaker’ model property than causality. Explaining the role of input variables in changing the output of a black box neither assures a correct interpretation of the input–output mechanism nor unveils the cause–effect relationships. For instance, in a deep learning system that predicts the risk of heart attack, a subsequent analysis could be able to explain that the input variables ‘race’ and ‘blood pressure’ affect the risk, but could not say if these findings are causal, since they may be biased by stratification or unmeasured confounders, or mediated by other factors in the causal pathway.'[[Prosperi et al. 2020]](https://doi.org/10.1038/s42256-020-0197-y)
-
-'SHAP makes transparent the correlations picked up by predictive ML models. But making correlations transparent does not make them causal! All predictive models implicitly assume that everyone will keep behaving the same way in the future, and therefore correlation patterns will stay constant. To understand what happens if someone starts behaving differently, we need to build causal models, which requires making assumptions and using the tools of causal analysis.'[[source]](https://shap.readthedocs.io/en/latest/example_notebooks/overviews/Be%20careful%20when%20interpreting%20predictive%20models%20in%20search%20of%20causal%20insights.html)
-
-#### How do you know if you want prediction + explainability, or causal inference?
-
-Example: Built an XGBoost model predicting whether customers will renew their subscription, and use SHAP values to help learn the basis of those predictions. We use these SHAP values to look at how changing the value of a feature impacts the models predictions, and notice a surpising finding: **Users who report more bugs are more likely to renew**. Is this a problem? It depends on your goal.
-
-If our goal is to **predict customer retention to estimate future revenue** then this relationship is helpful for prediction, and it doesn't matter about the direction, as long as our predictions are good.
-
-However, if our goal is to **inform actions to help retain customers** then relationship between features and their counterfactural scenarios are important, and we want to understand whether manipulating X will change Y. Hence, we are concerned about the causal relationship between X and Y. Hence, its helpful to draw a causal diagram. We can notice:
-* Some features are influenced by unmeasured confounding - e.g. users who report more bugs are people who use the product more so encounter more bugs, but need the product more so are more likely to report.
-* Because we can’t directly measure product need, the correlation we end up capturing in predictive models between bugs reported and renewal combines a small negative direct effect of bugs faced and a large positive confounding effect from product need.
-
-````{mermaid}
-  flowchart LR;
-
-    ca("Sales call"):::white;
-    need("<b>Unmeasured</b><br>Product need"):::white;
-    int("Interactions"):::white;
-    month("Monthly usage"):::white;
-    ad("Ad spend"):::white;
-    last("Last upgrade"):::white;
-    dis("Discount"):::white;
-    face("<b>Unmeasured</b><br>Bugs faced"):::white;
-    report("Bugs reported"):::white;
-    
-    ec("Economy"):::white;
-    ren("Did renew"):::important;
-
-    ca --> need;
-    ca --> ren;
-    ca --> int; int --> ren;
-
-    need --> report;
-    need --> month;
-    need --> dis; dis --> ren;
-    need --> ren;
-
-    month --> ad;
-    month --> face; face --> report; face --> ren;
-    month --> ren;
-  
-    last --> ad;
-    last --> ren;
-  
-    ec --> ren;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-    classDef important fill:#DDF2D1, stroke: #FFFFFF;
-````
-
-![Causal diagram](images/shap_bugs_causal.png)
-
-As this example is from a simulation study where know true causal effects, we can plot the SHAP values from the prediction models v.s. the known true causal effects.
-
-![Causal effects](images/shap_bugs_causal_vs_shap.png)
-
-We can also add clustering to see the redundancy structure of the data as a dendrogram - 'when features merge together at the bottom (left) of the dendrogram it means that that the information those features contain about the outcome (renewal) is very redundant and the model could have used either feature. When features merge together at the top (right) of the dendrogram it means the information they contain about the outcome is independent from each other.'
-
-![Redundancy](images/shap_bugs_redundancy.png)
-
-**When can predictive models answer causal questions?** When the feature is independent of (a) other features in the model, and (b) unobserved confounders. Hence, it is not subject to bias from either unmeasured confounders or feature redundancy. Example: Economy
-* Independent from other features in dendogram (no observed confounding)
-* No unobserved confounding in causal digram
-
-**When can they not be used? (1) When you have observed confounding.** Example: Ad Spend (no direct causal effect on retention, but correlated with Last upgrade and Monthly usage which do drive retention). 'Our predictive model identifies Ad Spend as the one of the best single predictors of retention because it captures so many of the true causal drivers through correlations. XGBoost imposes regularization, which is a fancy way of saying that it tries to choose the simplest possible model that still predicts well. If it could predict equally well using one feature rather than three, it will tend to do that to avoid overfitting.'
-
-However, there are methods to deal with observed confounding, such as double/debiased machine learning model. This involves:
-1. Train model to predict feature (Ad spend) using set of confounders (features not caused by Ad spend)
-2. Train model to predict outcome (Did Renew) using that set of confounders
-3. Train model to predict residual variation of outcome (the variation left after subtracting our prediction) using the residual variation of the causal feature of interest
-
-'The intuition is that if Ad Spend causes renewal, then the part of Ad Spend that can’t be predicted by other confounding features should be correlated with the part of renewal that can’t be predicted by other confounding features.' There are packages like econML's LinearDML for this.
-
-**When can they not be used? (2) When you have non-confounding redundancy.** 'This occurs when the feature we want causal effects for causally drives, or is driven by, another feature included in the model, but that other feature is not a confounder of our feature of interest.'
-
-Example: Sales Calls directly impact retention, but also have an indirect effect on retention through Interactions. We can see this in the SHAP scatter plots above, which show how XGBoost underestimates the true causal effect of Sales Calls because most of that effect got put onto the Interactions feature.
-
-'Non-confounding redundancy can be fixed in principle by removing the redundant variables from the model (see below). For example, if we removed Interactions from the model then we will capture the full effect of making a sales call on renewal probability. This removal is also important for double ML, since double ML will fail to capture indirect causal effects if you control for downstream features caused by the feature of interest. In this case double ML will only measure the “direct” effect that does not pass through the other feature. Double ML is however robust to controlling for upstream non-confounding redundancy (where the redundant feature causes the feature of interest), though this will reduce your statistical power to detect true effects. Unfortunately, we often don’t know the true causal graph so it can be hard to know when another feature is redundant with our feature of interest because of observed confounding vs. non-confounding redundancy. If it is because of confounding then we should control for that feature using a method like double ML, whereas if it is a downstream consequence then we should drop the feature from our model if we want full causal effects rather than only direct effects. Controlling for a feature we shouldn’t tends to hide or split up causal effects, while failing to control for a feature we should have controlled for tends to infer causal effects that do not exist. This generally makes controlling for a feature the safer option when you are uncertain.'
-
-**When can they not be used? (3) When you have unobserved confounding.** 'The Discount and Bugs Reported features both suffer from unobserved confounding because not all important variables (e.g., Product Need and Bugs Faced) are measured in the data. Even though both features are relatively independent of all the other features in the model, there are important drivers that are unmeasured. In this case, both predictive models and causal models that require confounders to be observed, like double ML, will fail. This is why double ML estimates a large negative causal effect for the Discount feature even when controlling for all other observed features'
-
-'Specialized causal tools based on the principals of instrumental variables, differences-in-differences, or regression discontinuities can sometimes exploit partial randomization even in cases where a full experiment is impossible. For example, instrumental variable techniques can be used to identify causal effects in cases where we cannot randomly assign a treatment, but we can randomly nudge some customers towards treatment, like sending an email encouraging them to explore a new product feature. Difference-in-difference approaches can be helpful when the introduction of new treatments is staggered across groups. Finally, regression discontinuity approaches are a good option when patterns of treatment exhibit sharp cut-offs (for example qualification for treatment based on a specific, measurable trait like revenue over $5,000 per month).'
-
-[[source]](https://shap.readthedocs.io/en/latest/example_notebooks/overviews/Be%20careful%20when%20interpreting%20predictive%20models%20in%20search%20of%20causal%20insights.html#)
+# Causal diagrams
 
 ## Introduction to causal diagrams
+
+### What are causal diagrams?
 
 Causal diagrams - **directed acyclic graphs (DAGs)** - depict causal relationship between different variables. Two key components are **nodes** and **arrows**. They are:
 * **Directed** - as arrows have a single direction (unidirectional) that represents known causal effects (based on prior knowledge)
@@ -233,7 +113,7 @@ We don't draw causal diagrams as an exact, accurate representation of the world 
 * They indicate when associations or independence should be expected.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 * They can help determine whether the effect of interest can be identified from available data, and help us clarify our study question[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf) - and to identify problems in the study design[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
-### How do you construct a DAG?
+## How do you construct a DAG?
 
 *The order here doesn't particular matter - the key thing is to start with the research question and then build from there*.
 
