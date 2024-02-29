@@ -1,4 +1,4 @@
-# D-seperation rules
+# Additional DAG concepts
 
 `````{admonition} Executive summary
 :class: info

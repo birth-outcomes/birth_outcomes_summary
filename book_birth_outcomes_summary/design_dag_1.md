@@ -282,7 +282,7 @@ Another type of collider bias - specifically, a type of selection bias - is **Be
 
 **Measurement error** is the degree to which we mismeasure a variable. If believe a variable is mismeasured, we have a node with a "*" that points from variable, with another representing measurement error.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home) There are two types:
 * **Non-differential error** - if error is not in exposure or outcome - this will bias the estimate of effect towards the null (so for small effects or studies with little power, it can make a true effect disappear)
-* **Differential error** - if there is error in exposure and outcome - then, errors themselvse can be associated, opening a back-door path between exposure and outcome.[[source]](https://cran.r-project.org/web/packages/ggdag/vignettes/bias-structures.html)
+* **Differential error** - if there is error in exposure and outcome - then, errors themselvse can be associated, opening a back-door path between exposure and outcome[[source]](https://cran.r-project.org/web/packages/ggdag/vignettes/bias-structures.html) - i.e. it is when measurement error varies in size depending on another variable. [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
 Example: **Recall bias**. Does taking multivitamins in childhood help protect against bladder cancer later in life?
 * Bias in outcome depends only on how well diagnosis of bladder cancer represents actually having it

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Paths and conditioning &#8212; Birth Outcomes</title>
+    <title>Additional DAG concepts &#8212; Birth Outcomes</title>
   
   
   
@@ -209,14 +209,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="design_introduction_causality.html">The problem: prediction, causation and the treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_dag_1.html">Introduction to directed acyclic graphs (DAGs)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Paths and conditioning</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Additional DAG concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_dag_hie.html">DAG for HIE</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal methods</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="design_estimands.html">Causal assumptions and estimands</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="design_confounding_methods.html">Methods for causal inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods.html">Methods for causal effect estimation</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="design_account_paradox.html">Accounting for a treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_examples.html">Examples of studies that account for the treatment paradox</a></li>
@@ -417,7 +416,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Paths and conditioning</h1>
+    <h1>Additional DAG concepts</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -427,24 +426,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditioning">Conditioning</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-set-of-covariates">Minimal set of covariates</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-structures-where-we-expect-to-see-associations">Causal structures where we expect to see associations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-sources-of-seperation">Structural sources of seperation</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paths">Paths</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rules">D-seperation rules</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-1-if-there-are-no-variables-being-conditioned-on-a-path-is-blocked-if-and-only-if-two-arrowheads-on-the-path-collide-at-some-variable-on-the-path">D-seperation rule 1: If there are no variables being conditioned on, a path is blocked if and only if two arrowheads on the path collide at some variable on the path</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-2-any-path-containing-non-collider-that-has-been-conditioned-on-is-blocked">D-seperation rule 2: Any path containing non-collider that has been conditioned on is blocked.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-3-a-collider-that-has-been-conditioned-on-does-not-block-a-path">D-seperation rule 3: A collider that has been conditioned on does not block a path.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-4-collider-with-descendent-that-has-been-conditioned-on-does-not-block-a-path">D-seperation rule 4: Collider with descendent that has been conditioned on does not block a path.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rules">Rules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-each-rule">Examples of each rule</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faithfulness">Faithfulness</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-varying-treatments-and-confounders">Time-varying treatments and confounders</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presenting-results">Presenting results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-varying-treatments-and-confounders">Time-varying treatments and confounders</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-time-varying-treatment">What is a time-varying treatment?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treatment-confounder-feedback">Treatment-confounder feedback</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presenting-results-from-causal-inference-studies">Presenting results from causal inference studies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-set-of-covariates">Minimal set of covariates</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-cases">Example cases</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-oestrogen-and-endometrial-cancer">Example: Oestrogen and endometrial cancer</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-hiv-and-art">Example: HIV and ART</a></li>
@@ -461,135 +456,113 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="paths-and-conditioning">
-<h1>Paths and conditioning<a class="headerlink" href="#paths-and-conditioning" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="additional-dag-concepts">
+<h1>Additional DAG concepts<a class="headerlink" href="#additional-dag-concepts" title="Link to this heading">#</a></h1>
 <div class="info admonition">
 <p class="admonition-title">Executive summary</p>
-<p>A <strong>backdoor path</strong> is a non-causal path between the treatment and outcome that will exist if (a) you haven’t conditioned for confounders, or (b) you condition on a collider (which opens a backdoor path). These scenarios (when paths will be open or blocked) are described by <strong>D-seperation rules</strong>.</p>
-<p><strong>Conditioning</strong> on a variable means you are examining the relationship between the treatment and outcome within levels of the conditioning variable, using either: sample restriction, stratification, adjustment, matching. Ideally, you want to identify a <strong>minimal set of covariates</strong> to condition on that (a) block all back-door paths, and (b) don’t open closed paths.</p>
+<p><strong>D-seperation rules</strong> determine whether paths will be open (expect associations) or blocked (independent), which are based on whether condition or not on confounders and colliders.</p>
 <p>If you have <strong>time-varying treatment</strong> (takes different values over time), then you will have other time-varying components (e.g. time-varying confounding). If there is <strong>treatment-confounder feedback</strong> (i.e. earlier treatment impacts value of later confounder), then you will need to use a special type of method to adjust for confounders, referred to as <strong>G-methods</strong>.</p>
 <p>Since you have designed the study to appropriate control for confounding for your relationship of interest - between a given treatment/exposure and outcome - the other variables included may have residual confounding or other biases that affect their associations, and it is important that these effect estimates are not presented (or are explained) - otherwise this is called ‘<strong>Table 2 fallacy</strong>’.</p>
 </div>
-<section id="conditioning">
-<h2>Conditioning<a class="headerlink" href="#conditioning" title="Link to this heading">#</a></h2>
-<p><strong>Conditioning</strong> on a variable means examining the relationship between A and Y within levels of the conditioning variable, using either:</p>
+<section id="paths">
+<h2>Paths<a class="headerlink" href="#paths" title="Link to this heading">#</a></h2>
+<p>A <strong>path</strong> is any route through graph - it <strong>doesn’t have to follow</strong> the direction of the arrows. Paths can be either be:</p>
 <ul class="simple">
-<li><p>Sample restriction</p></li>
-<li><p>Stratification</p></li>
-<li><p>Adjustment</p></li>
-<li><p>Matching</p></li>
+<li><p><strong>Open</strong> paths - represent statistical associations between two variables</p>
+<ul>
+<li><p>E.g. If don’t condition on confounder, will be an open path, and see association with confounder</p></li>
 </ul>
-<p>Other terms like “adjusting” or “controlling” suggest a misleading interpretation of the model.</p>
-<p>When you condition on something, you draw a box around it on the DAG.</p>
-<p>Scenarios where we may want to condition…</p>
-<p><strong>(1) To control for confounding</strong>. A back door path is a connection between A and Y that doesn’t follow the path of the arrows - for example, along the path of a confounder. If we condition on the variable in that path (i.e. control for confounding), then we close that back door path and remove the non-causal association.</p>
-<ul class="simple">
-<li><p>If we don’t do this, we will get <strong>confounding bias</strong> (where a common cause of A and Y is not blocked).</p></li>
+</li>
+<li><p><strong>Blocked</strong> (or “closed” paths) - represent the absence of associations</p>
+<ul>
+<li><p>E.g. An unconditioned collider should have no association <a class="reference external" href="https://doi.org/10.1038/s41390-018-0071-3">[Williams et al. 2018]</a></p></li>
 </ul>
-<p><strong>(2) To open a path blocked by a collider</strong>.</p>
-<ul class="simple">
-<li><p><strong>Collider bias</strong> = conditioning on common effects</p></li>
-<li><p><strong>Selection bias</strong> = type of collider bias where the common effect is selection into the study - occurs when a common effect is conditioned on such that there is now a conditional association between A and Y</p></li>
-<li><p><strong>Berkson’s bias</strong> = type of selection bias in which selection of cases into the study depends on hospitalisation, and the treatment is another diase, or a cause of another disease, which also results in hospitalisation</p></li>
-</ul>
-<p><strong>(3) To remove part of the causal effect</strong> by conditioning on a mediator.</p>
-<p><a class="reference external" href="https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf">[source]</a></p>
-<section id="minimal-set-of-covariates">
-<h3>Minimal set of covariates<a class="headerlink" href="#minimal-set-of-covariates" title="Link to this heading">#</a></h3>
-<p>We want to identify a minimal set of covariates that:</p>
-<ol class="arabic simple">
-<li><p>Blocks all backdoor paths.</p></li>
-<li><p>Doesn’t inadvertenly open closed pathways by conditioning on colliders or descendents.</p></li>
-</ol>
-<p><a class="reference external" href="https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf">[source]</a></p>
-</section>
-</section>
-<section id="causal-structures-where-we-expect-to-see-associations">
-<h2>Causal structures where we expect to see associations<a class="headerlink" href="#causal-structures-where-we-expect-to-see-associations" title="Link to this heading">#</a></h2>
-<section id="structural-sources-of-seperation">
-<h3>Structural sources of seperation<a class="headerlink" href="#structural-sources-of-seperation" title="Link to this heading">#</a></h3>
-<p>The <strong>structural sources</strong> of association are:</p>
-<ul class="simple">
-<li><p>Cause and effect</p></li>
-<li><p>Common causes (confounding)</p></li>
-<li><p>Conditioning on common effects (conditioning on collider)</p></li>
+</li>
 </ul>
 <div class="mermaid">
-              flowchart LR;
+              flowchart TD;
 
-    a:::white;
-    b:::white;
-    c:::white;
-    d:::white;
-    e:::white;
-    f:::white;
-    g:::white;
-    h:::black;
+    block:::outline;
+    subgraph block[&quot;`**Path blocked at collider**`&quot;]
+      a(&quot;Treatment&quot;):::green;
+      y(&quot;Outcome&quot;):::green;
+      x(&quot;Collider&quot;):::white;
+    end
 
-    a --&gt; b;
+    a --&gt; y;
+    a --&gt; x;
+    y --&gt; x;
 
-    c --&gt; d;
-    c --&gt; e;
+    open:::outline;
+    subgraph open[&quot;`**Path open at confounder**`&quot;]
+      a2(&quot;Treatment&quot;):::green;
+      y2(&quot;Outcome&quot;):::green;
+      x2(&quot;Confounder&quot;):::white;
+    end
 
-    f --&gt; h;
-    g --&gt; h;
+    a2 --&gt; y2;
+    x2 --&gt; a2;
+    x2 --&gt; y2;
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
-        </div><p>There is another source of association: <strong>chance</strong>. May be association even if none of above are true. Chance is not a structural source of association. <strong>Increasing our sample size, chance associations should disappear (whilst structural remain and become sharper)</strong>.</p>
-<p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
-</section>
+    classDef outline fill:#FFFFFF
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><p>The <strong>target (causal) paths</strong> are the directed paths from the exposure to the outcome which transmit the target effect. <strong>Biasing paths</strong> are non-directed open paths between the exposure and the outcome, which transmit bias for estimating the effect of the exposure on the outcome.<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3733703/">[source]</a></p>
 </section>
 <section id="d-seperation-rules">
 <h2>D-seperation rules<a class="headerlink" href="#d-seperation-rules" title="Link to this heading">#</a></h2>
-<p><strong>Path</strong> is any route through graph (can follow arrow direction or not). Paths can be <strong>blocked or open</strong>, which is according to the <strong>D-seperation rules</strong>. We use D-seperation to decide whether two variables are D-seperated, where D stands for directional.</p>
-<p>You will be able to see that all D-separation says is that - as above - two variables <strong>would be associated</strong> if:</p>
+<section id="rules">
+<h3>Rules<a class="headerlink" href="#rules" title="Link to this heading">#</a></h3>
+<p><strong>D-seperation</strong> rules are used to determine whether paths are <strong>open or blocked</strong> - i.e. whether variables will be <strong>associated or independent</strong>.</p>
+<p>If <strong>all paths are blocked</strong> between two variables on the DAG, then they are <strong>d-seperated</strong> (i.e. not associated / statistical independence).<a class="reference external" href="https://sgfin.github.io/2019/06/19/Causal-Inference-Book-All-DAGs/">[source]</a> Otherwise, they are <strong>d-connected</strong>.<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3733703/">[source]</a></p>
+<p>When identified here, these are structural sources of association. Another cause of association - beyond it being a causal relationship - is by chance. However, increasing our sample size, chance associations should disappear (whilst structural remain and become sharper). <a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+<p>Rules:</p>
+<ol class="arabic simple">
+<li><p>If there are <strong>no</strong> variables being conditioned on</p>
 <ul class="simple">
-<li><p>One causes the other,</p></li>
-<li><p>They share common causes</p></li>
-<li><p>They have a common effect and we condition on the common effect…</p></li>
+<li><p>A path is only <strong>blocked</strong> if it contains a <strong>collider</strong></p></li>
+<li><p>A path is <strong>open</strong> if it does not contain a collider</p></li>
 </ul>
-<p>Another summary:</p>
-<ul class="simple">
-<li><p>Path is blocked only if (a) containins non-collider that been conditioned on, or (b) collider that not been conditioned on.</p></li>
-<li><p>Two variables are D-seperated if all paths between them are blocked.</p></li>
-<li><p>Two variables are marginally or unconditionally independent if they are D-seperated without conditioning on all the variables</p></li>
-<li><p>Two variables are conditionally independent if they are D-seperated after conditioning</p></li>
-</ul>
-<p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
-<section id="d-seperation-rule-1-if-there-are-no-variables-being-conditioned-on-a-path-is-blocked-if-and-only-if-two-arrowheads-on-the-path-collide-at-some-variable-on-the-path">
-<h3>D-seperation rule 1: If there are no variables being conditioned on, a path is blocked if and only if two arrowheads on the path collide at some variable on the path<a class="headerlink" href="#d-seperation-rule-1-if-there-are-no-variables-being-conditioned-on-a-path-is-blocked-if-and-only-if-two-arrowheads-on-the-path-collide-at-some-variable-on-the-path" title="Link to this heading">#</a></h3>
-<p>Path from A to Y is <strong>open</strong>:</p>
-<div class="mermaid">
-              flowchart LR;
-
-    a(&quot;A&quot;):::white;
-    b(&quot;B&quot;):::white;
-    y(&quot;Y&quot;):::white;
-    
-    a --&gt; b; b--&gt; y;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-        </div><p>Path from A to Y is <strong>blocked</strong>:</p>
-<div class="mermaid">
-              flowchart LR;
-
-    a(&quot;A&quot;):::white;
-    y(&quot;Y&quot;):::white;
-    l(&quot;L&quot;):::white;
-    d(&quot;D&quot;):::white;
-    
-    a --&gt; l; y --&gt; l; l --&gt; d;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-        </div><p>Definition of collider is path-specific. L is collider on path A to Y, but on on path A to D.</p>
-<p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+</li>
+<li><p>Path is <strong>blocked</strong> if it contains a <strong>non-collider</strong> that <strong>is</strong> conditioned on</p></li>
+<li><p>Path is <strong>open</strong> if <strong>collider is</strong> conditioned on</p></li>
+<li><p>Path is <strong>open</strong> if <strong>descendent</strong> of collider <strong>is</strong> conditioned on.<a class="reference external" href="https://sgfin.github.io/2019/06/19/Causal-Inference-Book-All-DAGs/">[source]</a></p></li>
+</ol>
 </section>
-<section id="d-seperation-rule-2-any-path-containing-non-collider-that-has-been-conditioned-on-is-blocked">
-<h3>D-seperation rule 2: Any path containing non-collider that has been conditioned on is blocked.<a class="headerlink" href="#d-seperation-rule-2-any-path-containing-non-collider-that-has-been-conditioned-on-is-blocked" title="Link to this heading">#</a></h3>
-<p>Path from A to Y is <strong>blocked</strong>:</p>
+<section id="examples-of-each-rule">
+<h3>Examples of each rule<a class="headerlink" href="#examples-of-each-rule" title="Link to this heading">#</a></h3>
+<p>Rule 1: L to Y open</p>
+<div class="mermaid">
+              flowchart LR;
+
+    l(&quot;L&quot;):::white;
+    a(&quot;A&quot;):::white;
+    y(&quot;Y&quot;):::white;
+
+    l --&gt; a;
+    a --&gt; y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+    classDef outline fill:#FFFFFF
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><p>Rule 1: L to A blocked</p>
+<div class="mermaid">
+              flowchart LR;
+
+    l(&quot;L&quot;):::white;
+    a(&quot;A&quot;):::white;
+    y(&quot;Y&quot;):::white;
+
+    l --&gt; y;
+    a --&gt; y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+    classDef outline fill:#FFFFFF
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><p>Rule 2: A to Y blocked.</p>
 <div class="mermaid">
               flowchart LR;
 
@@ -601,11 +574,7 @@ document.write(`
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
-        </div><p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
-</section>
-<section id="d-seperation-rule-3-a-collider-that-has-been-conditioned-on-does-not-block-a-path">
-<h3>D-seperation rule 3: A collider that has been conditioned on does not block a path.<a class="headerlink" href="#d-seperation-rule-3-a-collider-that-has-been-conditioned-on-does-not-block-a-path" title="Link to this heading">#</a></h3>
-<p>Path from A to Y is <strong>open</strong>:</p>
+        </div><p>Rule 3: A to Y open.</p>
 <div class="mermaid">
               flowchart LR;
 
@@ -617,11 +586,7 @@ document.write(`
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
-        </div><p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
-</section>
-<section id="d-seperation-rule-4-collider-with-descendent-that-has-been-conditioned-on-does-not-block-a-path">
-<h3>D-seperation rule 4: Collider with descendent that has been conditioned on does not block a path.<a class="headerlink" href="#d-seperation-rule-4-collider-with-descendent-that-has-been-conditioned-on-does-not-block-a-path" title="Link to this heading">#</a></h3>
-<p>Path from A to Y is <strong>open</strong>:</p>
+        </div><p>Rule 4: A to Y open.</p>
 <div class="mermaid">
               flowchart LR;
 
@@ -634,47 +599,30 @@ document.write(`
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
-        </div><p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
-</section>
+        </div></section>
 </section>
 <section id="faithfulness">
 <h2>Faithfulness<a class="headerlink" href="#faithfulness" title="Link to this heading">#</a></h2>
-<p>Faithfulness is the result of opposite effects of exactly equal magnitude - e.g. if aspirin caused stroke for half of poppulation and prevented it in the other half, then causal dag is correct (as aspirin affects stroke) but no association is observed (as they cancel each other out). In that case, we say the joint distribution of the data is not faithful to the causal DAG.</p>
-<p>These perfect cancellations are rare and we don’t expect them to happen in practice, so we can safetly say lack of D-seperation means non-zero association. So -</p>
-<ul class="simple">
-<li><p><strong>D-seperation = statistical independence</strong></p></li>
-<li><p><strong>All paths blocked = no association</strong></p></li>
-</ul>
-<p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+<p>Faithfulness is the result of <strong>opposite effects of exactly equal magnitude</strong> - e.g. if aspirin caused stroke for half of poppulation and prevented it in the other half, then causal dag is correct (as aspirin affects stroke) but <strong>no association is observed (as they cancel each other out</strong>). In that case, we say the joint distribution of the data is not faithful to the causal DAG. These perfect cancellations are <strong>rare</strong> and we don’t expect them to happen in practice. <a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
 </section>
 <section id="time-varying-treatments-and-confounders">
 <h2>Time-varying treatments and confounders<a class="headerlink" href="#time-varying-treatments-and-confounders" title="Link to this heading">#</a></h2>
-<p>A time-varying treatment one that can take different values over time - (e.g. whether or not receive medicine, or dose of medicine, at multiple different timepoints) - as opposed to fixed treatments that do not vary over time (e.g. whether took vitamin D at time of conception).</p>
-<p>Example: EPO used to treat anemia, dose is based on haemoglobin level, which itself depends on disease severity.</p>
-<div class="mermaid">
-              flowchart LR;
-
-    l(&quot;L: Haemoglobin&quot;):::white;
-    a(&quot;A: EPO&quot;):::white;
-    y(&quot;Y: Death&quot;):::white;
-    u(&quot;U: Disease severity&quot;):::white;
-
-    l --&gt; a;
-    a --&gt; y;
-    u --&gt; y;
-    u --&gt; l;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-        </div><p>To show that we have <strong>time-varying</strong> components, we refer to:</p>
+<section id="what-is-a-time-varying-treatment">
+<h3>What is a time-varying treatment?<a class="headerlink" href="#what-is-a-time-varying-treatment" title="Link to this heading">#</a></h3>
+<p>A <strong>time-varying treatment</strong> is treatment that can take different values over time - such as:</p>
+<ul class="simple">
+<li><p>Whether or not receive medicine at each timepoint</p></li>
+<li><p>Dose of medicine at each time point</p></li>
+</ul>
+<p>This is as opposed to <strong>fixed treatments</strong> that do not vary over time (e.g. whether took vitamin D at time of conception).</p>
+<p>We can represent this using two arbritary time points, K and K+1. Actual study includes many more weeks but for most purposes, two time points are enough to represent the main features of the causal structure when there is time varying treatment.</p>
+<p>You’ll notice that a consequence of the time-varying treatment is <strong>time-varying confounder and outcome</strong>. A confounder is time-varying when it can take different values at different timepoint, and confound at different timepoints.</p>
+<p>Example: EPO used to treat anemia, dose is based on haemoglobin level at time of appointment (which itself depends on disease severity, but we’ve just represented that as a single timepoint). To show that we have <strong>time-varying</strong> components, we refer to:</p>
 <ul class="simple">
 <li><p>L and A at timepoint K (e.g. week 0)</p></li>
 <li><p>Y, L and A at timepoint K+1 (e.g. week 1)</p></li>
 <li><p>Y at timepoint K+2 (e.g. week 2)</p></li>
 </ul>
-<p>Actual study includes many more weeks but for most purposes, two time points are enough to represent the main features of the causal structure when there is time varying treatment. These will often be two arbritary time points (K and K+1) (rather than 0 and 1).</p>
-<p>You’ll notice that a consequence of the time-varying treatment is time-varying confounder and outcome. A confounder is time-varying when it can take different values at different timepoint, and confound at different timepoints.</p>
-<p>With the example below, the minimal set of variables you’d need to condition for would be L0 and L1 (wouldn’t need to for U as doing for L0 and L1 blocks the backdoor paths)</p>
 <div class="mermaid">
               flowchart LR;
 
@@ -699,11 +647,13 @@ document.write(`
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
-        </div><p>However, if there is <strong>treatment-confounder feedback</strong>, then conventional adjustment methods - even if closing all back door paths - will still not be able to yield an unbiased estimate.</p>
+        </div></section>
+<section id="treatment-confounder-feedback">
+<h3>Treatment-confounder feedback<a class="headerlink" href="#treatment-confounder-feedback" title="Link to this heading">#</a></h3>
 <p>Our DAG above was incomplete - in this scenario, treatment at timepoint K will impact the confounder (levels of haemoglobin) at timepoint K+1. This is referred to as <strong>treatment-confounder feedback</strong> - when the later confounder is impacted by prior treatment.</p>
-<p>We’ll get a biased estimate if we condition on the Ls, as conditioning on L<sub>K+1</sub> will open a path that was previously blocked: A<sub>K</sub> to L<sub>K+1</sub> to U to Y<sub>K</sub>. Hence, we have introduced selection bias.</p>
+<p>When there is <strong>treatment-confounder feedback</strong>, then conventional adjustment methods - even if closing all back door paths - will still not be able to yield an unbiased estimate.  We’ll get a biased estimate if we condition on the Ls, as conditioning on L<sub>K+1</sub> will open a path that was previously blocked: A<sub>K</sub> to L<sub>K+1</sub> to U to Y<sub>K</sub>. Hence, we have introduced selection bias.</p>
 <p>If the time-varying confounder also affects the outcome (e.g. L<sub>K+1</sub> –&gt; Y<sub>K+2</sub>), it will be impossible to estimate the total effect of the treatment.</p>
-<p>We need other methods to handle these settings: <strong>G-methods</strong>.</p>
+<p>We need other methods to handle these settings: <strong>G-methods</strong>. <a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
 <div class="mermaid">
               flowchart LR;
 
@@ -729,16 +679,50 @@ document.write(`
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
-        </div><p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+        </div></section>
 </section>
-<section id="presenting-results">
-<h2>Presenting results<a class="headerlink" href="#presenting-results" title="Link to this heading">#</a></h2>
+<section id="presenting-results-from-causal-inference-studies">
+<h2>Presenting results from causal inference studies<a class="headerlink" href="#presenting-results-from-causal-inference-studies" title="Link to this heading">#</a></h2>
 <p>‘Causal models are typically designed to test an association between a <strong>single exposure and an outcome</strong>. The additional independent variables in a model (often called “covariates”) <strong>serve to control for confounding</strong>. The observed associations between these covariates and the outcome have not been subject to the same approach to control of confounding as the exposure’ (i.e. they themselves have not been corrected for confounding - <em>and they shouldn’t and didn’t have to be</em>). ‘Therefore, <strong>residual confounding and other biases often heavily influence these associations</strong>.’</p>
 <p>‘This situation is known as “<strong>Table 2 fallacy</strong>,” a term arising from the practice of presenting effect estimates for all independent variables in “Table 2”.’ It is strongly recommended that these effect estimates are <strong>not presented</strong>.<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p>
 <p>Hartig 2019 discusses how this may not be practical in some fields (they give example of ecology) where you rarely have a clear target variable/hypothesis, but suggest instead that’s important to explicitly state/seperate reasonablly controlled varaibles from possibly confounded variables.<a class="reference external" href="https://theoreticalecology.wordpress.com/2019/04/14/mediators-confounders-colliders-a-crash-course-in-causal-inference/">[source]</a></p>
 </section>
+<section id="minimal-set-of-covariates">
+<h2>Minimal set of covariates<a class="headerlink" href="#minimal-set-of-covariates" title="Link to this heading">#</a></h2>
+<p>We want to identify a <strong>minimal set of covariates</strong> that:</p>
+<ol class="arabic simple">
+<li><p>Blocks all backdoor paths.</p></li>
+<li><p>Doesn’t inadvertenly open closed pathways by conditioning on colliders or descendents. <a class="reference external" href="https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf">[source]</a></p></li>
+</ol>
+<p>With the example below, the minimal set of variables you’d need to condition for would be <strong>L0 and L1 - wouldn’t need to for U</strong> as doing for L0 and L1 blocks the backdoor paths.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+<div class="mermaid">
+              flowchart LR;
+
+    ak(&quot;A&lt;sub&gt;K&lt;/sub&gt;: EPO dose&quot;):::white;
+    ak1(&quot;A&lt;sub&gt;K+1&lt;/sub&gt;: EPO dose&quot;):::white;
+    yk1(&quot;Y&lt;sub&gt;K+1&lt;/sub&gt;: Death&quot;):::white;
+    yk2(&quot;Y&lt;sub&gt;K+2&lt;/sub&gt;: Death&quot;):::white;
+    lk(&quot;L&lt;sub&gt;K&lt;/sub&gt;: Haemoglobin&quot;):::white;
+    lk1(&quot;L&lt;sub&gt;K+1&lt;/sub&gt;: Haemoglobin&quot;):::white;
+    u(&quot;U: Disease severity&quot;):::white;
+
+    ak --&gt; yk1;
+    u --&gt; yk1;
+    u --&gt; lk;
+    lk --&gt; ak;
+    lk --&gt; ak1;
+    ak --&gt; ak1;
+    u --&gt; lk1;
+    lk1 --&gt; ak1;
+    ak1 --&gt; yk2;
+    u --&gt; yk2;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div></section>
 <section id="example-cases">
 <h2>Example cases<a class="headerlink" href="#example-cases" title="Link to this heading">#</a></h2>
+<p>These examples help demonstrate the utility of causal diagrams.</p>
 <section id="example-oestrogen-and-endometrial-cancer">
 <h3>Example: Oestrogen and endometrial cancer<a class="headerlink" href="#example-oestrogen-and-endometrial-cancer" title="Link to this heading">#</a></h3>
 <p>In 1970s, women began to receive oestrogren after menopause. Some studies in 1975/6 found that women receiving oestrogen had higher risk of diagnosis with endometrical cancer than women not receiving them. Why? Possibilities include…</p>
@@ -915,24 +899,20 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditioning">Conditioning</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-set-of-covariates">Minimal set of covariates</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-structures-where-we-expect-to-see-associations">Causal structures where we expect to see associations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-sources-of-seperation">Structural sources of seperation</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paths">Paths</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rules">D-seperation rules</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-1-if-there-are-no-variables-being-conditioned-on-a-path-is-blocked-if-and-only-if-two-arrowheads-on-the-path-collide-at-some-variable-on-the-path">D-seperation rule 1: If there are no variables being conditioned on, a path is blocked if and only if two arrowheads on the path collide at some variable on the path</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-2-any-path-containing-non-collider-that-has-been-conditioned-on-is-blocked">D-seperation rule 2: Any path containing non-collider that has been conditioned on is blocked.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-3-a-collider-that-has-been-conditioned-on-does-not-block-a-path">D-seperation rule 3: A collider that has been conditioned on does not block a path.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-4-collider-with-descendent-that-has-been-conditioned-on-does-not-block-a-path">D-seperation rule 4: Collider with descendent that has been conditioned on does not block a path.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rules">Rules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-each-rule">Examples of each rule</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faithfulness">Faithfulness</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-varying-treatments-and-confounders">Time-varying treatments and confounders</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presenting-results">Presenting results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-varying-treatments-and-confounders">Time-varying treatments and confounders</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-time-varying-treatment">What is a time-varying treatment?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treatment-confounder-feedback">Treatment-confounder feedback</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presenting-results-from-causal-inference-studies">Presenting results from causal inference studies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-set-of-covariates">Minimal set of covariates</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-cases">Example cases</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-oestrogen-and-endometrial-cancer">Example: Oestrogen and endometrial cancer</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-hiv-and-art">Example: HIV and ART</a></li>

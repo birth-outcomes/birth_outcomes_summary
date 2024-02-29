@@ -1,5 +1,34 @@
 # DAG for HIE
 
+`````{admonition} Executive summary
+:class: info
+
+On this page, I have attempted to draw causal diagrams for our research study, and included examples of diagrams from papers that involve caesareans or HIE.
+`````
+
+## Research question
+
+(1) Should we have done a caesarean? If we had done one, or if we had done one earlier, would it have prevented HIE?
+
+(2) Should we have done that caesarean? Did doing the caesarean cause harm when infant was otherwise alright?
+
+As I understand it, (1) is more the focus - the relationship of caesarean and HIE - rather than the relationship between caesarean and any outcome.
+
+In that case, our DAG starts with:
+
+````{mermaid}
+  flowchart LR;
+
+    A("Treatment (A)<br><b>Caesarean</b>"):::white;
+    Y("Outcome (Y)<br><b>Hypoxic ischaemic<br>encephalopathy (HIE)</b>"):::white;
+
+    A -->|?| Y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+````
+
 ## Context: Reasons for doing a caesarean
 
 A key thing to know is what causes need for caesarean - and whether those are also things that cause HIE (similar to hypoxia).
@@ -30,29 +59,6 @@ Panda et al. 2018 - Clinicians’ views of factors influencing decision-making f
 * Type of health care coverage (private/public)
 * Hospital policies
 * Clinician characteristics - personal convenience, clinician demographics, confidence and skills
-
-## Research question
-
-(1) Should we have done a caesarean? If we had done one, or if we had done one earlier, would it have prevented HIE?
-
-(2) Should we have done that caesarean? Did doing the caesarean cause harm when infant was otherwise alright?
-
-As I understand it, (1) is more the focus - the relationship of caesarean and HIE - rather than the relationship between caesarean and any outcome.
-
-In that case, our DAG starts with:
-
-````{mermaid}
-  flowchart LR;
-
-    A("Treatment (A)<br><b>Caesarean</b>"):::white;
-    Y("Outcome (Y)<br><b>Hypoxic ischaemic<br>encephalopathy (HIE)</b>"):::white;
-
-    A -->|?| Y;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF;
-    classDef black fill:#FFFFFF, stroke:#000000;
-    classDef empty width:0px,height:0px;
-````
 
 ## DAGs
 
@@ -186,7 +192,7 @@ A representation including cooling and later outcomes (don't think need all this
     classDef empty width:0px,height:0px;
 ````
 
-## External examples that involve HIE
+## External examples that involve HIE or caesarean
 
 ### Example: Leith et al. 2023
 
@@ -215,6 +221,14 @@ Focus: Causal relationship between exposure to early hyperoxemia (following resu
 Context: Hyperoxemia is an increase in arterial oxygen partial pressure to more than 120mmHg. The exposure of interest with hyperoxemic exposure following resuscitation.
 
 ![DAG from Badurdeen et al. 2024](images/badurdeen_2024_dag.jpg)
+
+### Example: Cavalcante et al. 2022
+
+Cavalcante et al. 2022 - Cesarean section and body mass index in children: is there a causal effect? - https://doi.org/10.1590/0102-311X00344020
+
+Focus: Causal relationship between caesarean section and BMI.
+
+![DAG from Cavalcante et al. 2022](images/cavalcante_2022_dag.jpg)
 
 ## Example of complicated relationships in obstetrics in context of treatment paradox
 

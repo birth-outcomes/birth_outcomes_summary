@@ -1,5 +1,7 @@
 # Examples of studies that account for the treatment paradox
 
+https://www.sciencedirect.com/science/article/pii/S0167629617307609
+
 ## Commentary on prognostic models in obstetrics
 
 'Historically, the field of obstetrics has been successful in developing prediction models but has been poor in fully validating and thus implementing them effectively... Only two thirds of the papers [62.4%, 164/263] in a large systematic review of prognostic models in obstetrics were found to have presented their models in such a way that external validation would be feasible. This has been highlighted as a concern given the importance of validity in the development of such models.'[[Murphy et al. 2019]](https://doi.org/10.5772/intechopen.87311)

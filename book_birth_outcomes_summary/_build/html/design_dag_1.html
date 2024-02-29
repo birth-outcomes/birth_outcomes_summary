@@ -70,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'design_dag_1';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Paths and conditioning" href="design_dag_2.html" />
+    <link rel="next" title="Additional DAG concepts" href="design_dag_2.html" />
     <link rel="prev" title="The problem: prediction, causation and the treatment paradox" href="design_introduction_causality.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -209,14 +209,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="design_introduction_causality.html">The problem: prediction, causation and the treatment paradox</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to directed acyclic graphs (DAGs)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_dag_2.html">Paths and conditioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_dag_2.html">Additional DAG concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_dag_hie.html">DAG for HIE</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal methods</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="design_estimands.html">Causal assumptions and estimands</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="design_confounding_methods.html">Methods for causal inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods.html">Methods for causal effect estimation</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="design_account_paradox.html">Accounting for a treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_examples.html">Examples of studies that account for the treatment paradox</a></li>
@@ -439,11 +438,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mediators">Mediators</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colliders">Colliders</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-nodes">Selection nodes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mismeasured-variables">Mismeasured variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-error-mis-measured-variables">Measurement error (mis-measured variables)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-you-know-what-to-include-in-your-dag">How do you know what to include in your DAG?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-causes">Common causes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dag-completeness">DAG completeness</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-you-know-when-to-include-mediators">How do you know when to include mediators?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-should-you-draw-arrows">When should you draw arrows?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-you-use-variable-selection-methods">Can you use variable selection methods?</a></li>
@@ -551,51 +550,87 @@ document.write(`
 <h2>Key components<a class="headerlink" href="#key-components" title="Link to this heading">#</a></h2>
 <section id="confounders">
 <h3>Confounders<a class="headerlink" href="#confounders" title="Link to this heading">#</a></h3>
-<p><strong>Confounders</strong> are variables that <strong>cause BOTH the treatment/exposure and outcomes</strong>. Informally, it occurs when there is an open backdoor path between the treatment/exposure and outcome, and you could say a confounder is a variable that - possibly together with other variables - can be used to block the backdoor path between the treatment and outcome.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+<p><strong>Confounders</strong> are variables that <strong>cause BOTH the treatment/exposure and outcomes</strong>.</p>
+<p><em>Informally, it occurs when there is an open backdoor path between the treatment/exposure and outcome, and you could say a confounder is a variable that - possibly together with other variables - can be used to block the backdoor path between the treatment and outcome.</em></p>
+<p>We included <strong>measured and unmeasured</strong> confounders in our DAG.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+<p>We can use <strong>conditioning</strong> to control for confounding. This involves examining the relationship between A and Y within levels of the conditioning variable, using either: (a) sample restriction, (b) stratification, (c) adjustment, or (d) matching. If we don’t do this, we will get <strong>confounding bias</strong> (where a common cause of A and Y is not blocked). When you condition on something, you <strong>draw a box</strong> around it on the DAG. Other terms like “adjusting” or “controlling” suggest a misleading interpretation of the model - although there does seem to be variability in terminology, with many sources using these terms. <a class="reference external" href="https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf">[source]</a></p>
 <p>Example: smoking causes yellow fingers and lung cancer</p>
 <ul class="simple">
 <li><p>If we don’t condition on it, we expect to see an association between yellow fingers and lung cancer (known as a <strong>marginal/unconditional</strong> association)</p></li>
-<li><p>If we do condition on smoking, we expect to see no association between yellow fingers and lung cancers (i.e. they are “<strong>not associated conditional on</strong> smoking)</p></li>
+<li><p>If we do condition on smoking, we expect to see no association between yellow fingers and lung cancers (i.e. they are “<strong>not associated conditional on</strong> smoking)<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p></li>
 </ul>
-<p>We included <strong>measured and unmeasured</strong> confounders in our DAG.</p>
+<div class="mermaid">
+              flowchart TD;
+
+    con:::outline;
+    subgraph con[&quot;`**Conditional**`&quot;]
+      cig2(&quot;Smoking&quot;):::black;
+      lung2(&quot;Lung cancer&quot;):::white;
+      yellow2(&quot;Yellow fingers&quot;):::white;
+    end
+
+    cig2 --&gt; lung2;
+    cig2 --&gt; yellow2;
+
+    uncon:::outline;
+    subgraph uncon[&quot;`**Unconditional**`&quot;]
+      cig(&quot;Smoking&quot;):::white;
+      lung(&quot;Lung cancer&quot;):::white;
+      yellow(&quot;Yellow fingers&quot;):::white;
+    end
+
+    cig --&gt; lung;
+    cig --&gt; yellow;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef outline fill:#FFFFFF;
+        </div></section>
+<section id="moderators">
+<h3>Moderators<a class="headerlink" href="#moderators" title="Link to this heading">#</a></h3>
+<p><strong>Moderators</strong> are variables that change the <strong>size or direction</strong> of the relationship between variables. These could also be referred to as effect modifiers or statistical interaction. <a class="reference external" href="https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf">[source]</a></p>
+<ul class="simple">
+<li><p>They usually help you judge the external validity of your study by identifying the limitations of when the relationship between variables holds. <a class="reference external" href="https://www.scribbr.co.uk/faqs/why-should-you-include-mediators-and-moderators-in-your-study/">[source]</a></p></li>
+<li><p>There has been some disagreement on how these should be included/notation within DAGs. <a class="reference external" href="https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf">[source]</a><a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/17700243/">[Weinberg 2007]</a></p></li>
+</ul>
 <div class="mermaid">
               flowchart LR;
 
-    cig(&quot;Smoking&quot;):::white;
-    lung(&quot;Lung cancer&quot;):::white;
-    yellow(&quot;Yellow fingers&quot;):::white;
+    A(&quot;A (treatment/exposure)&quot;):::green;
+    Y(&quot;Y (outcome)&quot;):::green;
+    Empty[ ]:::empty;
+    Mod(&quot;Moderator&quot;):::white;
 
-    cig --&gt; lung;
-    cig --&gt; yellow;
+    Mod --&gt; Empty;
+    A --- Empty;
+    Empty --&gt;|?| Y;
 
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-        </div><div class="mermaid">
-              flowchart LR;
-
-    cig(&quot;Smoking&quot;):::black;
-    lung(&quot;Lung cancer&quot;):::white;
-    yellow(&quot;Yellow fingers&quot;):::white;
-
-    cig --&gt; lung;
-    cig --&gt; yellow;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-        </div><p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
-</section>
-<section id="moderators">
-<h3>Moderators<a class="headerlink" href="#moderators" title="Link to this heading">#</a></h3>
-<p><strong>Moderators</strong> are variables that change the <strong>size or direction</strong> of the relationship between variables. These could also be referred to as effect modifiers or statistical interaction.<a class="reference external" href="https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf">[source]</a></p>
-<p>Why include? They usually help you judge the external validity of your study by identifying the limitations of when the relationship between variables holds.’<a class="reference external" href="https://www.scribbr.co.uk/faqs/why-should-you-include-mediators-and-moderators-in-your-study/">[source]</a></p>
-<p>There has been some disagreement on how these should be included/notation within DAGs.<a class="reference external" href="https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf">[source]</a><a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/17700243/">[Weinberg 2007]</a></p>
-</section>
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div></section>
 <section id="mediators">
 <h3>Mediators<a class="headerlink" href="#mediators" title="Link to this heading">#</a></h3>
 <p><strong>Mediators</strong> are variables that lie in the causal path between the two other variables (e.g. between exposure and outcome), and they tell you how or why an effect takes place.<a class="reference external" href="https://www.scribbr.co.uk/faqs/why-should-you-include-mediators-and-moderators-in-your-study/">[source]</a></p>
-<p>A path that includes a mediator is often called an <strong>indirect effect</strong> or indirect causal path. In contrast, the arrow directly connecting the treatment and outcome represents the <strong>direct causal effect</strong> of the treatment on the outcome that is not due to changes in the mediator.<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p>
-<p>You might condition on a mediator if you are interested in the <strong>direct effect of treatment on outcome that doesn’t pass through mediator</strong>.</p>
-<p>Example: In racial disparity studies, will condition on mediators like socioeconomic, education, location (often though <strong>matching</strong> on these characteristics),  to allow you to isolate the unique effect of race that is not explainable by those pathways. <a class="reference external" href="https://stats.stackexchange.com/questions/488048/dag-are-there-situations-where-adjusting-for-mediators-is-reasonable">[source]</a></p>
+<ul class="simple">
+<li><p>A path that includes a mediator is often called an <strong>indirect effect</strong> or indirect causal path</p></li>
+<li><p>In contrast, the arrow directly connecting the treatment and outcome represents the <strong>direct causal effect</strong> of the treatment on the outcome that is not due to changes in the mediator.<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p></li>
+<li><p>If you do not have a direct arrow between the treatment and outcome, and only via the mediator, this implies that this is the only way in which the treatment can cause the outcome, and that if you know the mediator is present, knowing whether or not the treatment was present should have no impact on the outcome.</p></li>
+</ul>
+<div class="mermaid">
+              flowchart LR;
+
+    treat(&quot;Treatment&quot;):::white;
+    med(&quot;Mediator&quot;):::white;
+    out(&quot;Outcome&quot;):::white;
+
+    treat --&gt; med;
+    med --&gt; out;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div><p>You might <strong>condition</strong> on a mediator if you are interested in the <strong>direct effect of treatment on outcome that doesn’t pass through mediator</strong>. Example: In racial disparity studies, will condition on mediators like socioeconomic, education, location (often though <strong>matching</strong> on these characteristics),  to allow you to isolate the unique effect of race that is not explainable by those pathways. <a class="reference external" href="https://stats.stackexchange.com/questions/488048/dag-are-there-situations-where-adjusting-for-mediators-is-reasonable">[source]</a></p>
 <div class="mermaid">
               flowchart LR;
 
@@ -612,58 +647,50 @@ document.write(`
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
-        </div><p>If you do not have a direct arrow between the treatment and outcome, and only via the mediator, this implies that this is the only way in which the treatment can cause the outcome, and that if you know the mediator is present, knowing whether or not the treatment was present should have no impact on the outcome.</p>
-<div class="mermaid">
-              flowchart LR;
-
-    treat(&quot;Treatment&quot;):::white;
-    med(&quot;Mediator&quot;):::white;
-    out(&quot;Outcome&quot;):::white;
-
-    treat --&gt; med;
-    med --&gt; out;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
         </div></section>
 <section id="colliders">
 <h3>Colliders<a class="headerlink" href="#colliders" title="Link to this heading">#</a></h3>
-<p><strong>Colliders</strong> are descendents of two other variables - i.e. common effect - with two arrows from the parents pointing to (“colliding with”) the descendent node.</p>
-<p>Example: A genetic factor and an environmental factor causing cancer. These are <strong>independent</strong> - i.e. genetic factor doesn’t have causal effect on environmental factor - and so we don’t expect to see an association between genetic and environment (unconditional/marginal association).<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+<p><strong>Colliders</strong> are descendents of two other variables - i.e. common effect - with two arrows from the parents pointing to (“colliding with”) the descendent node. Colliders naturally block back-door paths. <strong>Controlling for a collider will open the back-door path, thereby introducing confounding</strong>.<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a> This is referred to as <strong>collider bias</strong></p>
+<p>Example: A genetic factor and an environmental factor causing cancer.</p>
+<ul class="simple">
+<li><p>Scenario #1: No conditioning - These are <strong>independent</strong> - i.e. genetic factor doesn’t have causal effect on environmental factor - and so we don’t expect to see an association between genetic and environment (unconditional/marginal association).</p></li>
+<li><p>Scenario #2: Condition on cancer - If we condition on cancer - such as by just selecting people who have cancer - we will find an <strong>inverse association</strong> between genetics and environment (as if cancer wasn’t caused by one, it was by the other). This biased effect estimate is referred to as <strong>selection bias</strong>.</p></li>
+<li><p>Scenario #3: Condition on surgery - We can <strong>induce</strong> selection bias by conditioning on the downstream consequence of a collider - e.g. if cancer is collider, and surgery is consequence of cancer, if we condition on surgery, we expect to see inverse association between genetic and environment conditional on surgery (just as we did for the collider cancer).<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p></li>
+</ul>
 <div class="mermaid">
-              flowchart LR;
+              flowchart TD;
 
-    gene(&quot;Genetic factor&quot;):::white;
-    env(&quot;Environmental factor&quot;):::white;
-    cancer(&quot;Cancer&quot;):::white;
+    con_sur:::outline;
+    subgraph con_sur[&quot;`**Condition on surgery**`&quot;]
+      gene3(&quot;Genetic&lt;br&gt;factor&quot;):::white;
+      env3(&quot;Environmental&lt;br&gt;factor&quot;):::white;
+      cancer3(&quot;Cancer&quot;):::white;
+      surgery3(&quot;Surgery&quot;):::black;
+    end
 
-    gene --&gt; cancer;
-    env --&gt; cancer;
+    gene3 --&gt; cancer3;
+    env3 --&gt; cancer3;
+    cancer3 --&gt; surgery3;
 
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-        </div><p>Colliders naturally block back-door paths. Controlling for a collider will open the back-door path, thereby introducing confounding.<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p>
-<p>For example, if we condition on cancer - such as by just selecting people who have cancer - we will find an <strong>inverse association</strong> between genetics and environment (as if cancer wasn’t caused by one, it was by the other). This biased effect estimate is referred to as <strong>selection bias</strong>.</p>
-<div class="mermaid">
-              flowchart LR;
+    con_cancer:::outline;
+    subgraph con_cancer[&quot;`**Condition on cancer**`&quot;]
+      gene2(&quot;Genetic&lt;br&gt;factor&quot;):::white;
+      env2(&quot;Environmental&lt;br&gt;factor&quot;):::white;
+      cancer2(&quot;Cancer&quot;):::black;
+      surgery2(&quot;Surgery&quot;):::white;
+    end
 
-    gene(&quot;Genetic factor&quot;):::white;
-    env(&quot;Environmental factor&quot;):::white;
-    cancer(&quot;Cancer&quot;):::black;
+    gene2 --&gt; cancer2;
+    env2 --&gt; cancer2;
+    cancer2 --&gt; surgery2;
 
-    gene --&gt; cancer;
-    env --&gt; cancer;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-        </div><p>We can <strong>induce</strong> selection bias by conditioning on the downstream consequence of a collider - e.g. if cancer is collider, and surgery is consequence of cancer, if we condition on surgery, we expect to see inverse association between genetic and environment conditional on surgery (just as we did for the collider cancer).<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
-<div class="mermaid">
-              flowchart LR;
-
-    gene(&quot;Genetic factor&quot;):::white;
-    env(&quot;Environmental factor&quot;):::white;
-    cancer(&quot;Cancer&quot;):::white;
-    surgery(&quot;Surgery&quot;):::black;
+    none:::outline;
+    subgraph none[&quot;`**No conditioning**`&quot;]
+      gene(&quot;Genetic&lt;br&gt;factor&quot;):::white;
+      env(&quot;Environmental&lt;br&gt;factor&quot;):::white;
+      cancer(&quot;Cancer&quot;):::white;
+      surgery(&quot;Surgery&quot;):::white;
+    end
 
     gene --&gt; cancer;
     env --&gt; cancer;
@@ -671,12 +698,12 @@ document.write(`
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
-        </div><p>Collider bias may also be present when neither the exposure nor the outcome is a direct cause of the collider variable. An example is <strong>M-bias</strong>.</p>
-<p>In this example…</p>
+    classDef outline fill:#FFFFFF;
+        </div><p>Collider bias may also be present when neither the exposure nor the outcome is a direct cause of the collider variable. An example is <strong>M-bias</strong>. In this example…</p>
 <ul class="simple">
 <li><p>Focus: beta-blocker use and risk of ARDS</p></li>
 <li><p>Might be tempted to adjust for crackles as you might think its a confounder… 1) heart failure leads to both chronic β-blocker therapy and crackles, and 2) pneumonia causes both ARDS and crackles</p></li>
-<li><p>However, crackles is actually a collider on the back-door path of chronic β-blocker therapy ← heart failure → crackles ← pneumonia → ARDS. Adjusting for the presence of crackles opens this back-door path, introducing confounding. Ignoring the presence of crackles would be the right thing to do.<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p></li>
+<li><p>However, crackles is actually a collider on the <strong>back-door path</strong> of <strong>chronic β-blocker therapy</strong> ← heart failure → crackles ← pneumonia → <strong>ARDS</strong>. Adjusting for the presence of crackles opens this back-door path, introducing confounding. Ignoring the presence of crackles would be the right thing to do.<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p></li>
 </ul>
 <div class="mermaid">
               flowchart TD;
@@ -695,24 +722,62 @@ document.write(`
   
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
-        </div></section>
+        </div><p>Another type of collider bias - specifically, a type of selection bias - is <strong>Berkson’s bias</strong>. This is when the selection of cases into the study depends on hospitalisation, and the treatment is another disease, or a cause of another disease, which also results in hospitalisation.<a class="reference external" href="https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf">[source]</a></p>
+</section>
 <section id="selection-nodes">
 <h3>Selection nodes<a class="headerlink" href="#selection-nodes" title="Link to this heading">#</a></h3>
-<p>If some people lost to follow-up (C1) and some remain to end (C0), our analysis is restricted to C0. This means that only individuals with certain values of C are included in the analysis, as we’re essentially conditioning on it.</p>
-<p><mark>more detail</mark></p>
+<p><strong>Selection nodes</strong> - by definition - are <strong>always conditioned on</strong>. This is because they reflect a restriction for inclusion such as:</p>
+<ul class="simple">
+<li><p><strong>Loss to follow-up</strong> - e.g. if some people lost to follow-up (C1) and some remain to end (C0), our analysis is restricted to C0. This means that only individuals with certain values of C are included in the analysis, as we’re essentially conditioning on it.</p></li>
+<li><p><strong>Inclusion/exclusion criteria for the study</strong> - e.g. if only include men, then gender –&gt; study enrollment</p></li>
+</ul>
 </section>
-<section id="mismeasured-variables">
-<h3>Mismeasured variables<a class="headerlink" href="#mismeasured-variables" title="Link to this heading">#</a></h3>
-<p>If believe it’s mismeasured, have node with * that points from variable, with another representing measurement error.</p>
-<p><mark>more detail</mark></p>
-</section>
+<section id="measurement-error-mis-measured-variables">
+<h3>Measurement error (mis-measured variables)<a class="headerlink" href="#measurement-error-mis-measured-variables" title="Link to this heading">#</a></h3>
+<p><strong>Measurement error</strong> is the degree to which we mismeasure a variable. If believe a variable is mismeasured, we have a node with a “*” that points from variable, with another representing measurement error.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a> There are two types:</p>
+<ul class="simple">
+<li><p><strong>Non-differential error</strong> - if error is not in exposure or outcome - this will bias the estimate of effect towards the null (so for small effects or studies with little power, it can make a true effect disappear)</p></li>
+<li><p><strong>Differential error</strong> - if there is error in exposure and outcome - then, errors themselvse can be associated, opening a back-door path between exposure and outcome<a class="reference external" href="https://cran.r-project.org/web/packages/ggdag/vignettes/bias-structures.html">[source]</a> - i.e. it is when measurement error varies in size depending on another variable. <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p></li>
+</ul>
+<p>Example: <strong>Recall bias</strong>. Does taking multivitamins in childhood help protect against bladder cancer later in life?</p>
+<ul class="simple">
+<li><p>Bias in outcome depends only on how well diagnosis of bladder cancer represents actually having it</p></li>
+<li><p>Bias in exposure depends on both (a) memory of vitamin uptake, and (b) bladder cancer, since they might have spent more time reflecting on what could have caused the illness</p></li>
+<li><p>If there is no effect of vitamins on bladder cancer, this dependency will make it seem as if vitamins are a <strong>risk</strong> for bladder cancer. If it is, in fact, <strong>protective</strong>, recall bias can reduce or even reverse the association.</p></li>
+</ul>
+<div class="mermaid">
+              flowchart TD;
+
+    me_diag(&quot;&lt;b&gt;Measurement error&lt;/b&gt;&lt;br&gt;in diagnosis&quot;):::white;
+    diag(&quot;Diagnosis of bladder cancer *&quot;):::white;
+    cancer(&quot;Bladder cancer&quot;):::white;
+    me_vit(&quot;&lt;b&gt;Measurement error&lt;/b&gt;&lt;br&gt;in vitamin uptake&quot;):::white;
+    mem_vit(&quot;Memory of&lt;br&gt;vitamin uptake *&quot;):::white;
+    vit(&quot;Childhood vitamin intake&quot;):::white;
+
+    me_diag --&gt; diag;
+    cancer --&gt; diag;
+    cancer --&gt; me_vit;
+    me_vit --&gt; mem_vit;
+    vit --&gt; mem_vit;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+    classDef outline fill:#FFFFFF
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div></section>
 </section>
 <section id="how-do-you-know-what-to-include-in-your-dag">
 <h2>How do you know what to include in your DAG?<a class="headerlink" href="#how-do-you-know-what-to-include-in-your-dag" title="Link to this heading">#</a></h2>
-<section id="common-causes">
-<h3>Common causes<a class="headerlink" href="#common-causes" title="Link to this heading">#</a></h3>
-<p><strong>All COMMON causes should be represented</strong>. i.e. We can call the graph a causal DAG if, when two variables share a cause, that shared cause is also in the graph, meaning it satisfies the causal markov condition.</p>
-<p>For example, if we were investigating the causal relationship between aspirin and stroke:</p>
+<section id="dag-completeness">
+<h3>DAG completeness<a class="headerlink" href="#dag-completeness" title="Link to this heading">#</a></h3>
+<p>A DAG is said to represent a complete causal structure between a treatment and outcome if:</p>
+<ul class="simple">
+<li><p><strong>Treatment and outcome</strong> are presented</p></li>
+<li><p><strong>For any two nodes on the graph, all common causes</strong> of those two nodes are represented</p></li>
+<li><p>All <strong>selection variables</strong> are represented (i.e. selection node) <a class="reference external" href="https://doi.org/10.1002/psp4.12894">[Rogers et al. 2022]</a></p></li>
+</ul>
+<p>What do we mean by including common causes? Illustrating with an example…</p>
 <ul class="simple">
 <li><p>In <strong>RCT</strong> where people were randomised to receive Aspirin, we <strong>don’t need to include other variables</strong> that can cause stroke (e.g. coronary heart disease (CHD)), as they didn’t cause why people got aspirin.</p></li>
 <li><p>In an <strong>observational study</strong>, there will be other variables that would explain why people received aspirin (e.g. CHD), which we would need to include for it to be a causal DAG (i.e. <strong>aspirin AND stroke BOTH caused by CHD</strong>). <a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p></li>
@@ -859,7 +924,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Paths and conditioning</p>
+        <p class="prev-next-title">Additional DAG concepts</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -891,11 +956,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mediators">Mediators</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colliders">Colliders</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-nodes">Selection nodes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mismeasured-variables">Mismeasured variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-error-mis-measured-variables">Measurement error (mis-measured variables)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-you-know-what-to-include-in-your-dag">How do you know what to include in your DAG?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-causes">Common causes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dag-completeness">DAG completeness</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-you-know-when-to-include-mediators">How do you know when to include mediators?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-should-you-draw-arrows">When should you draw arrows?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-you-use-variable-selection-methods">Can you use variable selection methods?</a></li>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Methods for causal inference &#8212; Birth Outcomes</title>
+    <title>Methods for causal effect estimation &#8212; Birth Outcomes</title>
   
   
   
@@ -65,7 +65,7 @@ const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'design_confounding_methods';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'design_methods';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Accounting for a treatment paradox" href="design_account_paradox.html" />
@@ -213,8 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal methods</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="design_estimands.html">Causal assumptions and estimands</a></li>
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Methods for causal inference</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Methods for causal effect estimation</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="design_account_paradox.html">Accounting for a treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_examples.html">Examples of studies that account for the treatment paradox</a></li>
@@ -301,7 +300,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdesign_confounding_methods.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdesign_methods.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -331,7 +330,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/design_confounding_methods.md" target="_blank"
+      <li><a href="_sources/design_methods.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -415,7 +414,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Methods for causal inference</h1>
+    <h1>Methods for causal effect estimation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -425,9 +424,29 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Methods for causal inference</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#randomised-controlled-trials-rcts">Randomised controlled trials (RCTs)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stratification">Stratification</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Methods for causal effect estimation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#designing-a-study-to-estimate-a-causal-effect-from-observational-data">Designing a study to estimate a causal effect from observational data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conventional-approaches-for-causal-effect-estimation">Conventional approaches for causal effect estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stratification">Stratification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matching">Matching</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariable-regression">Multivariable regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-probability-of-treatment-or-propensity-score-weighting">Inverse probability of treatment (or propensity score) weighting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-methods">G-methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-computation">G-computation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-structure-models">Marginal structure models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-estimation">G-estimation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#addressing-unobserved-confounding">Addressing unobserved confounding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instrumental-variables">Instrumental variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-discontinuity-rd">Regression discontinuity (RD)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interrupted-time-series-its">Interrupted time series (ITS)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-in-differences-did">Difference in differences (DiD)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-shouldn-t-do-all-possible-confounders">What you shouldn’t do: all possible confounders</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rough-notes">ROUGH NOTES…</a><ul class="visible nav section-nav flex-column">
@@ -439,7 +458,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-can-prediction-models-answer-causal-questions">When can prediction models answer causal questions?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-suitable-including-all-possible-confounders">NOT suitable: Including all possible confounders</a></li>
 </ul>
 </li>
 </ul>
@@ -454,46 +472,114 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="methods-for-causal-inference">
-<h1>Methods for causal inference<a class="headerlink" href="#methods-for-causal-inference" title="Link to this heading">#</a></h1>
-<section id="randomised-controlled-trials-rcts">
-<h2>Randomised controlled trials (RCTs)<a class="headerlink" href="#randomised-controlled-trials-rcts" title="Link to this heading">#</a></h2>
-<p>The gold standard method for inferring causality is randomisation - e.g. randomising patients to receive a treatment or not. This is because it removes confounding - it removes the common cause of the treatment and outcome, since the only cause of treatment was randomisation.</p>
-<p>Randomisation makes treatment groups exchangeable. <strong>Exchangeability</strong> is when there are no confounders, so whatever treatment group each person was randomised too, we still would’ve seen the same outcomes in whichever were treated v.s. not, the groups are exchangeable.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
-<p><strong>Intention-to-treat analysis</strong> is the preferred analysis strategy for RCTs. This means that the analysis includes all participants, all retained in the group to which they were allocated. However, this can be hard to achieve due to:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="methods-for-causal-effect-estimation">
+<h1>Methods for causal effect estimation<a class="headerlink" href="#methods-for-causal-effect-estimation" title="Link to this heading">#</a></h1>
+<div class="info admonition">
+<p class="admonition-title">Executive summary</p>
+<p>Conventional methods:</p>
+<ul class="simple">
+<li><p>Stratification</p></li>
+<li><p>Matching</p></li>
+<li><p>Multivariable regression</p></li>
+<li><p>Inverse probability of treatment (or propensity score) weighting</p></li>
+</ul>
+<p>G-methods:</p>
+<ul class="simple">
+<li><p>G-computation</p></li>
+<li><p>Marginal structure models</p></li>
+<li><p>G-estimation</p></li>
+</ul>
+<p>Addressing unobserved confounding:</p>
+<ul class="simple">
+<li><p>Instrumental variables</p></li>
+<li><p>Regression discontinuity (RD)</p></li>
+<li><p>Interrupted time series (ITS)</p></li>
+<li><p>Difference in differences (DiD)</p></li>
+</ul>
+</div>
+<p><mark>finish adding notes from iglestrom, and check for anything else from that paper or those authors, as it was fab</mark></p>
+<section id="designing-a-study-to-estimate-a-causal-effect-from-observational-data">
+<h2>Designing a study to estimate a causal effect from observational data<a class="headerlink" href="#designing-a-study-to-estimate-a-causal-effect-from-observational-data" title="Link to this heading">#</a></h2>
+<p>The gold standard method for inferring causality is randomisation - e.g. randomising patients to receive a treatment or not. This is because it removes confounding - it removes the common cause of the treatment and outcome, since the only cause of treatment was randomisation.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+<p>When we are using <strong>observational data</strong>, there are a variety of possible methods for <strong>causal effect estimation</strong>. They all rely on assumptions (although those cannot always be tested).</p>
+<p>When designing a study, you need to:</p>
 <ol class="arabic simple">
-<li><p><strong>Missing outcomes</strong></p>
-<ul class="simple">
-<li><p>A “complete case” (or “available case”) analysis only includes participants with no missing outcomes, and whilst only a few missing outcomes won’t cause a problem, in half of trials more than 10% of randomised patients may have missing outcomes. Hence, exclusion will reduce the sample size, and may introduce bias if loss to follow-up is related to a patient’s response to treatment.</p></li>
-<li><p>Participants with missing outcomes can be included if their outcomes are imputed - but this requires strong assumptions. Common example is to use “last observation carried forward”, but this may introduce bias and makes no allowance for uncertainty imputation.</p></li>
-</ul>
-</li>
-<li><p><strong>Non-adherence to protocol</strong></p>
-<ul class="simple">
-<li><p>Examples include participants who didn’t meet inclusion criteria (e.g. wrong diagnosis, too young), did not take all of the intended treatment, received a different treatment, or received no treatment</p></li>
-<li><p>Intention-to-treat analysis ignores protocol deviations, including participants in their assigned groups regardless. Modified intention-to-treat (or ‘per protocol analysis’) is an analysis that excludes participants who didn’t adequately adhere (e.g. minimum amount of intervention) - but this would need to be labelled as a non-randomised, observational comparison, and be aware that the exclusion of patients compromises randomisation.<a class="reference external" href="https://www.bmj.com/content/340/bmj.c869">[CONSORT]</a></p></li>
-</ul>
-</li>
+<li><p>Clearly specify the <strong>research question</strong> in terms of a <strong>causal estimand</strong></p></li>
+<li><p>This allows you to <strong>choose an appropriate method</strong> for this estimand, and to carefully interrogate the influence of biases using <strong>sensitivity and quantitative bias analysis</strong>. <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p></li>
 </ol>
-<p>These two problems can introduce <strong>non-random selection effects</strong> - i.e. randomisation isn’t the only cause for treatment - hence introducing confounding (bias), and meaning that exchangeability would no longer holder - and hence why intention-to-treat is recommended (i.e. ignore protocol deviations).</p>
-<p>The <strong>Complier-Average Causal Effect (CACE) estimate</strong> is the comparison of the average outcome of the compliers in the treatment arm compared with the average outcome of the comparable group of would-be compliers in the control arm. It is the intention-to-treat effect in the sub-group of participants who would always have complied with their treatment allocation, and is not subject to confounding.<a class="reference external" href="https://hummedia.manchester.ac.uk/institutes/methods-manchester/docs/CausalInference.pdf">[source]</a></p>
 </section>
+<section id="conventional-approaches-for-causal-effect-estimation">
+<h2>Conventional approaches for causal effect estimation<a class="headerlink" href="#conventional-approaches-for-causal-effect-estimation" title="Link to this heading">#</a></h2>
+<p>The most common methods typically focus on conditioning on some set of common causes of the exposure and outcome.</p>
 <section id="stratification">
-<h2>Stratification<a class="headerlink" href="#stratification" title="Link to this heading">#</a></h2>
-<p>Principal stratification was proposed by Frangakis and Rubin 2002.<a class="reference external" href="https://doi.org/10.1111/j.0006-341X.2002.00021.x">[source]</a></p>
-<p>Stratification involves either:</p>
+<h3>Stratification<a class="headerlink" href="#stratification" title="Link to this heading">#</a></h3>
+<p>Principal stratification was proposed by Frangakis and Rubin 2002.<a class="reference external" href="https://doi.org/10.1111/j.0006-341X.2002.00021.x">[source]</a> Stratification involves either:</p>
 <ul class="simple">
-<li><p>Restricting analysis to subset of study population with particular value of confounder, or</p></li>
-<li><p>Performing analysis in each stratum of confounder, then pooling effect estimates</p></li>
+<li><p><strong>Restricting analysis to subset</strong> of study population with particular value of confounder, or</p></li>
+<li><p><strong>Performing analysis in each stratum</strong> of confounder, then pooling effect estimates</p></li>
 </ul>
 <p>This is represented by drawing box on DAG.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
-<p>It has typically been implemented in four different ways:</p>
-<ul class="simple">
-<li><p>Principal stratification as a partition of units by response type</p></li>
-<li><p>Principal stratification as an approximation to research questions concerning population averages (e.g. bounds and LATE analysis under non-compliance)</p></li>
-<li><p>Principal stratification as a genuine focus of a research question (e.g. censorship by death)</p></li>
-<li><p>Principal stratification as an intellectual restriction that confines its analysis to the assessment of strata-specific effects<a class="reference external" href="https://ftp.cs.ucla.edu/pub/stat_ser/r382.pdf">[Pearl 2011]</a></p></li>
-</ul>
+</section>
+<section id="matching">
+<h3>Matching<a class="headerlink" href="#matching" title="Link to this heading">#</a></h3>
+<p><strong>Matching</strong> involves selecting a sample where exposed and unexposed groups have the same balance of confounders.</p>
+<p>This can’t be represented in DAG, because <strong>non-faithfulness</strong> - the association to a backdoor path is exactly cancelled by the matched subset.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+</section>
+<section id="multivariable-regression">
+<h3>Multivariable regression<a class="headerlink" href="#multivariable-regression" title="Link to this heading">#</a></h3>
+<p>In <strong>multivariable regression</strong>, the confounders are <strong>included as covariates</strong>.</p>
+</section>
+<section id="inverse-probability-of-treatment-or-propensity-score-weighting">
+<h3>Inverse probability of treatment (or propensity score) weighting<a class="headerlink" href="#inverse-probability-of-treatment-or-propensity-score-weighting" title="Link to this heading">#</a></h3>
+<p>A</p>
+</section>
+</section>
+<section id="g-methods">
+<h2>G-methods<a class="headerlink" href="#g-methods" title="Link to this heading">#</a></h2>
+<section id="g-computation">
+<h3>G-computation<a class="headerlink" href="#g-computation" title="Link to this heading">#</a></h3>
+<p><strong>G-computation</strong> (or the parametric G-formula)</p>
+</section>
+<section id="marginal-structure-models">
+<h3>Marginal structure models<a class="headerlink" href="#marginal-structure-models" title="Link to this heading">#</a></h3>
+<p>A</p>
+</section>
+<section id="g-estimation">
+<h3>G-estimation<a class="headerlink" href="#g-estimation" title="Link to this heading">#</a></h3>
+<p>A</p>
+</section>
+</section>
+<section id="addressing-unobserved-confounding">
+<h2>Addressing unobserved confounding<a class="headerlink" href="#addressing-unobserved-confounding" title="Link to this heading">#</a></h2>
+<section id="instrumental-variables">
+<h3>Instrumental variables<a class="headerlink" href="#instrumental-variables" title="Link to this heading">#</a></h3>
+<p>An <strong>intrumental variable (IV)</strong> is a variable that <strong>causes some variation in the exposure</strong> that is <strong>unrelated to the outcome</strong>, except through the exposure.</p>
+<p>Example: ‘If a treatment is only performed at certain hospitals, a patient’s distance from such a hospital may affect the probability that they receive this treatment (but doesn’t affect whether they had the condition), and this distance can be used as an instrument’.</p>
+<p>‘<strong>Mendelian randomisation</strong> uses IV analysis with genetic variants as instruments. IV analysis estimates a local average treatment effect (LATE) among ‘compliers’ - indivudals whose exposure status is affected by the instrument. This group cannot be precisely identified, and the LATE may therefore sometimes be of limited practical or policy relevance’. <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+</section>
+<section id="regression-discontinuity-rd">
+<h3>Regression discontinuity (RD)<a class="headerlink" href="#regression-discontinuity-rd" title="Link to this heading">#</a></h3>
+<p>‘RD methods can be used when the <strong>exposure status</strong> (wholly or partly) is determined by some <strong>continuous variable exceeding some arbitrary threshold</strong> (called the forcing variable).’</p>
+<p>‘If the relationship between the forcing variable and the outcome is otherwise continuous, any discontinuity or jump in the relationship can be attributed to the exposure.’</p>
+<p>‘RD estimates a LATE among the individuals who fall just above or just below the threshold. As with
+IV analysis, bias can occur if the forcing variable is connected
+to the outcome through a back-door path or any other pathway
+besides the exposure.’ <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+</section>
+<section id="interrupted-time-series-its">
+<h3>Interrupted time series (ITS)<a class="headerlink" href="#interrupted-time-series-its" title="Link to this heading">#</a></h3>
+<p>‘ITS studies compare the <strong>trend over time in a population-level outcome before and after an exposure</strong> is introduced. Assuming that the trend would have been unchanged if the intervention was not introduced, a change in trend at the point of introduction (in terms of level and/or slope) can be attributed to the exposure.’</p>
+<p>‘ITS can be regarded as a special case of IV or RD, with time being the instrument or forcing variable. ITS addresses time-invariant confounding but can be biased if other events that influence the outcome happen at the same time as the exposure’. <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+</section>
+<section id="difference-in-differences-did">
+<h3>Difference in differences (DiD)<a class="headerlink" href="#difference-in-differences-did" title="Link to this heading">#</a></h3>
+<p>‘DiD studies measure the <strong>change in a population-level outcome before and after an intervention</strong> is introduced, compared with a <strong>comparison group where the intervention is never introduced</strong>. This is similar to RD and ITS, but attempts to control for changing time trends, by using a comparison group to represent the counterfactual outcome trend in the exposed.’</p>
+<p>‘DiD also addresses time-invariant confounding but requires assuming that there would have been no difference in trend between the groups in the absence of the intervention (the ‘parallel trends’ assumption).’ <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+</section>
+</section>
+<section id="what-you-shouldn-t-do-all-possible-confounders">
+<h2>What you shouldn’t do: all possible confounders<a class="headerlink" href="#what-you-shouldn-t-do-all-possible-confounders" title="Link to this heading">#</a></h2>
+<p>‘Many analysts take the strategy of putting in <strong>all possible confounders</strong>. This can be bad news, because adjusting for <strong>colliders and mediators can introduce bias</strong>, as we’ll discuss shortly. Instead, we’ll look at <strong>minimally sufficient adjustment sets</strong>: sets of covariates that, when adjusted for, block all back-door paths, but include no more or no less than necessary. That means there can be many minimally sufficient sets, and if you remove even one variable from a given set, a back-door path will open.’<a class="reference external" href="https://cran.r-project.org/web/packages/ggdag/vignettes/intro-to-dags.html">[source]</a></p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="rough-notes">
@@ -531,7 +617,6 @@ document.write(`
 <p>from their table of contents.. <a class="reference external" href="https://www.hsph.harvard.edu/miguel-hernan/wp-content/uploads/sites/1268/2024/01/hernanrobins_WhatIf_2jan24.pdf">[source]</a></p>
 <section id="methods-to-block-back-door-paths">
 <h2>Methods to block back door paths<a class="headerlink" href="#methods-to-block-back-door-paths" title="Link to this heading">#</a></h2>
-<p><strong>Matching</strong> - e.g. matching each person with treatment and confounder, with someone with treatment and not confounder, and with someone who did not have treatment or confounder. Analysis is restricted to matched people. As the treatment and no treatment groups are matched on confounder, if there is association, then not due to confounder, as adjusted for it. This can’t be represented in DAG, because non-faithfulness - the association to a backdoor path is exactly cancelled by the matched subset.</p>
 <p>Sometimes construct <strong>propensity score</strong> (which is a function of the confounders) and then do stratification or matching based on the propensity score (rather than the confounders themselves).</p>
 <p>G-METHOD: <strong>Inverse probability weighting</strong> - estimate probability of receiving treatment level actually received (and these probabilities witll be different depending on whether had confounder) - then compute inverse probability (1/probability) - then compute association between treatment and outcome, but each person is counted as many times as their inverse probability weight indicates.</p>
 <ul class="simple">
@@ -603,10 +688,6 @@ document.write(`
 <p><a class="reference external" href="https://shap.readthedocs.io/en/latest/example_notebooks/overviews/Be%20careful%20when%20interpreting%20predictive%20models%20in%20search%20of%20causal%20insights.html#">[source]</a></p>
 </section>
 </section>
-<section id="not-suitable-including-all-possible-confounders">
-<h2>NOT suitable: Including all possible confounders<a class="headerlink" href="#not-suitable-including-all-possible-confounders" title="Link to this heading">#</a></h2>
-<p>‘Many analysts take the strategy of putting in <strong>all possible confounders</strong>. This can be bad news, because adjusting for <strong>colliders and mediators can introduce bias</strong>, as we’ll discuss shortly. Instead, we’ll look at <strong>minimally sufficient adjustment sets</strong>: sets of covariates that, when adjusted for, block all back-door paths, but include no more or no less than necessary. That means there can be many minimally sufficient sets, and if you remove even one variable from a given set, a back-door path will open.’<a class="reference external" href="https://cran.r-project.org/web/packages/ggdag/vignettes/intro-to-dags.html">[source]</a></p>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -673,9 +754,29 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Methods for causal inference</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#randomised-controlled-trials-rcts">Randomised controlled trials (RCTs)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stratification">Stratification</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Methods for causal effect estimation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#designing-a-study-to-estimate-a-causal-effect-from-observational-data">Designing a study to estimate a causal effect from observational data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conventional-approaches-for-causal-effect-estimation">Conventional approaches for causal effect estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stratification">Stratification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matching">Matching</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariable-regression">Multivariable regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-probability-of-treatment-or-propensity-score-weighting">Inverse probability of treatment (or propensity score) weighting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-methods">G-methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-computation">G-computation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-structure-models">Marginal structure models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-estimation">G-estimation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#addressing-unobserved-confounding">Addressing unobserved confounding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instrumental-variables">Instrumental variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-discontinuity-rd">Regression discontinuity (RD)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interrupted-time-series-its">Interrupted time series (ITS)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-in-differences-did">Difference in differences (DiD)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-shouldn-t-do-all-possible-confounders">What you shouldn’t do: all possible confounders</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rough-notes">ROUGH NOTES…</a><ul class="visible nav section-nav flex-column">
@@ -687,7 +788,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-can-prediction-models-answer-causal-questions">When can prediction models answer causal questions?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-suitable-including-all-possible-confounders">NOT suitable: Including all possible confounders</a></li>
 </ul>
 </li>
 </ul>
