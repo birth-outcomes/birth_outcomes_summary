@@ -88,7 +88,13 @@ We don't draw causal diagrams as an exact, accurate representation of the world 
 
 ### Confounders
 
-**Confounders** are variables that **cause BOTH the treatment/exposure and outcomes**. Informally, it occurs when there is an open backdoor path between the treatment/exposure and outcome, and you could say a confounder is a variable that - possibly together with other variables - can be used to block the backdoor path between the treatment and outcome. We included **measured and unmeasured** confounders in our DAG.
+**Confounders** are variables that **cause BOTH the treatment/exposure and outcomes**. 
+
+*Informally, it occurs when there is an open backdoor path between the treatment/exposure and outcome, and you could say a confounder is a variable that - possibly together with other variables - can be used to block the backdoor path between the treatment and outcome.*
+
+We included **measured and unmeasured** confounders in our DAG.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+
+We can use **conditioning** to control for confounding. This involves examining the relationship between A and Y within levels of the conditioning variable, using either: (a) sample restriction, (b) stratification, (c) adjustment, or (d) matching. If we don't do this, we will get **confounding bias** (where a common cause of A and Y is not blocked). When you condition on something, you **draw a box** around it on the DAG. Other terms like "adjusting" or "controlling" suggest a misleading interpretation of the model - although there does seem to be variability in terminology, with many sources using these terms. [[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
 
 Example: smoking causes yellow fingers and lung cancer
 * If we don't condition on it, we expect to see an association between yellow fingers and lung cancer (known as a **marginal/unconditional** association)
@@ -167,7 +173,7 @@ Example: smoking causes yellow fingers and lung cancer
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-You might condition on a mediator if you are interested in the **direct effect of treatment on outcome that doesn't pass through mediator**. Example: In racial disparity studies, will condition on mediators like socioeconomic, education, location (often though **matching** on these characteristics),  to allow you to isolate the unique effect of race that is not explainable by those pathways. [[source]](https://stats.stackexchange.com/questions/488048/dag-are-there-situations-where-adjusting-for-mediators-is-reasonable)
+You might **condition** on a mediator if you are interested in the **direct effect of treatment on outcome that doesn't pass through mediator**. Example: In racial disparity studies, will condition on mediators like socioeconomic, education, location (often though **matching** on these characteristics),  to allow you to isolate the unique effect of race that is not explainable by those pathways. [[source]](https://stats.stackexchange.com/questions/488048/dag-are-there-situations-where-adjusting-for-mediators-is-reasonable)
 
 ````{mermaid}
   flowchart LR;
@@ -189,7 +195,7 @@ You might condition on a mediator if you are interested in the **direct effect o
 
 ### Colliders
 
-**Colliders** are descendents of two other variables - i.e. common effect - with two arrows from the parents pointing to ("colliding with") the descendent node. Colliders naturally block back-door paths. **Controlling for a collider will open the back-door path, thereby introducing confounding**.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
+**Colliders** are descendents of two other variables - i.e. common effect - with two arrows from the parents pointing to ("colliding with") the descendent node. Colliders naturally block back-door paths. **Controlling for a collider will open the back-door path, thereby introducing confounding**.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS) This is referred to as **collider bias**
 
 Example: A genetic factor and an environmental factor causing cancer.
 * Scenario #1: No conditioning - These are **independent** - i.e. genetic factor doesn't have causal effect on environmental factor - and so we don't expect to see an association between genetic and environment (unconditional/marginal association).
@@ -263,6 +269,8 @@ Collider bias may also be present when neither the exposure nor the outcome is a
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
 ````
+
+Another type of collider bias - specifically, a type of selection bias - is **Berkson's bias**. This is when the selection of cases into the study depends on hospitalisation, and the treatment is another disease, or a cause of another disease, which also results in hospitalisation.[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
 
 ### Selection nodes
 

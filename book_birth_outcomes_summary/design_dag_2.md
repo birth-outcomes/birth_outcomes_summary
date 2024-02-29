@@ -1,143 +1,114 @@
-# Paths and conditioning
+# D-seperation rules
 
 `````{admonition} Executive summary
 :class: info
 
-A **backdoor path** is a non-causal path between the treatment and outcome that will exist if (a) you haven't conditioned for confounders, or (b) you condition on a collider (which opens a backdoor path). These scenarios (when paths will be open or blocked) are described by **D-seperation rules**.
-
-**Conditioning** on a variable means you are examining the relationship between the treatment and outcome within levels of the conditioning variable, using either: sample restriction, stratification, adjustment, matching. Ideally, you want to identify a **minimal set of covariates** to condition on that (a) block all back-door paths, and (b) don't open closed paths.
+**D-seperation rules** determine whether paths will be open (expect associations) or blocked (independent), which are based on whether condition or not on confounders and colliders.
 
 If you have **time-varying treatment** (takes different values over time), then you will have other time-varying components (e.g. time-varying confounding). If there is **treatment-confounder feedback** (i.e. earlier treatment impacts value of later confounder), then you will need to use a special type of method to adjust for confounders, referred to as **G-methods**.
 
 Since you have designed the study to appropriate control for confounding for your relationship of interest - between a given treatment/exposure and outcome - the other variables included may have residual confounding or other biases that affect their associations, and it is important that these effect estimates are not presented (or are explained) - otherwise this is called '**Table 2 fallacy**'.
 `````
 
-## Conditioning
+## Paths
 
-**Conditioning** on a variable means examining the relationship between A and Y within levels of the conditioning variable, using either:
-* Sample restriction
-* Stratification
-* Adjustment
-* Matching
-
-Other terms like "adjusting" or "controlling" suggest a misleading interpretation of the model.
-
-When you condition on something, you draw a box around it on the DAG.
-
-Scenarios where we may want to condition...
-
-**(1) To control for confounding**. A back door path is a connection between A and Y that doesn't follow the path of the arrows - for example, along the path of a confounder. If we condition on the variable in that path (i.e. control for confounding), then we close that back door path and remove the non-causal association.
-* If we don't do this, we will get **confounding bias** (where a common cause of A and Y is not blocked).
-
-**(2) To open a path blocked by a collider**.
-* **Collider bias** = conditioning on common effects
-* **Selection bias** = type of collider bias where the common effect is selection into the study - occurs when a common effect is conditioned on such that there is now a conditional association between A and Y
-* **Berkson's bias** = type of selection bias in which selection of cases into the study depends on hospitalisation, and the treatment is another diase, or a cause of another disease, which also results in hospitalisation
-
-**(3) To remove part of the causal effect** by conditioning on a mediator.
-
-[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
-
-### Minimal set of covariates
-
-We want to identify a minimal set of covariates that:
-1. Blocks all backdoor paths.
-2. Doesn't inadvertenly open closed pathways by conditioning on colliders or descendents.
-
-[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
-
-## Causal structures where we expect to see associations
-
-### Structural sources of seperation
-
-The **structural sources** of association are:
-* Cause and effect
-* Common causes (confounding)
-* Conditioning on common effects (conditioning on collider)
+A **path** is any route through graph - it **doesn't have to follow** the direction of the arrows. Paths can be either be:
+* **Open** paths - represent statistical associations between two variables
+  * E.g. If don't condition on confounder, will be an open path, and see association with confounder
+* **Blocked** (or "closed" paths) - represent the absence of associations 
+  * E.g. An unconditioned collider should have no association [[Williams et al. 2018]](https://doi.org/10.1038/s41390-018-0071-3)
 
 ````{mermaid}
-  flowchart LR;
+  flowchart TD;
 
-    a:::white;
-    b:::white;
-    c:::white;
-    d:::white;
-    e:::white;
-    f:::white;
-    g:::white;
-    h:::black;
+    block:::outline;
+    subgraph block["`**Path blocked at collider**`"]
+      a("Treatment"):::green;
+      y("Outcome"):::green;
+      x("Collider"):::white;
+    end
 
-    a --> b;
+    a --> y;
+    a --> x;
+    y --> x;
 
-    c --> d;
-    c --> e;
+    open:::outline;
+    subgraph open["`**Path open at confounder**`"]
+      a2("Treatment"):::green;
+      y2("Outcome"):::green;
+      x2("Confounder"):::white;
+    end
 
-    f --> h;
-    g --> h;
+    a2 --> y2;
+    x2 --> a2;
+    x2 --> y2;
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
+    classDef outline fill:#FFFFFF
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
 ````
 
-There is another source of association: **chance**. May be association even if none of above are true. Chance is not a structural source of association. **Increasing our sample size, chance associations should disappear (whilst structural remain and become sharper)**.
-
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+The **target (causal) paths** are the directed paths from the exposure to the outcome which transmit the target effect. **Biasing paths** are non-directed open paths between the exposure and the outcome, which transmit bias for estimating the effect of the exposure on the outcome.[[source]](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3733703/)
 
 ## D-seperation rules
 
-**Path** is any route through graph (can follow arrow direction or not). Paths can be **blocked or open**, which is according to the **D-seperation rules**. We use D-seperation to decide whether two variables are D-seperated, where D stands for directional.
+### Rules
 
-You will be able to see that all D-separation says is that - as above - two variables **would be associated** if:
-* One causes the other,
-* They share common causes
-* They have a common effect and we condition on the common effect...
+**D-seperation** rules are used to determine whether paths are **open or blocked** - i.e. whether variables will be **associated or independent**.
 
-Another summary:
-* Path is blocked only if (a) containins non-collider that been conditioned on, or (b) collider that not been conditioned on.
-* Two variables are D-seperated if all paths between them are blocked.
-* Two variables are marginally or unconditionally independent if they are D-seperated without conditioning on all the variables
-* Two variables are conditionally independent if they are D-seperated after conditioning
+If **all paths are blocked** between two variables on the DAG, then they are **d-seperated** (i.e. not associated / statistical independence).[[source]](https://sgfin.github.io/2019/06/19/Causal-Inference-Book-All-DAGs/) Otherwise, they are **d-connected**.[[source]](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3733703/)
 
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+When identified here, these are structural sources of association. Another cause of association - beyond it being a causal relationship - is by chance. However, increasing our sample size, chance associations should disappear (whilst structural remain and become sharper). [[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
-### D-seperation rule 1: If there are no variables being conditioned on, a path is blocked if and only if two arrowheads on the path collide at some variable on the path
+Rules:
+1. If there are **no** variables being conditioned on
+    * A path is only **blocked** if it contains a **collider**
+    * A path is **open** if it does not contain a collider
 
-Path from A to Y is **open**:
+2. Path is **blocked** if it contains a **non-collider** that **is** conditioned on
+
+3. Path is **open** if **collider is** conditioned on
+
+4. Path is **open** if **descendent** of collider **is** conditioned on.[[source]](https://sgfin.github.io/2019/06/19/Causal-Inference-Book-All-DAGs/)
+
+### Examples of each rule
+
+Rule 1: L to Y open
 ````{mermaid}
   flowchart LR;
 
-    a("A"):::white;
-    b("B"):::white;
-    y("Y"):::white;
-    
-    a --> b; b--> y;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-Path from A to Y is **blocked**:
-````{mermaid}
-  flowchart LR;
-
-    a("A"):::white;
-    y("Y"):::white;
     l("L"):::white;
-    d("D"):::white;
-    
-    a --> l; y --> l; l --> d;
+    a("A"):::white;
+    y("Y"):::white;
+
+    l --> a;
+    a --> y;
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
+    classDef outline fill:#FFFFFF
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
 ````
 
-Definition of collider is path-specific. L is collider on path A to Y, but on on path A to D.
+Rule 1: L to A blocked
+````{mermaid}
+  flowchart LR;
 
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+    l("L"):::white;
+    a("A"):::white;
+    y("Y"):::white;
 
-### D-seperation rule 2: Any path containing non-collider that has been conditioned on is blocked.
+    l --> y;
+    a --> y;
 
-Path from A to Y is **blocked**:
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+    classDef outline fill:#FFFFFF
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+````
+
+Rule 2: A to Y blocked.
 ````{mermaid}
   flowchart LR;
 
@@ -151,11 +122,7 @@ Path from A to Y is **blocked**:
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-### D-seperation rule 3: A collider that has been conditioned on does not block a path.
-
-Path from A to Y is **open**:
+Rule 3: A to Y open.
 ````{mermaid}
   flowchart LR;
 
@@ -169,11 +136,7 @@ Path from A to Y is **open**:
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-### D-seperation rule 4: Collider with descendent that has been conditioned on does not block a path.
-
-Path from A to Y is **open**:
+Rule 4: A to Y open.
 ````{mermaid}
   flowchart LR;
 
@@ -188,51 +151,28 @@ Path from A to Y is **open**:
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
 ## Faithfulness
 
-Faithfulness is the result of opposite effects of exactly equal magnitude - e.g. if aspirin caused stroke for half of poppulation and prevented it in the other half, then causal dag is correct (as aspirin affects stroke) but no association is observed (as they cancel each other out). In that case, we say the joint distribution of the data is not faithful to the causal DAG.
-
-These perfect cancellations are rare and we don't expect them to happen in practice, so we can safetly say lack of D-seperation means non-zero association. So - 
-* **D-seperation = statistical independence**
-* **All paths blocked = no association**
-
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+Faithfulness is the result of **opposite effects of exactly equal magnitude** - e.g. if aspirin caused stroke for half of poppulation and prevented it in the other half, then causal dag is correct (as aspirin affects stroke) but **no association is observed (as they cancel each other out**). In that case, we say the joint distribution of the data is not faithful to the causal DAG. These perfect cancellations are **rare** and we don't expect them to happen in practice. [[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
 ## Time-varying treatments and confounders
 
-A time-varying treatment one that can take different values over time - (e.g. whether or not receive medicine, or dose of medicine, at multiple different timepoints) - as opposed to fixed treatments that do not vary over time (e.g. whether took vitamin D at time of conception).
+### What is a time-varying treatment?
 
-Example: EPO used to treat anemia, dose is based on haemoglobin level, which itself depends on disease severity.
+A **time-varying treatment** is treatment that can take different values over time - such as:
+* Whether or not receive medicine at each timepoint
+* Dose of medicine at each time point
 
-````{mermaid}
-  flowchart LR;
+This is as opposed to **fixed treatments** that do not vary over time (e.g. whether took vitamin D at time of conception).
 
-    l("L: Haemoglobin"):::white;
-    a("A: EPO"):::white;
-    y("Y: Death"):::white;
-    u("U: Disease severity"):::white;
+We can represent this using two arbritary time points, K and K+1. Actual study includes many more weeks but for most purposes, two time points are enough to represent the main features of the causal structure when there is time varying treatment.
 
-    l --> a;
-    a --> y;
-    u --> y;
-    u --> l;
+You'll notice that a consequence of the time-varying treatment is **time-varying confounder and outcome**. A confounder is time-varying when it can take different values at different timepoint, and confound at different timepoints.
 
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-To show that we have **time-varying** components, we refer to:
+Example: EPO used to treat anemia, dose is based on haemoglobin level at time of appointment (which itself depends on disease severity, but we've just represented that as a single timepoint). To show that we have **time-varying** components, we refer to:
 * L and A at timepoint K (e.g. week 0)
 * Y, L and A at timepoint K+1 (e.g. week 1)
 * Y at timepoint K+2 (e.g. week 2)
-
-Actual study includes many more weeks but for most purposes, two time points are enough to represent the main features of the causal structure when there is time varying treatment. These will often be two arbritary time points (K and K+1) (rather than 0 and 1).
-
-You'll notice that a consequence of the time-varying treatment is time-varying confounder and outcome. A confounder is time-varying when it can take different values at different timepoint, and confound at different timepoints.
-
-With the example below, the minimal set of variables you'd need to condition for would be L0 and L1 (wouldn't need to for U as doing for L0 and L1 blocks the backdoor paths)
 
 ````{mermaid}
   flowchart LR;
@@ -260,15 +200,16 @@ With the example below, the minimal set of variables you'd need to condition for
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-However, if there is **treatment-confounder feedback**, then conventional adjustment methods - even if closing all back door paths - will still not be able to yield an unbiased estimate.
+### Treatment-confounder feedback
 
 Our DAG above was incomplete - in this scenario, treatment at timepoint K will impact the confounder (levels of haemoglobin) at timepoint K+1. This is referred to as **treatment-confounder feedback** - when the later confounder is impacted by prior treatment.
 
-We'll get a biased estimate if we condition on the Ls, as conditioning on L<sub>K+1</sub> will open a path that was previously blocked: A<sub>K</sub> to L<sub>K+1</sub> to U to Y<sub>K</sub>. Hence, we have introduced selection bias.
+When there is **treatment-confounder feedback**, then conventional adjustment methods - even if closing all back door paths - will still not be able to yield an unbiased estimate.  We'll get a biased estimate if we condition on the Ls, as conditioning on L<sub>K+1</sub> will open a path that was previously blocked: A<sub>K</sub> to L<sub>K+1</sub> to U to Y<sub>K</sub>. Hence, we have introduced selection bias.
 
 If the time-varying confounder also affects the outcome (e.g. L<sub>K+1</sub> --> Y<sub>K+2</sub>), it will be impossible to estimate the total effect of the treatment.
 
-We need other methods to handle these settings: **G-methods**.
+We need other methods to handle these settings: **G-methods**. [[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+
 
 ````{mermaid}
   flowchart LR;
@@ -297,9 +238,7 @@ We need other methods to handle these settings: **G-methods**.
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-## Presenting results
+## Presenting results from causal inference studies
 
 'Causal models are typically designed to test an association between a **single exposure and an outcome**. The additional independent variables in a model (often called “covariates”) **serve to control for confounding**. The observed associations between these covariates and the outcome have not been subject to the same approach to control of confounding as the exposure' (i.e. they themselves have not been corrected for confounding - *and they shouldn't and didn't have to be*). 'Therefore, **residual confounding and other biases often heavily influence these associations**.'
 
@@ -307,7 +246,43 @@ We need other methods to handle these settings: **G-methods**.
 
 Hartig 2019 discusses how this may not be practical in some fields (they give example of ecology) where you rarely have a clear target variable/hypothesis, but suggest instead that's important to explicitly state/seperate reasonablly controlled varaibles from possibly confounded variables.[[source]](https://theoreticalecology.wordpress.com/2019/04/14/mediators-confounders-colliders-a-crash-course-in-causal-inference/)
 
+## Minimal set of covariates
+
+We want to identify a **minimal set of covariates** that:
+1. Blocks all backdoor paths.
+2. Doesn't inadvertenly open closed pathways by conditioning on colliders or descendents. [[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
+
+With the example below, the minimal set of variables you'd need to condition for would be **L0 and L1 - wouldn't need to for U** as doing for L0 and L1 blocks the backdoor paths.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+
+````{mermaid}
+  flowchart LR;
+
+    ak("A<sub>K</sub>: EPO dose"):::white;
+    ak1("A<sub>K+1</sub>: EPO dose"):::white;
+    yk1("Y<sub>K+1</sub>: Death"):::white;
+    yk2("Y<sub>K+2</sub>: Death"):::white;
+    lk("L<sub>K</sub>: Haemoglobin"):::white;
+    lk1("L<sub>K+1</sub>: Haemoglobin"):::white;
+    u("U: Disease severity"):::white;
+
+    ak --> yk1;
+    u --> yk1;
+    u --> lk;
+    lk --> ak;
+    lk --> ak1;
+    ak --> ak1;
+    u --> lk1;
+    lk1 --> ak1;
+    ak1 --> yk2;
+    u --> yk2;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
 ## Example cases
+
+These examples help demonstrate the utility of causal diagrams.
 
 ### Example: Oestrogen and endometrial cancer
 
