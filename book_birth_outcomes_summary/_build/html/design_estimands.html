@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Interventions during labour &#8212; Birth Outcomes</title>
+    <title>Causal assumptions and estimands &#8212; Birth Outcomes</title>
   
   
   
@@ -65,11 +65,11 @@ const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'interventions';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'design_estimands';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Research groups" href="research_groups.html" />
-    <link rel="prev" title="Stages of pregnancy and birth" href="stages.html" />
+    <link rel="next" title="Methods for causal inference" href="design_confounding_methods.html" />
+    <link rel="prev" title="DAG for HIE" href="design_dag_hie.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -179,9 +179,9 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="stages.html">Stages of pregnancy and birth</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Interventions during labour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interventions.html">Interventions during labour</a></li>
 <li class="toctree-l1"><a class="reference internal" href="research_groups.html">Research groups</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Identifying HIE cases</span></p>
@@ -211,8 +211,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="design_dag_hie.html">DAG for HIE</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal methods</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="design_estimands.html">Causal assumptions and estimands</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Causal assumptions and estimands</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="design_confounding_methods.html">Methods for causal inference</a></li>
 
@@ -301,7 +301,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Finterventions.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdesign_estimands.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -331,7 +331,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/interventions.md" target="_blank"
+      <li><a href="_sources/design_estimands.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -415,7 +415,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Interventions during labour</h1>
+    <h1>Causal assumptions and estimands</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -425,16 +425,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pain-relief">Pain relief</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speeding-up-labour">Speeding up labour</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delivery-of-the-baby">Delivery of the baby</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#episiotomy">Episiotomy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assisted-delivery">Assisted delivery</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caesarean-section-c-section">Caesarean section (C-section)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Causal assumptions and estimands</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-assumptions">Causal assumptions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-effect-estimands">Causal effect estimands</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delivery-of-the-placenta">Delivery of the placenta</a></li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -445,78 +442,51 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="interventions-during-labour">
-<h1>Interventions during labour<a class="headerlink" href="#interventions-during-labour" title="Link to this heading">#</a></h1>
-<section id="pain-relief">
-<h2>Pain relief<a class="headerlink" href="#pain-relief" title="Link to this heading">#</a></h2>
-<p>Pain relief options include:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="causal-assumptions-and-estimands">
+<h1>Causal assumptions and estimands<a class="headerlink" href="#causal-assumptions-and-estimands" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="causal-assumptions">
+<h1>Causal assumptions<a class="headerlink" href="#causal-assumptions" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://www.coursera.org/learn/crash-course-in-causality/lecture/f5LPB/causal-assumptions">https://www.coursera.org/learn/crash-course-in-causality/lecture/f5LPB/causal-assumptions</a></p>
+<p>Identifiability of causal effects requires making some untestable assupmtions - these are generally called causal assumptions. The most common are:</p>
 <ul class="simple">
-<li><p><strong>Gas and air (Entonox)</strong> - breathe in through mask/mouthpiece just as a contraction begins</p></li>
-<li><p><strong>Pethidine injections</strong> - injected to thigh or buttock, last 2-4 hours, not recommended if close to pushing (second stage)</p></li>
-<li><p><strong>Epidural</strong> - type of local anaesthetic given through a drip, will then need to monitor contractions and baby’s heart rate continuously</p></li>
-<li><p><strong>Remifentanil</strong> - into vein on arm, lasts a few minutes, control with push of button, will need to monitor oxygen levels</p></li>
-<li><p><strong>Water birth</strong> - being in water can help contractions seem less painful</p></li>
-<li><p><strong>TENS machine</strong> (transcutaneous electrical nerve stimulation) - most effective during early stages when you may have lower back pain</p></li>
+<li><p>Stable Unit Treatment Value Assumption (SUTVA)</p></li>
+<li><p>Consistency</p></li>
+<li><p>Ignorability</p></li>
+<li><p>Positivity</p></li>
 </ul>
-<p><a class="reference external" href="https://www.nhs.uk/pregnancy/labour-and-birth/what-happens/pain-relief-in-labour/">[Copied from NHS website]</a></p>
-</section>
-<section id="speeding-up-labour">
-<h2>Speeding up labour<a class="headerlink" href="#speeding-up-labour" title="Link to this heading">#</a></h2>
-<p>If labour is slower than expected, which can happen if contractions are not coming often enough, aren’t strong enough, or baby is in an awkward position, then a doctor/midwife may consider ways to speed up labour:</p>
-<p><strong>Breaking your waters</strong>, also known as artificial rupture of the membranes (ARM) - midwife/doctor makes a small break in the membrane that contains the fluid around the baby, which will often lead to contractions being stronger and more regular.</p>
-<p><strong>Oxytocin drip</strong>, also known as syntocinon - if breaking waters doesn’t work, then doctor/midwife may suggest this to make contractions stronger, it’s given through a drop into a vein (usually wrist or arm).</p>
-<p><a class="reference external" href="https://www.nhs.uk/pregnancy/labour-and-birth/what-happens/the-stages-of-labour-and-birth/">[Copied from NHS website]</a></p>
-</section>
-<section id="delivery-of-the-baby">
-<h2>Delivery of the baby<a class="headerlink" href="#delivery-of-the-baby" title="Link to this heading">#</a></h2>
-<section id="episiotomy">
-<h3>Episiotomy<a class="headerlink" href="#episiotomy" title="Link to this heading">#</a></h3>
-<p><strong>Episiotomy</strong> - small cut made to perineum (area between vagina and anus), which may be suggested to avoid tear or speed up delivery, local anaesthetic injection given to numb area before making cut, then episiotomy or any large tears are stitched up after the baby is born.</p>
-<p><a class="reference external" href="https://www.nhs.uk/pregnancy/labour-and-birth/what-happens/the-stages-of-labour-and-birth/">[Copied from NHS website]</a></p>
-</section>
-<section id="assisted-delivery">
-<h3>Assisted delivery<a class="headerlink" href="#assisted-delivery" title="Link to this heading">#</a></h3>
-<p><strong>Assisted delivery</strong> (assisted birth, or instrumental delivery) - forceps or ventouse suction cups used to help deliver the baby. A <strong>local anaesthetic</strong> is given to numb the perineum if have not already had an epidural. It is likely that an <strong>episiotomy</strong> will be needed.</p>
+<p>SUTVA involves two assumptions:</p>
+<ol class="arabic simple">
+<li><p>No interference - units do not interfere with each other… treatment assignment of one unit does not affect the outcome of another unit. Interference may also be called spillover or contagion.</p></li>
+<li><p>One version of treatment</p></li>
+</ol>
+<p>Consistency: The hypothetical/potential outcome under treatment is equal to the observed outcome of the actual treatment</p>
+<p>Ignorability: Given pre-treatment covariates X, treatment assignment is independent from the potential outcomes - i.e. among people with the same values of X, we can think of treatment A being randomly assigned. This is sometimes referred to as the ‘no unmeasured confounders’ assumption.</p>
 <ul class="simple">
-<li><p><strong>Ventouse</strong> (vacuum cup) - a ventouse is attached to the babys head by suction, and the obstetrician/midwife pulls gently during a contraction</p></li>
-<li><p><strong>Forceps</strong> - the forceps are smooth metal instruments (similar to spoons/tongs) that are positioned around the babies head, which the obstetrician pulls gently during a contraction. Some forceps are specifically designed to turn the baby to the right position for birth.</p></li>
+<li><p>Example: Older people more likely to have treatment, and more likely to have outcome (hip fracture), so treatment assignment is not marginally independent from outcome - BUT within levels of age, treatment might be randomly assigned</p></li>
 </ul>
-<p>An assisted delivery is used in about 1 in 8 births, and may be needed if:</p>
+<p>Positivity: For every set of values for X, treatment assignment was not deterministic. If, for some values of X, treatment was deterministic, then we would have no observed values of Y for one of the treatment groups for those values of X.</p>
 <ul class="simple">
-<li><p>you have been advised not to try to push out your baby because of an underlying health condition (such as having very high blood pressure)</p></li>
-<li><p>there are concerns about your baby’s heart rate</p></li>
-<li><p>your baby is in an awkward position</p></li>
-<li><p>your baby is getting tired and there are concerns that they may be in distress</p></li>
-<li><p>you’re having a vaginal delivery of a premature baby – forceps can help protect your baby’s head from your perineum</p></li>
-<li><p>you require an epidural for pain relief during labour</p></li>
+<li><p>Variability in treatment assignment is important for identification</p></li>
 </ul>
-<p><a class="reference external" href="https://www.nhs.uk/pregnancy/labour-and-birth/what-happens/forceps-or-vacuum-delivery/">[Copied from NHS website]</a></p>
-</section>
-<section id="caesarean-section-c-section">
-<h3>Caesarean section (C-section)<a class="headerlink" href="#caesarean-section-c-section" title="Link to this heading">#</a></h3>
-<p>In the UK, around 1 in 4 pregnancies are a caesarean birth. They can be planned (elective) or emergency. They are carried out by an obstetrician. They involve a cut about 10-20cm long being made across someone’s lower tummy/womb. It is usually done under spinal or epidural anaesthetic, and typically takes 40 to 50 minutes. Elective caesareans are usually done from the 39th week of pregnancy.</p>
-<p>Caesareans may be done if:</p>
+<p>We can put these assumptions together to identify causal effects</p>
+<section id="causal-effect-estimands">
+<h2>Causal effect estimands<a class="headerlink" href="#causal-effect-estimands" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://baselbiometrics.github.io/home/docs/trainings/20210202/1_Moffa.pdf">https://baselbiometrics.github.io/home/docs/trainings/20210202/1_Moffa.pdf</a></p>
+<p>Measures of causal effect - causal estimands</p>
+<p>Dichotomous outcomes</p>
+<p>The causal null hypothesis may be expressed in terms of:</p>
 <ul class="simple">
-<li><p>your baby is in the breech position (feet first) and your doctor or midwife has been unable to turn them by applying gentle pressure to your tummy, or you’d prefer they did not try this</p></li>
-<li><p>you have a low-lying placenta (placenta praevia)</p></li>
-<li><p>you have pregnancy-related high blood pressure (pre-eclampsia)</p></li>
-<li><p>you have certain infections, such as a first genital herpes infection occurring late in pregnancy or untreated HIV</p></li>
-<li><p>your baby is not getting enough oxygen and nutrients – sometimes this may mean the baby needs to be delivered immediately</p></li>
-<li><p>your labour is not progressing or there’s excessive vaginal bleeding</p></li>
+<li><p>Causal risk difference</p></li>
+<li><p>Causal risk ratio</p></li>
+<li><p>Causal odds ratio</p></li>
 </ul>
-<p><a class="reference external" href="https://www.nhs.uk/conditions/caesarean-section/">[Copied from NHS website]</a></p>
-</section>
-</section>
-<section id="delivery-of-the-placenta">
-<h2>Delivery of the placenta<a class="headerlink" href="#delivery-of-the-placenta" title="Link to this heading">#</a></h2>
-<p>There are two ways to manage the third stage of labour (delivery of the placenta):</p>
-<ul class="simple">
-<li><p><strong>Active</strong> - using treatment to make it faster</p></li>
-<li><p><strong>Physiological</strong> - no treatment, stage happens naturally</p></li>
-</ul>
-<p>Active treatment involves giving an injection of <strong>oxytocin</strong> to the thight to make the womb contract. Once the placenta has comes away from the womb, the midwige will pull the cord to remove it from the vagina (usually within 30 minutes of the baby being born).</p>
-<p>Active management speeds up delivery of the placenta and lowers the risk of postpartum haemorrhage (heavy leeding after birth), but increases change of being/feeling sick and can make afterpains (contraction-like pains after birth) worse.</p>
-<p><a class="reference external" href="https://www.nhs.uk/pregnancy/labour-and-birth/what-happens/the-stages-of-labour-and-birth/">[Copied from NHS website]</a></p>
+<p>One way of expressing is with respect to outcome expected value. Average causal effect. In the presence of a causal effect, causal parameters will differ from the values characterising the causal null hypothesis, in a measure which quantifies the strength of the causal effect on different scales.</p>
+<p>More generally, we may also define a causal effect in different sub-groups, e.g. within a sub-population with a certain level of covariate, or sub-population identified by the treated group.</p>
+<p><a class="reference external" href="https://www.coursera.org/learn/crash-course-in-causality/lecture/Qt0ic/causal-effects">https://www.coursera.org/learn/crash-course-in-causality/lecture/Qt0ic/causal-effects</a></p>
+<p>Causal relative risk</p>
+<p>Causal effect of treatment on the treated</p>
+<p>Average causal effect in the subpopulation with the covariate</p>
 </section>
 </section>
 
@@ -551,20 +521,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="stages.html"
+       href="design_dag_hie.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Stages of pregnancy and birth</p>
+        <p class="prev-next-title">DAG for HIE</p>
       </div>
     </a>
     <a class="right-next"
-       href="research_groups.html"
+       href="design_confounding_methods.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Research groups</p>
+        <p class="prev-next-title">Methods for causal inference</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -584,16 +554,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pain-relief">Pain relief</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speeding-up-labour">Speeding up labour</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delivery-of-the-baby">Delivery of the baby</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#episiotomy">Episiotomy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assisted-delivery">Assisted delivery</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caesarean-section-c-section">Caesarean section (C-section)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Causal assumptions and estimands</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-assumptions">Causal assumptions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-effect-estimands">Causal effect estimands</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delivery-of-the-placenta">Delivery of the placenta</a></li>
 </ul>
+
   </nav></div>
 
 </div></div>
