@@ -1,5 +1,31 @@
 # Causal assumptions and estimands
 
+`````{admonition} Executive summary
+:class: info
+
+Causal assumptions:
+* **Exchangeability** = groups are equivalent (as randomised / no confounders)
+* Stable Unit Treatment Value Assumption (SUTVA), which combines
+    * **Non-interference** = treatment of one group cannot influence outcome of another (eg. violated for vaccinations)
+    * **Consistency** = no hidden versions of treatment (eg. no undefined dose variation)
+* **Positivity** = no factors deterministic of treatment (eg. violated if treatment never prescribed with particular contraindication)
+* **Ignorability** = among people with same characteristics, can think of treatment as being randomly assigned
+
+Possible causal effect measures:
+* Causal mean difference
+* Causal mean ratio
+* Causal risk difference
+* Causal risk ratio
+
+Possible causal effects - i.e. causal estimand - choice of which can be guided by thinking of target trial you are trying to emulate:
+* Average treatment effect (ATE)
+* Average treatment effect in the treated (ATT)
+* Average treatment effect in the untreated (ATU/ATUT)
+* Intention-to-treat effect (ITT)
+* Complier average causal effect (CACE) or local average treatment effect
+
+`````
+
 ## Causal assumptions
 
 'Causal effects are impossible to measure directly, since they involve comparing unobserved counterfactual outcomes that would have happened under different circumstances. A causal effect is identifiable if it can be **estimated** using observable data, given certain **assumptions** about the data and the underlying causal relationships. Such identifying assumptions typically cannot be fully tested statistically but have to be justified based on theory and/or existing evidence about the real-world processes under study'.[[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
