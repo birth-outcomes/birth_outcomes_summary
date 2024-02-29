@@ -1,27 +1,15 @@
-# Causal diagrams: Conditioning, D-seperation rules, time-varying treatments and table 2 fallacy
+# Paths and conditioning
 
 `````{admonition} Executive summary
 :class: info
 
-### Paths
+A **backdoor path** is a non-causal path between the treatment and outcome that will exist if (a) you haven't conditioned for confounders, or (b) you condition on a collider (which opens a backdoor path). These scenarios (when paths will be open or blocked) are described by **D-seperation rules**.
 
-A **backdoor path** is a non-causal path between the treatment and outcome that will exist if:
-* If you haven't conditioned for confounders
-* If you condition on a collider (which opens a backdoor path)
+**Conditioning** on a variable means you are examining the relationship between the treatment and outcome within levels of the conditioning variable, using either: sample restriction, stratification, adjustment, matching. Ideally, you want to identify a **minimal set of covariates** to condition on that (a) block all back-door paths, and (b) don't open closed paths.
 
-Whether or not a path will be open or blocked is described using D-seperation rules, which essentially just explain that associations will be present if either of the above are true, or if one node causes the other.
+If you have **time-varying treatment** (takes different values over time), then you will have other time-varying components (e.g. time-varying confounding). If there is **treatment-confounder feedback** (i.e. earlier treatment impacts value of later confounder), then you will need to use a special type of method to adjust for confounders, referred to as **G-methods**.
 
-Conditioning on a variable means you are examining the relationship between the treatment and outcome within levels of the conditioning variable, using either: sample restriction, stratification, adjustment, matching. 
-
-Ideally, you want to identify a minimal set of covariates to condition on that (a) block all back-door paths, and (b) don't open closed paths.
-
-### Time-varying treatment
-
-If you have time-varying treatment (takes different values over time), then you will have other time-varying components (e.g. time-varying confounding). If there is treatment-confounder feedback (i.e. earlier treatment impacts value of later confounder), then you will need to use a special type of method to adjust for confounders, referred to as G-methods.
-
-### Table 2 fallacy
-
-Since you have designed the study to appropriate control for confounding for your relationship of interest - between a given treatment/exposure and outcome - the other variables included may have residual confounding or other biases that affect their associations, and it is important that these effect estimates are not presented (or are explained) - otherwise this is called 'Table 2 fallacy'.
+Since you have designed the study to appropriate control for confounding for your relationship of interest - between a given treatment/exposure and outcome - the other variables included may have residual confounding or other biases that affect their associations, and it is important that these effect estimates are not presented (or are explained) - otherwise this is called '**Table 2 fallacy**'.
 `````
 
 ## Conditioning

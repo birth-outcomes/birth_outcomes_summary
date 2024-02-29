@@ -25,11 +25,15 @@ parts:
     - file: neo_out_apgar
     - file: neo_out_death
     - file: neo_out_ctg
-  - caption: Study design
+  - caption: Study design - causal diagrams
     chapters:
-    - file: design_treat_paradox
-    - file: design_causal
-    - file: design_causal_hie
+    - file: design_introduction_causality
+    - file: design_dag_1
+    - file: design_dag_2
+    - file: design_dag_hie
+  - caption: Study design - causal methods
+    chapters:
+    - file: design_estimands
     - file: design_confounding_methods
     - file: design_account_paradox
     - file: design_examples

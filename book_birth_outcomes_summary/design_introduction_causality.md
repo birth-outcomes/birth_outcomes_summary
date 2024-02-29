@@ -3,9 +3,9 @@
 `````{admonition} Executive summary
 :class: info
 
-Predictive research aims to predict an outcome with the **best accuracy**. Explainability (e.g. SHAP) is about understanding why a model makes certain predictions. When making predictions, the direction of relationships (e.g. from SHAP values) doesn't matter, as the goal is just to make the best predictions.
+Predictive research aims to predict an outcome with the **best accuracy**. Explainability (e.g. SHAP) is about understanding why a model makes certain predictions. When making predictions, whether the direction of relationships (e.g. from SHAP values) is true/causal doesn't matter, as the goal is just to make the best predictions.
 
-Etiological research aims to **uncover causal effects**. It involves finding an unbiased estimate of the effect of X on Y, by controlling for confounding factors that could bias the estimate. In causal inference, the true direction of relationships (and the counterfactual scenarios) are important. It typically starts with drawing a causal diagram/
+Etiological research aims to **uncover causal effects**. It involves finding an unbiased estimate of the effect of X on Y, by controlling for confounding factors that could bias the estimate. In causal inference, the true direction of relationships (and the counterfactual scenarios) are important. It typically starts with drawing a causal diagram.
 
 A **treatment** paradox is when a prognostic factor (a) has a strong relationship with the outcome, and (b) when its present, triggers an effective treatment. It will mean that the prognostic factor will appear to have poorer performance than it actually has, and hence leading to underestimation of outcomes for people with that prognostic factor.
 * A treatment paradox is relevant to causal inference studies (as its about the true relationship between the treatment and the outcome, rather than using the presence of treatment to help best predict the outcome).
@@ -34,6 +34,17 @@ To **define a causal effect**, we use the **potential outcomes framework** (also
 * We are often focussed on **interventions** (i.e. variables that can be manipulated), as they fit well in the potential outcomes framework. Although other variables like age, race and gender can have causal effects, they do not fit as cleanly in the potential outcomes framework.[[source]](https://www.coursera.org/learn/crash-course-in-causality/lecture/Lgb6O/hypothetical-interventions) Rubin states that *"if you are not talking about an intervention, you can't talk about causality"* - i.e. we're defining causality using counterfactuals, which is about the counterfactual effects of the intervention[[source]](https://baselbiometrics.github.io/home/docs/trainings/20210202/1_Moffa.pdf)
 
 Causal inference for an individual (generating **individual causal effects**) is generallly impossible in health and social sciences (as you can't go back in time and not give them the outcome) - instead, causal inference focusses on **average causal effect** when comparing groups of individuals.[[source]](https://hummedia.manchester.ac.uk/institutes/methods-manchester/docs/CausalInference.pdf)
+
+Terminology can vary. Lederer et al. 2018 recommend that, by acknowledging the intent, it is reasonable to use the labels:
+* **Causal association**
+* **Effect estimate**
+
+But not:
+* Causal effect
+* Exposure has an 'effect' or 'impact' on outcome
+* Exposure 'protects against' or 'promotes' outcome
+
+As these make claims of causality that should be avoided without substantial evidence of a true causal effect.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
 
 ### Confusion and controversy around causality
 
@@ -172,11 +183,12 @@ Judea Pearl proposed the '**Ladder of Causality**' to categorise different level
 
 [[source]](https://cacm.acm.org/magazines/2019/3/234929-the-seven-tools-of-causal-inference-with-reflections-on-machine-learning/fulltext?mobile=false)
 
-#### What's the difference between intervention and counterfactuals?
+Difference between interventions and counterfactuals in this hierarchy:
+* With interventions, you ask what will happen on average if you perform an action.
+* With counterfactuals, you ask what would have happened if you had performed a different action.
+* These two queries are mathematically distinct as they require different levels of information to be answered (counterfactuals need more information to be answered)'.[[source]](https://stats.stackexchange.com/questions/379799/difference-between-rungs-two-and-three-in-the-ladder-of-causation)
 
-With interventions, you ask what will happen on average if you perform an action. With counterfactuals, you ask what would have happened if you had performed a different action. These two queries are mathematically distinct as they require different levels of information to be answered (counterfactuals need more information to be answered)'.[[source]](https://stats.stackexchange.com/questions/379799/difference-between-rungs-two-and-three-in-the-ladder-of-causation)
-
-## Conclusion: our study - are we interested in prediction or causation?
+## Our study - are we interested in prediction or causation?
 
 We are interested in whether and when caesareans should be performed, to prevent the development of hypoxic ischaemic encephalopathy.
 

@@ -1,9 +1,7 @@
-# Causal diagrams: introduction, key components, and how to draw
+# Introduction to directed acyclic graphs (DAGs)
 
 `````{admonition} Executive summary
 :class: info
-
-### Drawing a causal diagram
 
 Causal diagrams (directed acyclic graphs - DAGs) are based on expert knowledge. They depict the causal relationships between nodes using directed arrows. They are used to illustrate/identify sources of bias, to indicate where associations/independence should be expected, and to help inform study design.
 

@@ -36,6 +36,15 @@ It has typically been implemented in four different ways:
 
 # ROUGH NOTES...
 
+https://www.coursera.org/learn/crash-course-in-causality/lecture/xEcaf/stratification
+* stratification - Essentially, you would stratify on important variables, and then average over the distribution of those variables which is also known as standardization. And then we're also going to talk about limitations with this standardization approach. And why it's something we normally can't do, and why we need additional causal inference methods.
+* standardisation is the combination of conditioning and marginalising
+* we're typically interested in a marginal causal effect, meaning when that does not involve conditioning on X
+* standardisation involves stratifying and then averaging... obtaining a treatment effect within each stratum, and then pooling across stratum, where you're weighting by the probability of each stratum
+* limitation is that there might be many confounders - so many X variables you need to control for, that you need to stratify by - and with so many combinations, it's likely that some would be empty (i.e. no people have that combination), meaning we can't do it
+
+read this: https://www.hsph.harvard.edu/miguel-hernan/wp-content/uploads/sites/1268/2024/01/hernanrobins_WhatIf_2jan24.pdf
+
 <mark>Will need to integrate with the page on methods to account for treatment paradox</mark>
 
 Causal inference without models:
