@@ -48,25 +48,29 @@ Example: Older people more likely to have treatment, and more likely to have out
 
 ## Causal effect estimands
 
-https://baselbiometrics.github.io/home/docs/trainings/20210202/1_Moffa.pdf
+'The size of a causal effect is the difference in the potential outcomes for a particular population given different counterfactual scenarios (eg, one where everyone is exposed vs one where everyone is unexposed). As with potential outcomes, causal effects cannot be observed at an individual level, so we rely instead on estimating average effects in groups of people. The outcome may be the mean of a continuous variable or the risk of a binary outcome. The scale of an effect measure can be either additive or multiplicative'... [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
-Measures of causal effect - causal estimands
+| Causal effect measure | Outcome type | Scale |Example |
+| --- | --- | --- | --- |
+| **Causal mean difference** | Continuous | Additive | 'An average increase in systolic blood pressure by 10 mmHg' |
+| **Causal mean ratio** | Continuous | Multiplicative | 'An average increase in systolic blood pressure by a factor of 1.1' or 'by 10%' |
+| **Causal risk difference** | Binary | Additive | 'An average increase in the risk of stroke by 5%' |
+| **Causal risk ratio** | Binary | Multiplicative | 'An average increase in the risk of stroke by a factor of 1.5'
 
-Dichotomous outcomes
+[[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
-The causal null hypothesis may be expressed in terms of:
-* Causal risk difference
-* Causal risk ratio
-* Causal odds ratio
+Depending on how the exposure if defined and what population is considered, 'several causal treatment effects can be distinguished'. It is important to specify which effect you are trying to estimate (i.e. **the causal estimand**), since these effects 'can differ substantially in terms of effect size, risk of bias, and interpretation'.[[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
-One way of expressing is with respect to outcome expected value. Average causal effect. In the presence of a causal effect, causal parameters will differ from the values characterising the causal null hypothesis, in a measure which quantifies the strength of the causal effect on different scales.
+Possible causal treatment effects include:
 
-More generally, we may also define a causal effect in different sub-groups, e.g. within a sub-population with a certain level of covariate, or sub-population identified by the treated group.
+| Causal treatment effect | Definition |
+| --- | --- |
+| **Average treatment effect (ATE)** | Difference between average outcome, when EVERYONE is exposed v.s. when NO-ONE is exposed |
+| **Average treatment effect in the treated (ATT)** | ATE calculated only in sub-population of individuals who were actually exposed |
+| **Average treatment effect in the untreated (ATU/ATUT)** | ATE calculated only in sub-population of individuals who were actually unexposed |
+| **Intention-to-treat effect (ITT)** | Average effect of being assigned to (but not necessarilly receiving) the exposure |
+| **Complier average causal effect (CACE) or local average treatment effect** | ATE calculated only among 'compliers' |
 
-https://www.coursera.org/learn/crash-course-in-causality/lecture/Qt0ic/causal-effects
+[[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
-Causal relative risk
-
-Causal effect of treatment on the treated
-
-Average causal effect in the subpopulation with the covariate
+It can be challenging to identify the appropriate causal estimand. However, specifying a **target trial** (i.e. hypothetical RCT you are trying to emulate), can help with figuring this out. [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
