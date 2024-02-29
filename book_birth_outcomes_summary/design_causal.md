@@ -1,61 +1,32 @@
-# Causal diagrams
+# Causal diagrams: introduction, key components, and how to draw
+
+`````{admonition} Executive summary
+:class: info
+
+### Drawing a causal diagram
+
+Causal diagrams (directed acyclic graphs - DAGs) are based on expert knowledge. They depict the causal relationships between nodes using directed arrows. They are used to illustrate/identify sources of bias, to indicate where associations/independence should be expected, and to help inform study design.
+
+In a DAG, you can identify:
+* **Confounders** - common cause both treatment and outcome
+* **Mediators** - lie on causal path between variables, inclusion depends on whether you are interested in direct effect of treatment and outcome that doesn't pass through mediator
+* **Colliders** - common effect of two other variables
+* **Moderators** - change size or direction of relationship between variables
+
+You start the diagram with your research question (i.e. two nodes whose relationship you are interested) and then add all **common** causes for those nodes, and for any other nodes you add to the graph.
+`````
 
 ## Introduction to causal diagrams
 
 ### What are causal diagrams?
 
-Causal diagrams - **directed acyclic graphs (DAGs)** - depict causal relationship between different variables. Two key components are **nodes** and **arrows**. They are:
+Causal diagrams - **directed acyclic graphs (DAGs)** - depict causal relationship between different variables. Two key components are **nodes** and **arrows**.
+
+They are:
 * **Directed** - as arrows have a single direction (unidirectional) that represents known causal effects (based on prior knowledge)
-* **Acyclic** - as nodes cannot have a directed path from itself back to itself
+* **Acyclic** - as nodes cannot have a directed path from itself back to itself [[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
-````{mermaid}
-  flowchart LR;
-
-    n1("Node 1"):::white;
-    n2("Node 2"):::white;
-
-    n1 --> n2;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-Naming conventions...
-* A (or E) = Exposure / Treatment / Intervention / Primary IV
-* Y (or D) = Outcome
-* C = Covariates / Confounders
-* U = Unmeasured relevant variables
-
-Genealogy...
-* Ancestor = direct cause (parent) or indirect cause (e.g. grandparent) of a variable
-* Descendent = direct effect (child) or indirect effect (e.g. grandchild) of a variable
-
-````{mermaid}
-  flowchart LR;
-
-    a("A (parent)"):::white;
-    b("B (child)"):::white;
-    c("C (grandparent)"):::white;
-    d("D"):::white;
-    e("E (grandchild)"):::white;
-
-    a --> b;
-    c --> d; d --> e;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-### How do you know what to include?
-
-**All COMMON causes should be represented**. i.e. We can call the graph a causal DAG if, when two variables share a cause, that shared cause is also in the graph, meaning it satisfies the causal markov condition.
-
-Example: Investigating Aspirin causing strokes.
-
-In RCT where people were randomised to receive Aspirin, we don't need to include other variables that can cause stroke (e.g. coronary heart disease (CHD)), as they didn't cause why people got aspirin.
+Example:
 
 ````{mermaid}
   flowchart LR;
@@ -69,40 +40,42 @@ In RCT where people were randomised to receive Aspirin, we don't need to include
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-In an observational study, there will be other variables that would explain why people received aspirin (e.g. CHD), which we would need to include for it to be a causal DAG (i.e. aspirin AND stroke BOTH caused by CHD)
+### Naming conventions
+
+There are naming conventions for particular components of the DAG:
+* **A (or E)** = Exposure / Treatment / Intervention / Primary IV
+* **Y (or D)** = Outcome
+* **C** = Covariates / Confounders
+* **U** = Unmeasured relevant variables
+
+When letters are not used, the exposure and outcome will often be highlighted using a "?" on the arrow, or through coloured boxes or arrows.
+
+Example:
 
 ````{mermaid}
   flowchart LR;
 
-    asp("Aspirin"):::white;
-    str("Stroke"):::white;
-    chd("Coronary heart disease (CHD)"):::white;
-
-    asp --> str;
-    chd --> asp;
-    chd --> str;
+    A:::green;
+    Y:::green;
+    C:::white;
+    U:::white;
+    
+    A -->|?| Y;
+    C --> A;
+    C --> Y;
+    U --> A;
+    U --> C;
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
 ````
 
+Nodes can also be described as:
+* **Ancestor** = direct cause (**parent**) or indirect cause (e.g. **grandparent**) of a variable
+* **Descendent** = direct effect (**child**) or indirect effect (e.g. **grandchild**) of a variable [[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
-**How do you know when to include mediators**
-* We start the DAG with adding the treatment (A) and outcome (Y) that we are interested in, and then build around it. As we are interested in the **total effect of A on Y**, we don't need to specify the mechanisms through which A may affect Y (i.e. don't need any m ediators between A and Y)
-
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-### When should you draw arrows?
-
-The DAG is drawn based on expert knowledge, including arrows when you believe that something causes something else.
-
-If expert knowledge is insufficient for us to rule out a direct effect of E on D, then we should draw an arrow.
-
-Note: Arrows on causal graphs are not deterministic - i.e. doesn't mean every person with exposure will see outcome - as some will never, and some without outcome will develop it.
-
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-### What is the purpose of DAGs?
+### Why do we create causal diagrams?
 
 We don't draw causal diagrams as an exact, accurate representation of the world - instead, we draw causal DAGs to help us think about possible sources of bias when making causal inferences.
 
@@ -113,77 +86,49 @@ We don't draw causal diagrams as an exact, accurate representation of the world 
 * They indicate when associations or independence should be expected.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 * They can help determine whether the effect of interest can be identified from available data, and help us clarify our study question[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf) - and to identify problems in the study design[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
-## How do you construct a DAG?
+## Key components
 
-*The order here doesn't particular matter - the key thing is to start with the research question and then build from there*.
+### Confounders
 
-1. Start with research question - A (treatment/exposure) and Y (outcome), and indicate with "?"
+**Confounders** are variables that **cause BOTH the treatment/exposure and outcomes**. Informally, it occurs when there is an open backdoor path between the treatment/exposure and outcome, and you could say a confounder is a variable that - possibly together with other variables - can be used to block the backdoor path between the treatment and outcome.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+
+Example: smoking causes yellow fingers and lung cancer
+* If we don't condition on it, we expect to see an association between yellow fingers and lung cancer (known as a **marginal/unconditional** association)
+* If we do condition on smoking, we expect to see no association between yellow fingers and lung cancers (i.e. they are "**not associated conditional on** smoking)
+
+We included **measured and unmeasured** confounders in our DAG.
 
 ````{mermaid}
   flowchart LR;
 
-    A("A (treatment/exposure)"):::white;
-    Y("Y (outcome)"):::white;
+    cig("Smoking"):::white;
+    lung("Lung cancer"):::white;
+    yellow("Yellow fingers"):::white;
 
-    A -->|?| Y;
+    cig --> lung;
+    cig --> yellow;
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-2. Add **measured confounders (L)** (cause A and Y). 
-
-3. Add **unmeasured confounders (U)** (even though we don't measure, we need to include, as they are a common cause of A and Y)
-
-4. Add **selection nodes** - e.g. if some people lost to follow-up (C1) and some remain to end (C0), our analysis is restricted to C0. In the example of loss to follow up, this is temporarily between A and Y with box around it (which means that only individuals with certain values of C are included in the analysis, as we're essentially conditioning on it)
-
-5. Add **moderators** (affect direction/strength of A --> Y)
-
-6. Add **mediators** (on causal pathway between A and Y - included if you want to know effect of A on Y when not mediated by the provided mediators)
-
-7. Add nodes for **mismeasured variables** - if believe it's mismeasured, have node with * that points from variable, with another representing measurement error.
-
-8. Everytime you add a new variable to the DAG, you need to conside whether it has common causes with any other variables (its not just about common causes of A and Y). For example, if you believe measurement of Y is affected by whether person is on treatment, draw arrow from A to measurement error for Y
-
 ````{mermaid}
   flowchart LR;
 
-    A("A (treatment/exposure)"):::white;
-    Y("Y (outcome)"):::white;
-    Empty[ ]:::empty;
-    Mod("Moderator"):::white;
-    M("Mediator"):::white;
-    L("L (confounder)"):::white;
-    U("U (unmeasured confounder)"):::white;
-    C("C (selection node)"):::black;
-    Y*("Y* (mismeasured outcome)"):::white;
-    UY("U<sub>Y</sub> (measurement error for Y)"):::white;
+    cig("Smoking"):::black;
+    lung("Lung cancer"):::white;
+    yellow("Yellow fingers"):::white;
 
-    Mod --> Empty;
-    A --- Empty; Empty -->|?| Y;
-    A --> M; M --> Y;
-    L --> A; L --> Y;
-    U --> L; U --> Y;
-    A --> C;
-    L --> C;
-    Y --> Y*;
-    UY --> Y*;
-    A --> UY;
+    cig --> lung;
+    cig --> yellow;
 
-    classDef white fill:#FFFFFF, stroke:#FFFFFF;
-    classDef black fill:#FFFFFF, stroke:#000000;
-    classDef empty width:0px,height:0px;
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
 ````
-
-Don't need variables that cause Y but not A (although might include if for example you want to compare to other studies that did adjust for that variable)
-
-There can often be more than one appropriate DAG, and alternate DAGs can make excellent sensitivity analyses.
-
-[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
 
 [[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
-## Moderators
+### Moderators
 
 **Moderators** are variables that change the **size or direction** of the relationship between variables. These could also be referred to as effect modifiers or statistical interaction.[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
 
@@ -191,8 +136,7 @@ Why include? They usually help you judge the external validity of your study by 
 
 There has been some disagreement on how these should be included/notation within DAGs.[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)[[Weinberg 2007]](https://pubmed.ncbi.nlm.nih.gov/17700243/)
 
-
-## Mediators
+### Mediators
 
 **Mediators** are variables that lie in the causal path between the two other variables (e.g. between exposure and outcome), and they tell you how or why an effect takes place.[[source]](https://www.scribbr.co.uk/faqs/why-should-you-include-mediators-and-moderators-in-your-study/)
 
@@ -236,47 +180,7 @@ If you do not have a direct arrow between the treatment and outcome, and only vi
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-## Confounders
-
-**Confounders** are variables that **cause BOTH the treatment/exposure and outcomes**. Informally, it occurs when there is an open backdoor path between the treatment/exposure and outcome, and you could say a confounder is a variable that - possibly together with other variables - can be used to block the backdoor path between the treatment and outcome.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-It is recommended that confounders are selected based on **prior knowledge**, rather than based on variables identified from the data.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
-
-Example - smoking causes yellow fingers and lung cancer - if we don't condition on it, we expect to see an association between yellow fingers and lung cancer (known as a **marginal/unconditional** association)
-
-````{mermaid}
-  flowchart LR;
-
-    cig("Smoking"):::white;
-    lung("Lung cancer"):::white;
-    yellow("Yellow fingers"):::white;
-
-    cig --> lung;
-    cig --> yellow;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-If we do condition on smoking, we expect to see no association between yellow fingers and lung cancers (i.e. they are "**not associated conditional on** smoking)
-
-````{mermaid}
-  flowchart LR;
-
-    cig("Smoking"):::black;
-    lung("Lung cancer"):::white;
-    yellow("Yellow fingers"):::white;
-
-    cig --> lung;
-    cig --> yellow;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-## Colliders
+### Colliders
 
 **Colliders** are descendents of two other variables - i.e. common effect - with two arrows from the parents pointing to ("colliding with") the descendent node.
 
@@ -358,445 +262,122 @@ In this example...
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-## Conditioning
+### Selection nodes
 
-**Conditioning** on a variable means examining the relationship between A and Y within levels of the conditioning variable, using either:
-* Sample restriction
-* Stratification
-* Adjustment
-* Matching
+If some people lost to follow-up (C1) and some remain to end (C0), our analysis is restricted to C0. This means that only individuals with certain values of C are included in the analysis, as we're essentially conditioning on it.
 
-Other terms like "adjusting" or "controlling" suggest a misleading interpretation of the model.
+<mark>more detail</mark>
 
-When you condition on something, you draw a box around it on the DAG.
+### Mismeasured variables
 
-Scenarios where we may want to condition...
+If believe it's mismeasured, have node with * that points from variable, with another representing measurement error.
 
-**(1) To control for confounding**. A back door path is a connection between A and Y that doesn't follow the path of the arrows - for example, along the path of a confounder. If we condition on the variable in that path (i.e. control for confounding), then we close that back door path and remove the non-causal association.
-* If we don't do this, we will get **confounding bias** (where a common cause of A and Y is not blocked).
+<mark>more detail</mark>
 
-**(2) To open a path blocked by a collider**.
-* **Collider bias** = conditioning on common effects
-* **Selection bias** = type of collider bias where the common effect is selection into the study - occurs when a common effect is conditioned on such that there is now a conditional association between A and Y
-* **Berkson's bias** = type of selection bias in which selection of cases into the study depends on hospitalisation, and the treatment is another diase, or a cause of another disease, which also results in hospitalisation
+## How do you know what to include in your DAG?
 
-**(3) To remove part of the causal effect** by conditioning on a mediator.
+### Common causes
 
-[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
+**All COMMON causes should be represented**. i.e. We can call the graph a causal DAG if, when two variables share a cause, that shared cause is also in the graph, meaning it satisfies the causal markov condition.
 
-### Minimal set of covariates
+For example, if we were investigating the causal relationship between aspirin and stroke:
+* In **RCT** where people were randomised to receive Aspirin, we **don't need to include other variables** that can cause stroke (e.g. coronary heart disease (CHD)), as they didn't cause why people got aspirin.
+* In an **observational study**, there will be other variables that would explain why people received aspirin (e.g. CHD), which we would need to include for it to be a causal DAG (i.e. **aspirin AND stroke BOTH caused by CHD**). [[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
-We want to identify a minimal set of covariates that:
-1. Blocks all backdoor paths.
-2. Doesn't inadvertenly open closed pathways by conditioning on colliders or descendents.
-
-[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
-
-## Causal structures where we expect to see associations
-
-### Structural sources of seperation
-
-The **structural sources** of association are:
-* Cause and effect
-* Common causes (confounding)
-* Conditioning on common effects (conditioning on collider)
+You don't need variables that **cause Y but not A** (although might include if for example you want to compare to other studies that did adjust for that variable).
 
 ````{mermaid}
-  flowchart LR;
+  flowchart TD;
 
-    a:::white;
-    b:::white;
-    c:::white;
-    d:::white;
-    e:::white;
-    f:::white;
-    g:::white;
-    h:::black;
+    ob:::outline;
+    subgraph ob["`**Observational**`"]
+      asp2("Aspirin"):::green;
+      str2("Stroke"):::green;
+      chd2("Coronary heart disease (CHD)"):::white;
+    end
 
-    a --> b;
+    asp2 --> str2;
+    chd2 --> asp2;
+    chd2 --> str2;
 
-    c --> d;
-    c --> e;
+    rct:::outline;
+    subgraph rct["`**RCT**`"]
+      asp("Aspirin"):::green;
+      str("Stroke"):::green;
+    end
 
-    f --> h;
-    g --> h;
+    asp --> str;
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
+    classDef outline fill:#FFFFFF
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
 ````
 
-There is another source of association: **chance**. May be association even if none of above are true. Chance is not a structural source of association. **Increasing our sample size, chance associations should disappear (whilst structural remain and become sharper)**.
+### How do you know when to include mediators?
 
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+* If we are interested in the **total effect of A on Y**, we don't need to specify the mechanisms through which A may affect Y (i.e. don't need any m ediators between A and Y)
+* However, if we are interested in the **direct effect of A on Y** that doesn't pass through the mediator, then we should include it. [[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
-## D-seperation rules
+### When should you draw arrows?
 
-**Path** is any route through graph (can follow arrow direction or not). Paths can be **blocked or open**, which is according to the **D-seperation rules**. We use D-seperation to decide whether two variables are D-seperated, where D stands for directional.
+The DAG is drawn based on **expert knowledge**, including arrows when you believe that something causes something else. If expert knowledge is **insufficient** for us to rule out a direct effect of E on D, then we should draw an arrow.
 
-You will be able to see that all D-separation says is that - as above - two variables **would be associated** if:
-* One causes the other,
-* They share common causes
-* They have a common effect and we condition on the common effect...
+Arrows on causal graphs are **not deterministic** - i.e. doesn't mean every person with exposure will see outcome - as some will never, and some without outcome will develop it. [[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
-Another summary:
-* Path is blocked only if (a) containins non-collider that been conditioned on, or (b) collider that not been conditioned on.
-* Two variables are D-seperated if all paths between them are blocked.
-* Two variables are marginally or unconditionally independent if they are D-seperated without conditioning on all the variables
-* Two variables are conditionally independent if they are D-seperated after conditioning
+### Can you use variable selection methods?
 
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-### D-seperation rule 1: If there are no variables being conditioned on, a path is blocked if and only if two arrowheads on the path collide at some variable on the path
-
-Path from A to Y is **open**:
-````{mermaid}
-  flowchart LR;
-
-    a("A"):::white;
-    b("B"):::white;
-    y("Y"):::white;
-    
-    a --> b; b--> y;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-Path from A to Y is **blocked**:
-````{mermaid}
-  flowchart LR;
-
-    a("A"):::white;
-    y("Y"):::white;
-    l("L"):::white;
-    d("D"):::white;
-    
-    a --> l; y --> l; l --> d;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-Definition of collider is path-specific. L is collider on path A to Y, but on on path A to D.
-
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-### D-seperation rule 2: Any path containing non-collider that has been conditioned on is blocked.
-
-Path from A to Y is **blocked**:
-````{mermaid}
-  flowchart LR;
-
-    a("A"):::white;
-    b("B"):::black;
-    y("Y"):::white;
-    
-    a --> b; b--> y;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-### D-seperation rule 3: A collider that has been conditioned on does not block a path.
-
-Path from A to Y is **open**:
-````{mermaid}
-  flowchart LR;
-
-    a("A"):::white;
-    y("Y"):::white;
-    l("L"):::black;
-    
-    a --> l; y--> l;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-### D-seperation rule 4: Collider with descendent that has been conditioned on does not block a path.
-
-Path from A to Y is **open**:
-````{mermaid}
-  flowchart LR;
-
-    a("A"):::white;
-    y("Y"):::white;
-    l("L"):::white
-    d("D"):::black;
-    
-    a --> l; y--> l; l --> d;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-## Faithfulness
-
-Faithfulness is the result of opposite effects of exactly equal magnitude - e.g. if aspirin caused stroke for half of poppulation and prevented it in the other half, then causal dag is correct (as aspirin affects stroke) but no association is observed (as they cancel each other out). In that case, we say the joint distribution of the data is not faithful to the causal DAG.
-
-These perfect cancellations are rare and we don't expect them to happen in practice, so we can safetly say lack of D-seperation means non-zero association. So - 
-* **D-seperation = statistical independence**
-* **All paths blocked = no association**
-
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-## Time-varying treatments and confounders
-
-A time-varying treatment one that can take different values over time - (e.g. whether or not receive medicine, or dose of medicine, at multiple different timepoints) - as opposed to fixed treatments that do not vary over time (e.g. whether took vitamin D at time of conception).
-
-Example: EPO used to treat anemia, dose is based on haemoglobin level, which itself depends on disease severity.
-
-````{mermaid}
-  flowchart LR;
-
-    l("L: Haemoglobin"):::white;
-    a("A: EPO"):::white;
-    y("Y: Death"):::white;
-    u("U: Disease severity"):::white;
-
-    l --> a;
-    a --> y;
-    u --> y;
-    u --> l;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-To show that we have **time-varying** components, we refer to:
-* L and A at timepoint K (e.g. week 0)
-* Y, L and A at timepoint K+1 (e.g. week 1)
-* Y at timepoint K+2 (e.g. week 2)
-
-Actual study includes many more weeks but for most purposes, two time points are enough to represent the main features of the causal structure when there is time varying treatment. These will often be two arbritary time points (K and K+1) (rather than 0 and 1).
-
-You'll notice that a consequence of the time-varying treatment is time-varying confounder and outcome. A confounder is time-varying when it can take different values at different timepoint, and confound at different timepoints.
-
-With the example below, the minimal set of variables you'd need to condition for would be L0 and L1 (wouldn't need to for U as doing for L0 and L1 blocks the backdoor paths)
-
-````{mermaid}
-  flowchart LR;
-
-    ak("A<sub>K</sub>: EPO dose"):::white;
-    ak1("A<sub>K+1</sub>: EPO dose"):::white;
-    yk1("Y<sub>K+1</sub>: Death"):::white;
-    yk2("Y<sub>K+2</sub>: Death"):::white;
-    lk("L<sub>K</sub>: Haemoglobin"):::white;
-    lk1("L<sub>K+1</sub>: Haemoglobin"):::white;
-    u("U: Disease severity"):::white;
-
-    ak --> yk1;
-    u --> yk1;
-    u --> lk;
-    lk --> ak;
-    lk --> ak1;
-    ak --> ak1;
-    u --> lk1;
-    lk1 --> ak1;
-    ak1 --> yk2;
-    u --> yk2;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-However, if there is **treatment-confounder feedback**, then conventional adjustment methods - even if closing all back door paths - will still not be able to yield an unbiased estimate.
-
-Our DAG above was incomplete - in this scenario, treatment at timepoint K will impact the confounder (levels of haemoglobin) at timepoint K+1. This is referred to as **treatment-confounder feedback** - when the later confounder is impacted by prior treatment.
-
-We'll get a biased estimate if we condition on the Ls, as conditioning on L<sub>K+1</sub> will open a path that was previously blocked: A<sub>K</sub> to L<sub>K+1</sub> to U to Y<sub>K</sub>. Hence, we have introduced selection bias.
-
-If the time-varying confounder also affects the outcome (e.g. L<sub>K+1</sub> --> Y<sub>K+2</sub>), it will be impossible to estimate the total effect of the treatment.
-
-We need other methods to handle these settings: **G-methods**.
-
-````{mermaid}
-  flowchart LR;
-
-    ak("A<sub>K</sub>: EPO dose"):::white;
-    ak1("A<sub>K+1</sub>: EPO dose"):::white;
-    yk1("Y<sub>K+1</sub>: Death"):::white;
-    yk2("Y<sub>K+2</sub>: Death"):::white;
-    lk("L<sub>K</sub>: Haemoglobin"):::black;
-    lk1("L<sub>K+1</sub>: Haemoglobin"):::black;
-    u("U: Disease severity"):::white;
-
-    ak --> yk1;
-    u --> yk1;
-    u --> lk;
-    lk --> ak;
-    lk --> ak1;
-    ak --> ak1;
-    ak --> lk1;
-    u --> lk1;
-    lk1 --> ak1;
-    ak1 --> yk2;
-    u --> yk2;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-## Terminology
-
-Lederer et al. 2018 recommend that, by acknowledging the intent, it is reasonable to use the labels:
-* **Causal association**
-* **Effect estimate**
-
-But not:
-* Causal effect
-* Exposure has an 'effect' or 'impact' on outcome
-* Exposure 'protects against' or 'promotes' outcome
-
-As these make claims of causality that should be avoided without substantial evidence of a true causal effect.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
-
-## Variable selection
-
-For causal inference, it is **NOT** recommended to:
-* Use P value-based and model-based variable selection methods (including forward, backward, and stepwise selection) - since they ignore the causal structure underlying the hypothesis and treat confounders and colliders similarly
-* Use methods that rely on model fit or related constructs (e.g. R<sup>2</sup>, Akaike information criterion, and Bayesian information criterion) - since these rely heavily on the available data, in which causal relationships may or may not have been captured and may or may not be evident, and specification of model and arbitrary variables included will drive observed associations with outcome
+No - it is important that these are based on expert knowledge. For causal inference, it is **NOT** recommended to choose included variables/relationships based on:
+* P value-based and model-based **variable selection methods** (including forward, backward, and stepwise selection) - since they ignore the causal structure underlying the hypothesis and treat confounders and colliders similarly
+* Use methods that **rely on model** fit or related constructs (e.g. R<sup>2</sup>, Akaike information criterion, and Bayesian information criterion) - since these rely heavily on the available data, in which causal relationships may or may not have been captured and may or may not be evident, and specification of model and arbitrary variables included will drive observed associations with outcome
 * Use selection of variables that, when included in a model, change the magnitude of the effect estimate of the exposure of interest, to identify confounders
-* Identify multiple 'independent predictors' through purposeful or automated variable selection - if the authors have hypotheses about each variable, then a separate model for each variable should be generated - or a prediction model could be developed, if prediction, rather than causal inference, is the goal of the analysis
+* Identify multiple 'independent predictors' through purposeful or automated variable selection
 
-[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
+**If the authors have hypotheses about each variable, then a separate model for each variable should be generated** - or a prediction model could be developed, if prediction, rather than causal inference, is the goal of the analysis[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
 
-## Presentation of association of outcome with other variables
+## How do you create a DAG?
 
-'Causal models are typically designed to test an association between a **single exposure and an outcome**. The additional independent variables in a model (often called “covariates”) **serve to control for confounding**. The observed associations between these covariates and the outcome have not been subject to the same approach to control of confounding as the exposure' (i.e. they themselves have not been corrected for confounding - *and they shouldn't and didn't have to be*). 'Therefore, **residual confounding and other biases often heavily influence these associations**.'
+First, start with your **research question**. This should be A (treatment/exposure) and Y (outcome), identificated by letters, "?" or colours.
 
-'This situation is known as “**Table 2 fallacy**,” a term arising from the practice of presenting effect estimates for all independent variables in “Table 2”.' It is strongly recommended that these effect estimates are **not presented**.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
+Then add the key components as detailed above...
+* Measured confounders (L)
+* Unmeasured confounders (U)
+* Selection nodes
+* Moderators
+* Mediators
+* Mismeasured variables
 
-Hartig 2019 discusses how this may not be practical in some fields (they give example of ecology) where you rarely have a clear target variable/hypothesis, but suggest instead that's important to explicitly state/seperate reasonablly controlled varaibles from possibly confounded variables.[[source]](https://theoreticalecology.wordpress.com/2019/04/14/mediators-confounders-colliders-a-crash-course-in-causal-inference/)
+**Everytime you add a new node** to the DAG, you need to conside whether it has common causes with any other variables (its not just about common causes of A and Y). For example, if you believe measurement of Y is affected by whether person is on treatment, draw arrow from A to measurement error for Y.
 
-## Example cases
-
-### Example: Oestrogen and endometrial cancer
-
-In 1970s, women began to receive oestrogren after menopause. Some studies in 1975/6 found that women receiving oestrogen had higher risk of diagnosis with endometrical cancer than women not receiving them. Why? Possibilities include...
-1. Oestrogens cause cancer
-2. Oestrogens can cause uterine bleeding, so women receive a uterine exam, during which the cancer (which is often silent, asymptomatic, and otherwise not diagnosed) is noticed and diagnosed - this phenomenon is called **ascertainment bias**
-
-How do we decide which explanation is right?
-
-* Yale researchers restricted the data analysis to women with uterine bleeding (regardless of whether they were on oestrogens), since they should all have the same likelihood of uterine exams and existing cancer being diagnosed. If there still an association, oestrogen causative.
-* Boston researchers argued we would find association even in women who bleed and even if they don't cause cancer, and so that this approach would still have ascertainment bias.
-
-Explanation one.
-````{mermaid}
-  flowchart LR;
-
-    a("A: Oestrogens"):::white;
-    u("U: Cancer (unmeasured)"):::white;
-    y("Y: Cancer (diagnosed)"):::white;
-
-    a --> u;
-    u --> y;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-Explanation two.
-````{mermaid}
-  flowchart LR;
-
-    a("A: Oestrogens"):::white;
-    u("U: Cancer (unmeasured)"):::white;
-    y("Y: Cancer (diagnosed)"):::white;
-    c("C: Uterine bleeding"):::white;
-
-    a --> c;
-    u --> c;
-    c --> y;
-    u --> y;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-Restrict analysis to women who bleed. If association still found, must be path of A --> U --> Y. Boston argued could still exist.
-* Conditioning on C blocks path A-C-Y
-* However, we still have path of A-C-U-Y, and C is collider on that path, so when condition on C, it becomes open (and conditioning on C is what we do when we restrict analysis to bleeders)
-
-So Boston were right. 
+There can often be **more than one appropriate DAG**, and alternate DAGs can make excellent sensitivity analyses.[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf) [[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
 ````{mermaid}
   flowchart LR;
 
-    a("A: Oestrogens"):::white;
-    u("U: Cancer (unmeasured)"):::white;
-    y("Y: Cancer (diagnosed)"):::white;
-    c("C: Uterine bleeding"):::black;
+    A("A (treatment/exposure)"):::green;
+    Y("Y (outcome)"):::green;
+    Empty[ ]:::empty;
+    Mod("Moderator"):::white;
+    M("Mediator"):::white;
+    L("L (confounder)"):::white;
+    U("U (unmeasured confounder)"):::white;
+    C("C (selection node)"):::black;
+    Y*("Y* (mismeasured outcome)"):::white;
+    UY("U<sub>Y</sub> (measurement error for Y)"):::white;
 
-    a --> c;
-    u --> c;
-    c --> y;
-    u --> y;
+    Mod --> Empty;
+    A --- Empty; Empty -->|?| Y;
+    A --> M; M --> Y;
+    L --> A; L --> Y;
+    U --> L; U --> Y;
+    A --> C;
+    L --> C;
+    Y --> Y*;
+    UY --> Y*;
+    A --> UY;
 
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
 ````
-
-What can you do then? You can design study where C-Y doesn't exist as you require all women to be screened for cancer frequently regardless of whether they bleed. If no association between A and Y, then we know there is no causal effect of A on U. If you still found association, then A must cause U.
-
-````{mermaid}
-  flowchart LR;
-
-    a("A: Oestrogens"):::white;
-    u("U: Cancer (unmeasured)"):::white;
-    y("Y: Cancer (diagnosed)"):::white;
-    c("C: Uterine bleeding"):::white;
-
-    a --> c;
-    u --> c;
-    u --> y;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-### Example: HIV and ART
-
-Randomised controlled trials of new antiretroviral therapy (ART) for HIV found it was effective and reduced morality by more than half.
-
-Observational of clinical data to look at real world effect of ART did not detect much benefit for new combination therapies - no increased survival among those taking ART. What was wrong with the studies?
-
-They were adjusting for lots of confounders - e.g. CD4 count - and yet could not eliminate the bias. Some people say there must be lots of unmeasured confounding. However, the more time-varying confounders were adjusted for, the more biased the effect estimate seemed to be. The problem was treatment-confounder feedback - the value of CD4 count was impacted by earlier treatment - in this case, the bias was in the opposite direction.
-
-There is a way to identify whether the bias is due to incomplete adjustment for confounding or for incorrect adjustment for time-varying confounders - and that is to use G-methods to adjust for the time-varying confounders. When they used G-methods, the effect estimates were much closer to the ARTs.
-
-````{mermaid}
-  flowchart LR;
-
-    ak("A<sub>K</sub><br>ART"):::white;
-    
-    lk("L<sub>K</sub><br>CD4 count"):::black;
-    u("U<br>Immuno-suppression status"):::white;
-    yk1("Y<sub>K+1</sub><br>Mortality"):::white;
-    lk1("L<sub>K+1</sub><br>CD4 count"):::black;
-    ak1("A<sub>K+1</sub><br>ART"):::white;
-    yk2("Y<sub>K+2</sub><br>Mortality"):::white;
-    
-    lk --> ak;
-    u --> lk; 
-    u --> yk1;
-    u --> lk1;
-    lk1 --> ak1;
-    u --> yk2;
-    ak --> lk1;
-    
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
