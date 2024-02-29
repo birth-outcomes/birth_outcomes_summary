@@ -1,38 +1,115 @@
-# Methods for causal inference
+# Methods for causal effect estimation
 
-## Randomised controlled trials (RCTs)
+`````{admonition} Executive summary
+:class: info
 
-The gold standard method for inferring causality is randomisation - e.g. randomising patients to receive a treatment or not. This is because it removes confounding - it removes the common cause of the treatment and outcome, since the only cause of treatment was randomisation.
+Conventional methods:
+* Stratification
+* Matching
+* Multivariable regression
+* Inverse probability of treatment (or propensity score) weighting
 
-Randomisation makes treatment groups exchangeable. **Exchangeability** is when there are no confounders, so whatever treatment group each person was randomised too, we still would've seen the same outcomes in whichever were treated v.s. not, the groups are exchangeable.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+G-methods:
+* G-computation 
+* Marginal structure models
+* G-estimation
 
-**Intention-to-treat analysis** is the preferred analysis strategy for RCTs. This means that the analysis includes all participants, all retained in the group to which they were allocated. However, this can be hard to achieve due to:
-1. **Missing outcomes**
-    * A "complete case" (or "available case") analysis only includes participants with no missing outcomes, and whilst only a few missing outcomes won't cause a problem, in half of trials more than 10% of randomised patients may have missing outcomes. Hence, exclusion will reduce the sample size, and may introduce bias if loss to follow-up is related to a patient's response to treatment.
-    * Participants with missing outcomes can be included if their outcomes are imputed - but this requires strong assumptions. Common example is to use "last observation carried forward", but this may introduce bias and makes no allowance for uncertainty imputation.
-2. **Non-adherence to protocol**
-    * Examples include participants who didn't meet inclusion criteria (e.g. wrong diagnosis, too young), did not take all of the intended treatment, received a different treatment, or received no treatment
-    * Intention-to-treat analysis ignores protocol deviations, including participants in their assigned groups regardless. Modified intention-to-treat (or 'per protocol analysis') is an analysis that excludes participants who didn't adequately adhere (e.g. minimum amount of intervention) - but this would need to be labelled as a non-randomised, observational comparison, and be aware that the exclusion of patients compromises randomisation.[[CONSORT]](https://www.bmj.com/content/340/bmj.c869)
+Addressing unobserved confounding:
+* Instrumental variables
+* Regression discontinuity (RD)
+* Interrupted time series (ITS)
+* Difference in differences (DiD)
+`````
 
-These two problems can introduce **non-random selection effects** - i.e. randomisation isn't the only cause for treatment - hence introducing confounding (bias), and meaning that exchangeability would no longer holder - and hence why intention-to-treat is recommended (i.e. ignore protocol deviations).
+<mark>finish adding notes from iglestrom, and check for anything else from that paper or those authors, as it was fab</mark>
 
-The **Complier-Average Causal Effect (CACE) estimate** is the comparison of the average outcome of the compliers in the treatment arm compared with the average outcome of the comparable group of would-be compliers in the control arm. It is the intention-to-treat effect in the sub-group of participants who would always have complied with their treatment allocation, and is not subject to confounding.[[source]](https://hummedia.manchester.ac.uk/institutes/methods-manchester/docs/CausalInference.pdf)
+## Designing a study to estimate a causal effect from observational data
 
-## Stratification
+The gold standard method for inferring causality is randomisation - e.g. randomising patients to receive a treatment or not. This is because it removes confounding - it removes the common cause of the treatment and outcome, since the only cause of treatment was randomisation.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
-Principal stratification was proposed by Frangakis and Rubin 2002.[[source]](https://doi.org/10.1111/j.0006-341X.2002.00021.x)
+When we are using **observational data**, there are a variety of possible methods for **causal effect estimation**. They all rely on assumptions (although those cannot always be tested).
 
-Stratification involves either:
-* Restricting analysis to subset of study population with particular value of confounder, or
-* Performing analysis in each stratum of confounder, then pooling effect estimates
+When designing a study, you need to:
+1. Clearly specify the **research question** in terms of a **causal estimand**
+2. This allows you to **choose an appropriate method** for this estimand, and to carefully interrogate the influence of biases using **sensitivity and quantitative bias analysis**. [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+
+
+## Conventional approaches for causal effect estimation
+
+The most common methods typically focus on conditioning on some set of common causes of the exposure and outcome.
+
+### Stratification
+
+Principal stratification was proposed by Frangakis and Rubin 2002.[[source]](https://doi.org/10.1111/j.0006-341X.2002.00021.x) Stratification involves either:
+* **Restricting analysis to subset** of study population with particular value of confounder, or
+* **Performing analysis in each stratum** of confounder, then pooling effect estimates
 
 This is represented by drawing box on DAG.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
-It has typically been implemented in four different ways:
-* Principal stratification as a partition of units by response type
-* Principal stratification as an approximation to research questions concerning population averages (e.g. bounds and LATE analysis under non-compliance)
-* Principal stratification as a genuine focus of a research question (e.g. censorship by death)
-* Principal stratification as an intellectual restriction that confines its analysis to the assessment of strata-specific effects[[Pearl 2011]](https://ftp.cs.ucla.edu/pub/stat_ser/r382.pdf)
+### Matching
+
+**Matching** involves selecting a sample where exposed and unexposed groups have the same balance of confounders.
+
+This can't be represented in DAG, because **non-faithfulness** - the association to a backdoor path is exactly cancelled by the matched subset.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+
+### Multivariable regression
+
+In **multivariable regression**, the confounders are **included as covariates**.
+
+### Inverse probability of treatment (or propensity score) weighting
+
+A
+
+## G-methods
+
+### G-computation 
+
+**G-computation** (or the parametric G-formula)
+
+### Marginal structure models
+
+A
+
+### G-estimation
+
+A
+
+## Addressing unobserved confounding
+
+### Instrumental variables
+
+An **intrumental variable (IV)** is a variable that **causes some variation in the exposure** that is **unrelated to the outcome**, except through the exposure.
+
+Example: 'If a treatment is only performed at certain hospitals, a patient's distance from such a hospital may affect the probability that they receive this treatment (but doesn't affect whether they had the condition), and this distance can be used as an instrument'.
+
+'**Mendelian randomisation** uses IV analysis with genetic variants as instruments. IV analysis estimates a local average treatment effect (LATE) among 'compliers' - indivudals whose exposure status is affected by the instrument. This group cannot be precisely identified, and the LATE may therefore sometimes be of limited practical or policy relevance'. [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+
+### Regression discontinuity (RD)
+
+'RD methods can be used when the **exposure status** (wholly or partly) is determined by some **continuous variable exceeding some arbitrary threshold** (called the forcing variable).'
+
+'If the relationship between the forcing variable and the outcome is otherwise continuous, any discontinuity or jump in the relationship can be attributed to the exposure.'
+
+'RD estimates a LATE among the individuals who fall just above or just below the threshold. As with
+IV analysis, bias can occur if the forcing variable is connected
+to the outcome through a back-door path or any other pathway
+besides the exposure.' [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+
+### Interrupted time series (ITS)
+
+'ITS studies compare the **trend over time in a population-level outcome before and after an exposure** is introduced. Assuming that the trend would have been unchanged if the intervention was not introduced, a change in trend at the point of introduction (in terms of level and/or slope) can be attributed to the exposure.'
+
+'ITS can be regarded as a special case of IV or RD, with time being the instrument or forcing variable. ITS addresses time-invariant confounding but can be biased if other events that influence the outcome happen at the same time as the exposure'. [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+
+### Difference in differences (DiD)
+
+'DiD studies measure the **change in a population-level outcome before and after an intervention** is introduced, compared with a **comparison group where the intervention is never introduced**. This is similar to RD and ITS, but attempts to control for changing time trends, by using a comparison group to represent the counterfactual outcome trend in the exposed.'
+
+'DiD also addresses time-invariant confounding but requires assuming that there would have been no difference in trend between the groups in the absence of the intervention (the ‘parallel trends’ assumption).' [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+
+## What you shouldn't do: all possible confounders
+
+'Many analysts take the strategy of putting in **all possible confounders**. This can be bad news, because adjusting for **colliders and mediators can introduce bias**, as we’ll discuss shortly. Instead, we’ll look at **minimally sufficient adjustment sets**: sets of covariates that, when adjusted for, block all back-door paths, but include no more or no less than necessary. That means there can be many minimally sufficient sets, and if you remove even one variable from a given set, a back-door path will open.'[[source]](https://cran.r-project.org/web/packages/ggdag/vignettes/intro-to-dags.html)
 
 # ROUGH NOTES...
 
@@ -68,8 +145,6 @@ Causal inference with models:
 from their table of contents.. [[source]](https://www.hsph.harvard.edu/miguel-hernan/wp-content/uploads/sites/1268/2024/01/hernanrobins_WhatIf_2jan24.pdf)
 
 ## Methods to block back door paths
-
-**Matching** - e.g. matching each person with treatment and confounder, with someone with treatment and not confounder, and with someone who did not have treatment or confounder. Analysis is restricted to matched people. As the treatment and no treatment groups are matched on confounder, if there is association, then not due to confounder, as adjusted for it. This can't be represented in DAG, because non-faithfulness - the association to a backdoor path is exactly cancelled by the matched subset.
 
 Sometimes construct **propensity score** (which is a function of the confounders) and then do stratification or matching based on the propensity score (rather than the confounders themselves).
 
@@ -156,7 +231,3 @@ Example: Sales Calls directly impact retention, but also have an indirect effect
 'Specialized causal tools based on the principals of instrumental variables, differences-in-differences, or regression discontinuities can sometimes exploit partial randomization even in cases where a full experiment is impossible. For example, instrumental variable techniques can be used to identify causal effects in cases where we cannot randomly assign a treatment, but we can randomly nudge some customers towards treatment, like sending an email encouraging them to explore a new product feature. Difference-in-difference approaches can be helpful when the introduction of new treatments is staggered across groups. Finally, regression discontinuity approaches are a good option when patterns of treatment exhibit sharp cut-offs (for example qualification for treatment based on a specific, measurable trait like revenue over $5,000 per month).'
 
 [[source]](https://shap.readthedocs.io/en/latest/example_notebooks/overviews/Be%20careful%20when%20interpreting%20predictive%20models%20in%20search%20of%20causal%20insights.html#)
-
-## NOT suitable: Including all possible confounders
-
-'Many analysts take the strategy of putting in **all possible confounders**. This can be bad news, because adjusting for **colliders and mediators can introduce bias**, as we’ll discuss shortly. Instead, we’ll look at **minimally sufficient adjustment sets**: sets of covariates that, when adjusted for, block all back-door paths, but include no more or no less than necessary. That means there can be many minimally sufficient sets, and if you remove even one variable from a given set, a back-door path will open.'[[source]](https://cran.r-project.org/web/packages/ggdag/vignettes/intro-to-dags.html)
