@@ -136,22 +136,22 @@ Example: smoking causes yellow fingers and lung cancer
 
 ### Moderators
 
-**Moderators** are variables that change the **size or direction** of the relationship between variables. These could also be referred to as **effect modifiers** or statistical interaction. [[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf) 
+**Moderators** are variables that change the **size or direction** of the relationship between variables. These could also be referred to as **effect modifiers** or statistical interaction. [[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
+* If it impacts the **size** of the relationship, this is called **non-qualitative effect modification**
+* If it impacts the **direction** of the relationship, this is called **qualitative effect modification** [[Hernán and Robins 2024]](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)
+* These can also be referred to as **effect measure modification (EMM)**. [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
-When moderators are present - i.e. when the size of an effect differs across levels of another variable (e.g. gender, age) - this is called **effect measure modification (EMM)**. [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+They usually help you judge the external validity of your study by identifying the limitations of when the relationship between variables holds. [[source]](https://www.scribbr.co.uk/faqs/why-should-you-include-mediators-and-moderators-in-your-study/) 
 
-* They usually help you judge the external validity of your study by identifying the limitations of when the relationship between variables holds. [[source]](https://www.scribbr.co.uk/faqs/why-should-you-include-mediators-and-moderators-in-your-study/) 
+There has been some disagreement on how these should be included/notation within DAGs. [[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)[[Weinberg 2007]](https://pubmed.ncbi.nlm.nih.gov/17700243/)
 
-* There has been some disagreement on how these should be included/notation within DAGs. [[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)[[Weinberg 2007]](https://pubmed.ncbi.nlm.nih.gov/17700243/)
+'The presence and extent of EMM mathematically depends on the choice of an additive or multiplicative scale linking exposure and outcome; EMM may be present on either one of these scales or both'
 
-* 'The presence and extent of EMM mathematically depends on the choice of an additive or multiplicative scale linking exposure and outcome; EMM may be present on either one of these scales or both'
-
-* 'If both the exposure and effect modifier are causes of the outcome, then EMM will always be present on at least one scale.'
+'If both the exposure and effect modifier are causes of the outcome, then EMM will always be present on at least one scale.'
 
 '**Interaction** denotes that the **joint effect of two exposures is different from the sum of the individual effects of each exposure**. Like EMM, the presence and extent of interaction depends on the choice of an additive or multiplicative scale and does not necessarily have a meaningful causal interpretation. ‘Interaction’ is sometimes used interchangeably with EMM, but it is helpful to think of these as different concepts:
 * Interaction focuses on the **joint causal effect** of two exposures (eg, the combined effect of smoking and asbestos exposure on lung cancer)
 * EMM focuses on the effect of one exposure whose effect differs across levels of another variable (eg, the effect of asbestos exposure on lung cancer in smokers vs non-smokers); with EMM, the **causal effect of the effect modifier itself is not of interest**.' [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
-
 
 ````{mermaid}
   flowchart LR;
@@ -170,6 +170,18 @@ When moderators are present - i.e. when the size of an effect differs across lev
     classDef empty width:0px,height:0px;
     classDef green fill:#DDF2D1, stroke: #FFFFFF;
 ````
+
+**Why do we care about modifiers/effect modification?**
+
+(1) The average causal effect will differ between populations with different prevalence of the modifier - i.e. it depends on the distribution of individual causal effects in the population
+* **Example: If average causal effect of exposure is harmful in women and beneficial in mean, a study with an equal gender split would find null causal effect, and a study with majority women would find harmful causal effect.*
+* Hence, 'there is generally no such thing as “the average causal effect of treatment A on outcome Y (period)”, but “the average causal effect of treatment A on outcome Y in a population with a particular mix of causal effect modifiers.”' The ability to extrapolate causal effects between populations is referred to as the **transportability** of causal inferences across populations.
+* However, there will often be unmeasured effect modifiers, and so 'transportability of causal effects is an unverifiable assumption that relives heavily on subject-matter experts'.[[Hernán and Robins 2024]](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)
+
+(2) Additive (but not multiplicative) effect modification can help identify groups who would most benefit from an intervention [[Hernán and Robins 2024]](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)
+
+(3) Identifying effect modification may help us to understand the biological, social, or other mechanisms leading to the outcome. [[Hernán and Robins 2024]](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)
+
 
 ### Mediators
 
