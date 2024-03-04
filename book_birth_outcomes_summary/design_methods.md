@@ -21,8 +21,6 @@ Addressing unobserved confounding:
 * Difference in differences (DiD)
 `````
 
-<mark>finish adding notes from iglestrom, and check for anything else from that paper or those authors, as it was fab</mark>
-
 ## Designing a study to estimate a causal effect from observational data
 
 The gold standard method for inferring causality is randomisation - e.g. randomising patients to receive a treatment or not. This is because it removes confounding - it removes the common cause of the treatment and outcome, since the only cause of treatment was randomisation.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
@@ -62,19 +60,23 @@ A
 
 ## G-methods
 
+G-methods are a family of methods that address intermediate confounding, or treatment-confounder feedback, which is when a confounder is affected by prior exposure status. They do so by taking the by 'taking the observed distribution of intermediate confounders (in the population as well as over time) into account, instead of holding them constant; in other words, they estimate marginal effects rather than conditional effects'. [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+
 ### G-computation 
 
-**G-computation** (or the parametric G-formula)
+'**G-computation** (or the parametric G-formula)  uses a statistical model (eg, a regression model) to predict the potential outcomes (with and without exposure) for each individual observation. This makes it possible to calculate treatment effects in a straightforward way, but relies on the statistical model being correctly specified.' [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
 ### Marginal structure models
 
-A
+'**Marginal structural models** aim to make the exposed and unexposed groups exchangeable in terms of confounders by weighting each observation (commonly using inverse probability of treatment weighting) so that the distribution of confounders is similar in both groups. An ATE can then be calculated by a simple comparison or unadjusted regression model.' [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
 ### G-estimation
 
-A
+'**G-estimation** (using structural nested mean models) predicts the counterfactual outcome at each time point given no exposure from that point onwards, conditional on prior values of the exposure and confounders.' [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
 ## Addressing unobserved confounding
+
+'The above methods rely on an assumption of no unmeasured confounding (ie, conditional exchangeability), which is often not plausible in observational study designs. The following methods attempt to address unmeasured confounding, subject to certain unprovable assumptions, by exploiting some assignment mechanism (akin to randomisation in an RCT) that determines exposure status but is thought to be unrelated to any unobserved confounders.' [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
 ### Instrumental variables
 
