@@ -38,6 +38,9 @@ Example:
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
+'Relationships between variables in a DAG can also be described using structural equations, so called because they describe causal relationships rather than observed associations. A set of structural equations can sometimes be rewritten as a single reduced form equation.' [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+
+
 ### Naming conventions
 
 There are naming conventions for particular components of the DAG:
@@ -94,7 +97,10 @@ We don't draw causal diagrams as an exact, accurate representation of the world 
 
 We included **measured and unmeasured** confounders in our DAG.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
-We can use **conditioning** to control for confounding. This involves examining the relationship between A and Y within levels of the conditioning variable, using either: (a) sample restriction, (b) stratification, (c) adjustment, or (d) matching. If we don't do this, we will get **confounding bias** (where a common cause of A and Y is not blocked). When you condition on something, you **draw a box** around it on the DAG. Other terms like "adjusting" or "controlling" suggest a misleading interpretation of the model - although there does seem to be variability in terminology, with many sources using these terms. [[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
+We can use **conditioning** to control for confounding. This involves examining the relationship between A and Y within levels of the conditioning variable, using either: (a) sample restriction, (b) stratification, (c) adjustment, or (d) matching. If we don't do this, we will get **confounding bias** (where a common cause of A and Y is not blocked). When you condition on something, you **draw a box** around it on the DAG.
+
+Other terms like "adjusting" or "controlling" suggest a misleading interpretation of the model - although there does seem to be variability in terminology, with many sources using these terms. [[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf) Igelström et al. 2022 explain that 'conditioning on a variable is analogous to controlling for, adjusting for or stratifying by it (although in practice, different methods of conditioning may have different effects on the results and their interpretation).'[[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+
 
 Example: smoking causes yellow fingers and lung cancer
 * If we don't condition on it, we expect to see an association between yellow fingers and lung cancer (known as a **marginal/unconditional** association)
@@ -130,9 +136,22 @@ Example: smoking causes yellow fingers and lung cancer
 
 ### Moderators
 
-**Moderators** are variables that change the **size or direction** of the relationship between variables. These could also be referred to as effect modifiers or statistical interaction. [[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
-* They usually help you judge the external validity of your study by identifying the limitations of when the relationship between variables holds. [[source]](https://www.scribbr.co.uk/faqs/why-should-you-include-mediators-and-moderators-in-your-study/) 
-* There has been some disagreement on how these should be included/notation within DAGs. [[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)[[Weinberg 2007]](https://pubmed.ncbi.nlm.nih.gov/17700243/)
+**Moderators** are variables that change the **size or direction** of the relationship between variables. These could also be referred to as **effect modifiers** or statistical interaction. [[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
+* If it impacts the **size** of the relationship, this is called **non-qualitative effect modification**
+* If it impacts the **direction** of the relationship, this is called **qualitative effect modification** [[Hernán and Robins 2024]](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)
+* These can also be referred to as **effect measure modification (EMM)**. [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+
+They usually help you judge the external validity of your study by identifying the limitations of when the relationship between variables holds. [[source]](https://www.scribbr.co.uk/faqs/why-should-you-include-mediators-and-moderators-in-your-study/) 
+
+There has been some disagreement on how these should be included/notation within DAGs. [[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)[[Weinberg 2007]](https://pubmed.ncbi.nlm.nih.gov/17700243/)
+
+'The presence and extent of EMM mathematically depends on the choice of an additive or multiplicative scale linking exposure and outcome; EMM may be present on either one of these scales or both'
+
+'If both the exposure and effect modifier are causes of the outcome, then EMM will always be present on at least one scale.'
+
+'**Interaction** denotes that the **joint effect of two exposures is different from the sum of the individual effects of each exposure**. Like EMM, the presence and extent of interaction depends on the choice of an additive or multiplicative scale and does not necessarily have a meaningful causal interpretation. ‘Interaction’ is sometimes used interchangeably with EMM, but it is helpful to think of these as different concepts:
+* Interaction focuses on the **joint causal effect** of two exposures (eg, the combined effect of smoking and asbestos exposure on lung cancer)
+* EMM focuses on the effect of one exposure whose effect differs across levels of another variable (eg, the effect of asbestos exposure on lung cancer in smokers vs non-smokers); with EMM, the **causal effect of the effect modifier itself is not of interest**.' [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
 ````{mermaid}
   flowchart LR;
@@ -152,11 +171,23 @@ Example: smoking causes yellow fingers and lung cancer
     classDef green fill:#DDF2D1, stroke: #FFFFFF;
 ````
 
+**Why do we care about modifiers/effect modification?**
+
+(1) The average causal effect will differ between populations with different prevalence of the modifier - i.e. it depends on the distribution of individual causal effects in the population
+* **Example: If average causal effect of exposure is harmful in women and beneficial in mean, a study with an equal gender split would find null causal effect, and a study with majority women would find harmful causal effect.*
+* Hence, 'there is generally no such thing as “the average causal effect of treatment A on outcome Y (period)”, but “the average causal effect of treatment A on outcome Y in a population with a particular mix of causal effect modifiers.”' The ability to extrapolate causal effects between populations is referred to as the **transportability** of causal inferences across populations.
+* However, there will often be unmeasured effect modifiers, and so 'transportability of causal effects is an unverifiable assumption that relives heavily on subject-matter experts'.[[Hernán and Robins 2024]](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)
+
+(2) Additive (but not multiplicative) effect modification can help identify groups who would most benefit from an intervention [[Hernán and Robins 2024]](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)
+
+(3) Identifying effect modification may help us to understand the biological, social, or other mechanisms leading to the outcome. [[Hernán and Robins 2024]](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)
+
+
 ### Mediators
 
 **Mediators** are variables that lie in the causal path between the two other variables (e.g. between exposure and outcome), and they tell you how or why an effect takes place.[[source]](https://www.scribbr.co.uk/faqs/why-should-you-include-mediators-and-moderators-in-your-study/)
 * A path that includes a mediator is often called an **indirect effect** or indirect causal path
-* In contrast, the arrow directly connecting the treatment and outcome represents the **direct causal effect** of the treatment on the outcome that is not due to changes in the mediator.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS) 
+* In contrast, the arrow directly connecting the treatment and outcome represents the **direct causal effect** of the treatment on the outcome that is not due to changes in the mediator.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS) This is also referred to as the **controlled direct effect (CDE)** [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 * If you do not have a direct arrow between the treatment and outcome, and only via the mediator, this implies that this is the only way in which the treatment can cause the outcome, and that if you know the mediator is present, knowing whether or not the treatment was present should have no impact on the outcome.
 
 ````{mermaid}
@@ -173,7 +204,7 @@ Example: smoking causes yellow fingers and lung cancer
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-You might **condition** on a mediator if you are interested in the **direct effect of treatment on outcome that doesn't pass through mediator**. Example: In racial disparity studies, will condition on mediators like socioeconomic, education, location (often though **matching** on these characteristics),  to allow you to isolate the unique effect of race that is not explainable by those pathways. [[source]](https://stats.stackexchange.com/questions/488048/dag-are-there-situations-where-adjusting-for-mediators-is-reasonable)
+You might **condition** on a mediator if you are interested in the **direct effect of treatment on outcome that doesn't pass through mediator**. Example: In racial disparity studies, will condition on mediators like socioeconomic, education, location (often though **matching** on these characteristics),  to allow you to isolate the unique effect of race that is not explainable by those pathways. [[source]](https://stats.stackexchange.com/questions/488048/dag-are-there-situations-where-adjusting-for-mediators-is-reasonable) This is referred to as **mediation analysis** - when you're trying to 'quantify how much of the total effect of A on Y is explained by a particular mediator (the indirect effect), and how much is not (the direct effect)'.
 
 ````{mermaid}
   flowchart LR;
@@ -192,6 +223,17 @@ You might **condition** on a mediator if you are interested in the **direct effe
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
 ````
+
+**How is CDE estimated?**
+* 'Assuming no interaction between exposure and mediator, and no confounding between mediator and outcome, the indirect effect can be obtained by subtracting the CDE from the total effect'
+* 'When interaction is present between exposure and mediator, the CDE will take on different values for different levels of the mediator, and the effect obtained by subtracting the CDE from the total effect no longer has a meaningful causal interpretation.'
+* 'To address this problem, alternative definitions of causal direct and indirect effects have been proposed, such that their sum adds up to the total effect even in the presence of interactions, generally by allowing one or more of these effects to include the interaction effect.' These include:
+  * Controlled direct effect (CDE)
+  * Natural direct effect or pure direct effect
+  * Natural indirect effect or total indirect effect
+  * Pure indirect effect
+  * Total direct effect
+* 'These effect estimands can be defined theoretically in counterfactual terms, but can only be estimated given additional assumptions that are difficult to verify and may lack applicability for estimating policy-relevant mediation quantities (eg, how much the effect of A on Y could be reduced by intervening on the mediator).'[[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
 ### Colliders
 

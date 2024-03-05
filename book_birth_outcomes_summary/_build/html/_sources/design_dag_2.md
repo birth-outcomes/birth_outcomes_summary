@@ -202,11 +202,15 @@ Example: EPO used to treat anemia, dose is based on haemoglobin level at time of
 
 ### Treatment-confounder feedback
 
-Our DAG above was incomplete - in this scenario, treatment at timepoint K will impact the confounder (levels of haemoglobin) at timepoint K+1. This is referred to as **treatment-confounder feedback** - when the later confounder is impacted by prior treatment.
+Our DAG above was incomplete - in this scenario, treatment at timepoint K will impact the confounder (levels of haemoglobin) at timepoint K+1. This is referred to as **treatment-confounder feedback** - when the later confounder is impacted by prior treatment.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home) This is also referred to as **intermediate confounding** - when a confoudner is affected by prior exposure/treatment status.[[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
-When there is **treatment-confounder feedback**, then conventional adjustment methods - even if closing all back door paths - will still not be able to yield an unbiased estimate.  We'll get a biased estimate if we condition on the Ls, as conditioning on L<sub>K+1</sub> will open a path that was previously blocked: A<sub>K</sub> to L<sub>K+1</sub> to U to Y<sub>K</sub>. Hence, we have introduced selection bias.
+When there is **treatment-confounder feedback**, then conventional adjustment methods, since:
+In other words:
+1. Confounding on an intermediate confounder blocks part of the effect of prior exposure/treatment.
+2. Conditioning on an intermediate confounder can introduce collider bias, opening additional back-door paths between exposure/treatment and outcome.[[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+  * e.g. We'll get a biased estimate if we condition on the Ls, as conditioning on L<sub>K+1</sub> will open a path that was previously blocked: A<sub>K</sub> to L<sub>K+1</sub> to U to Y<sub>K</sub>. Hence, we have introduced selection bias.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
-If the time-varying confounder also affects the outcome (e.g. L<sub>K+1</sub> --> Y<sub>K+2</sub>), it will be impossible to estimate the total effect of the treatment.
+This means we will be unable to yielf an unbiased estimate and, if the time-varying confounder also affects the outcome (e.g. L<sub>K+1</sub> --> Y<sub>K+2</sub>), it will be impossible to estimate the total effect of the treatment.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
 We need other methods to handle these settings: **G-methods**. [[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 

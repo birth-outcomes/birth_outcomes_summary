@@ -65,6 +65,8 @@ const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'design_methods';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -427,8 +429,17 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Methods for causal effect estimation</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#designing-a-study-to-estimate-a-causal-effect-from-observational-data">Designing a study to estimate a causal effect from observational data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conventional-approaches-for-causal-effect-estimation">Conventional approaches for causal effect estimation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stratification">Stratification</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matching">Matching</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stratification">Stratification</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-example">Simple example</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mantel-haenszel-formula">Mantel-Haenszel Formula</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-stratification">Limitations of stratification</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matching">Matching</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#matching-methods">Matching methods</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-matching">Limitations of matching</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariable-regression">Multivariable regression</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-probability-of-treatment-or-propensity-score-weighting">Inverse probability of treatment (or propensity score) weighting</a></li>
 </ul>
@@ -497,7 +508,10 @@ document.write(`
 <li><p>Difference in differences (DiD)</p></li>
 </ul>
 </div>
-<p><mark>finish adding notes from iglestrom, and check for anything else from that paper or those authors, as it was fab</mark></p>
+<p><mark> where does difference in differences fit in? </mark> <a class="reference external" href="https://dimewiki.worldbank.org/Difference-in-Difference">https://dimewiki.worldbank.org/Difference-in-Difference</a></p>
+<p><mark>continue to use this textbook throughout</mark> <a class="reference external" href="https://www.hsph.harvard.edu/miguel-hernan/wp-content/uploads/sites/1268/2024/01/hernanrobins_WhatIf_2jan24.pdf">https://www.hsph.harvard.edu/miguel-hernan/wp-content/uploads/sites/1268/2024/01/hernanrobins_WhatIf_2jan24.pdf</a></p>
+<p><mark>read this - may help with where difference in differences fits in - andjust generally looks good</mark> <a class="reference external" href="https://www2.stat.duke.edu/~fl35/CausalInferenceClass.html">https://www2.stat.duke.edu/~fl35/CausalInferenceClass.html</a></p>
+<p><mark> seperate into a summary page, and then seperate for the three main categories </mark></p>
 <section id="designing-a-study-to-estimate-a-causal-effect-from-observational-data">
 <h2>Designing a study to estimate a causal effect from observational data<a class="headerlink" href="#designing-a-study-to-estimate-a-causal-effect-from-observational-data" title="Link to this heading">#</a></h2>
 <p>The gold standard method for inferring causality is randomisation - e.g. randomising patients to receive a treatment or not. This is because it removes confounding - it removes the common cause of the treatment and outcome, since the only cause of treatment was randomisation.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
@@ -511,19 +525,99 @@ document.write(`
 <section id="conventional-approaches-for-causal-effect-estimation">
 <h2>Conventional approaches for causal effect estimation<a class="headerlink" href="#conventional-approaches-for-causal-effect-estimation" title="Link to this heading">#</a></h2>
 <p>The most common methods typically focus on conditioning on some set of common causes of the exposure and outcome.</p>
+<p>In RCTs, you are controlling for <strong>intercurrent events</strong> (ICEs), which are defined ‘a post-randomization event that “affect either interpretation or existence of the measurements associated with clinical questions of interest.”’. Examples include compliance to an assigned treatment, death before follow-up, treatment switching, etc.<a class="reference external" href="https://doi.org/10.1002/sim.9439">[Lipkovich et al. 2022]</a></p>
 <section id="stratification">
 <h3>Stratification<a class="headerlink" href="#stratification" title="Link to this heading">#</a></h3>
-<p>Principal stratification was proposed by Frangakis and Rubin 2002.<a class="reference external" href="https://doi.org/10.1111/j.0006-341X.2002.00021.x">[source]</a> Stratification involves either:</p>
+<p>Stratification or <strong>principal stratification</strong> is the <strong>simplest</strong> method to control confounding.<a class="reference external" href="https://doi.org/10.1159/000319590">[Tripepi et al. 2010]</a> It is represented by drawing a box on the DAG.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+<p>It was proposed by Frangakis and Rubin 2002.<a class="reference external" href="https://doi.org/10.1111/j.0006-341X.2002.00021.x">[source]</a> It has gained popularity since the ICH E9 addendum on statistical principles for clinical trials, which listed it as a valid approach to ICEs.<a class="reference external" href="https://cran.r-project.org/web/packages/PStrata/vignettes/PStrata_JSS.pdf">[source]</a> The use of stratification to adjust for confounding is so common that some investigators consider the terms ‘stratification’ and ‘adjustment’ synonymous. Whilst it can be used to adjust for confounding - but it can also be used to <strong>identify effect modification</strong>.<a class="reference external" href="https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/">[Hernán and Robins 2024]</a></p>
+<p>Principal stratification involves partitioning participants into <strong>principal strata</strong> - i.e. particular values of a variable. ‘Stratification necessarily results in multiple stratum-specific effect measures (one per stratum defined by the variables L). Each of them quantifies the average causal effect in a nonoverlapping subset of the population but, in general, none of them quantifies the average causal effect in the entire population.’ Instead, they are <strong>conditional effect measures</strong>. <a class="reference external" href="https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/">[Hernán and Robins 2024]</a></p>
+<p>‘Often, one of the principal strata is the focus of inference, but sometimes it is of interest to combine principal effects across several (or all) principal strata while accounting for a confounding effect of a post-randomization variable.’<a class="reference external" href="https://doi.org/10.1002/sim.9439">[Lipkovich et al. 2022]</a> Hence, stratification involves either:</p>
 <ul class="simple">
-<li><p><strong>Restricting analysis to subset</strong> of study population with particular value of confounder, or</p></li>
-<li><p><strong>Performing analysis in each stratum</strong> of confounder, then pooling effect estimates</p></li>
+<li><p><strong>Restricting analysis to subset</strong> of study population with particular value of confounder.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a> This type of stratification is referred to as <strong>restriction</strong>. When positivity fails for some strata of the population (i.e. impossible to get a certain exposure), restriction is used to limit causal inference to the strata where it does hold. <a class="reference external" href="https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/">[Hernán and Robins 2024]</a></p></li>
+<li><p><strong>Performing analysis in each stratum</strong> of confounder.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a> For causal inference, stratification is simply applies restriction to several mutually exclusive subsets of the population, with exchangeability within each subset. <a class="reference external" href="https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/">[Hernán and Robins 2024]</a></p></li>
 </ul>
-<p>This is represented by drawing box on DAG.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+<section id="simple-example">
+<h4>Simple example<a class="headerlink" href="#simple-example" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Exposure: Birth order</p></li>
+<li><p>Outcome: Down syndrome</p></li>
+<li><p>Potential confounder: Maternal age</p></li>
+</ul>
+<div class="mermaid">
+              flowchart LR;
+
+    order(&quot;Birth order&quot;):::white;
+    down(&quot;Down syndrome&quot;):::white;
+    age(&quot;Maternal age&quot;):::black;
+
+    order --&gt;|?| down;
+    age --&gt; order;
+    age --&gt; down;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div><p>See figure:</p>
+<ul class="simple">
+<li><p>(a) Association of down syndrome with birth order and age groups seperately</p></li>
+<li><p>(b) Down syndrome cases stratified by birth order and maternal age</p></li>
+</ul>
+<p>Can observe that crude association between birth order and Down syndrome was just due to maternal age (as in each age category, birth order did not affect down syndrome frequency, but in each birth order category, age did). <a class="reference external" href="https://doi.org/10.1159/000319590">[Tripepi et al. 2010]</a></p>
+<p><img alt="Tripepi et al. 2010 Figure 1" src="_images/tripepi_2010_fig1.jpg" /></p>
+</section>
+<section id="mantel-haenszel-formula">
+<h4>Mantel-Haenszel Formula<a class="headerlink" href="#mantel-haenszel-formula" title="Link to this heading">#</a></h4>
+<p>The <strong>Mantel-Haenszel formula</strong> can be used to provide a pooled odds ratio across different strata. There are alternative methods (e.g. Woolf and inverse variance) but the Mantel-Haenszel method is generally the most robust.<a class="reference external" href="https://www.statsdirect.co.uk/help/meta_analysis/mh.htm">[source]</a></p>
+<p>Key steps:</p>
+<ol class="arabic simple">
+<li><p>Calculate crude relative risks (RR) or odds ratio (OR) (i.e. <strong>without stratifying</strong>)</p></li>
+<li><p>Stratify by confounding variable and calculate <strong>stratum-specific</strong> RR or OR</p></li>
+<li><p>Assess whether effect estimates are roughly homogenous across strata and do not differ from that in the whole group</p>
+<ul class="simple">
+<li><p>If they are <strong>homogeneous</strong>, this means there is <strong>no confounding</strong>, and you can calculate the overall adjusted RR or OR by the <strong>Mantel-Haenszel formula</strong>. The pooling estimate provides an <strong>average</strong> of the stratum-specific RRs or ORs with <strong>weights proportional to the number of individuals</strong> in each stratum.</p></li>
+<li><p>If they are <strong>heterogeneous</strong> and we are interested in effect modification, stratum-specific effect estimates should be reported separately. <a class="reference external" href="https://doi.org/10.1159/000319590">[Tripepi et al. 2010]</a></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="limitations-of-stratification">
+<h4>Limitations of stratification<a class="headerlink" href="#limitations-of-stratification" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Computes <strong>conditional</strong> effect measures (not average effect measures)</p></li>
+<li><p>Requires computation of effect measures in subsets of population defined by combining <em>all</em> variables required for conditional exchangeability<a class="reference external" href="https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/">[Hernán and Robins 2024]</a></p>
+<ul>
+<li><p>This can be laborious and demands a large sample <strong>size</strong> when there is more than one confounder.<a class="reference external" href="https://doi.org/10.1159/000319590">[Tripepi et al. 2010]</a></p></li>
+<li><p>This is even if we’re <strong>not interested</strong> in such effect modification. Solution: Stratification by something of interest (i.e. effect modifier) followed by IP weighting or standardisation (to adjust for confounding) allows you to deal with exchangeability (confounders) and effect modification (modifiers)</p></li>
+</ul>
+</li>
+<li><p><strong>Noncollapsibility</strong> of certain effect measures like the odds ratio <a class="reference external" href="https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/">[Hernán and Robins 2024]</a></p></li>
+<li><p>Requires <strong>continuous</strong> confounders to be <strong>constrained</strong> to a limited number of categories, which could generate <strong>residual confounding</strong> <a class="reference external" href="https://doi.org/10.1159/000319590">[Tripepi et al. 2010]</a></p></li>
+</ul>
+</section>
 </section>
 <section id="matching">
 <h3>Matching<a class="headerlink" href="#matching" title="Link to this heading">#</a></h3>
-<p><strong>Matching</strong> involves selecting a sample where exposed and unexposed groups have the same balance of confounders.</p>
-<p>This can’t be represented in DAG, because <strong>non-faithfulness</strong> - the association to a backdoor path is exactly cancelled by the matched subset.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+<p><strong>Matching</strong> involves selecting a sample where exposed and unexposed groups have the same distribution of confounders.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a> We often start with the group with fewer individuals, and then use the other group to find matches. It does not have to be <strong>one-to-one (matching pairs)</strong> - it can be <strong>one-to-many (matching sets)</strong>. Matching is often based on a combination of confounders. <a class="reference external" href="https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/">[Hernán and Robins 2024]</a></p>
+<p>Matching can’t be represented in DAG, because <strong>non-faithfulness</strong> - the association to a backdoor path is exactly cancelled by the matched subset.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+<p>We make an assumption of conditional exchangeability given L (the confounder), meaning that matching results in ‘(unconditional) <strong>exchangeability</strong> of the treated and untreated in the matched population’, and so we <strong>directly compare</strong> their outcomes. Matching ensures <strong>positivity</strong> since strata with only treated or untreated individuals are excluded. <a class="reference external" href="https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/">[Hernán and Robins 2024]</a></p>
+<section id="matching-methods">
+<h4>Matching methods<a class="headerlink" href="#matching-methods" title="Link to this heading">#</a></h4>
+<p>Above describes <strong>individual matching</strong>, but you can also use <strong>frequency matching</strong>. For example, randomly selected individuals but ensuring 70% have L=1 (certain value of confounder), and then repeating for the other population. <a class="reference external" href="https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/">[Hernán and Robins 2024]</a></p>
+<p>There are a few approaches to matching, which include:</p>
+<ul class="simple">
+<li><p><strong>Propensity score matching</strong> - matched based on propensity scores</p></li>
+<li><p><strong>Matched difference-in-differences</strong> - perform matching then computed difference-in-differences - this controls for unobserved, time-invariant characteristics between the groups</p></li>
+<li><p><strong>Synthetic control method</strong> - weight one group in a manner to it closely resembles the other group
+Above, we are describing the <strong>synthetic control method</strong>. <a class="reference external" href="https://dimewiki.worldbank.org/Matching">[source]</a></p></li>
+</ul>
+</section>
+<section id="limitations-of-matching">
+<h4>Limitations of matching<a class="headerlink" href="#limitations-of-matching" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Requires extensive datasets to properly match, with detailed information on baseline characteristics, but this is not always available</p></li>
+<li><p>Assumes there are no unobserved characteristics between the matched groups. Possible solution: Matched difference-in-differences. <a class="reference external" href="https://dimewiki.worldbank.org/Matching">[source]</a></p></li>
+<li><p>Computes <strong>conditional</strong> effect measures (not average effect measures) - i.e. only for certain subset of population <a class="reference external" href="https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/">[Hernán and Robins 2024]</a></p></li>
+</ul>
+</section>
 </section>
 <section id="multivariable-regression">
 <h3>Multivariable regression<a class="headerlink" href="#multivariable-regression" title="Link to this heading">#</a></h3>
@@ -531,34 +625,40 @@ document.write(`
 </section>
 <section id="inverse-probability-of-treatment-or-propensity-score-weighting">
 <h3>Inverse probability of treatment (or propensity score) weighting<a class="headerlink" href="#inverse-probability-of-treatment-or-propensity-score-weighting" title="Link to this heading">#</a></h3>
-<p>A</p>
+<p><a class="reference external" href="https://www.liverpool.ac.uk/media/livacuk/schoolofmanagement/docs/Causal,Inference,with,Observational,Data,A,Tutorial,on,Propensity,Score,Analysis.pdf">https://www.liverpool.ac.uk/media/livacuk/schoolofmanagement/docs/Causal,Inference,with,Observational,Data,A,Tutorial,on,Propensity,Score,Analysis.pdf</a></p>
+<p><mark>read this</mark> <a class="reference external" href="https://dimewiki.worldbank.org/Propensity_Score_Matching">https://dimewiki.worldbank.org/Propensity_Score_Matching</a></p>
+<p><mark>be clear about propensity score matching .v.s weighting v.s. anything else </mark></p>
 </section>
 </section>
 <section id="g-methods">
 <h2>G-methods<a class="headerlink" href="#g-methods" title="Link to this heading">#</a></h2>
+<p>G-methods are a family of methods that address intermediate confounding, or treatment-confounder feedback, which is when a confounder is affected by prior exposure status. They do so by taking the by ‘taking the observed distribution of intermediate confounders (in the population as well as over time) into account, instead of holding them constant; in other words, they estimate marginal effects rather than conditional effects’. <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
 <section id="g-computation">
 <h3>G-computation<a class="headerlink" href="#g-computation" title="Link to this heading">#</a></h3>
-<p><strong>G-computation</strong> (or the parametric G-formula)</p>
+<p>‘<strong>G-computation</strong> (or the parametric G-formula)  uses a statistical model (eg, a regression model) to predict the potential outcomes (with and without exposure) for each individual observation. This makes it possible to calculate treatment effects in a straightforward way, but relies on the statistical model being correctly specified.’ <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
 </section>
 <section id="marginal-structure-models">
 <h3>Marginal structure models<a class="headerlink" href="#marginal-structure-models" title="Link to this heading">#</a></h3>
-<p>A</p>
+<p>‘<strong>Marginal structural models</strong> aim to make the exposed and unexposed groups exchangeable in terms of confounders by weighting each observation (commonly using inverse probability of treatment weighting) so that the distribution of confounders is similar in both groups. An ATE can then be calculated by a simple comparison or unadjusted regression model.’ <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
 </section>
 <section id="g-estimation">
 <h3>G-estimation<a class="headerlink" href="#g-estimation" title="Link to this heading">#</a></h3>
-<p>A</p>
+<p>‘<strong>G-estimation</strong> (using structural nested mean models) predicts the counterfactual outcome at each time point given no exposure from that point onwards, conditional on prior values of the exposure and confounders.’ <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
 </section>
 </section>
 <section id="addressing-unobserved-confounding">
 <h2>Addressing unobserved confounding<a class="headerlink" href="#addressing-unobserved-confounding" title="Link to this heading">#</a></h2>
+<p>‘The above methods rely on an assumption of no unmeasured confounding (ie, conditional exchangeability), which is often not plausible in observational study designs. The following methods attempt to address unmeasured confounding, subject to certain unprovable assumptions, by exploiting some assignment mechanism (akin to randomisation in an RCT) that determines exposure status but is thought to be unrelated to any unobserved confounders.’ <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
 <section id="instrumental-variables">
 <h3>Instrumental variables<a class="headerlink" href="#instrumental-variables" title="Link to this heading">#</a></h3>
+<p><mark>read this</mark> <a class="reference external" href="https://dimewiki.worldbank.org/Instrumental_Variables">https://dimewiki.worldbank.org/Instrumental_Variables</a></p>
 <p>An <strong>intrumental variable (IV)</strong> is a variable that <strong>causes some variation in the exposure</strong> that is <strong>unrelated to the outcome</strong>, except through the exposure.</p>
 <p>Example: ‘If a treatment is only performed at certain hospitals, a patient’s distance from such a hospital may affect the probability that they receive this treatment (but doesn’t affect whether they had the condition), and this distance can be used as an instrument’.</p>
 <p>‘<strong>Mendelian randomisation</strong> uses IV analysis with genetic variants as instruments. IV analysis estimates a local average treatment effect (LATE) among ‘compliers’ - indivudals whose exposure status is affected by the instrument. This group cannot be precisely identified, and the LATE may therefore sometimes be of limited practical or policy relevance’. <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
 </section>
 <section id="regression-discontinuity-rd">
 <h3>Regression discontinuity (RD)<a class="headerlink" href="#regression-discontinuity-rd" title="Link to this heading">#</a></h3>
+<p><mark>read this</mark> <a class="reference external" href="https://dimewiki.worldbank.org/Regression_Discontinuity">https://dimewiki.worldbank.org/Regression_Discontinuity</a></p>
 <p>‘RD methods can be used when the <strong>exposure status</strong> (wholly or partly) is determined by some <strong>continuous variable exceeding some arbitrary threshold</strong> (called the forcing variable).’</p>
 <p>‘If the relationship between the forcing variable and the outcome is otherwise continuous, any discontinuity or jump in the relationship can be attributed to the exposure.’</p>
 <p>‘RD estimates a LATE among the individuals who fall just above or just below the threshold. As with
@@ -757,8 +857,17 @@ besides the exposure.’ <a class="reference external" href="https://doi.org/10.
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Methods for causal effect estimation</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#designing-a-study-to-estimate-a-causal-effect-from-observational-data">Designing a study to estimate a causal effect from observational data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conventional-approaches-for-causal-effect-estimation">Conventional approaches for causal effect estimation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stratification">Stratification</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matching">Matching</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stratification">Stratification</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-example">Simple example</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mantel-haenszel-formula">Mantel-Haenszel Formula</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-stratification">Limitations of stratification</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matching">Matching</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#matching-methods">Matching methods</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-matching">Limitations of matching</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariable-regression">Multivariable regression</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-probability-of-treatment-or-propensity-score-weighting">Inverse probability of treatment (or propensity score) weighting</a></li>
 </ul>
