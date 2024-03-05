@@ -26,9 +26,12 @@ Scientific research can be categorised into descriptive, predictive and etiologi
 
 ### Causal inference
 
-In etiogical research, we want an unbiased estimate of the effect of X and Y - i.e. estimate of the causal effect of an exposure on an outcome[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)  
+In etiogical research, we want an unbiased estimate of the effect of X and Y - i.e. estimate of the causal effect of an exposure on an outcome[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS) When it comes to defining causality, pioneers in causal inference have come up with three definitions/languages, with the strengths of each listed:
+1. **Counterfactuals** (also called **potential outcomes**) - good for articulating the inference for a small number of causes and effects
+2. **Causal graphical models** - good for understanding the scientific problems
+3. **Structural equation models** - good for fitting simultaneous models for the variables (espeically for abstract concepts)[[source]](http://www.statslab.cam.ac.uk/~qz280/talk/ssrmp-2020/slides.pdf)
 
-#### Potential outcomes framework
+#### Counterfacturals / Potential outcomes framework
 
 To **define a causal effect**, we use the **potential outcomes framework** (also known as counterfactural or equivalent concepts approach[[source]](https://www.coursera.org/learn/crash-course-in-causality/lecture/Lgb6O/hypothetical-interventions) or Rubin or Neyman-Rubin causal model). This framework 'uses **mathematical notation** to describe **counterfactual outcomes** and can be used to describe the causal effect of an exposure on an outcome in statistical terms'. [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 

@@ -11,7 +11,7 @@ Create pseudo-population to mimic randomised population using:
 * **Inverse probability of treatment weighting (IPTW)** - weight each individual by the inverse of their probability of receiving their actual treatment, resulting in equal distribution of confounders in the treated and untreated groups
 
 Or:
-* **Outcome regression** (i.e. multivariable regression, or standardisation) - inclusion of confounders as covariates in the model.
+* **Multivariable regression** - inclusion of confounders as covariates in the model
 
 `````
 
@@ -28,6 +28,7 @@ These approaches are:
 * Matching
 * Inverse probability of treatment (or propensity score) weighting
 * Multivariable regression
+    * Outcome regression/standardisation
 
 However, I first introduce **propensity scores**, as these are used within variants of several methods.
 
@@ -219,20 +220,8 @@ There are variants to IPTW that attempt to address some of its limitations.
 
 'These methods can help reduce the impact of extreme scores and improve the finite-sample property of IPW' [[source]](https://www2.stat.duke.edu/~fl35/teaching/640/Chap3.4_observational_weighting.pdf)
 
-## Multivariable regression (i.e. outcome regression, or standardisation)
+## Multivariable regression
 
 In **multivariable regression**, the confounders are **included as covariates**. [[Valojerdi et al. 2018]](https://doi.org/10.14196%2Fmjiri.32.122)
 
-Steps:
-1. **Fit model on observed data**
-2. Seperate observed data in treatment and non-treatment group. Use model to **predict outcomes in treated v.s. not treated** groups
-3. Calculate the **average outcome in each group**, to find mean difference and 95% confidence interval between the groups, i.e. average treatment effect (ATE) [[Batten 2023]](https://causallycurious.com/posts/standardization/standardization)
-
 This can be through including individual covariaties, or by just including the estimated **propensity score as a covariate** in the regression model. This can be attractive as it allows the incorporation of many covariates. However, it should be used with caution, as 'bias may increase when the variance in the treated and untreated groups are very different (actually, the untreated group variance is much larger than the treated groups variance).' [[Valojerdi et al. 2018]](https://doi.org/10.14196%2Fmjiri.32.122)
-
-Assumptions:
-* Identifiability conditions - exchangeability, positivity, consistency
-* No measurement error
-* Model correctly specified
-
-'Standardization models the outcome, whereas inverse probability weighting models the treatment'.  If we were to do IPW and standardisation 'without using any models (i.e. non-parametrically) then we would expect both methods to give the exact same result'. [[Batten 2023]](https://causallycurious.com/posts/standardization/standardization)

@@ -18,6 +18,8 @@ Methods for causal effect estimation can be broadly grouped into:
 
 <mark>Will need to integrate with the page on methods to account for treatment paradox</mark>
 
+<mark>haven't covered bayesian causal inference</mark>... https://royalsocietypublishing.org/doi/10.1098/rsta.2022.0153 and http://www2.stat.duke.edu/~fl35/BayesianCausalInference.html
+
 ## Designing a study to estimate a causal effect from observational data
 
 The gold standard method for inferring causality is randomisation - e.g. randomising patients to receive a treatment or not. This is because it removes confounding - it removes the common cause of the treatment and outcome, since the only cause of treatment was randomisation.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
@@ -27,6 +29,21 @@ When we are using **observational data**, there are a variety of possible method
 When designing a study, you need to:
 1. Clearly specify the **research question** in terms of a **causal estimand**
 2. This allows you to **choose an appropriate method** for this estimand, and to carefully interrogate the influence of biases using **sensitivity and quantitative bias analysis**. [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+
+## Groups of methods for causal effect estimation
+
+Methods for causal effect estimation can be broadly grouped into:
+* **Conventional methods**
+* **G-methods** (which address treatment-confounder feedback)
+* **Methods to address unobserved confounding** [no source]
+
+### Conditional v.s. marginal effect measures
+
+Different methods will produce effect measures that are **conditional** (specific to certain population) or **marginal** (relevant to whole population).
+
+**Non-collapsibility** refers to a phenomenon where a conditional effect measure differs from the marginal effect measure even in the absence of confounding. This is true for certain non-linear effect measures like the odds ratio 
+* This may make conditional measures more **difficult to compare** between studies (since different studies typically adjust for different sets of covariates)
+* On the other hand, marginal effeccts may be **less transportable** between populations [[Vansteelandt and Keiding 2011]](https://doi.org/10.1093/aje/kwq474)
 
 ## What you shouldn't do: all possible confounders
 

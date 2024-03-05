@@ -433,7 +433,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-difference-between-predictive-and-etiological-research">The difference between predictive and etiological research</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-research">Types of research</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-inference">Causal inference</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-outcomes-framework">Potential outcomes framework</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#counterfacturals-potential-outcomes-framework">Counterfacturals / Potential outcomes framework</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-v-s-average">Individual v.s. average</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#terminology">Terminology</a></li>
 </ul>
@@ -490,9 +490,14 @@ document.write(`
 </section>
 <section id="causal-inference">
 <h3>Causal inference<a class="headerlink" href="#causal-inference" title="Link to this heading">#</a></h3>
-<p>In etiogical research, we want an unbiased estimate of the effect of X and Y - i.e. estimate of the causal effect of an exposure on an outcome<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p>
-<section id="potential-outcomes-framework">
-<h4>Potential outcomes framework<a class="headerlink" href="#potential-outcomes-framework" title="Link to this heading">#</a></h4>
+<p>In etiogical research, we want an unbiased estimate of the effect of X and Y - i.e. estimate of the causal effect of an exposure on an outcome<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a> When it comes to defining causality, pioneers in causal inference have come up with three definitions/languages, with the strengths of each listed:</p>
+<ol class="arabic simple">
+<li><p><strong>Counterfactuals</strong> (also called <strong>potential outcomes</strong>) - good for articulating the inference for a small number of causes and effects</p></li>
+<li><p><strong>Causal graphical models</strong> - good for understanding the scientific problems</p></li>
+<li><p><strong>Structural equation models</strong> - good for fitting simultaneous models for the variables (espeically for abstract concepts)<a class="reference external" href="http://www.statslab.cam.ac.uk/~qz280/talk/ssrmp-2020/slides.pdf">[source]</a></p></li>
+</ol>
+<section id="counterfacturals-potential-outcomes-framework">
+<h4>Counterfacturals / Potential outcomes framework<a class="headerlink" href="#counterfacturals-potential-outcomes-framework" title="Link to this heading">#</a></h4>
 <p>To <strong>define a causal effect</strong>, we use the <strong>potential outcomes framework</strong> (also known as counterfactural or equivalent concepts approach<a class="reference external" href="https://www.coursera.org/learn/crash-course-in-causality/lecture/Lgb6O/hypothetical-interventions">[source]</a> or Rubin or Neyman-Rubin causal model). This framework ‘uses <strong>mathematical notation</strong> to describe <strong>counterfactual outcomes</strong> and can be used to describe the causal effect of an exposure on an outcome in statistical terms’. <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
 <p>Some key terms in the potential outcomes framework:</p>
 <ul class="simple">
@@ -823,7 +828,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-difference-between-predictive-and-etiological-research">The difference between predictive and etiological research</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-research">Types of research</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-inference">Causal inference</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-outcomes-framework">Potential outcomes framework</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#counterfacturals-potential-outcomes-framework">Counterfacturals / Potential outcomes framework</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-v-s-average">Individual v.s. average</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#terminology">Terminology</a></li>
 </ul>

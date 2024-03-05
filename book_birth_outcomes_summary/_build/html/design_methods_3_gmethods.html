@@ -65,6 +65,8 @@ const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'design_methods_3_gmethods';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -429,9 +431,16 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-methods">G-methods</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-computation">G-computation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-structure-models">Marginal structure models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-estimation">G-estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-computation">G-computation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminology">Terminology</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-method">About the method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-computation-vs-iptw">G-computation vs. IPTW</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doubly-robust-estimators">Doubly robust estimators</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-structural-models">Marginal structural models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-inverse-probability-weighting">Augmented inverse probability weighting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-estimation-of-structural-nested-models">G-estimation of structural nested models</a></li>
 </ul>
             </nav>
         </div>
@@ -447,28 +456,97 @@ document.write(`
 <h1>Methods #3: G-methods<a class="headerlink" href="#methods-3-g-methods" title="Link to this heading">#</a></h1>
 <div class="info admonition">
 <p class="admonition-title">Executive summary</p>
-<p>G-methods:</p>
+<p>G-methods address intermediate confounding, i.e. treatment-confounder feedback.</p>
+<p><strong>G-computation</strong></p>
 <ul class="simple">
-<li><p>G-computation</p></li>
-<li><p>Marginal structure models</p></li>
-<li><p>G-estimation</p></li>
+<li><p>Also known as <strong>parametric G-formula</strong>, <strong>G-standardisation</strong>, <strong>standardisation</strong> or <strong>outcome regression</strong></p></li>
+<li><p>Predict outcomes in counterfactual populations that assume all had treatment or not, and compare</p></li>
 </ul>
+<p>Marginal structure models</p>
+<p>G-estimation</p>
 </div>
 <section id="g-methods">
 <h2>G-methods<a class="headerlink" href="#g-methods" title="Link to this heading">#</a></h2>
-<p>G-methods are a family of methods that address intermediate confounding, or treatment-confounder feedback, which is when a confounder is affected by prior exposure status. They do so by taking the by ‘taking the observed distribution of intermediate confounders (in the population as well as over time) into account, instead of holding them constant; in other words, they estimate marginal effects rather than conditional effects’. <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+<p>G-methods are a family of methods that <strong>address intermediate confounding, i.e. treatment-confounder feedback</strong>, which is when a confounder is affected by prior exposure status. They do so by taking the by ‘taking the observed distribution of intermediate confounders (in the population as well as over time) into account, instead of holding them constant; in other words, they estimate <strong>marginal effects rather than conditional effects</strong>’. <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a> They were developed by James Robins. <a class="reference external" href="https://stats.stackexchange.com/questions/612029/what-is-the-difference-between-the-g-formula-g-estmation-g-computation-and-g-m">[source]</a></p>
 </section>
 <section id="g-computation">
 <h2>G-computation<a class="headerlink" href="#g-computation" title="Link to this heading">#</a></h2>
-<p>‘<strong>G-computation</strong> (or the parametric G-formula)  uses a statistical model (eg, a regression model) to predict the potential outcomes (with and without exposure) for each individual observation. This makes it possible to calculate treatment effects in a straightforward way, but relies on the statistical model being correctly specified.’ <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+<section id="terminology">
+<h3>Terminology<a class="headerlink" href="#terminology" title="Link to this heading">#</a></h3>
+<p>Names for this method:</p>
+<ul class="simple">
+<li><p><strong>G-computation</strong></p></li>
+<li><p><strong>Parametric G-formula</strong></p></li>
+<li><p><strong>G-standardisation</strong></p></li>
+<li><p><strong>Standardisation</strong> <a class="reference external" href="https://doi.org/10.1093/aje/kwq474">[Vansteelandt and Keiding 2011]</a></p></li>
+<li><p><strong>Outcome regression</strong> <a class="reference external" href="http://www.statslab.cam.ac.uk/~qz280/talk/ssrmp-2020/slides.pdf">[source]</a></p></li>
+</ul>
+<p>There has been some debate around terminology. As quoted from <a class="reference external" href="https://doi.org/10.1093/aje/kwq474">Vansteelandt and Keiding 2011</a>:</p>
+<blockquote>
+<div><p><em>‘The term standardization is revealing and rather well-known to epidemiologists and therefore, in our opinion, is the terminology of choice. The term G-computation has so far been mostly reserved to refer to standardization of the effects of time-varying exposures; potentially the term “G-standardization” as nomenclature for “standardization with respect to generalized exposure regimens” would have been more enlightening. Despite the essential equivalence of G-computation for point exposures and standardization with the total population as the reference, we believe that the developments from the causal inference literature add to the literature on standardization. They give a precise meaning to standardized effect measures in terms of counterfactuals, provide insight into the delicate differences between conditional and marginal epidemiologic effect measures, and suggest novel standardization techniques that combine precision with robustness against model misspecification and extrapolation.’</em></p>
+</div></blockquote>
 </section>
-<section id="marginal-structure-models">
-<h2>Marginal structure models<a class="headerlink" href="#marginal-structure-models" title="Link to this heading">#</a></h2>
+<section id="about-the-method">
+<h3>About the method<a class="headerlink" href="#about-the-method" title="Link to this heading">#</a></h3>
+<p>G-computation involves using a statistical model (e.g. predict) to predict <strong>potential</strong> outcomes (counterfactuals - with and without exposure).<a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+<div class="mermaid">
+              flowchart LR;
+
+    X(&quot;Binary treatment (X)&quot;):::white;
+    Y(&quot;Outcome (Y)&quot;):::white;
+    W(&quot;Confounder (W)&quot;):::white;
+
+    X --&gt; Y;
+    W --&gt; X;
+    W --&gt; Y;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><p>Key steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Fit model on observed data</strong> - regression model with Y as outcome and X and W as predictors (perhaps also with polynomials and/or interactions if there are multiple control variables)</p></li>
+<li><p>Make identical copy of observed data, but just <strong>replace</strong> outcome so all X=1.</p></li>
+<li><p>Create another where all to X=0.</p></li>
+<li><p>Use our fitted model to <strong>predict outcomes</strong> in the two counterfactual datasets <a class="reference external" href="https://marginaleffects.com/vignettes/gcomputation.html">[source]</a> <a class="reference external" href="https://causallycurious.com/posts/standardization/standardization">[Batten 2023]</a> <a class="reference external" href="http://www.statslab.cam.ac.uk/~qz280/talk/ssrmp-2020/slides.pdf">[source]</a></p></li>
+<li><p>Estimate the <strong>Average treatment effect (ATE)</strong> - this is the mean difference (+ 95% CI) in the predicted outcomes between the two groups.<a class="reference external" href="https://causallycurious.com/posts/standardization/standardization">[Batten 2023]</a>  It essentially describes the average effect, at a population level, of moving an entire population from untreated to treated.<a class="reference external" href="https://doi.org/10.1038/s41598-020-65917-x">[Chatton et al. 2020]</a></p></li>
+</ol>
+<p>For <strong>average treatment effect on the treated (ATT)</strong>:</p>
+<ul class="simple">
+<li><p>This is the average effect of treatment on those subjects who ultimately received the treatement <a class="reference external" href="https://doi.org/10.1038/s41598-020-65917-x">[Chatton et al. 2020]</a></p></li>
+<li><p>To calculate ATT, use <strong>only the treated units in steps 2 and 3</strong>. ‘The control units are still used to fit the model in 1, but only the treated units are used to compute the predicted values.’ <a class="reference external" href="https://stats.stackexchange.com/questions/613569/estimating-and-interpreting-the-att-with-regression-adjustment-and-marginal-effe">[source]</a></p></li>
+</ul>
+<p>You could also compute <strong>average treatment effect on the untreated (ATU).</strong> <a class="reference external" href="https://doi.org/10.1186/s12874-016-0282-4">[Wang et al. 2017]</a></p>
+<p>To get standard errors, you can use bootstrapping or the delta method. <a class="reference external" href="https://stats.stackexchange.com/questions/613569/estimating-and-interpreting-the-att-with-regression-adjustment-and-marginal-effe">[source]</a></p>
+</section>
+<section id="g-computation-vs-iptw">
+<h3>G-computation vs. IPTW<a class="headerlink" href="#g-computation-vs-iptw" title="Link to this heading">#</a></h3>
+<p>‘Standardization models the outcome, whereas inverse probability weighting models the treatment’.  If we were to do IPW and standardisation ‘<strong>without using any models</strong> (i.e. non-parametrically) then we would expect both methods to give the exact same result’. <a class="reference external" href="https://causallycurious.com/posts/standardization/standardization">[Batten 2023]</a></p>
+<p>However, we expect them to differ if we use <strong>models</strong> to estimate them since some degree of misspecification is inescapable in models, ‘but misspecification in the treatment model (IP weighting) and outcome model (standardisation) will not generally result in the same magnitude and direction of bias in the effect estimate’.</p>
+<p>‘Both IP weighting and standardization are estimators of the <strong>g-formula</strong>, a general method for causal inference first described in 1986… We say that standardization is a <strong>plug-in g-formula</strong> estimator because it simply replaces the conditional mean outcome in the g-formula by its estimates. When those estimates come from parametric models, we refer to the method as the <strong>parametric g-formula</strong>. Because here we were only interested in the average causal effect, we estimated parametrically the conditional mean outcome.’</p>
+<p>‘Often there is no need to choose between IP weighting and the parametric g-formula. When both methods can be used to estimate a causal effect, <strong>just use both methods</strong>. Also, whenever possible, use <strong>doubly robust methods</strong> that combine models for treatment and for outcome in the same estimator’. <a class="reference external" href="https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/">[Hernán and Robins 2024]</a></p>
+<p><mark>why is standardisation a g-method and not iptw if they’re equivalent?</mark></p>
+</section>
+<section id="doubly-robust-estimators">
+<h3>Doubly robust estimators<a class="headerlink" href="#doubly-robust-estimators" title="Link to this heading">#</a></h3>
+<p>‘Some authors have proposed combinations of G-computation and propensity scores to improve the estimation of the marginal causal effect. These methods are known as doubly robust estimators (DRE) because they require the specification of both the outcome (for GC) and treatment allocation (for PS) mechanisms to minimise the impact of model misspecification’. <a class="reference external" href="https://doi.org/10.1038/s41598-020-65917-x">[Chatton et al. 2020]</a></p>
+</section>
+</section>
+<section id="marginal-structural-models">
+<h2>Marginal structural models<a class="headerlink" href="#marginal-structural-models" title="Link to this heading">#</a></h2>
 <p>‘<strong>Marginal structural models</strong> aim to make the exposed and unexposed groups exchangeable in terms of confounders by weighting each observation (commonly using inverse probability of treatment weighting) so that the distribution of confounders is similar in both groups. An ATE can then be calculated by a simple comparison or unadjusted regression model.’ <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+<p>‘marginal structural models (MSMs) were designed to estimate marginal quantities (i.e., not conditional on other covariates). The parameters of a MSM can be consistently estimated using two classes of estimators: the g-computation algorithm [4] and the inverse-probability of treatment weighting (IPTW) [5]. G-computation is often seen as a viable alternative to IPTW because gcomputation produces more efficient (i.e. small standard errors) and more stable estimates in parametric settings and can better handle heterogeneity involving timevarying exposure and confounding’. <a class="reference external" href="https://doi.org/10.1186/s12874-016-0282-4">[Wang et al. 2017]</a></p>
+<p>See <a class="reference external" href="https://academic.oup.com/ckj/article/15/1/14/6358134">https://academic.oup.com/ckj/article/15/1/14/6358134</a> = <a class="reference external" href="https://doi.org/10.1093%2Fckj%2Fsfab158">[Chesnaye et al. 2022]</a></p>
+<p><mark>is this all also called “inverse probability weighting of marginal structural models?</mark></p>
 </section>
-<section id="g-estimation">
-<h2>G-estimation<a class="headerlink" href="#g-estimation" title="Link to this heading">#</a></h2>
-<p>‘<strong>G-estimation</strong> (using structural nested mean models) predicts the counterfactual outcome at each time point given no exposure from that point onwards, conditional on prior values of the exposure and confounders.’ <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+<section id="augmented-inverse-probability-weighting">
+<h2>Augmented inverse probability weighting<a class="headerlink" href="#augmented-inverse-probability-weighting" title="Link to this heading">#</a></h2>
+</section>
+<section id="g-estimation-of-structural-nested-models">
+<h2>G-estimation of structural nested models<a class="headerlink" href="#g-estimation-of-structural-nested-models" title="Link to this heading">#</a></h2>
+<p>‘<strong>G-estimation</strong> of structural nested models (SNM) predicts the counterfactual outcome at each time point given no exposure from that point onwards, conditional on prior values of the exposure and confounders.’ <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+<p>‘SNM are outcome models meant to handle time-varying effect measure modification (something that is technically difficult to define). But they are pretty straightforward in the single time-point setting. An additive SNM has two parameters, the effect of a when V=0 and the effect of a when V=1 (if V is binary). So, the structural nested model is a model we might assume for how the additive effect of A on Y varies by V.’<a class="reference external" href="https://stats.stackexchange.com/questions/612029/what-is-the-difference-between-the-g-formula-g-estmation-g-computation-and-g-m">[source]</a></p>
 </section>
 </section>
 
@@ -537,9 +615,16 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-methods">G-methods</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-computation">G-computation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-structure-models">Marginal structure models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-estimation">G-estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-computation">G-computation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminology">Terminology</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-method">About the method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-computation-vs-iptw">G-computation vs. IPTW</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doubly-robust-estimators">Doubly robust estimators</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-structural-models">Marginal structural models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-inverse-probability-weighting">Augmented inverse probability weighting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-estimation-of-structural-nested-models">G-estimation of structural nested models</a></li>
 </ul>
   </nav></div>
 
