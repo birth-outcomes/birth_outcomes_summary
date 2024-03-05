@@ -67,10 +67,10 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
     <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'design_treat_paradox';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'design_introduction_causality';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Causal diagrams" href="design_causal.html" />
+    <link rel="next" title="Introduction to directed acyclic graphs (DAGs)" href="design_dag_1.html" />
     <link rel="prev" title="Abnormal CTG" href="neo_out_ctg.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -205,14 +205,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal diagrams</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">The problem: prediction, causation and the treatment paradox</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_causal.html">Causal diagrams</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_causal_hie.html">Causal diagrams for this research study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_dag_1.html">Introduction to directed acyclic graphs (DAGs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_dag_2.html">Additional DAG concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_dag_hie.html">DAG for HIE</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal methods</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="design_estimands.html">Causal assumptions and estimands</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="design_confounding_methods.html">Methods for causal inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods.html">Methods for causal effect estimation</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="design_account_paradox.html">Accounting for a treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_examples.html">Examples of studies that account for the treatment paradox</a></li>
@@ -299,7 +302,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdesign_treat_paradox.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdesign_introduction_causality.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -329,7 +332,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/design_treat_paradox.md" target="_blank"
+      <li><a href="_sources/design_introduction_causality.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -425,7 +428,12 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-difference-between-predictive-and-etiological-research">The difference between predictive and etiological research</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-research">Types of research</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-inference">Causal inference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-inference">Causal inference</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-outcomes-framework">Potential outcomes framework</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-v-s-average">Individual v.s. average</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#terminology">Terminology</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-and-controversy-around-causality">Confusion and controversy around causality</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explainability-v-s-causality">Explainability v.s. causality</a></li>
 </ul>
@@ -479,13 +487,44 @@ document.write(`
 <section id="causal-inference">
 <h3>Causal inference<a class="headerlink" href="#causal-inference" title="Link to this heading">#</a></h3>
 <p>In etiogical research, we want an unbiased estimate of the effect of X and Y - i.e. estimate of the causal effect of an exposure on an outcome<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p>
-<p>To <strong>define a causal effect</strong>, we use the <strong>potential outcomes framework</strong> (also known as counterfactural or equivalent concepts approach)</p>
+<section id="potential-outcomes-framework">
+<h4>Potential outcomes framework<a class="headerlink" href="#potential-outcomes-framework" title="Link to this heading">#</a></h4>
+<p>To <strong>define a causal effect</strong>, we use the <strong>potential outcomes framework</strong> (also known as counterfactural or equivalent concepts approach<a class="reference external" href="https://www.coursera.org/learn/crash-course-in-causality/lecture/Lgb6O/hypothetical-interventions">[source]</a> or Rubin or Neyman-Rubin causal model). This framework ‘uses <strong>mathematical notation</strong> to describe <strong>counterfactual outcomes</strong> and can be used to describe the causal effect of an exposure on an outcome in statistical terms’. <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+<p>Some key terms in the potential outcomes framework:</p>
 <ul class="simple">
-<li><p><strong>Counterfactuals</strong> are a comparison between what is and what might have been (e.g. treatment v.s. no treatment).</p></li>
-<li><p>For example, I know ingesting the poison killed John, because if John hadn’t ingested the poison, I know he would have lived.</p></li>
+<li><p><strong>Counterfactuals</strong> are a comparison between what is and what might have been (e.g. treatment v.s. no treatment).</p>
+<ul>
+<li><p><em>For example, I know ingesting the poison killed John, because if John hadn’t ingested the poison, I know he would have lived.</em> [No source]</p></li>
+<li><p>‘The counterfactual outcomes of a specific individual can never be known, since we can never observe the same individual both exposed and unexposed under the same circumstances’ <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p></li>
+</ul>
+</li>
+<li><p><strong>Exposure (A)</strong> = ‘treatment, intervention or other variable that could have taken one of several counterfactual values’. <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+<ul>
 <li><p>We are often focussed on <strong>interventions</strong> (i.e. variables that can be manipulated), as they fit well in the potential outcomes framework. Although other variables like age, race and gender can have causal effects, they do not fit as cleanly in the potential outcomes framework.<a class="reference external" href="https://www.coursera.org/learn/crash-course-in-causality/lecture/Lgb6O/hypothetical-interventions">[source]</a> Rubin states that <em>“if you are not talking about an intervention, you can’t talk about causality”</em> - i.e. we’re defining causality using counterfactuals, which is about the counterfactual effects of the intervention<a class="reference external" href="https://baselbiometrics.github.io/home/docs/trainings/20210202/1_Moffa.pdf">[source]</a></p></li>
 </ul>
+</li>
+<li><p><strong>Outcome (Y)</strong></p></li>
+</ul>
+<p>‘Potential outcomes refer to <strong>all possible outcomes</strong> that an individual could experience—both those which are observed (factual) and those which are not (counterfactual). Given a binary exposure and a binary outcome, the possible combinations of actual and counterfactual outcomes give rise to four causal types’:</p>
+<ul class="simple">
+<li><p>‘<strong>‘Doomed’</strong>: would have experienced the outcome regardless of exposure.’</p></li>
+<li><p>‘<strong>‘Causative’</strong>: would have experienced the outcome if exposed, otherwise not.’</p></li>
+<li><p>‘<strong>‘Preventative’</strong>: would have experienced the outcome if unexposed, otherwise not.’</p></li>
+<li><p>‘<strong>‘Immune’</strong>: would not have experienced the outcome regardless of exposure status.’ <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p></li>
+</ul>
+<p>There are various notations used, but some examples are:</p>
+<ul class="simple">
+<li><p>Potential outcome if exposed (Y<sup>a=1</sup>) or not exposed (Y<sup>a=0</sup>)</p></li>
+<li><p>Expected value of continuous outcome (E(Y)) or probability of binary outcome(P(Y=1))</p></li>
+<li><p>Conditional expectation - expected value of Y given that another variable C is 1 (E(Y|C=1)) - i.e. expected values conditional on C / within levels of C / holding C constant. <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p></li>
+</ul>
+</section>
+<section id="individual-v-s-average">
+<h4>Individual v.s. average<a class="headerlink" href="#individual-v-s-average" title="Link to this heading">#</a></h4>
 <p>Causal inference for an individual (generating <strong>individual causal effects</strong>) is generallly impossible in health and social sciences (as you can’t go back in time and not give them the outcome) - instead, causal inference focusses on <strong>average causal effect</strong> when comparing groups of individuals.<a class="reference external" href="https://hummedia.manchester.ac.uk/institutes/methods-manchester/docs/CausalInference.pdf">[source]</a></p>
+</section>
+<section id="terminology">
+<h4>Terminology<a class="headerlink" href="#terminology" title="Link to this heading">#</a></h4>
 <p>Terminology can vary. Lederer et al. 2018 recommend that, by acknowledging the intent, it is reasonable to use the labels:</p>
 <ul class="simple">
 <li><p><strong>Causal association</strong></p></li>
@@ -498,6 +537,7 @@ document.write(`
 <li><p>Exposure ‘protects against’ or ‘promotes’ outcome</p></li>
 </ul>
 <p>As these make claims of causality that should be avoided without substantial evidence of a true causal effect.<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p>
+</section>
 </section>
 <section id="confusion-and-controversy-around-causality">
 <h3>Confusion and controversy around causality<a class="headerlink" href="#confusion-and-controversy-around-causality" title="Link to this heading">#</a></h3>
@@ -752,11 +792,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="design_causal.html"
+       href="design_dag_1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Causal diagrams</p>
+        <p class="prev-next-title">Introduction to directed acyclic graphs (DAGs)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -778,7 +818,12 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-difference-between-predictive-and-etiological-research">The difference between predictive and etiological research</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-research">Types of research</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-inference">Causal inference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-inference">Causal inference</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-outcomes-framework">Potential outcomes framework</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-v-s-average">Individual v.s. average</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#terminology">Terminology</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-and-controversy-around-causality">Confusion and controversy around causality</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explainability-v-s-causality">Explainability v.s. causality</a></li>
 </ul>

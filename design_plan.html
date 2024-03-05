@@ -203,12 +203,18 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal diagrams</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="design_introduction_causality.html">The problem: prediction, causation and the treatment paradox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_dag_1.html">Introduction to directed acyclic graphs (DAGs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_dag_2.html">Additional DAG concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_dag_hie.html">DAG for HIE</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal methods</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="design_treat_paradox.html">Treatment Paradox</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_causal.html">Causal inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_causal_hie.html">Causal diagrams for this research study</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_confounding_methods.html">Methods to deal with confounding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_estimands.html">Causal assumptions and estimands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods.html">Methods for causal effect estimation</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="design_account_paradox.html">Accounting for a treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_examples.html">Examples of studies that account for the treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_other.html">Other design considerations</a></li>
@@ -419,6 +425,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-aim">Overall aim</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#target-trial">Target trial</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-ideas">Design ideas</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mike-s-email-steve-s-comments-research-questions">From Mike’s email + Steve’s comments - Research questions -</a></li>
 </ul>
@@ -440,6 +447,16 @@ document.write(`
 <section id="overall-aim">
 <h2>Overall aim<a class="headerlink" href="#overall-aim" title="Link to this heading">#</a></h2>
 <p>Using live labour data to predict who is likely to require caessarean, and reduce adverse effects for mother and baby. Combining data from fetus, parent, and CTG. Involves combining (a) risk factors during pregnancy, with (b) live risk factors during labour. Outcome of “X chance” of adverse outcome if don’t go for caessarean or assisted delivery. Decision currently based on experience. Want some more objective evidence that can given women to help them understand and base risks on.</p>
+</section>
+<section id="target-trial">
+<h2>Target trial<a class="headerlink" href="#target-trial" title="Link to this heading">#</a></h2>
+<p>This can help guide study design (in general, and also specifically, like the appropriate causal estimand).</p>
+<p>Target trial idea…</p>
+<ul class="simple">
+<li><p>Mother has particular combination of risk factors (e.g. gestational age, FHR concerns)</p></li>
+<li><p>Within those groups, randomise to receive caesarean or not?</p></li>
+<li><p>Or randomise to receive earlier or later?</p></li>
+</ul>
 </section>
 <section id="design-ideas">
 <h2>Design ideas<a class="headerlink" href="#design-ideas" title="Link to this heading">#</a></h2>
@@ -565,6 +582,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-aim">Overall aim</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#target-trial">Target trial</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-ideas">Design ideas</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mike-s-email-steve-s-comments-research-questions">From Mike’s email + Steve’s comments - Research questions -</a></li>
 </ul>

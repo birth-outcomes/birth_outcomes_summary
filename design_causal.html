@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Causal inference &#8212; Birth Outcomes</title>
+    <title>Causal diagrams &#8212; Birth Outcomes</title>
   
   
   
@@ -71,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Causal diagrams for this research study" href="design_causal_hie.html" />
-    <link rel="prev" title="Treatment Paradox" href="design_treat_paradox.html" />
+    <link rel="prev" title="The problem: prediction, causation and the treatment paradox" href="design_treat_paradox.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -207,10 +207,13 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="design_treat_paradox.html">Treatment Paradox</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Causal inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_treat_paradox.html">The problem: prediction, causation and the treatment paradox</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Causal diagrams</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_causal_hie.html">Causal diagrams for this research study</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_confounding_methods.html">Methods to deal with confounding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_estimands.html">Causal assumptions and estimands</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="design_confounding_methods.html">Methods for causal inference</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="design_account_paradox.html">Accounting for a treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_examples.html">Examples of studies that account for the treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_other.html">Other design considerations</a></li>
@@ -410,7 +413,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Causal inference</h1>
+    <h1>Causal diagrams</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,18 +423,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-causal-inference">What is causal inference?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#counterfactuals">Counterfactuals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-causal-diagrams">Introduction to causal diagrams</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-causal-diagrams">What are causal diagrams?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-you-know-what-to-include">How do you know what to include?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-should-you-draw-arrows">When should you draw arrows?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-purpose-of-dags">What is the purpose of DAGs?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-you-construct-a-dag">How do you construct a DAG?</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-you-construct-a-dag">How do you construct a DAG?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moderators">Moderators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mediators">Mediators</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#confounding">Confounding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#confounders">Confounders</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colliders">Colliders</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditioning">Conditioning</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-set-of-covariates">Minimal set of covariates</a></li>
@@ -439,17 +441,23 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-structures-where-we-expect-to-see-associations">Causal structures where we expect to see associations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-sources-of-seperation">Structural sources of seperation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rules">D-seperation rules</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-1-if-there-are-no-variables-being-conditioned-on-a-path-is-blocked-if-and-only-if-two-arrowheads-on-the-path-collide-at-some-variable-on-the-path">D-seperation rule 1: If there are no variables being conditioned on, a path is blocked if and only if two arrowheads on the path collide at some variable on the path</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-2-any-path-containing-non-collider-that-has-been-conditioned-on-is-blocked">D-seperation rule 2: Any path containing non-collider that has been conditioned on is blocked.</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-3-a-collider-that-has-been-conditioned-on-does-not-block-a-path">D-seperation rule 3: A collider that has been conditioned on does not block a path.</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-4-collider-with-descendent-that-has-been-conditioned-on-does-not-block-a-path">D-seperation rule 4: Collider with descendent that has been conditioned on does not block a path.</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#faithfulness">Faithfulness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rules">D-seperation rules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-1-if-there-are-no-variables-being-conditioned-on-a-path-is-blocked-if-and-only-if-two-arrowheads-on-the-path-collide-at-some-variable-on-the-path">D-seperation rule 1: If there are no variables being conditioned on, a path is blocked if and only if two arrowheads on the path collide at some variable on the path</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-2-any-path-containing-non-collider-that-has-been-conditioned-on-is-blocked">D-seperation rule 2: Any path containing non-collider that has been conditioned on is blocked.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-3-a-collider-that-has-been-conditioned-on-does-not-block-a-path">D-seperation rule 3: A collider that has been conditioned on does not block a path.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-4-collider-with-descendent-that-has-been-conditioned-on-does-not-block-a-path">D-seperation rule 4: Collider with descendent that has been conditioned on does not block a path.</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faithfulness">Faithfulness</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-varying-treatments-and-confounders">Time-varying treatments and confounders</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presenting-results">Presenting results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-cases">Example cases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-oestrogen-and-endometrial-cancer">Example: Oestrogen and endometrial cancer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-hiv-and-art">Example: HIV and ART</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -461,24 +469,41 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="causal-inference">
-<h1>Causal inference<a class="headerlink" href="#causal-inference" title="Link to this heading">#</a></h1>
-<section id="what-is-causal-inference">
-<h2>What is causal inference?<a class="headerlink" href="#what-is-causal-inference" title="Link to this heading">#</a></h2>
-<p>‘Causal inference is the examination of causal associations to estimate the <strong>causal effect of an exposure on an outcome</strong>.’<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p>
-<p>‘Assume we look at the effect of a target variable (something that could be manipulated = predictor) on another variable (the outcome = response) in the presence of other (non-target) variables. The goal of a causal analysis is is to control for these other variables, in such a way that we obtain the <strong>same effect size</strong> for the target variable that we would if the target predictor was manipulated in a <strong>controlled intervention</strong> (= experiment).’<a class="reference external" href="https://theoreticalecology.wordpress.com/2019/04/14/mediators-confounders-colliders-a-crash-course-in-causal-inference/">[source]</a></p>
-<p>Causal models can be represented visually using causal diagrams.</p>
-</section>
-<section id="counterfactuals">
-<h2>Counterfactuals<a class="headerlink" href="#counterfactuals" title="Link to this heading">#</a></h2>
-<p>When we’re talking about one thing causing another, this is based in counterfactuals. <strong>Counterfactuals</strong> (or equivalent concepts) are needed to define causal effects. Knowing the counterfactual outcomes can be referred to as knowing the outcomes under treatment and under no treatment. For example, I know ingesting the poison killed John, because if John hadn’t ingested the poison, I know he would have lived.</p>
-<p>Causal inference for an individual (generating individual causal effects) is general impossible in health and social sciences (as you can’t go back in time and not give them the outcome) - instead, causal inference focusses on average causal effect when comparing groups of individuals.</p>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="causal-diagrams">
+<h1>Causal diagrams<a class="headerlink" href="#causal-diagrams" title="Link to this heading">#</a></h1>
+<div class="info admonition">
+<p class="admonition-title">Executive summary</p>
+<h3 class="rubric" id="drawing-a-causal-diagram">Drawing a causal diagram</h3>
+<p>Causal diagrams (directed acyclic graphs - DAGs) are based on expert knowledge. They depict the causal relationships between nodes using directed arrows. They are used to illustrate/identify sources of bias, to indicate where associations/independence should be expected, and to help inform study design.</p>
+<p>You start the diagram with your research question (i.e. two nodes whose relationship you are interested) and then all all <strong>common</strong> causes for those nodes, and for any other nodes you add to the graph.</p>
+<p>In a DAG, you can identify:</p>
+<ul class="simple">
+<li><p><strong>Confounders</strong> - common cause both treatment and outcome</p></li>
+<li><p><strong>Mediators</strong> - lie on causal path between variables, inclusion depends on whether you are interested in direct effect of treatment and outcome that doesn’t pass through mediator</p></li>
+<li><p><strong>Colliders</strong> - common effect of two other variables</p></li>
+<li><p><strong>Moderators</strong> - change size or direction of relationship between variables</p></li>
+</ul>
+<h3 class="rubric" id="paths">Paths</h3>
+<p>A <strong>backdoor path</strong> is a non-causal path between the treatment and outcome that will exist if:</p>
+<ul class="simple">
+<li><p>If you haven’t conditioned for confounders</p></li>
+<li><p>If you condition on a collider (which opens a backdoor path)</p></li>
+</ul>
+<p>Whether or not a path will be open or blocked is described using D-seperation rules, which essentially just explain that associations will be present if either of the above are true, or if one node causes the other.</p>
+<p>Conditioning on a variable means you are examining the relationship between the treatment and outcome within levels of the conditioning variable, using either: sample restriction, stratification, adjustment, matching.</p>
+<p>Ideally, you want to identify a minimal set of covariates to condition on that (a) block all back-door paths, and (b) don’t open closed paths.</p>
+<h3 class="rubric" id="time-varying-treatment">Time-varying treatment</h3>
+<p>If you have time-varying treatment (takes different values over time), then you will have other time-varying components (e.g. time-varying confounding). If there is treatment-confounder feedback (i.e. earlier treatment impacts value of later confounder), then you will need to use a special type of method to adjust for confounders, referred to as G-methods.</p>
+<h3 class="rubric" id="table-2-fallacy">Table 2 fallacy</h3>
+<p>Since you have designed the study to appropriate control for confounding for your relationship of interest - between a given treatment/exposure and outcome - the other variables included may have residual confounding or other biases that affect their associations, and it is important that these effect estimates are not presented (or are explained) - otherwise this is called ‘Table 2 fallacy’.</p>
+</div>
 <section id="introduction-to-causal-diagrams">
 <h2>Introduction to causal diagrams<a class="headerlink" href="#introduction-to-causal-diagrams" title="Link to this heading">#</a></h2>
+<section id="what-are-causal-diagrams">
+<h3>What are causal diagrams?<a class="headerlink" href="#what-are-causal-diagrams" title="Link to this heading">#</a></h3>
 <p>Causal diagrams - <strong>directed acyclic graphs (DAGs)</strong> - depict causal relationship between different variables. Two key components are <strong>nodes</strong> and <strong>arrows</strong>. They are:</p>
 <ul class="simple">
-<li><p><strong>Directed</strong> - as arrows have a single direction that represents known causal effects (based on prior knowledge)</p></li>
+<li><p><strong>Directed</strong> - as arrows have a single direction (unidirectional) that represents known causal effects (based on prior knowledge)</p></li>
 <li><p><strong>Acyclic</strong> - as nodes cannot have a directed path from itself back to itself</p></li>
 </ul>
 <div class="mermaid">
@@ -507,11 +532,11 @@ document.write(`
 <div class="mermaid">
               flowchart LR;
 
-    a(&quot;A (parent)&quot;):::white;
-    b(&quot;B (child)&quot;):::white;
-    c(&quot;C (grandparent)&quot;):::white;
-    d(&quot;D&quot;):::white;
-    e(&quot;E (grandchild)&quot;):::white;
+    a(&quot;Parent&quot;):::white;
+    b(&quot;Child&quot;):::white;
+    c(&quot;Grandparent&quot;):::white;
+    d(&quot;Node&quot;):::white;
+    e(&quot;Grandchild&quot;):::white;
 
     a --&gt; b;
     c --&gt; d; d --&gt; e;
@@ -519,6 +544,7 @@ document.write(`
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
         </div><p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+</section>
 <section id="how-do-you-know-what-to-include">
 <h3>How do you know what to include?<a class="headerlink" href="#how-do-you-know-what-to-include" title="Link to this heading">#</a></h3>
 <p><strong>All COMMON causes should be represented</strong>. i.e. We can call the graph a causal DAG if, when two variables share a cause, that shared cause is also in the graph, meaning it satisfies the causal markov condition.</p>
@@ -548,9 +574,10 @@ document.write(`
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
-        </div><p><strong>How do you know when to include mediators</strong></p>
+        </div><p><strong>How do you know when to include mediators?</strong></p>
 <ul class="simple">
-<li><p>We start the DAG with adding the treatment (A) and outcome (Y) that we are interested in, and then build around it. As we are interested in the <strong>total effect of A on Y</strong>, we don’t need to specify the mechanisms through which A may affect Y (i.e. don’t need any m ediators between A and Y)</p></li>
+<li><p>We start the DAG with adding the treatment (A) and outcome (Y) that we are interested in, and then build around it.</p></li>
+<li><p>If we are interested in the <strong>total effect of A on Y</strong>, we don’t need to specify the mechanisms through which A may affect Y (i.e. don’t need any m ediators between A and Y)</p></li>
 </ul>
 <p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
 </section>
@@ -560,6 +587,13 @@ document.write(`
 <p>If expert knowledge is insufficient for us to rule out a direct effect of E on D, then we should draw an arrow.</p>
 <p>Note: Arrows on causal graphs are not deterministic - i.e. doesn’t mean every person with exposure will see outcome - as some will never, and some without outcome will develop it.</p>
 <p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+<p>It is important that these are based on expert knowledge. For causal inference, it is <strong>NOT</strong> recommended to choose included variables/relationships based on:</p>
+<ul class="simple">
+<li><p>P value-based and model-based <strong>variable selection methods</strong> (including forward, backward, and stepwise selection) - since they ignore the causal structure underlying the hypothesis and treat confounders and colliders similarly</p></li>
+<li><p>Use methods that <strong>rely on model</strong> fit or related constructs (e.g. R<sup>2</sup>, Akaike information criterion, and Bayesian information criterion) - since these rely heavily on the available data, in which causal relationships may or may not have been captured and may or may not be evident, and specification of model and arbitrary variables included will drive observed associations with outcome</p></li>
+<li><p>Use selection of variables that, when included in a model, change the magnitude of the effect estimate of the exposure of interest, to identify confounders</p></li>
+<li><p>Identify multiple ‘independent predictors’ through purposeful or automated variable selection - if the authors have hypotheses about each variable, then a separate model for each variable should be generated - or a prediction model could be developed, if prediction, rather than causal inference, is the goal of the analysis<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p></li>
+</ul>
 </section>
 <section id="what-is-the-purpose-of-dags">
 <h3>What is the purpose of DAGs?<a class="headerlink" href="#what-is-the-purpose-of-dags" title="Link to this heading">#</a></h3>
@@ -569,14 +603,16 @@ document.write(`
 <ul>
 <li><p>More precise and efficient than writing pages of assumptions<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p></li>
 <li><p>Although they are based on assumptions, so are analytic models.<a class="reference external" href="https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf">[source]</a></p></li>
+<li><p>Although investigators often feel some discomfort in deciding what causal effects do and do not exist on the basis of prior knowledge, the advantage of this approach is that it makes these assumptions explicit (and hence transparent).<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p></li>
 </ul>
 </li>
 <li><p>They indicate when associations or independence should be expected.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p></li>
 <li><p>They can help determine whether the effect of interest can be identified from available data, and help us clarify our study question<a class="reference external" href="https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf">[source]</a> - and to identify problems in the study design<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p></li>
 </ul>
 </section>
+</section>
 <section id="how-do-you-construct-a-dag">
-<h3>How do you construct a DAG?<a class="headerlink" href="#how-do-you-construct-a-dag" title="Link to this heading">#</a></h3>
+<h2>How do you construct a DAG?<a class="headerlink" href="#how-do-you-construct-a-dag" title="Link to this heading">#</a></h2>
 <p><em>The order here doesn’t particular matter - the key thing is to start with the research question and then build from there</em>.</p>
 <ol class="arabic simple">
 <li><p>Start with research question - A (treatment/exposure) and Y (outcome), and indicate with “?”</p></li>
@@ -629,8 +665,9 @@ document.write(`
     classDef black fill:#FFFFFF, stroke:#000000;
     classDef empty width:0px,height:0px;
         </div><p>Don’t need variables that cause Y but not A (although might include if for example you want to compare to other studies that did adjust for that variable)</p>
-<p>There can often be more than one appropriate DAG, and alternate DAGs can make excellent sensitivity analyses.<a class="reference external" href="https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf">[source]</a></p>
-</section>
+<p>There can often be more than one appropriate DAG, and alternate DAGs can make excellent sensitivity analyses.</p>
+<p><a class="reference external" href="https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf">[source]</a></p>
+<p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
 </section>
 <section id="moderators">
 <h2>Moderators<a class="headerlink" href="#moderators" title="Link to this heading">#</a></h2>
@@ -641,6 +678,7 @@ document.write(`
 <section id="mediators">
 <h2>Mediators<a class="headerlink" href="#mediators" title="Link to this heading">#</a></h2>
 <p><strong>Mediators</strong> are variables that lie in the causal path between the two other variables (e.g. between exposure and outcome), and they tell you how or why an effect takes place.<a class="reference external" href="https://www.scribbr.co.uk/faqs/why-should-you-include-mediators-and-moderators-in-your-study/">[source]</a></p>
+<p>A path that includes a mediator is often called an <strong>indirect effect</strong> or indirect causal path. In contrast, the arrow directly connecting the treatment and outcome represents the <strong>direct causal effect</strong> of the treatment on the outcome that is not due to changes in the mediator.<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p>
 <p>You might condition on a mediator if you are interested in the <strong>direct effect of treatment on outcome that doesn’t pass through mediator</strong>.</p>
 <p>Example: In racial disparity studies, will condition on mediators like socioeconomic, education, location (often though <strong>matching</strong> on these characteristics),  to allow you to isolate the unique effect of race that is not explainable by those pathways. <a class="reference external" href="https://stats.stackexchange.com/questions/488048/dag-are-there-situations-where-adjusting-for-mediators-is-reasonable">[source]</a></p>
 <div class="mermaid">
@@ -673,9 +711,10 @@ document.write(`
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
         </div></section>
-<section id="confounding">
-<h2>Confounding<a class="headerlink" href="#confounding" title="Link to this heading">#</a></h2>
-<p><strong>Confounders</strong> are variables that <strong>cause BOTH the treatment/exposure and outcomes</strong>. Informally, it occurs when there is an open backdoor path between the treatment/exposure and outcome, and you could say a confounder is a variable that - possibly together with other variables - can be used to block the backdoor path between the treatment and outcome.</p>
+<section id="confounders">
+<h2>Confounders<a class="headerlink" href="#confounders" title="Link to this heading">#</a></h2>
+<p><strong>Confounders</strong> are variables that <strong>cause BOTH the treatment/exposure and outcomes</strong>. Informally, it occurs when there is an open backdoor path between the treatment/exposure and outcome, and you could say a confounder is a variable that - possibly together with other variables - can be used to block the backdoor path between the treatment and outcome.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+<p>It is recommended that confounders are selected based on <strong>prior knowledge</strong>, rather than based on variables identified from the data.<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p>
 <p>Example - smoking causes yellow fingers and lung cancer - if we don’t condition on it, we expect to see an association between yellow fingers and lung cancer (known as a <strong>marginal/unconditional</strong> association)</p>
 <div class="mermaid">
               flowchart LR;
@@ -702,11 +741,12 @@ document.write(`
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
-        </div></section>
+        </div><p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+</section>
 <section id="colliders">
 <h2>Colliders<a class="headerlink" href="#colliders" title="Link to this heading">#</a></h2>
 <p><strong>Colliders</strong> are descendents of two other variables - i.e. common effect - with two arrows from the parents pointing to (“colliding with”) the descendent node.</p>
-<p>Example: A genetic factor and an environmental factor causing cancer. These are <strong>independent</strong> - i.e. genetic factor doesn’t have causal effect on environmental factor - and so we don’t expect to see an association between genetic and environment (unconditional/marginal association).</p>
+<p>Example: A genetic factor and an environmental factor causing cancer. These are <strong>independent</strong> - i.e. genetic factor doesn’t have causal effect on environmental factor - and so we don’t expect to see an association between genetic and environment (unconditional/marginal association).<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
 <div class="mermaid">
               flowchart LR;
 
@@ -719,7 +759,8 @@ document.write(`
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
-        </div><p>However, if we condition on cancer - such as by just selecting people who have cancer - we will find an <strong>inverse association</strong> between genetics and environment (as if cancer wasn’t caused by one, it was by the other). This biased effect estimate is referred to as <strong>selection bias</strong>.</p>
+        </div><p>Colliders naturally block back-door paths. Controlling for a collider will open the back-door path, thereby introducing confounding.<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p>
+<p>For example, if we condition on cancer - such as by just selecting people who have cancer - we will find an <strong>inverse association</strong> between genetics and environment (as if cancer wasn’t caused by one, it was by the other). This biased effect estimate is referred to as <strong>selection bias</strong>.</p>
 <div class="mermaid">
               flowchart LR;
 
@@ -732,7 +773,7 @@ document.write(`
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
-        </div><p>We can <strong>induce</strong> selection bias by conditioning on the downstream consequence of a collider - e.g. if cancer is collider, and surgery is consequence of cancer, if we condition on surgery, we expect to see inverse association between genetic and environment conditional on surgery (just as we did for the collider cancer).</p>
+        </div><p>We can <strong>induce</strong> selection bias by conditioning on the downstream consequence of a collider - e.g. if cancer is collider, and surgery is consequence of cancer, if we condition on surgery, we expect to see inverse association between genetic and environment conditional on surgery (just as we did for the collider cancer).<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
 <div class="mermaid">
               flowchart LR;
 
@@ -745,6 +786,30 @@ document.write(`
     env --&gt; cancer;
     cancer --&gt; surgery;
 
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div><p>Collider bias may also be present when neither the exposure nor the outcome is a direct cause of the collider variable. An example is <strong>M-bias</strong>.</p>
+<p>In this example…</p>
+<ul class="simple">
+<li><p>Focus: beta-blocker use and risk of ARDS</p></li>
+<li><p>Might be tempted to adjust for crackles as you might think its a confounder… 1) heart failure leads to both chronic β-blocker therapy and crackles, and 2) pneumonia causes both ARDS and crackles</p></li>
+<li><p>However, crackles is actually a collider on the back-door path of chronic β-blocker therapy ← heart failure → crackles ← pneumonia → ARDS. Adjusting for the presence of crackles opens this back-door path, introducing confounding. Ignoring the presence of crackles would be the right thing to do.<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p></li>
+</ul>
+<div class="mermaid">
+              flowchart TD;
+
+    beta(&quot;Beta blocker use&quot;):::white;
+    ards(&quot;Acute respiratory distress syndrome (ARDS)&quot;):::white;
+    hf(&quot;Heart failure&quot;):::white;
+    pneu(&quot;Pneumonia&quot;):::white;
+    crackles(&quot;Crackles&quot;):::black;
+
+    hf --&gt; beta;
+    hf --&gt; crackles;
+    pneu --&gt; crackles;
+    pneu --&gt; ards;
+    beta --&gt;|?| ards;
+  
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
         </div></section>
@@ -817,8 +882,9 @@ document.write(`
         </div><p>There is another source of association: <strong>chance</strong>. May be association even if none of above are true. Chance is not a structural source of association. <strong>Increasing our sample size, chance associations should disappear (whilst structural remain and become sharper)</strong>.</p>
 <p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
 </section>
+</section>
 <section id="d-seperation-rules">
-<h3>D-seperation rules<a class="headerlink" href="#d-seperation-rules" title="Link to this heading">#</a></h3>
+<h2>D-seperation rules<a class="headerlink" href="#d-seperation-rules" title="Link to this heading">#</a></h2>
 <p><strong>Path</strong> is any route through graph (can follow arrow direction or not). Paths can be <strong>blocked or open</strong>, which is according to the <strong>D-seperation rules</strong>. We use D-seperation to decide whether two variables are D-seperated, where D stands for directional.</p>
 <p>You will be able to see that all D-separation says is that - as above - two variables <strong>would be associated</strong> if:</p>
 <ul class="simple">
@@ -835,7 +901,7 @@ document.write(`
 </ul>
 <p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
 <section id="d-seperation-rule-1-if-there-are-no-variables-being-conditioned-on-a-path-is-blocked-if-and-only-if-two-arrowheads-on-the-path-collide-at-some-variable-on-the-path">
-<h4>D-seperation rule 1: If there are no variables being conditioned on, a path is blocked if and only if two arrowheads on the path collide at some variable on the path<a class="headerlink" href="#d-seperation-rule-1-if-there-are-no-variables-being-conditioned-on-a-path-is-blocked-if-and-only-if-two-arrowheads-on-the-path-collide-at-some-variable-on-the-path" title="Link to this heading">#</a></h4>
+<h3>D-seperation rule 1: If there are no variables being conditioned on, a path is blocked if and only if two arrowheads on the path collide at some variable on the path<a class="headerlink" href="#d-seperation-rule-1-if-there-are-no-variables-being-conditioned-on-a-path-is-blocked-if-and-only-if-two-arrowheads-on-the-path-collide-at-some-variable-on-the-path" title="Link to this heading">#</a></h3>
 <p>Path from A to Y is <strong>open</strong>:</p>
 <div class="mermaid">
               flowchart LR;
@@ -865,7 +931,7 @@ document.write(`
 <p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
 </section>
 <section id="d-seperation-rule-2-any-path-containing-non-collider-that-has-been-conditioned-on-is-blocked">
-<h4>D-seperation rule 2: Any path containing non-collider that has been conditioned on is blocked.<a class="headerlink" href="#d-seperation-rule-2-any-path-containing-non-collider-that-has-been-conditioned-on-is-blocked" title="Link to this heading">#</a></h4>
+<h3>D-seperation rule 2: Any path containing non-collider that has been conditioned on is blocked.<a class="headerlink" href="#d-seperation-rule-2-any-path-containing-non-collider-that-has-been-conditioned-on-is-blocked" title="Link to this heading">#</a></h3>
 <p>Path from A to Y is <strong>blocked</strong>:</p>
 <div class="mermaid">
               flowchart LR;
@@ -881,7 +947,7 @@ document.write(`
         </div><p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
 </section>
 <section id="d-seperation-rule-3-a-collider-that-has-been-conditioned-on-does-not-block-a-path">
-<h4>D-seperation rule 3: A collider that has been conditioned on does not block a path.<a class="headerlink" href="#d-seperation-rule-3-a-collider-that-has-been-conditioned-on-does-not-block-a-path" title="Link to this heading">#</a></h4>
+<h3>D-seperation rule 3: A collider that has been conditioned on does not block a path.<a class="headerlink" href="#d-seperation-rule-3-a-collider-that-has-been-conditioned-on-does-not-block-a-path" title="Link to this heading">#</a></h3>
 <p>Path from A to Y is <strong>open</strong>:</p>
 <div class="mermaid">
               flowchart LR;
@@ -897,7 +963,7 @@ document.write(`
         </div><p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
 </section>
 <section id="d-seperation-rule-4-collider-with-descendent-that-has-been-conditioned-on-does-not-block-a-path">
-<h4>D-seperation rule 4: Collider with descendent that has been conditioned on does not block a path.<a class="headerlink" href="#d-seperation-rule-4-collider-with-descendent-that-has-been-conditioned-on-does-not-block-a-path" title="Link to this heading">#</a></h4>
+<h3>D-seperation rule 4: Collider with descendent that has been conditioned on does not block a path.<a class="headerlink" href="#d-seperation-rule-4-collider-with-descendent-that-has-been-conditioned-on-does-not-block-a-path" title="Link to this heading">#</a></h3>
 <p>Path from A to Y is <strong>open</strong>:</p>
 <div class="mermaid">
               flowchart LR;
@@ -915,7 +981,7 @@ document.write(`
 </section>
 </section>
 <section id="faithfulness">
-<h3>Faithfulness<a class="headerlink" href="#faithfulness" title="Link to this heading">#</a></h3>
+<h2>Faithfulness<a class="headerlink" href="#faithfulness" title="Link to this heading">#</a></h2>
 <p>Faithfulness is the result of opposite effects of exactly equal magnitude - e.g. if aspirin caused stroke for half of poppulation and prevented it in the other half, then causal dag is correct (as aspirin affects stroke) but no association is observed (as they cancel each other out). In that case, we say the joint distribution of the data is not faithful to the causal DAG.</p>
 <p>These perfect cancellations are rare and we don’t expect them to happen in practice, so we can safetly say lack of D-seperation means non-zero association. So -</p>
 <ul class="simple">
@@ -923,7 +989,6 @@ document.write(`
 <li><p><strong>All paths blocked = no association</strong></p></li>
 </ul>
 <p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
-</section>
 </section>
 <section id="time-varying-treatments-and-confounders">
 <h2>Time-varying treatments and confounders<a class="headerlink" href="#time-varying-treatments-and-confounders" title="Link to this heading">#</a></h2>
@@ -1007,7 +1072,126 @@ document.write(`
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
-        </div></section>
+        </div><p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+</section>
+<section id="presenting-results">
+<h2>Presenting results<a class="headerlink" href="#presenting-results" title="Link to this heading">#</a></h2>
+<p>‘Causal models are typically designed to test an association between a <strong>single exposure and an outcome</strong>. The additional independent variables in a model (often called “covariates”) <strong>serve to control for confounding</strong>. The observed associations between these covariates and the outcome have not been subject to the same approach to control of confounding as the exposure’ (i.e. they themselves have not been corrected for confounding - <em>and they shouldn’t and didn’t have to be</em>). ‘Therefore, <strong>residual confounding and other biases often heavily influence these associations</strong>.’</p>
+<p>‘This situation is known as “<strong>Table 2 fallacy</strong>,” a term arising from the practice of presenting effect estimates for all independent variables in “Table 2”.’ It is strongly recommended that these effect estimates are <strong>not presented</strong>.<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p>
+<p>Hartig 2019 discusses how this may not be practical in some fields (they give example of ecology) where you rarely have a clear target variable/hypothesis, but suggest instead that’s important to explicitly state/seperate reasonablly controlled varaibles from possibly confounded variables.<a class="reference external" href="https://theoreticalecology.wordpress.com/2019/04/14/mediators-confounders-colliders-a-crash-course-in-causal-inference/">[source]</a></p>
+</section>
+<section id="example-cases">
+<h2>Example cases<a class="headerlink" href="#example-cases" title="Link to this heading">#</a></h2>
+<section id="example-oestrogen-and-endometrial-cancer">
+<h3>Example: Oestrogen and endometrial cancer<a class="headerlink" href="#example-oestrogen-and-endometrial-cancer" title="Link to this heading">#</a></h3>
+<p>In 1970s, women began to receive oestrogren after menopause. Some studies in 1975/6 found that women receiving oestrogen had higher risk of diagnosis with endometrical cancer than women not receiving them. Why? Possibilities include…</p>
+<ol class="arabic simple">
+<li><p>Oestrogens cause cancer</p></li>
+<li><p>Oestrogens can cause uterine bleeding, so women receive a uterine exam, during which the cancer (which is often silent, asymptomatic, and otherwise not diagnosed) is noticed and diagnosed - this phenomenon is called <strong>ascertainment bias</strong></p></li>
+</ol>
+<p>How do we decide which explanation is right?</p>
+<ul class="simple">
+<li><p>Yale researchers restricted the data analysis to women with uterine bleeding (regardless of whether they were on oestrogens), since they should all have the same likelihood of uterine exams and existing cancer being diagnosed. If there still an association, oestrogen causative.</p></li>
+<li><p>Boston researchers argued we would find association even in women who bleed and even if they don’t cause cancer, and so that this approach would still have ascertainment bias.</p></li>
+</ul>
+<p>Explanation one.</p>
+<div class="mermaid">
+              flowchart LR;
+
+    a(&quot;A: Oestrogens&quot;):::white;
+    u(&quot;U: Cancer (unmeasured)&quot;):::white;
+    y(&quot;Y: Cancer (diagnosed)&quot;):::white;
+
+    a --&gt; u;
+    u --&gt; y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div><p>Explanation two.</p>
+<div class="mermaid">
+              flowchart LR;
+
+    a(&quot;A: Oestrogens&quot;):::white;
+    u(&quot;U: Cancer (unmeasured)&quot;):::white;
+    y(&quot;Y: Cancer (diagnosed)&quot;):::white;
+    c(&quot;C: Uterine bleeding&quot;):::white;
+
+    a --&gt; c;
+    u --&gt; c;
+    c --&gt; y;
+    u --&gt; y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div><p>Restrict analysis to women who bleed. If association still found, must be path of A –&gt; U –&gt; Y. Boston argued could still exist.</p>
+<ul class="simple">
+<li><p>Conditioning on C blocks path A-C-Y</p></li>
+<li><p>However, we still have path of A-C-U-Y, and C is collider on that path, so when condition on C, it becomes open (and conditioning on C is what we do when we restrict analysis to bleeders)</p></li>
+</ul>
+<p>So Boston were right.</p>
+<div class="mermaid">
+              flowchart LR;
+
+    a(&quot;A: Oestrogens&quot;):::white;
+    u(&quot;U: Cancer (unmeasured)&quot;):::white;
+    y(&quot;Y: Cancer (diagnosed)&quot;):::white;
+    c(&quot;C: Uterine bleeding&quot;):::black;
+
+    a --&gt; c;
+    u --&gt; c;
+    c --&gt; y;
+    u --&gt; y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div><p>What can you do then? You can design study where C-Y doesn’t exist as you require all women to be screened for cancer frequently regardless of whether they bleed. If no association between A and Y, then we know there is no causal effect of A on U. If you still found association, then A must cause U.</p>
+<div class="mermaid">
+              flowchart LR;
+
+    a(&quot;A: Oestrogens&quot;):::white;
+    u(&quot;U: Cancer (unmeasured)&quot;):::white;
+    y(&quot;Y: Cancer (diagnosed)&quot;):::white;
+    c(&quot;C: Uterine bleeding&quot;):::white;
+
+    a --&gt; c;
+    u --&gt; c;
+    u --&gt; y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div><p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+</section>
+<section id="example-hiv-and-art">
+<h3>Example: HIV and ART<a class="headerlink" href="#example-hiv-and-art" title="Link to this heading">#</a></h3>
+<p>Randomised controlled trials of new antiretroviral therapy (ART) for HIV found it was effective and reduced morality by more than half.</p>
+<p>Observational of clinical data to look at real world effect of ART did not detect much benefit for new combination therapies - no increased survival among those taking ART. What was wrong with the studies?</p>
+<p>They were adjusting for lots of confounders - e.g. CD4 count - and yet could not eliminate the bias. Some people say there must be lots of unmeasured confounding. However, the more time-varying confounders were adjusted for, the more biased the effect estimate seemed to be. The problem was treatment-confounder feedback - the value of CD4 count was impacted by earlier treatment - in this case, the bias was in the opposite direction.</p>
+<p>There is a way to identify whether the bias is due to incomplete adjustment for confounding or for incorrect adjustment for time-varying confounders - and that is to use G-methods to adjust for the time-varying confounders. When they used G-methods, the effect estimates were much closer to the ARTs.</p>
+<div class="mermaid">
+              flowchart LR;
+
+    ak(&quot;A&lt;sub&gt;K&lt;/sub&gt;&lt;br&gt;ART&quot;):::white;
+    
+    lk(&quot;L&lt;sub&gt;K&lt;/sub&gt;&lt;br&gt;CD4 count&quot;):::black;
+    u(&quot;U&lt;br&gt;Immuno-suppression status&quot;):::white;
+    yk1(&quot;Y&lt;sub&gt;K+1&lt;/sub&gt;&lt;br&gt;Mortality&quot;):::white;
+    lk1(&quot;L&lt;sub&gt;K+1&lt;/sub&gt;&lt;br&gt;CD4 count&quot;):::black;
+    ak1(&quot;A&lt;sub&gt;K+1&lt;/sub&gt;&lt;br&gt;ART&quot;):::white;
+    yk2(&quot;Y&lt;sub&gt;K+2&lt;/sub&gt;&lt;br&gt;Mortality&quot;):::white;
+    
+    lk --&gt; ak;
+    u --&gt; lk; 
+    u --&gt; yk1;
+    u --&gt; lk1;
+    lk1 --&gt; ak1;
+    u --&gt; yk2;
+    ak --&gt; lk1;
+    
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div><p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1046,7 +1230,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Treatment Paradox</p>
+        <p class="prev-next-title">The problem: prediction, causation and the treatment paradox</p>
       </div>
     </a>
     <a class="right-next"
@@ -1074,18 +1258,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-causal-inference">What is causal inference?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#counterfactuals">Counterfactuals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-causal-diagrams">Introduction to causal diagrams</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-causal-diagrams">What are causal diagrams?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-you-know-what-to-include">How do you know what to include?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-should-you-draw-arrows">When should you draw arrows?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-purpose-of-dags">What is the purpose of DAGs?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-you-construct-a-dag">How do you construct a DAG?</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-you-construct-a-dag">How do you construct a DAG?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moderators">Moderators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mediators">Mediators</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#confounding">Confounding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#confounders">Confounders</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colliders">Colliders</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditioning">Conditioning</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-set-of-covariates">Minimal set of covariates</a></li>
@@ -1093,17 +1276,23 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-structures-where-we-expect-to-see-associations">Causal structures where we expect to see associations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-sources-of-seperation">Structural sources of seperation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rules">D-seperation rules</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-1-if-there-are-no-variables-being-conditioned-on-a-path-is-blocked-if-and-only-if-two-arrowheads-on-the-path-collide-at-some-variable-on-the-path">D-seperation rule 1: If there are no variables being conditioned on, a path is blocked if and only if two arrowheads on the path collide at some variable on the path</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-2-any-path-containing-non-collider-that-has-been-conditioned-on-is-blocked">D-seperation rule 2: Any path containing non-collider that has been conditioned on is blocked.</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-3-a-collider-that-has-been-conditioned-on-does-not-block-a-path">D-seperation rule 3: A collider that has been conditioned on does not block a path.</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-4-collider-with-descendent-that-has-been-conditioned-on-does-not-block-a-path">D-seperation rule 4: Collider with descendent that has been conditioned on does not block a path.</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#faithfulness">Faithfulness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rules">D-seperation rules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-1-if-there-are-no-variables-being-conditioned-on-a-path-is-blocked-if-and-only-if-two-arrowheads-on-the-path-collide-at-some-variable-on-the-path">D-seperation rule 1: If there are no variables being conditioned on, a path is blocked if and only if two arrowheads on the path collide at some variable on the path</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-2-any-path-containing-non-collider-that-has-been-conditioned-on-is-blocked">D-seperation rule 2: Any path containing non-collider that has been conditioned on is blocked.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-3-a-collider-that-has-been-conditioned-on-does-not-block-a-path">D-seperation rule 3: A collider that has been conditioned on does not block a path.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rule-4-collider-with-descendent-that-has-been-conditioned-on-does-not-block-a-path">D-seperation rule 4: Collider with descendent that has been conditioned on does not block a path.</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faithfulness">Faithfulness</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-varying-treatments-and-confounders">Time-varying treatments and confounders</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presenting-results">Presenting results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-cases">Example cases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-oestrogen-and-endometrial-cancer">Example: Oestrogen and endometrial cancer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-hiv-and-art">Example: HIV and ART</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
