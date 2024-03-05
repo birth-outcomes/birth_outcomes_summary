@@ -34,7 +34,7 @@ parts:
   - caption: Study design - causal methods
     chapters:
     - file: design_estimands
-    - file: design_confounding_methods
+    - file: design_methods
     - file: design_account_paradox
     - file: design_examples
     - file: design_other

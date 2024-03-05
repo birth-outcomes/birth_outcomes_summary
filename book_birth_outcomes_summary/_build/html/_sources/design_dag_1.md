@@ -38,6 +38,9 @@ Example:
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
+'Relationships between variables in a DAG can also be described using structural equations, so called because they describe causal relationships rather than observed associations. A set of structural equations can sometimes be rewritten as a single reduced form equation.' [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+
+
 ### Naming conventions
 
 There are naming conventions for particular components of the DAG:
@@ -88,61 +91,120 @@ We don't draw causal diagrams as an exact, accurate representation of the world 
 
 ### Confounders
 
-**Confounders** are variables that **cause BOTH the treatment/exposure and outcomes**. Informally, it occurs when there is an open backdoor path between the treatment/exposure and outcome, and you could say a confounder is a variable that - possibly together with other variables - can be used to block the backdoor path between the treatment and outcome.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+**Confounders** are variables that **cause BOTH the treatment/exposure and outcomes**. 
+
+*Informally, it occurs when there is an open backdoor path between the treatment/exposure and outcome, and you could say a confounder is a variable that - possibly together with other variables - can be used to block the backdoor path between the treatment and outcome.*
+
+We included **measured and unmeasured** confounders in our DAG.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+
+We can use **conditioning** to control for confounding. This involves examining the relationship between A and Y within levels of the conditioning variable, using either: (a) sample restriction, (b) stratification, (c) adjustment, or (d) matching. If we don't do this, we will get **confounding bias** (where a common cause of A and Y is not blocked). When you condition on something, you **draw a box** around it on the DAG.
+
+Other terms like "adjusting" or "controlling" suggest a misleading interpretation of the model - although there does seem to be variability in terminology, with many sources using these terms. [[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf) Igelström et al. 2022 explain that 'conditioning on a variable is analogous to controlling for, adjusting for or stratifying by it (although in practice, different methods of conditioning may have different effects on the results and their interpretation).'[[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+
 
 Example: smoking causes yellow fingers and lung cancer
 * If we don't condition on it, we expect to see an association between yellow fingers and lung cancer (known as a **marginal/unconditional** association)
-* If we do condition on smoking, we expect to see no association between yellow fingers and lung cancers (i.e. they are "**not associated conditional on** smoking)
-
-We included **measured and unmeasured** confounders in our DAG.
+* If we do condition on smoking, we expect to see no association between yellow fingers and lung cancers (i.e. they are "**not associated conditional on** smoking)[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
 ````{mermaid}
-  flowchart LR;
+  flowchart TD;
 
-    cig("Smoking"):::white;
-    lung("Lung cancer"):::white;
-    yellow("Yellow fingers"):::white;
+    con:::outline;
+    subgraph con["`**Conditional**`"]
+      cig2("Smoking"):::black;
+      lung2("Lung cancer"):::white;
+      yellow2("Yellow fingers"):::white;
+    end
+
+    cig2 --> lung2;
+    cig2 --> yellow2;
+
+    uncon:::outline;
+    subgraph uncon["`**Unconditional**`"]
+      cig("Smoking"):::white;
+      lung("Lung cancer"):::white;
+      yellow("Yellow fingers"):::white;
+    end
 
     cig --> lung;
     cig --> yellow;
 
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef outline fill:#FFFFFF;
 ````
-
-````{mermaid}
-  flowchart LR;
-
-    cig("Smoking"):::black;
-    lung("Lung cancer"):::white;
-    yellow("Yellow fingers"):::white;
-
-    cig --> lung;
-    cig --> yellow;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
 ### Moderators
 
-**Moderators** are variables that change the **size or direction** of the relationship between variables. These could also be referred to as effect modifiers or statistical interaction.[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
+**Moderators** are variables that change the **size or direction** of the relationship between variables. These could also be referred to as **effect modifiers** or statistical interaction. [[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
+* If it impacts the **size** of the relationship, this is called **non-qualitative effect modification**
+* If it impacts the **direction** of the relationship, this is called **qualitative effect modification** [[Hernán and Robins 2024]](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)
+* These can also be referred to as **effect measure modification (EMM)**. [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
-Why include? They usually help you judge the external validity of your study by identifying the limitations of when the relationship between variables holds.'[[source]](https://www.scribbr.co.uk/faqs/why-should-you-include-mediators-and-moderators-in-your-study/) 
+They usually help you judge the external validity of your study by identifying the limitations of when the relationship between variables holds. [[source]](https://www.scribbr.co.uk/faqs/why-should-you-include-mediators-and-moderators-in-your-study/) 
 
-There has been some disagreement on how these should be included/notation within DAGs.[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)[[Weinberg 2007]](https://pubmed.ncbi.nlm.nih.gov/17700243/)
+There has been some disagreement on how these should be included/notation within DAGs. [[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)[[Weinberg 2007]](https://pubmed.ncbi.nlm.nih.gov/17700243/)
+
+'The presence and extent of EMM mathematically depends on the choice of an additive or multiplicative scale linking exposure and outcome; EMM may be present on either one of these scales or both'
+
+'If both the exposure and effect modifier are causes of the outcome, then EMM will always be present on at least one scale.'
+
+'**Interaction** denotes that the **joint effect of two exposures is different from the sum of the individual effects of each exposure**. Like EMM, the presence and extent of interaction depends on the choice of an additive or multiplicative scale and does not necessarily have a meaningful causal interpretation. ‘Interaction’ is sometimes used interchangeably with EMM, but it is helpful to think of these as different concepts:
+* Interaction focuses on the **joint causal effect** of two exposures (eg, the combined effect of smoking and asbestos exposure on lung cancer)
+* EMM focuses on the effect of one exposure whose effect differs across levels of another variable (eg, the effect of asbestos exposure on lung cancer in smokers vs non-smokers); with EMM, the **causal effect of the effect modifier itself is not of interest**.' [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+
+````{mermaid}
+  flowchart LR;
+
+    A("A (treatment/exposure)"):::green;
+    Y("Y (outcome)"):::green;
+    Empty[ ]:::empty;
+    Mod("Moderator"):::white;
+
+    Mod --> Empty;
+    A --- Empty;
+    Empty -->|?| Y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+````
+
+**Why do we care about modifiers/effect modification?**
+
+(1) The average causal effect will differ between populations with different prevalence of the modifier - i.e. it depends on the distribution of individual causal effects in the population
+* **Example: If average causal effect of exposure is harmful in women and beneficial in mean, a study with an equal gender split would find null causal effect, and a study with majority women would find harmful causal effect.*
+* Hence, 'there is generally no such thing as “the average causal effect of treatment A on outcome Y (period)”, but “the average causal effect of treatment A on outcome Y in a population with a particular mix of causal effect modifiers.”' The ability to extrapolate causal effects between populations is referred to as the **transportability** of causal inferences across populations.
+* However, there will often be unmeasured effect modifiers, and so 'transportability of causal effects is an unverifiable assumption that relives heavily on subject-matter experts'.[[Hernán and Robins 2024]](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)
+
+(2) Additive (but not multiplicative) effect modification can help identify groups who would most benefit from an intervention [[Hernán and Robins 2024]](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)
+
+(3) Identifying effect modification may help us to understand the biological, social, or other mechanisms leading to the outcome. [[Hernán and Robins 2024]](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)
+
 
 ### Mediators
 
 **Mediators** are variables that lie in the causal path between the two other variables (e.g. between exposure and outcome), and they tell you how or why an effect takes place.[[source]](https://www.scribbr.co.uk/faqs/why-should-you-include-mediators-and-moderators-in-your-study/)
+* A path that includes a mediator is often called an **indirect effect** or indirect causal path
+* In contrast, the arrow directly connecting the treatment and outcome represents the **direct causal effect** of the treatment on the outcome that is not due to changes in the mediator.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS) This is also referred to as the **controlled direct effect (CDE)** [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+* If you do not have a direct arrow between the treatment and outcome, and only via the mediator, this implies that this is the only way in which the treatment can cause the outcome, and that if you know the mediator is present, knowing whether or not the treatment was present should have no impact on the outcome.
 
-A path that includes a mediator is often called an **indirect effect** or indirect causal path. In contrast, the arrow directly connecting the treatment and outcome represents the **direct causal effect** of the treatment on the outcome that is not due to changes in the mediator.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS) 
+````{mermaid}
+  flowchart LR;
 
-You might condition on a mediator if you are interested in the **direct effect of treatment on outcome that doesn't pass through mediator**.
+    treat("Treatment"):::white;
+    med("Mediator"):::white;
+    out("Outcome"):::white;
 
-Example: In racial disparity studies, will condition on mediators like socioeconomic, education, location (often though **matching** on these characteristics),  to allow you to isolate the unique effect of race that is not explainable by those pathways. [[source]](https://stats.stackexchange.com/questions/488048/dag-are-there-situations-where-adjusting-for-mediators-is-reasonable)
+    treat --> med;
+    med --> out;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+````
+
+You might **condition** on a mediator if you are interested in the **direct effect of treatment on outcome that doesn't pass through mediator**. Example: In racial disparity studies, will condition on mediators like socioeconomic, education, location (often though **matching** on these characteristics),  to allow you to isolate the unique effect of race that is not explainable by those pathways. [[source]](https://stats.stackexchange.com/questions/488048/dag-are-there-situations-where-adjusting-for-mediators-is-reasonable) This is referred to as **mediation analysis** - when you're trying to 'quantify how much of the total effect of A on Y is explained by a particular mediator (the indirect effect), and how much is not (the direct effect)'.
 
 ````{mermaid}
   flowchart LR;
@@ -162,69 +224,60 @@ Example: In racial disparity studies, will condition on mediators like socioecon
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-If you do not have a direct arrow between the treatment and outcome, and only via the mediator, this implies that this is the only way in which the treatment can cause the outcome, and that if you know the mediator is present, knowing whether or not the treatment was present should have no impact on the outcome.
-
-````{mermaid}
-  flowchart LR;
-
-    treat("Treatment"):::white;
-    med("Mediator"):::white;
-    out("Outcome"):::white;
-
-    treat --> med;
-    med --> out;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
+**How is CDE estimated?**
+* 'Assuming no interaction between exposure and mediator, and no confounding between mediator and outcome, the indirect effect can be obtained by subtracting the CDE from the total effect'
+* 'When interaction is present between exposure and mediator, the CDE will take on different values for different levels of the mediator, and the effect obtained by subtracting the CDE from the total effect no longer has a meaningful causal interpretation.'
+* 'To address this problem, alternative definitions of causal direct and indirect effects have been proposed, such that their sum adds up to the total effect even in the presence of interactions, generally by allowing one or more of these effects to include the interaction effect.' These include:
+  * Controlled direct effect (CDE)
+  * Natural direct effect or pure direct effect
+  * Natural indirect effect or total indirect effect
+  * Pure indirect effect
+  * Total direct effect
+* 'These effect estimands can be defined theoretically in counterfactual terms, but can only be estimated given additional assumptions that are difficult to verify and may lack applicability for estimating policy-relevant mediation quantities (eg, how much the effect of A on Y could be reduced by intervening on the mediator).'[[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
 ### Colliders
 
-**Colliders** are descendents of two other variables - i.e. common effect - with two arrows from the parents pointing to ("colliding with") the descendent node.
+**Colliders** are descendents of two other variables - i.e. common effect - with two arrows from the parents pointing to ("colliding with") the descendent node. Colliders naturally block back-door paths. **Controlling for a collider will open the back-door path, thereby introducing confounding**.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS) This is referred to as **collider bias**
 
-Example: A genetic factor and an environmental factor causing cancer. These are **independent** - i.e. genetic factor doesn't have causal effect on environmental factor - and so we don't expect to see an association between genetic and environment (unconditional/marginal association).[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-````{mermaid}
-  flowchart LR;
-
-    gene("Genetic factor"):::white;
-    env("Environmental factor"):::white;
-    cancer("Cancer"):::white;
-
-    gene --> cancer;
-    env --> cancer;
-
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
-
-Colliders naturally block back-door paths. Controlling for a collider will open the back-door path, thereby introducing confounding.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
-
-For example, if we condition on cancer - such as by just selecting people who have cancer - we will find an **inverse association** between genetics and environment (as if cancer wasn't caused by one, it was by the other). This biased effect estimate is referred to as **selection bias**.
+Example: A genetic factor and an environmental factor causing cancer.
+* Scenario #1: No conditioning - These are **independent** - i.e. genetic factor doesn't have causal effect on environmental factor - and so we don't expect to see an association between genetic and environment (unconditional/marginal association).
+* Scenario #2: Condition on cancer - If we condition on cancer - such as by just selecting people who have cancer - we will find an **inverse association** between genetics and environment (as if cancer wasn't caused by one, it was by the other). This biased effect estimate is referred to as **selection bias**.
+* Scenario #3: Condition on surgery - We can **induce** selection bias by conditioning on the downstream consequence of a collider - e.g. if cancer is collider, and surgery is consequence of cancer, if we condition on surgery, we expect to see inverse association between genetic and environment conditional on surgery (just as we did for the collider cancer).[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 
 ````{mermaid}
-  flowchart LR;
+  flowchart TD;
 
-    gene("Genetic factor"):::white;
-    env("Environmental factor"):::white;
-    cancer("Cancer"):::black;
+    con_sur:::outline;
+    subgraph con_sur["`**Condition on surgery**`"]
+      gene3("Genetic<br>factor"):::white;
+      env3("Environmental<br>factor"):::white;
+      cancer3("Cancer"):::white;
+      surgery3("Surgery"):::black;
+    end
 
-    gene --> cancer;
-    env --> cancer;
+    gene3 --> cancer3;
+    env3 --> cancer3;
+    cancer3 --> surgery3;
 
-    classDef white fill:#FFFFFF, stroke:#FFFFFF
-    classDef black fill:#FFFFFF, stroke:#000000
-````
+    con_cancer:::outline;
+    subgraph con_cancer["`**Condition on cancer**`"]
+      gene2("Genetic<br>factor"):::white;
+      env2("Environmental<br>factor"):::white;
+      cancer2("Cancer"):::black;
+      surgery2("Surgery"):::white;
+    end
 
-We can **induce** selection bias by conditioning on the downstream consequence of a collider - e.g. if cancer is collider, and surgery is consequence of cancer, if we condition on surgery, we expect to see inverse association between genetic and environment conditional on surgery (just as we did for the collider cancer).[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
+    gene2 --> cancer2;
+    env2 --> cancer2;
+    cancer2 --> surgery2;
 
-````{mermaid}
-  flowchart LR;
-
-    gene("Genetic factor"):::white;
-    env("Environmental factor"):::white;
-    cancer("Cancer"):::white;
-    surgery("Surgery"):::black;
+    none:::outline;
+    subgraph none["`**No conditioning**`"]
+      gene("Genetic<br>factor"):::white;
+      env("Environmental<br>factor"):::white;
+      cancer("Cancer"):::white;
+      surgery("Surgery"):::white;
+    end
 
     gene --> cancer;
     env --> cancer;
@@ -232,14 +285,13 @@ We can **induce** selection bias by conditioning on the downstream consequence o
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
+    classDef outline fill:#FFFFFF;
 ````
 
-Collider bias may also be present when neither the exposure nor the outcome is a direct cause of the collider variable. An example is **M-bias**.
-
-In this example...
+Collider bias may also be present when neither the exposure nor the outcome is a direct cause of the collider variable. An example is **M-bias**. In this example...
 * Focus: beta-blocker use and risk of ARDS
 * Might be tempted to adjust for crackles as you might think its a confounder... 1) heart failure leads to both chronic β-blocker therapy and crackles, and 2) pneumonia causes both ARDS and crackles
-* However, crackles is actually a collider on the back-door path of chronic β-blocker therapy ← heart failure → crackles ← pneumonia → ARDS. Adjusting for the presence of crackles opens this back-door path, introducing confounding. Ignoring the presence of crackles would be the right thing to do.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
+* However, crackles is actually a collider on the **back-door path** of **chronic β-blocker therapy** ← heart failure → crackles ← pneumonia → **ARDS**. Adjusting for the presence of crackles opens this back-door path, introducing confounding. Ignoring the presence of crackles would be the right thing to do.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
 
 ````{mermaid}
   flowchart TD;
@@ -260,25 +312,57 @@ In this example...
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
+Another type of collider bias - specifically, a type of selection bias - is **Berkson's bias**. This is when the selection of cases into the study depends on hospitalisation, and the treatment is another disease, or a cause of another disease, which also results in hospitalisation.[[source]](https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf)
+
 ### Selection nodes
 
-If some people lost to follow-up (C1) and some remain to end (C0), our analysis is restricted to C0. This means that only individuals with certain values of C are included in the analysis, as we're essentially conditioning on it.
+**Selection nodes** - by definition - are **always conditioned on**. This is because they reflect a restriction for inclusion such as:
+* **Loss to follow-up** - e.g. if some people lost to follow-up (C1) and some remain to end (C0), our analysis is restricted to C0. This means that only individuals with certain values of C are included in the analysis, as we're essentially conditioning on it.
+* **Inclusion/exclusion criteria for the study** - e.g. if only include men, then gender --> study enrollment
 
-<mark>more detail</mark>
+### Measurement error (mis-measured variables)
 
-### Mismeasured variables
+**Measurement error** is the degree to which we mismeasure a variable. If believe a variable is mismeasured, we have a node with a "*" that points from variable, with another representing measurement error.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home) There are two types:
+* **Non-differential error** - if error is not in exposure or outcome - this will bias the estimate of effect towards the null (so for small effects or studies with little power, it can make a true effect disappear)
+* **Differential error** - if there is error in exposure and outcome - then, errors themselvse can be associated, opening a back-door path between exposure and outcome[[source]](https://cran.r-project.org/web/packages/ggdag/vignettes/bias-structures.html) - i.e. it is when measurement error varies in size depending on another variable. [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
-If believe it's mismeasured, have node with * that points from variable, with another representing measurement error.
+Example: **Recall bias**. Does taking multivitamins in childhood help protect against bladder cancer later in life?
+* Bias in outcome depends only on how well diagnosis of bladder cancer represents actually having it
+* Bias in exposure depends on both (a) memory of vitamin uptake, and (b) bladder cancer, since they might have spent more time reflecting on what could have caused the illness
+* If there is no effect of vitamins on bladder cancer, this dependency will make it seem as if vitamins are a **risk** for bladder cancer. If it is, in fact, **protective**, recall bias can reduce or even reverse the association.
 
-<mark>more detail</mark>
+````{mermaid}
+  flowchart TD;
+
+    me_diag("<b>Measurement error</b><br>in diagnosis"):::white;
+    diag("Diagnosis of bladder cancer *"):::white;
+    cancer("Bladder cancer"):::white;
+    me_vit("<b>Measurement error</b><br>in vitamin uptake"):::white;
+    mem_vit("Memory of<br>vitamin uptake *"):::white;
+    vit("Childhood vitamin intake"):::white;
+
+    me_diag --> diag;
+    cancer --> diag;
+    cancer --> me_vit;
+    me_vit --> mem_vit;
+    vit --> mem_vit;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+    classDef outline fill:#FFFFFF
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+````
 
 ## How do you know what to include in your DAG?
 
-### Common causes
+### DAG completeness
 
-**All COMMON causes should be represented**. i.e. We can call the graph a causal DAG if, when two variables share a cause, that shared cause is also in the graph, meaning it satisfies the causal markov condition.
+A DAG is said to represent a complete causal structure between a treatment and outcome if:
+* **Treatment and outcome** are presented
+* **For any two nodes on the graph, all common causes** of those two nodes are represented
+* All **selection variables** are represented (i.e. selection node) [[Rogers et al. 2022]](https://doi.org/10.1002/psp4.12894)
 
-For example, if we were investigating the causal relationship between aspirin and stroke:
+What do we mean by including common causes? Illustrating with an example...
 * In **RCT** where people were randomised to receive Aspirin, we **don't need to include other variables** that can cause stroke (e.g. coronary heart disease (CHD)), as they didn't cause why people got aspirin.
 * In an **observational study**, there will be other variables that would explain why people received aspirin (e.g. CHD), which we would need to include for it to be a causal DAG (i.e. **aspirin AND stroke BOTH caused by CHD**). [[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
 

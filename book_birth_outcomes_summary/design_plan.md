@@ -4,6 +4,15 @@
 
 Using live labour data to predict who is likely to require caessarean, and reduce adverse effects for mother and baby. Combining data from fetus, parent, and CTG. Involves combining (a) risk factors during pregnancy, with (b) live risk factors during labour. Outcome of "X chance" of adverse outcome if don't go for caessarean or assisted delivery. Decision currently based on experience. Want some more objective evidence that can given women to help them understand and base risks on.
 
+## Target trial
+
+This can help guide study design (in general, and also specifically, like the appropriate causal estimand).
+
+Target trial idea...
+* Mother has particular combination of risk factors (e.g. gestational age, FHR concerns)
+* Within those groups, randomise to receive caesarean or not?
+* Or randomise to receive earlier or later?
+
 ## Design ideas
 
 ### From Mike's email + Steve's comments - Research questions - 
