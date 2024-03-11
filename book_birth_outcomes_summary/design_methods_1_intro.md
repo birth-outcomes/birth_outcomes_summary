@@ -3,10 +3,33 @@
 `````{admonition} Executive summary
 :class: info
 
-Methods for causal effect estimation can be broadly grouped into:
-* Conventional methods
-* G-methods
-* Methods to address unobserved confounding
+Methods for causal effect estimation.
+
+**Conventional methods:**
+* (Principal) Stratification
+* Matching
+* Inverse probability of treatment weighting (IPTW)
+* Multivariable regression
+
+**G-methods:**
+* G-computation (/ parametric G-formula / G-standardisation / standardisation / outcome regression)
+* Marginal structure models
+* G-estimation
+
+**Methods to address unobserved confounding:**
+* Instrumental variables
+* Regression discontinuity (RD)
+* Interrupted time series (ITS)
+* Difference in differences (DiD)
+
+**Other methods:**
+* Marginal, asymmetric conditional, and causal SHAP values
+* Synthetic control
+* Matrix completion
+* Causal discover
+* Double machine learning
+* Causal forests
+* Strucrtural estimation
 
 `````
 
@@ -19,6 +42,10 @@ Methods for causal effect estimation can be broadly grouped into:
 <mark>Will need to integrate with the page on methods to account for treatment paradox</mark>
 
 <mark>haven't covered bayesian causal inference</mark>... https://royalsocietypublishing.org/doi/10.1098/rsta.2022.0153 and http://www2.stat.duke.edu/~fl35/BayesianCausalInference.html
+
+erik shared these to have a look at:
+* I would also very much recommend [The Effect: An Introduction to Research Design and Causality by Nick Huntington-Klein](https://theeffectbook.net/)
+* I’ve heard good things about [Causal Inference: The Mixtape by Scott Cunningham](https://mixtape.scunning.com/)
 
 ## Designing a study to estimate a causal effect from observational data
 
@@ -45,66 +72,76 @@ Different methods will produce effect measures that are **conditional** (specifi
 * This may make conditional measures more **difficult to compare** between studies (since different studies typically adjust for different sets of covariates)
 * On the other hand, marginal effeccts may be **less transportable** between populations [[Vansteelandt and Keiding 2011]](https://doi.org/10.1093/aje/kwq474)
 
-## What you shouldn't do: all possible confounders
+## Current practice
+
+### 2022 mapping review of confounding adjustment methods used for longitudinal observational data
+
+Wijn et al. 2022 conducted a mapping literature review to determine which confounding adjustment methods were used in longitudinal observational data to estimate a treatment effect. They identified the following studies:
+
+<p align='center'>
+    <img src='images/wijn_2022_methods.png'>
+     <i>Abbreviations: CA, covariate adjustment; IPW, inverse probability weighting; PS, propensity score; PSM, propensity score matching; TdPSM, time-dependent propensity score matching.</i>
+</p>
+
+You can see that in the context of **longitudinal observational** data
+* 66% time-varying treatment, 26% treatment at baseline, 8% time of treatment not clearly defined
+* For **treatment at baseline**, majority of papers use propensity score matching with baseline covariates (82%)
+* For **time-varying treatment**:
+    * 30% inverse probability weighting
+    * 25% propensity score matching with baseline coavariates
+    * 14% propensity score matching with baseline covariates combined with time-dependent Cox regression
+    * 10% covariate adjustment using propensity score
+    * 8% time-dependent propensity score
+    * 4% parametric G-formula
+    * 2% propensity score stratification
+    * 3% G-estimation
+* Hence, for time-varying treatment, often **inappropriate methods** are use - 25% used probability score matching with baseline covariates 'which can potentially result in a biased treatment effect' - and only 45% of the papers used g-methods. [[Wijn et al. 2022]](https://doi.org/10.1136/bmjopen-2021-058977)
+
+Other reviews include - 
+* 2019 systematic review of studies adjusting for time-dependent confounding, finds **inverse probability of treatment weighting estimated marginal structure models** to be the most common technique [[Clare et al. 2019]](https://doi.org/10.1093/ije/dyy218)
+
+## What you shouldn't do
+
+### All possible confounders
 
 'Many analysts take the strategy of putting in **all possible confounders**. This can be bad news, because adjusting for **colliders and mediators can introduce bias**, as we’ll discuss shortly. Instead, we’ll look at **minimally sufficient adjustment sets**: sets of covariates that, when adjusted for, block all back-door paths, but include no more or no less than necessary. That means there can be many minimally sufficient sets, and if you remove even one variable from a given set, a back-door path will open.'[[source]](https://cran.r-project.org/web/packages/ggdag/vignettes/intro-to-dags.html)
 
-# ROUGH NOTES...
+[Schisterman et al. 2009](https://doi.org/10.1097/EDE.0b013e3181a819a1) 'define **unnecessary adjustment** as control for a variable that does not affect bias of the causal relation between exposure and outcome but may affect its precision.' - so:
+* Adjusting for a variable completely outside the system of interest (C1)
+* Adjusting for a variable that causes the exposure only (C2)
+* Adjusting for a variable whose only causal association with variables of interest is as a descendent of the exposure and not in the causal pathway (C3)
+* Adjusting for a variable whose only causal association with variables of interest is as a cause of the outcome (C4)
 
-https://www.coursera.org/learn/crash-course-in-causality/lecture/xEcaf/stratification
-* stratification - Essentially, you would stratify on important variables, and then average over the distribution of those variables which is also known as standardization. And then we're also going to talk about limitations with this standardization approach. And why it's something we normally can't do, and why we need additional causal inference methods.
-* standardisation is the combination of conditioning and marginalising
-* we're typically interested in a marginal causal effect, meaning when that does not involve conditioning on X
-* standardisation involves stratifying and then averaging... obtaining a treatment effect within each stratum, and then pooling across stratum, where you're weighting by the probability of each stratum
-* limitation is that there might be many confounders - so many X variables you need to control for, that you need to stratify by - and with so many combinations, it's likely that some would be empty (i.e. no people have that combination), meaning we can't do it
+Adjusting for these varaibles should not impact the total causal effect on the outcome, but may be gain or loss in precision of relationship between exposure of interest, the unnecessary adjustment variables, and the outcome of interest.[[Schisterman et al. 2009]](https://doi.org/10.1097/EDE.0b013e3181a819a1)
+
+````{mermaid}
+  flowchart LR;
+
+    C1:::white
+    C2:::white
+    C3:::white
+    C4:::white
+    E(Exposure):::white
+    D(Outcome):::white
+
+    C2 --> E;
+    E --> C3;
+    E --> D;
+    C4 --> D;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+````
 
 
-## Methods to block back door paths
+## Data-driven selection of confounders
 
-Sometimes construct **propensity score** (which is a function of the confounders) and then do stratification or matching based on the propensity score (rather than the confounders themselves).
+'Though generally not advisable, data-driven confounder selection may be employed in small datasets, under the condition that the data has been pre-processed to entail that covariates fed into the statistical selection method are only potential confounders and free of mediators'.[[Ramspek et al. 2021 (supplementary)]](https://doi.org/10.1007/s10654-021-00794-w)
 
-G-METHOD: **Inverse probability weighting** - estimate probability of receiving treatment level actually received (and these probabilities witll be different depending on whether had confounder) - then compute inverse probability (1/probability) - then compute association between treatment and outcome, but each person is counted as many times as their inverse probability weight indicates.
+## Adjust for time-varying confounders using conventional methods
 
-* Person with heart disease treated with aspirin. Had a 50% chance of actually being treated with aspirin. Inverse probability weight 1/0.5 = 2.
+'Adjusting for time-dependent confounders using conventional methods, such as time-dependent Cox regression, often fails in these circumstances, as adjusting for time-dependent confounders affected by past exposure (i.e. in the role of mediator) may inappropriately block the effect of the past exposure on the outcome (i.e. overadjustment bias). For example, we wish to determine the effect of blood pressure measured over time (as our time-varying exposure) on the risk of end-stage kidney disease (ESKD) (outcome of interest), adjusted for eGFR measured over time (time-dependent confounder). As eGFR acts as both a mediator in the pathway between previous blood pressure measurement and ESKD risk, as well as a true time-dependent confounder in the association between blood pressure and ESKD, simply adding eGFR to the model will both correct for the confounding effect of eGFR as well as bias the effect of blood pressure on ESKD risk (i.e. inappropriately block the effect of previous blood pressure measurements on ESKD risk).' [[Chesnaye et al. 2022]](https://doi.org/10.1093%2Fckj%2Fsfab158)
 
-Inverse probability weighting eliminates the backdoor through L.
-
-G-METHOD: **Standardisation** - mathematically equivalent to inverse probability weighting - sometimes known as the **G-formula**
-
-G-METHOD: **G-estimation**
-
-What do all of these methods have in common?
-* They require data on the confounders that block the backdoor path. If those data are available, then the choice of one of these methods over the others is often a matter of personal taste. Unless the treatment is time-varying -- then we have to go to G-methods. But if the data on the confounders are not available, then the method will not eliminate all the bias, and the magnitude of the residual bias will depend on how much of the backdoor path remains open.
-* They require knowledge about the true causal DAG. If we don't know the true casual DAG, then we don't know the backdoor paths that we need to block.
-
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-## Methods that are alternatives to blocking backdoor paths
-
-e.g. instrumental variable estimation
-
-These methods are popular in economics, but often not general enough to adjust for confounding in many other settings (e.g. when treatment of interest changes over time) (as in time-varying treatments below).
-
-[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-## Others
-
-Check if these are already covered or fit above:
-
-Randomization to exposure, use of an instrumental variable, weighted regression via propensity scores, adjustment using multivariable regression, stratification on a confounder, conditioning enrollment on a confounder (restriction), and matching on a confounder.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
-
-static-cWith expert knowledge on the underlying causal structure we can account for confounding in the study design (e.g. through restriction, matching, Mendelian randomization or instrumental variable 2 analysis) or in the data analysis.[6-8] The most used methods in causal inference are multivariable regression techniques, in which we can calculate the exposure effect conditional on the presence of confounding factors, though more complex analytic methods such as propensity score matching or inverse probability weighting are also employed.[2] Though generally not advisable, data-driven confounder selection may be employed in small datasets, under the condition that the data has been pre-processed to entail that covariates fed into the statistical selection method are only potential confounders and free of mediators.[[source]](https://static-content.springer.com/esm/art%3A10.1007%2Fs10654-021-00794-w/MediaObjects/10654_2021_794_MOESM1_ESM.pdf)
-
-## SHAP
-
-Look at some of the variets of SHAP that have been proposed...
-
-asymmetric SHAP
-* https://mkffl.github.io/2023/04/20/causal-shapley.html
-
-causal SHAP
-* https://towardsdatascience.com/casual-shap-values-a-possible-improvement-of-shap-values-4d4d62925b71
-* https://arxiv.org/abs/2011.01625
+## ROUGH NOTES...
 
 ## Additional: counterfactual prediction modelling
 
@@ -139,7 +176,7 @@ However, there are methods to deal with observed confounding, such as double/deb
 
 Example: Sales Calls directly impact retention, but also have an indirect effect on retention through Interactions. We can see this in the SHAP scatter plots above, which show how XGBoost underestimates the true causal effect of Sales Calls because most of that effect got put onto the Interactions feature.
 
-'Non-confounding redundancy can be fixed in principle by removing the redundant variables from the model (see below). For example, if we removed Interactions from the model then we will capture the full effect of making a sales call on renewal probability. This removal is also important for double ML, since double ML will fail to capture indirect causal effects if you control for downstream features caused by the feature of interest. In this case double ML will only measure the “direct” effect that does not pass through the other feature. Double ML is however robust to controlling for upstream non-confounding redundancy (where the redundant feature causes the feature of interest), though this will reduce your statistical power to detect true effects. Unfortunately, we often don’t know the true causal graph so it can be hard to know when another feature is redundant with our feature of interest because of observed confounding vs. non-confounding redundancy. If it is because of confounding then we should control for that feature using a method like double ML, whereas if it is a downstream consequence then we should drop the feature from our model if we want full causal effects rather than only direct effects. Controlling for a feature we shouldn’t tends to hide or split up causal effects, while failing to control for a feature we should have controlled for tends to infer causal effects that do not exist. This generally makes controlling for a feature the safer option when you are uncertain.'
+'**Non-confounding redundancy can be fixed in principle by removing the redundant variables from the model** (see below). For example, if we removed Interactions from the model then we will capture the full effect of making a sales call on renewal probability. This removal is also important for double ML, since double ML will fail to capture indirect causal effects if you control for downstream features caused by the feature of interest. In this case double ML will only measure the “direct” effect that does not pass through the other feature. Double ML is however robust to controlling for upstream non-confounding redundancy (where the redundant feature causes the feature of interest), though this will reduce your statistical power to detect true effects. Unfortunately, we often don’t know the true causal graph so it can be hard to know when another feature is redundant with our feature of interest because of observed confounding vs. non-confounding redundancy. If it is because of confounding then we should control for that feature using a method like double ML, whereas if it is a downstream consequence then we should drop the feature from our model if we want full causal effects rather than only direct effects. Controlling for a feature we shouldn’t tends to hide or split up causal effects, while failing to control for a feature we should have controlled for tends to infer causal effects that do not exist. This generally makes controlling for a feature the safer option when you are uncertain.'
 
 **When can they not be used? (3) When you have unobserved confounding.** 'The Discount and Bugs Reported features both suffer from unobserved confounding because not all important variables (e.g., Product Need and Bugs Faced) are measured in the data. Even though both features are relatively independent of all the other features in the model, there are important drivers that are unmeasured. In this case, both predictive models and causal models that require confounders to be observed, like double ML, will fail. This is why double ML estimates a large negative causal effect for the Discount feature even when controlling for all other observed features'
 
