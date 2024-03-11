@@ -1,4 +1,4 @@
-# Methods #3: Methods for unobserved confounding
+# Methods #4: Methods for unobserved confounding
 
 `````{admonition} Executive summary
 :class: info

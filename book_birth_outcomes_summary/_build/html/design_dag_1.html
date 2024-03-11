@@ -217,10 +217,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="design_causal_assumptions.html">Causal assumptions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_causal_estimands.html">Causal estimands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_methods_1_intro.html">Methods #1: Introduction</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="design_methods_2_conventional.html">Methods #2: Conventional approaches</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_methods_3_gmethods.html">Methods #3: G-methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_methods_4_unobserved.html">Methods #3: Methods for unobserved confounding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods_4_unobserved.html">Methods #4: Methods for unobserved confounding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods_5_other.html">Methods #5: Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_account_paradox.html">Accounting for a treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_examples.html">Examples of studies that account for the treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_other.html">Other design considerations</a></li>
@@ -439,7 +439,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components">Key components</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confounders">Confounders</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moderators">Moderators</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mediators">Mediators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mediators">Mediators</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-is-cde-estimated">How is CDE estimated?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#over-adjustment-bias">Over-adjustment bias</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colliders">Colliders</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-nodes">Selection nodes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-error-mis-measured-variables">Measurement error (mis-measured variables)</a></li>
@@ -672,7 +676,8 @@ document.write(`
 
     classDef white fill:#FFFFFF, stroke:#FFFFFF
     classDef black fill:#FFFFFF, stroke:#000000
-        </div><p><strong>How is CDE estimated?</strong></p>
+        </div><section id="how-is-cde-estimated">
+<h4>How is CDE estimated?<a class="headerlink" href="#how-is-cde-estimated" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>‘Assuming no interaction between exposure and mediator, and no confounding between mediator and outcome, the indirect effect can be obtained by subtracting the CDE from the total effect’</p></li>
 <li><p>‘When interaction is present between exposure and mediator, the CDE will take on different values for different levels of the mediator, and the effect obtained by subtracting the CDE from the total effect no longer has a meaningful causal interpretation.’</p></li>
@@ -687,6 +692,11 @@ document.write(`
 </li>
 <li><p>‘These effect estimands can be defined theoretically in counterfactual terms, but can only be estimated given additional assumptions that are difficult to verify and may lack applicability for estimating policy-relevant mediation quantities (eg, how much the effect of A on Y could be reduced by intervening on the mediator).’<a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p></li>
 </ul>
+</section>
+<section id="over-adjustment-bias">
+<h4>Over-adjustment bias<a class="headerlink" href="#over-adjustment-bias" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://doi.org/10.1097/EDE.0b013e3181a819a1">Schisterman et al. 2009</a> defined <strong>over-adjustment bias</strong> as ‘control for an intermediate variable (or a descending proxy for an intermediate variable) on a causal path from exposure to outcome’ (i.e. controlling for a mediator).</p>
+</section>
 </section>
 <section id="colliders">
 <h3>Colliders<a class="headerlink" href="#colliders" title="Link to this heading">#</a></h3>
@@ -993,7 +1003,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components">Key components</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confounders">Confounders</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moderators">Moderators</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mediators">Mediators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mediators">Mediators</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-is-cde-estimated">How is CDE estimated?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#over-adjustment-bias">Over-adjustment bias</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colliders">Colliders</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-nodes">Selection nodes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-error-mis-measured-variables">Measurement error (mis-measured variables)</a></li>

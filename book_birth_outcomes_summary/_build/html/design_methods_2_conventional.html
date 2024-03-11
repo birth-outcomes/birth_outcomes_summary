@@ -217,10 +217,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="design_causal_assumptions.html">Causal assumptions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_causal_estimands.html">Causal estimands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_methods_1_intro.html">Methods #1: Introduction</a></li>
-
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Methods #2: Conventional approaches</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_methods_3_gmethods.html">Methods #3: G-methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_methods_4_unobserved.html">Methods #3: Methods for unobserved confounding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods_4_unobserved.html">Methods #4: Methods for unobserved confounding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods_5_other.html">Methods #5: Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_account_paradox.html">Accounting for a treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_examples.html">Examples of studies that account for the treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_other.html">Other design considerations</a></li>
@@ -444,10 +444,15 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-matching">Limitations of matching</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-probability-of-treatment-weighting-iptw">Inverse probability of treatment weighting (IPTW)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-probability-of-treatment-weighting-iptw-with-baseline-covariates">Inverse probability of treatment weighting (IPTW) with baseline covariates</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strengths-and-limitations">Strengths and limitations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iptw-variants">IPTW variants</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iptw-variants">IPTW variants</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-stabilisation">Weight stabilisation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#propensity-score-trimming-and-truncation">Propensity score trimming and truncation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariable-regression">Multivariable regression</a></li>
@@ -487,13 +492,11 @@ document.write(`
 <ul class="simple">
 <li><p>Stratification</p></li>
 <li><p>Matching</p></li>
-<li><p>Inverse probability of treatment (or propensity score) weighting</p></li>
-<li><p>Multivariable regression</p>
-<ul>
-<li><p>Outcome regression/standardisation</p></li>
+<li><p>Inverse probability of treatment weighting</p></li>
+<li><p>Multivariable regression / covariate adjustment</p></li>
 </ul>
-</li>
-</ul>
+<p><strong>Propensity score matching</strong> is recommended over stratification or covariate adjustment (multivariable regression) as it eliminates a greater proportion of systemic differences in baseline characteristics between treated and untreated. <a class="reference external" href="https://doi.org/10.1136/bmjopen-2021-058977">[Wijn et al. 2022]</a></p>
+<p><strong>Inverse probability weighting</strong> can be used for baseline imbalances or time-varying confounding - so is expanded on in the G-methods page.</p>
 <p>However, I first introduce <strong>propensity scores</strong>, as these are used within variants of several methods.</p>
 </section>
 <section id="propensity-scores">
@@ -632,9 +635,13 @@ Above, we are describing the <strong>synthetic control method</strong>. <a class
 </ul>
 </section>
 </section>
-<section id="inverse-probability-of-treatment-weighting-iptw">
-<h2>Inverse probability of treatment weighting (IPTW)<a class="headerlink" href="#inverse-probability-of-treatment-weighting-iptw" title="Link to this heading">#</a></h2>
-<p><strong>Inverse probability weighting (IPW)</strong>, also known as <strong>inverse probability of treatment weighting</strong> (IPTW), or <strong>propensity score weighting</strong> is one of the various propensity score methods. Below describes IPTW to account for confounders at baseline, but it can be used to estimate parameters of a marginal structure model and adjust for confounding measured over time (see page on G-methods).</p>
+<section id="inverse-probability-of-treatment-weighting-iptw-with-baseline-covariates">
+<h2>Inverse probability of treatment weighting (IPTW) with baseline covariates<a class="headerlink" href="#inverse-probability-of-treatment-weighting-iptw-with-baseline-covariates" title="Link to this heading">#</a></h2>
+<p><strong>Inverse probability weighting (IPW)</strong>, also known as <strong>inverse probability of treatment weighting</strong> (IPTW), or <strong>propensity score weighting</strong> is one of the various propensity score methods. Below describes IPTW to account for confounders at baseline, but it can be used to:</p>
+<ul class="simple">
+<li><p>Estimate parameters of a marginal structure model and adjust for confounding measured over time (see page on G-methods).</p></li>
+<li><p>Account for informative censoring (pateitsn censored when lost to follow-up or reach study end without encountering event) - calculating <strong>inverse probability of censoring weights</strong> or each time point as the inverse probability of remaining in the study up to the current time point, given the previous exposure, and patient characteristics related to censoring <a class="reference external" href="https://doi.org/10.1093%2Fckj%2Fsfab158">[Chesnaye et al. 2022]</a></p></li>
+</ul>
 <p>IPTW involves using the propensity scores to balance the baseline characteristics in the treated and untreated (or ‘exposed and unexposed’) groups. This is done by <strong>weighting each individual by the inverse probability of receiving their actual treatment</strong>. <a class="reference external" href="https://doi.org/10.1093%2Fckj%2Fsfab158">[Chesnaye et al. 2022]</a></p>
 <table class="table">
 <thead>
@@ -669,8 +676,10 @@ Above, we are describing the <strong>synthetic control method</strong>. <a class
 <li><p>Patients with diabetes have 25% probability of receiving EHD = propensity score of 0.25</p></li>
 <li><p>To balance distribution, weight-up patients in EHD group by inverse of propensity score, which is 1/0.25=4, so conceptually each <strong>EHD diabetes patient represents four patients</strong>, creating a “pseudo-population”</p></li>
 <li><p>Similarly, CHD diabetes patients weighted by 1/(1-0.25)=1.33.</p></li>
-<li><p><strong>Diabetes now equally distributed</strong> across the EHD and CHD groups <a class="reference external" href="https://doi.org/10.1093%2Fckj%2Fsfab158">[Chesnaye et al. 2022]</a></p></li>
+<li><p><strong>Diabetes now equally distributed</strong> across the EHD and CHD groups</p></li>
+<li><p>These weights can then be incorporated into an outcome model to get an estimate of the <strong>average treatment effect</strong> adjusted for confounders</p></li>
 </ul>
+<p>‘As the weighting creates a pseudopopulation containing ‘replications’ of individuals, the sample size is artificially inflated and correlation is induced within each individual. This lack of independence needs to be accounted for in order to correctly estimate the variance and confidence intervals in the effect estimates, which can be achieved by using either a robust ‘sandwich’ variance estimator or bootstrap-based methods.’ <a class="reference external" href="https://doi.org/10.1093%2Fckj%2Fsfab158">[Chesnaye et al. 2022]</a></p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Diabetes + Group</p></th>
@@ -720,20 +729,46 @@ Above, we are describing the <strong>synthetic control method</strong>. <a class
 <li><p>Simulation studies have shown IPTW can be no better than multivariable regression</p></li>
 <li><p>IPTW cautioned against for sample sizes under 150 due to underestimation of the variance (i.e. standard error, confidence interval and P-values) of effect estimates</p></li>
 <li><p>‘Sensitive to misspecifications of the propensity score model, as omission of interaction effects or misspecification of functional forms of included covariates may induce imbalanced groups, biasing the effect estimate’ <a class="reference external" href="https://doi.org/10.1093%2Fckj%2Fsfab158">[Chesnaye et al. 2022]</a></p></li>
-<li><p>‘Propensity values near 0 and 1 yield extreme weights (after taking the inverse)’</p></li>
+<li><p>‘Propensity values near 0 and 1 yield extreme weights (after taking the inverse)’<a class="reference external" href="https://www2.stat.duke.edu/~fl35/teaching/640/Chap3.4_observational_weighting.pdf">[source]</a> - i.e. not recommended when propensities are small (close to 0) as weights can be unstable</p></li>
 <li><p>ATE may not always be the sensible estimand <a class="reference external" href="https://www2.stat.duke.edu/~fl35/teaching/640/Chap3.4_observational_weighting.pdf">[source]</a></p></li>
+</ul>
+</section>
+<section id="assumptions">
+<h3>Assumptions<a class="headerlink" href="#assumptions" title="Link to this heading">#</a></h3>
+<p>‘Treatment effects obtained using IPTW may be interpreted as causal under the following assumptions:</p>
+<ul class="simple">
+<li><p>Exchangeability</p></li>
+<li><p>No misspecification of the propensity score model</p></li>
+<li><p>Positivity</p></li>
+<li><p>Consistency’ <a class="reference external" href="https://doi.org/10.1093%2Fckj%2Fsfab158">[Chesnaye et al. 2022]</a></p></li>
 </ul>
 </section>
 <section id="iptw-variants">
 <h3>IPTW variants<a class="headerlink" href="#iptw-variants" title="Link to this heading">#</a></h3>
-<p>There are variants to IPTW that attempt to address some of its limitations.</p>
-<p><strong>Propensity score trimming and truncation</strong>:</p>
+<p>One of the limitations described above is that propensity values near 0 and 1 yield <strong>extreme weights</strong>. This can ‘inflate the variance and confident intervals of the effect estimate. This may occur when the exposure is rare in a small subset of individuals, which subsequently receives very large weights, and thus have a disproportionate influence on the analysis.’ It’s worth considering <strong>why</strong> these individuals have such a low probability of being treatment but actually receive the treatment, or vice versa - they may be <strong>outliers</strong>. For example, ‘patients with a 100% probbaility of receiving a particular treatment would not be eligible to be randomised to both treatments’. There are variants to IPTW that attempt to address some of its limitations. <a class="reference external" href="https://doi.org/10.1093%2Fckj%2Fsfab158">[Chesnaye et al. 2022]</a></p>
+<section id="weight-stabilisation">
+<h4>Weight stabilisation<a class="headerlink" href="#weight-stabilisation" title="Link to this heading">#</a></h4>
 <ul class="simple">
-<li><p><strong>Symmetric trimming</strong> - exclude patients with a score outside [a, 1-a], with often a=0.1, so [0.1, 0.9]</p></li>
-<li><p><strong>Asymmetric trimming</strong> - exclude patients with a score outside the common range formed by the treated and control patients, and below the q quantile of treated and above the 1-q quantile of control</p></li>
-<li><p><strong>Propensity score truncation</strong> - set patients with a score below a to a, and above 1-a to 1-a</p></li>
+<li><p>Replace ‘numerator (which is 1 in the unstabilized weights) with the <strong>crude probability of exposure</strong> (i.e. given by the propensity score model without covariates).’</p></li>
+<li><p>‘In case of a binary exposure, the numerator is simply the proportion of patients who were exposed. Stablised weights can therefore be calculated as:’</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">exposed</span> <span class="pre">/</span> <span class="pre">propensity_score</span></code>, instead of <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">/</span> <span class="pre">propensity_score</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unexposed</span> <span class="pre">/</span> <span class="pre">(1-propensity</span> <span class="pre">score)</span></code>, instead of <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">/</span> <span class="pre">(1-propensity</span> <span class="pre">score)</span></code></p></li>
 </ul>
-<p>‘These methods can help reduce the impact of extreme scores and improve the finite-sample property of IPW’ <a class="reference external" href="https://www2.stat.duke.edu/~fl35/teaching/640/Chap3.4_observational_weighting.pdf">[source]</a></p>
+</li>
+<li><p>‘<strong>Stabilized weights should be preferred</strong> over unstabilized weights, as they tend to reduce the variance of the effect estimate’ <a class="reference external" href="https://doi.org/10.1093%2Fckj%2Fsfab158">[Chesnaye et al. 2022]</a></p></li>
+</ul>
+<p>In other weights, weight stabilisation invovles multiplying the unstabilised weight by the probability of the observed exposure without conditioning on the confounders, and so it the stablised weight is the ‘ratio of the unconditional probability (the numerator) to the conditional probability (the denominator)’.<a class="reference external" href="https://doi.org/10.2215/CJN.00650117">[Xie et al. 2017]</a></p>
+</section>
+<section id="propensity-score-trimming-and-truncation">
+<h4>Propensity score trimming and truncation<a class="headerlink" href="#propensity-score-trimming-and-truncation" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Symmetric trimming</strong> - exclude patients with a score outside [a, 1-a], with often a=0.1, so [0.1, 0.9] <a class="reference external" href="https://www2.stat.duke.edu/~fl35/teaching/640/Chap3.4_observational_weighting.pdf">[source]</a> - typically 1st and 99th percentiles, but lower thresholds can reduce variance <a class="reference external" href="https://doi.org/10.1093%2Fckj%2Fsfab158">[Chesnaye et al. 2022]</a></p></li>
+<li><p><strong>Asymmetric trimming</strong> - exclude patients with a score outside the common range formed by the treated and control patients, and below the q quantile of treated and above the 1-q quantile of control</p></li>
+<li><p><strong>Propensity score truncation</strong> - set patients with a score below a to a, and above 1-a to 1-a  <a class="reference external" href="https://www2.stat.duke.edu/~fl35/teaching/640/Chap3.4_observational_weighting.pdf">[source]</a></p></li>
+</ul>
+<p>‘Truncating weights change the population of inference and thus this reduction in variance comes at the cost of increasing bias’. <a class="reference external" href="https://doi.org/10.1093%2Fckj%2Fsfab158">[Chesnaye et al. 2022]</a></p>
+</section>
 </section>
 </section>
 <section id="multivariable-regression">
@@ -821,10 +856,15 @@ Above, we are describing the <strong>synthetic control method</strong>. <a class
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-matching">Limitations of matching</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-probability-of-treatment-weighting-iptw">Inverse probability of treatment weighting (IPTW)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-probability-of-treatment-weighting-iptw-with-baseline-covariates">Inverse probability of treatment weighting (IPTW) with baseline covariates</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strengths-and-limitations">Strengths and limitations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iptw-variants">IPTW variants</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iptw-variants">IPTW variants</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-stabilisation">Weight stabilisation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#propensity-score-trimming-and-truncation">Propensity score trimming and truncation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariable-regression">Multivariable regression</a></li>
