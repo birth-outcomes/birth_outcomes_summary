@@ -26,9 +26,12 @@ Although these are very common - 'described in a zillion publications' - they on
 These approaches are:
 * Stratification
 * Matching
-* Inverse probability of treatment (or propensity score) weighting
-* Multivariable regression
-    * Outcome regression/standardisation
+* Inverse probability of treatment weighting
+* Multivariable regression / covariate adjustment
+
+**Propensity score matching** is recommended over stratification or covariate adjustment (multivariable regression) as it eliminates a greater proportion of systemic differences in baseline characteristics between treated and untreated. [[Wijn et al. 2022]](https://doi.org/10.1136/bmjopen-2021-058977)
+
+**Inverse probability weighting** can be used for baseline imbalances or time-varying confounding - so is expanded on in the G-methods page.
 
 However, I first introduce **propensity scores**, as these are used within variants of several methods.
 
@@ -154,9 +157,11 @@ Above, we are describing the **synthetic control method**. [[source]](https://di
 * Assumes there are no unobserved characteristics between the matched groups. Possible solution: Matched difference-in-differences. [[source]](https://dimewiki.worldbank.org/Matching)
 * Computes **conditional** effect measures (not average effect measures) - i.e. only for certain subset of population [[Hernán and Robins 2024]](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)
 
-## Inverse probability of treatment weighting (IPTW)
+## Inverse probability of treatment weighting (IPTW) with baseline covariates
 
-**Inverse probability weighting (IPW)**, also known as **inverse probability of treatment weighting** (IPTW), or **propensity score weighting** is one of the various propensity score methods. Below describes IPTW to account for confounders at baseline, but it can be used to estimate parameters of a marginal structure model and adjust for confounding measured over time (see page on G-methods).
+**Inverse probability weighting (IPW)**, also known as **inverse probability of treatment weighting** (IPTW), or **propensity score weighting** is one of the various propensity score methods. Below describes IPTW to account for confounders at baseline, but it can be used to:
+* Estimate parameters of a marginal structure model and adjust for confounding measured over time (see page on G-methods).
+* Account for informative censoring (pateitsn censored when lost to follow-up or reach study end without encountering event) - calculating **inverse probability of censoring weights** or each time point as the inverse probability of remaining in the study up to the current time point, given the previous exposure, and patient characteristics related to censoring [[Chesnaye et al. 2022]](https://doi.org/10.1093%2Fckj%2Fsfab158)
 
 IPTW involves using the propensity scores to balance the baseline characteristics in the treated and untreated (or 'exposed and unexposed') groups. This is done by **weighting each individual by the inverse probability of receiving their actual treatment**. [[Chesnaye et al. 2022]](https://doi.org/10.1093%2Fckj%2Fsfab158)
 
@@ -180,7 +185,10 @@ As IPTW aims to balance patient characteristics in the exposed and unexposed gro
 * Patients with diabetes have 25% probability of receiving EHD = propensity score of 0.25
 * To balance distribution, weight-up patients in EHD group by inverse of propensity score, which is 1/0.25=4, so conceptually each **EHD diabetes patient represents four patients**, creating a "pseudo-population"
 * Similarly, CHD diabetes patients weighted by 1/(1-0.25)=1.33.
-* **Diabetes now equally distributed** across the EHD and CHD groups [[Chesnaye et al. 2022]](https://doi.org/10.1093%2Fckj%2Fsfab158)
+* **Diabetes now equally distributed** across the EHD and CHD groups
+* These weights can then be incorporated into an outcome model to get an estimate of the **average treatment effect** adjusted for confounders 
+
+'As the weighting creates a pseudopopulation containing ‘replications’ of individuals, the sample size is artificially inflated and correlation is induced within each individual. This lack of independence needs to be accounted for in order to correctly estimate the variance and confidence intervals in the effect estimates, which can be achieved by using either a robust ‘sandwich’ variance estimator or bootstrap-based methods.' [[Chesnaye et al. 2022]](https://doi.org/10.1093%2Fckj%2Fsfab158)
 
 | Diabetes + Group | Estimated probability<br>of EHD (given<br>diabetes status) | Estimated probability<br>of actual treatment<br>received | Inverse |
 | --- | --- | --- | --- |
@@ -206,19 +214,38 @@ Limitations:
 * Simulation studies have shown IPTW can be no better than multivariable regression
 * IPTW cautioned against for sample sizes under 150 due to underestimation of the variance (i.e. standard error, confidence interval and P-values) of effect estimates
 * 'Sensitive to misspecifications of the propensity score model, as omission of interaction effects or misspecification of functional forms of included covariates may induce imbalanced groups, biasing the effect estimate' [[Chesnaye et al. 2022]](https://doi.org/10.1093%2Fckj%2Fsfab158)
-* 'Propensity values near 0 and 1 yield extreme weights (after taking the inverse)'
+* 'Propensity values near 0 and 1 yield extreme weights (after taking the inverse)'[[source]](https://www2.stat.duke.edu/~fl35/teaching/640/Chap3.4_observational_weighting.pdf) - i.e. not recommended when propensities are small (close to 0) as weights can be unstable
 * ATE may not always be the sensible estimand [[source]](https://www2.stat.duke.edu/~fl35/teaching/640/Chap3.4_observational_weighting.pdf)
+
+### Assumptions
+
+'Treatment effects obtained using IPTW may be interpreted as causal under the following assumptions:
+* Exchangeability
+* No misspecification of the propensity score model
+* Positivity
+* Consistency' [[Chesnaye et al. 2022]](https://doi.org/10.1093%2Fckj%2Fsfab158)
 
 ### IPTW variants
 
-There are variants to IPTW that attempt to address some of its limitations.
+One of the limitations described above is that propensity values near 0 and 1 yield **extreme weights**. This can 'inflate the variance and confident intervals of the effect estimate. This may occur when the exposure is rare in a small subset of individuals, which subsequently receives very large weights, and thus have a disproportionate influence on the analysis.' It's worth considering **why** these individuals have such a low probability of being treatment but actually receive the treatment, or vice versa - they may be **outliers**. For example, 'patients with a 100% probbaility of receiving a particular treatment would not be eligible to be randomised to both treatments'. There are variants to IPTW that attempt to address some of its limitations. [[Chesnaye et al. 2022]](https://doi.org/10.1093%2Fckj%2Fsfab158)
 
-**Propensity score trimming and truncation**:
-* **Symmetric trimming** - exclude patients with a score outside [a, 1-a], with often a=0.1, so [0.1, 0.9]
+#### Weight stabilisation
+
+* Replace 'numerator (which is 1 in the unstabilized weights) with the **crude probability of exposure** (i.e. given by the propensity score model without covariates).'
+* 'In case of a binary exposure, the numerator is simply the proportion of patients who were exposed. Stablised weights can therefore be calculated as:'
+    *  `exposed / propensity_score`, instead of `1 / propensity_score`
+    * `unexposed / (1-propensity score)`, instead of `1 / (1-propensity score)`
+* '**Stabilized weights should be preferred** over unstabilized weights, as they tend to reduce the variance of the effect estimate' [[Chesnaye et al. 2022]](https://doi.org/10.1093%2Fckj%2Fsfab158)
+
+In other weights, weight stabilisation invovles multiplying the unstabilised weight by the probability of the observed exposure without conditioning on the confounders, and so it the stablised weight is the 'ratio of the unconditional probability (the numerator) to the conditional probability (the denominator)'.[[Xie et al. 2017]](https://doi.org/10.2215/CJN.00650117)
+
+#### Propensity score trimming and truncation
+
+* **Symmetric trimming** - exclude patients with a score outside [a, 1-a], with often a=0.1, so [0.1, 0.9] [[source]](https://www2.stat.duke.edu/~fl35/teaching/640/Chap3.4_observational_weighting.pdf) - typically 1st and 99th percentiles, but lower thresholds can reduce variance [[Chesnaye et al. 2022]](https://doi.org/10.1093%2Fckj%2Fsfab158)
 * **Asymmetric trimming** - exclude patients with a score outside the common range formed by the treated and control patients, and below the q quantile of treated and above the 1-q quantile of control
-* **Propensity score truncation** - set patients with a score below a to a, and above 1-a to 1-a 
+* **Propensity score truncation** - set patients with a score below a to a, and above 1-a to 1-a  [[source]](https://www2.stat.duke.edu/~fl35/teaching/640/Chap3.4_observational_weighting.pdf)
 
-'These methods can help reduce the impact of extreme scores and improve the finite-sample property of IPW' [[source]](https://www2.stat.duke.edu/~fl35/teaching/640/Chap3.4_observational_weighting.pdf)
+'Truncating weights change the population of inference and thus this reduction in variance comes at the cost of increasing bias'. [[Chesnaye et al. 2022]](https://doi.org/10.1093%2Fckj%2Fsfab158)
 
 ## Multivariable regression
 
