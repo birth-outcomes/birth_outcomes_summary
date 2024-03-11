@@ -47,6 +47,8 @@ erik shared these to have a look at:
 * I would also very much recommend [The Effect: An Introduction to Research Design and Causality by Nick Huntington-Klein](https://theeffectbook.net/)
 * I’ve heard good things about [Causal Inference: The Mixtape by Scott Cunningham](https://mixtape.scunning.com/)
 
+<mark>this is all about how you deal with confounders - but what about what to do with moderators and mediators?</mark>
+
 ## Designing a study to estimate a causal effect from observational data
 
 The gold standard method for inferring causality is randomisation - e.g. randomising patients to receive a treatment or not. This is because it removes confounding - it removes the common cause of the treatment and outcome, since the only cause of treatment was randomisation.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)

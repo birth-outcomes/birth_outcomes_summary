@@ -62,6 +62,213 @@ Panda et al. 2018 - Clinicians’ views of factors influencing decision-making f
 
 ## DAGs
 
+What is our research question?
+
+Can we predict HIE based on risk factors before and during labour?
+
+Does caesarean section prevent HIE?
+
+### Attempt 0
+
+**It remains unclear what our research question is**. A treatment paradox is when the presence of a prognostic factor triggers an effective treatment - hence, our interest is in the relationship between that prognostic factor and the outcome.
+
+This is like the way we discussed it when talking about treatment paradox in the meeting.
+
+But for causal inference, you need a specific exposure and outcome of interest.
+
+These are not good DAG.
+
+````{mermaid}
+  flowchart LR;
+
+    %% Define the nodes and subgraphs
+    par("Parity"):::white;
+    fhr("Abnormal FHR"):::white;
+    mec("Meconium"):::white;
+    ana("Analgesia"):::white;
+    eth("Ethnicity"):::white;
+    treat("Caesarean"):::white;
+    out("HIE"):::white;
+
+    %% Produce the figure
+    par --> treat; par --> out;
+    fhr --> treat; fhr --> out;
+    mec --> treat; mec --> out;
+    ana --> treat; ana --> out;
+    eth --> treat; eth --> out;
+    treat --> out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+````
+
+And these aren't right either. They're not seperate questions? We want to be thinking about them all at once?
+
+````{mermaid}
+  flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp("Hypoxia"):::green;
+    fhr("Abnormal FHR"):::white;
+    treat("Caesarean"):::white;
+    out("HIE"):::green;
+
+    %% Produce the figure
+    exp --> fhr;
+    fhr --> treat;
+    treat --> out;
+    fhr --> out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+````
+
+````{mermaid}
+  flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp("Gestational age"):::green;
+    treat("Caesarean"):::white;
+    out("HIE"):::green;
+
+    %% Produce the figure
+    exp --> treat;
+    treat --> out;
+    exp --> out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+````
+
+````{mermaid}
+  flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp("Parity"):::green;
+    treat("Caesarean"):::white;
+    out("HIE"):::green;
+
+    %% Produce the figure
+    exp --> treat;
+    treat --> out;
+    exp --> out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+````
+
+````{mermaid}
+  flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp("Previous caesarean"):::green;
+    treat("Caesarean"):::white;
+    out("HIE"):::green;
+
+    %% Produce the figure
+    exp --> treat;
+    treat --> out;
+    exp --> out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+````
+
+````{mermaid}
+  flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp("BMI"):::green;
+    treat("Caesarean"):::white;
+    out("HIE"):::green;
+
+    %% Produce the figure
+    exp --> treat;
+    treat --> out;
+    exp --> out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+````
+
+````{mermaid}
+  flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp("Ethnicity"):::green;
+    treat("Caesarean"):::white;
+    out("HIE"):::green;
+
+    %% Produce the figure
+    exp --> treat;
+    treat --> out;
+    exp --> out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+````
+
+````{mermaid}
+  flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp("Analgesia"):::green;
+    treat("Caesarean"):::white;
+    out("HIE"):::green;
+
+    %% Produce the figure
+    exp --> treat;
+    treat --> out;
+    exp --> out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+````
+
+````{mermaid}
+  flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp("Meconium"):::green;
+    treat("Caesarean"):::white;
+    out("HIE"):::green;
+
+    %% Produce the figure
+    exp --> treat;
+    treat --> out;
+    exp --> out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+````
+
+````{mermaid}
+  flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp("Parity"):::green;
+    treat("Caesarean"):::white;
+    out("HIE"):::green;
+
+    %% Produce the figure
+    exp --> treat;
+    treat --> out;
+    exp --> out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+````
+
 ### Attempt 1
 
 **Research question**: Should we have done a caesarean or not - did it prevent HIE, or would it have prevented HIE.
@@ -86,8 +293,8 @@ It is time-varying, but I don't think there is treatment-confounder feedback, as
     L_sen("Confounder (L)<br><b>Sentinal event</b>"):::white;
     L_fhr("Confounder (L)<br><b>Abnormal FHR</b>"):::white;
     U("Unmeasured confounder (U)<br><b>Hypoxia/Asphyxia</b>"):::white;
-    A("Treatment (A)<br><b>Caesarean</b>"):::important;
-    Y("Outcome (Y)<br><b>Hypoxic ischaemic<br>encephalopathy (HIE)</b>"):::important;
+    A("Treatment (A)<br><b>Caesarean</b>"):::green;
+    Y("Outcome (Y)<br><b>Hypoxic ischaemic<br>encephalopathy (HIE)</b>"):::green;
     Empty[ ]:::empty;
     Mod("Moderator<br><b>Timing of caesarean</b>"):::white;
     
@@ -99,7 +306,54 @@ It is time-varying, but I don't think there is treatment-confounder feedback, as
     classDef white fill:#FFFFFF, stroke:#FFFFFF;
     classDef black fill:#FFFFFF, stroke:#000000;
     classDef empty width:0px,height:0px;
-    classDef important fill:#DDF2D1, stroke: #FFFFFF;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+````
+
+### Attempt 1.5
+
+**What about all our other risk factors we're interested in?**
+
+How do we think about this...?
+
+When we are trying to predict poor outcome and input age as a predictor, is it because we believe age has a causal relationship with HIE? Is that what is important?
+
+In a DAG, it's about including any common causes of any 2+ nodes on the DAG. Is age a cause of...
+* Sentinal event
+* Hypoxia
+* Abnormal FHR
+* Caesarean
+* HIE
+
+This doesn't feel right.
+
+Are they confounding any causal relationships? Are they relevant?
+
+````{mermaid}
+  flowchart LR;
+
+    L_sen("Confounder (L)<br><b>Sentinal event</b>"):::white;
+    L_fhr("Confounder (L)<br><b>Abnormal FHR</b>"):::white;
+    U("Unmeasured confounder (U)<br><b>Hypoxia/Asphyxia</b>"):::white;
+    A("Treatment (A)<br><b>Caesarean</b>"):::green;
+    Y("Outcome (Y)<br><b>Hypoxic ischaemic<br>encephalopathy (HIE)</b>"):::green;
+
+    par("Parity"):::white;
+    mec("Meconium"):::white;
+    ana("Analgesia"):::white;
+    eth("Ethnicity"):::white;
+    
+    L_sen --> U; L_sen --> A;
+    A -->|?| Y;
+    U --> L_fhr; L_fhr --> A; U --> Y;
+    par --> A; par --> Y;
+    mec --> A; mec --> Y;
+    ana --> A; ana --> Y;
+    eth --> A; eth --> Y;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
 ````
 
 ### Attempt 2
