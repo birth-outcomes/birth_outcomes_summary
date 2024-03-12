@@ -224,7 +224,7 @@ You might **condition** on a mediator if you are interested in the **direct effe
     classDef black fill:#FFFFFF, stroke:#000000
 ````
 
-**How is CDE estimated?**
+#### How is CDE estimated?
 * 'Assuming no interaction between exposure and mediator, and no confounding between mediator and outcome, the indirect effect can be obtained by subtracting the CDE from the total effect'
 * 'When interaction is present between exposure and mediator, the CDE will take on different values for different levels of the mediator, and the effect obtained by subtracting the CDE from the total effect no longer has a meaningful causal interpretation.'
 * 'To address this problem, alternative definitions of causal direct and indirect effects have been proposed, such that their sum adds up to the total effect even in the presence of interactions, generally by allowing one or more of these effects to include the interaction effect.' These include:
@@ -234,6 +234,10 @@ You might **condition** on a mediator if you are interested in the **direct effe
   * Pure indirect effect
   * Total direct effect
 * 'These effect estimands can be defined theoretically in counterfactual terms, but can only be estimated given additional assumptions that are difficult to verify and may lack applicability for estimating policy-relevant mediation quantities (eg, how much the effect of A on Y could be reduced by intervening on the mediator).'[[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+
+#### Over-adjustment bias
+
+[Schisterman et al. 2009](https://doi.org/10.1097/EDE.0b013e3181a819a1) defined **over-adjustment bias** as 'control for an intermediate variable (or a descending proxy for an intermediate variable) on a causal path from exposure to outcome' (i.e. controlling for a mediator).
 
 ### Colliders
 

@@ -214,9 +214,13 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="design_estimands.html">Causal assumptions and estimands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_methods.html">Methods for causal effect estimation</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="design_causal_assumptions.html">Causal assumptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_causal_estimands.html">Causal estimands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods_1_intro.html">Methods #1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods_2_conventional.html">Methods #2: Conventional approaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods_3_gmethods.html">Methods #3: G-methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods_4_unobserved.html">Methods #4: Methods for unobserved confounding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods_5_other.html">Methods #5: Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_account_paradox.html">Accounting for a treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_examples.html">Examples of studies that account for the treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_other.html">Other design considerations</a></li>
@@ -660,7 +664,7 @@ In other words:</p>
 <ul class="simple">
 <li><p>e.g. We’ll get a biased estimate if we condition on the Ls, as conditioning on L<sub>K+1</sub> will open a path that was previously blocked: A<sub>K</sub> to L<sub>K+1</sub> to U to Y<sub>K</sub>. Hence, we have introduced selection bias.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p></li>
 </ul>
-<p>This means we will be unable to yielf an unbiased estimate and, if the time-varying confounder also affects the outcome (e.g. L<sub>K+1</sub> –&gt; Y<sub>K+2</sub>), it will be impossible to estimate the total effect of the treatment.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+<p>This means we will be unable to yield an unbiased estimate and, if the time-varying confounder also affects the outcome (e.g. L<sub>K+1</sub> –&gt; Y<sub>K+2</sub>), it will be impossible to estimate the total effect of the treatment.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
 <p>We need other methods to handle these settings: <strong>G-methods</strong>. <a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
 <div class="mermaid">
               flowchart LR;
