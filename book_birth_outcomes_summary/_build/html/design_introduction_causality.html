@@ -611,7 +611,27 @@ document.write(`
 </ol>
 <p>If you wanted to demonstrate the presence of a treatment paradox, you would need to demonstrate the two criteria above.<a class="reference external" href="https://doi.org/10.1136%2Fbmjopen-2020-046518">[Uffen et al. 2021]</a></p>
 <p>The consequence of this is a lack of <strong>generalisability</strong>.<a class="reference external" href="https://doi.org/10.1503/cmaj.120812">[Schuit et al. 2013]</a> The aim of predictive models will often be to help guide decisions to treat on future patients (i.e. they have not yet received any treatments). Models trained on treated patients will offer poor/biased performance, underestimating risk, which can be attributed to treatment use in the validation data.<a class="reference external" href="https://doi.org/10.1186%2Fs12874-017-0375-8">[Pajouheshnia et al. 2017]</a></p>
-<section id="example-of-the-treatment-paradox-in-obstetrics">
+<p>In the language of causal inference:</p>
+<ul class="simple">
+<li><p>Treatment is a mediator</p></li>
+<li><p>We are interested in the bottom arrow - the direct causal effect of the exposure on the outcome - i.e. effect not due to mediator</p></li>
+</ul>
+<div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp(&quot;Exposure&quot;):::white;
+    treat(&quot;Treatment&quot;):::white;
+    out(&quot;Outcome&quot;):::white;
+
+    %% Produce the figure
+    exp --&gt; treat;
+    treat --&gt; out;
+    exp --&gt; out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+        </div><section id="example-of-the-treatment-paradox-in-obstetrics">
 <h3>Example of the treatment paradox in obstetrics<a class="headerlink" href="#example-of-the-treatment-paradox-in-obstetrics" title="Link to this heading">#</a></h3>
 <p><strong>Example 1: Intrapartum fever leads to metabolic acidosis, but it also triggers a ceasarean.</strong></p>
 <ul class="simple">

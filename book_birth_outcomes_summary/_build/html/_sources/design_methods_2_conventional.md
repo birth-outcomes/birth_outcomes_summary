@@ -126,6 +126,34 @@ You can stratify subjects based on their propensity scores. 'The literature show
 * **Noncollapsibility** of certain effect measures like the odds ratio [[Hernán and Robins 2024]](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/) - i.e. 'the crude OR from the marginal table cannot be expressed as the weighted average of the stratum-specific ORs even in the absence of confounding' - as 'the magnitude of the OR is different when comparing the aggregate analysis to the subgroup analysis' - but both estimates are still valid. Other effect measures are **collapsible** e.g. stratified risk ratios [[Pang et al. 2013]](https://doi.org/10.1016/j.amjcard.2012.09.002)
 * Requires **continuous** confounders to be **constrained** to a limited number of categories, which could generate **residual confounding** [[Tripepi et al. 2010]](https://doi.org/10.1159/000319590)
 
+### Exclude treated individuals
+
+A variant on stratification is an anlysis which simply exclude treated individuals. This is proposed in the context of a treatment paradox, where you're interested in the direct causal effect of an exposure on the outcome that is not mediated via decision to treat, which is based on presence of the exposure.
+
+````{mermaid}
+  flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp("Exposure"):::white;
+    treat("Treatment"):::white;
+    out("Outcome"):::white;
+
+    %% Produce the figure
+    exp --> treat;
+    treat --> out;
+    exp --> out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+````
+
+Limitations:
+* Will 'decrease the effective **sample size**' (which could cause you to not see an effect if you don't have the power). This, for example, leads to 'the precision of estimates of both the observed:expected ratio and c-index (area under the ROC curve) decreased due to the reduction in effective sample size'.
+* Results in loss of information about **high risk individuals**, if treatment allocation was dependent on risk (and so very few were untreated), with the discriminative ability of the model worsening with the exclusion of high-risk individuals and consequently narrower case mix.
+* 'In the presence of a strong **unmeasured predictor of the outcome associated with treatment use**, exclusion of treated individuals resulted in an underestimation of the performance of the model.'
+
+[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)
+
 ## Matching
 
 **Matching** involves selecting a sample where exposed and unexposed groups have the same distribution of confounders.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home) We often start with the group with fewer individuals, and then use the other group to find matches. It does not have to be **one-to-one (matching pairs)** - it can be **one-to-many (matching sets)**. Matching is often based on a combination of confounders. [[Hernán and Robins 2024]](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)
@@ -159,7 +187,12 @@ Above, we are describing the **synthetic control method**. [[source]](https://di
 
 ## Inverse probability of treatment weighting (IPTW) with baseline covariates
 
-**Inverse probability weighting (IPW)**, also known as **inverse probability of treatment weighting** (IPTW), or **propensity score weighting** is one of the various propensity score methods. Below describes IPTW to account for confounders at baseline, but it can be used to:
+Names:
+* **Inverse probability weighting (IPW)**
+* **Inverse probability of treatment weighting (IPTW)**
+* **Propensity score weighting**
+
+IPTW is one of the various propensity score methods. Below describes IPTW to account for confounders at baseline, but it can be used to:
 * Estimate parameters of a marginal structure model and adjust for confounding measured over time (see page on G-methods).
 * Account for informative censoring (pateitsn censored when lost to follow-up or reach study end without encountering event) - calculating **inverse probability of censoring weights** or each time point as the inverse probability of remaining in the study up to the current time point, given the previous exposure, and patient characteristics related to censoring [[Chesnaye et al. 2022]](https://doi.org/10.1093%2Fckj%2Fsfab158)
 
@@ -247,8 +280,78 @@ In other weights, weight stabilisation invovles multiplying the unstabilised wei
 
 'Truncating weights change the population of inference and thus this reduction in variance comes at the cost of increasing bias'. [[Chesnaye et al. 2022]](https://doi.org/10.1093%2Fckj%2Fsfab158)
 
+#### Augmented inverse propensity weighting (AIPW)
+
+Augmented inverse propensity weighting (AIPW) involves:
+1. Fitting a **propensity score** model (i.e. estimated probability of treatment assignment conditional on baseline characteristics)
+2. Fit **two seperate models** that estimate the outcome - one under treatment and one under control
+3. **Weight** each outcome by the propensity scores
+
+This improves on IPW to combine information about the probability of treatment and predictive information about the outcome variable. It is a **doubly robust** estimator / has the property of double robustnesss. This means 'that it is consistent (i.e., it converges in probability to the true value of the parameter) for the ATE if either the propensity score model or the outcome model is correctly specified'.
+
+AIPW is more flexible as it doesn't require the **same set of covariates** to be used for the propensity score model and model estimaing treatment-outcome relationship. [[Kurz 2022]](https://doi.org/10.1177%2F0272989X211027181)
+
+#### Excluding treated individuals
+
+Pajouheshnia et al. 2017 propose to exclude treated individuals after IPTW - i.e. stratifying the sample but focussing only on untreated - so that the resulting validation set resembles the untreated target population.
+[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8) This is proposed in the context of the treatment paradox, with the intention of finding the direct effect of the exposure on outcome not mediated by treatment.
+
+In their simulation study, Pajouheshnia et al. 2017 find that **IPW alone did not improve calibration** (compared to when we did nothing to account for the treatment paradox), but IPW followed by the **exclusion of treated individuals** provided correct estimates for calibration. IPW alone or followed by the exclusion of treated individuals improved estimates of the c-index in all scenarios where the assumptions of positivity and no unobserved confounding were met. In scenario 4, **where treatment allocation was determined by a strict risk-threshold and thus the assumption of positivity was violated, IPW was ineffective, and resulted in the worst estimates of discrimination across all methods**. In addition, the extreme weights calculated in scenario 4 led to very large standard errors. In scenarios 13–15, the presence of an unobserved confounder led to the failure of IPW to provide correct estimates of the c-index. Weight truncation at the 98% percentile increased precision, but was less effective in correcting of the c-index for the effects of treatment.
+
+'Although the use of IPW prior to the exclusion of treated individuals is a promising solution in data where treatments are non-randomly allocated, it **should not be used when there are severe violations of the underlying assumptions, e.g. in the presence of non-positivity (where some individuals had no chance of receiving treatment), or when there is an unobserved confounder, strongly associated with both the outcome and treatment use.** There is thus a need to explore alternative methods to IPW to account for the effects of treatment use when validating a prognostic model in settings with non-random treatment use.' [[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)
+
 ## Multivariable regression
 
 In **multivariable regression**, the confounders are **included as covariates**. [[Valojerdi et al. 2018]](https://doi.org/10.14196%2Fmjiri.32.122)
 
 This can be through including individual covariaties, or by just including the estimated **propensity score as a covariate** in the regression model. This can be attractive as it allows the incorporation of many covariates. However, it should be used with caution, as 'bias may increase when the variance in the treated and untreated groups are very different (actually, the untreated group variance is much larger than the treated groups variance).' [[Valojerdi et al. 2018]](https://doi.org/10.14196%2Fmjiri.32.122)
+
+## Other methods
+
+<mark>These are not approaches that haved turned up in the causal inference literature,</mark> but instead, that I have come across in the context of dealing with a treatment paradox. *They will be related to causal inference - I haven't thought through how. I would advice caution - these are largely not recommended methods for causal inference.*
+
+### Use treatment as the outcome
+
+[Cheong-See et al. 2016](https://doi.org/10.1111/1471-0528.13859) propose that, when starting a treatment is likely to prevent an adverse outcome, those who received the treatment could also be considered to have experienced the outcome. For example, 'in women with early-onset pre-eclampsia, if a large proportion of women are delivered at an early preterm gestation (before 34 weeks), then delivery itself could be considered as an outcome (replacing complications that would have occurred in the absence of delivery). In the absence of a standardised protocol for decision to deliver at early preterm gestation, such an approach could help to overcome the limitations in the model as a result of delivery preventing the occurrence of an adverse outcome.'[[Cheong-See et al. 2016]](https://doi.org/10.1111/1471-0528.13859)
+
+### The existence of fully standardised care with no variation in treatment (or variation that you can account for)
+
+This is a scenario where there is complete collinearity between the predictor and the treatment, where the presence of a particular predictor will **always** guarantee the presence of a particular treatment.
+
+However, that requires no variation in treatment - that the **same medications and dosages are always provided at the same treatment thresholds at the same times**. This is not realistic. With the example of management of early-onset pre-eclampsia, such as the commencement of anti-hypertensives and magnesium sulphate, this is somewhat standardised by guidelines [e.g. from the National Institute for Health and Care Excellence (NICE) in the UK], but the **threshold for commencing treatment varies between clinicians and centres**. Furthermore, the **response from a specific antihypertensive and dosage varies between individual patients**.
+
+This limits the applicability of such a strategy, although one could consider the use of multilevel models to allow for any differences between clinicians and treatment centres.'[[Cheong-See et al. 2016]](https://doi.org/10.1111/1471-0528.13859)
+
+Steer 2016 comments that 'such models rarely take into account all of the relevant factors (e.g. the coexistence of a modulating pathology such as an autoimmune disorder) or the social and emotional circumstances and preferences of the mother and her family.'[[Steer 2016]](https://doi.org/10.1111/1471-0528.13860)
+
+### Predictor substition
+
+You could **remove all the predictors upon which the decision to treat is based on**, and substitute them with alternative predictors.
+
+Limitations:
+* Can prevent you from including meaningful predictors in the model
+* Other predictors may be correlated with the predictors used to make treatment decisions.
+
+[[Cheong-See et al. 2016]](https://doi.org/10.1111/1471-0528.13859)
+
+### Incorporation of treatment as a predictor in the model
+
+<mark>does this contradict elsewhere? do we include it elsewhere?</mark>
+
+Another method is to include treatment use as a predictor in the prognostic model.[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)[[Schuit et al. 2013]](https://doi.org/10.1503/cmaj.120812) In practice, you won't be able to input "they have been treated or not" for the as-yet untreated patients - but you could use the model to estimate outcomes in scenarios where they are or are not treated.[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)
+
+You could just add the indicator on top of the prognostic model, keeping the original coefficients fixed.[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8) However, if there is an interaction between the effectiveness of treatment and having a predictor (e.g. more effective in those with predictor), then the model will need to account for/incorporate this interaction.[[Schuit et al. 2013]](https://doi.org/10.1503/cmaj.120812) Instead therefore, the model could be entirely refitted with the addition of an indicator term for treatment, with the inclusion of interaction terms where anticipated.[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)
+
+Limitations:
+* Failure to correctly specify any interactions between treatment and other predictors in the validation set could mean that the effects of treatment are not completely taken into account[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)
+* The addition of a term for treatment to the model that is to be validated may improve the performance beyond that of the original model due to the inclusion of additional predictive information[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)
+* Not possible if everyone in the study had the same intervention (but in that case, it is likely that  unexpected findings are not due to a treatment paradox)[[Schuit et al. 2013]](https://doi.org/10.1503/cmaj.120812)
+* With this approach, 'differentiating treatment from predictor effects becomes difficult. We could adjust for the interaction between ‘decision to treat’ as a predictor and each of the other prognostic factors in the model; however, when many predictors are involved, or when ‘decision to treat’ is based on multiple predictors, this approach becomes complex. In such situations, extremely large sample sizes are needed for the reliable assessment of interactions.'[[Cheong-See et al. 2016]](https://doi.org/10.1111/1471-0528.13859)
+
+Due to the limitations, Pajouheshnia et al. 2017 do not recommend this approach.[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)
+
+### Recalibration
+
+**Don't yet understand:** 'The incidence of the predicted outcome may vary between development and validation data sets. If this is the case, the predictions made by the model will not, on average, match the outcome incidence in the validation data set [22]. As discussed in section 2.1, use of an effective treatment in a validation data set will lead to fewer outcome events and thus a lower incidence than there would have been had the validation set remained untreated. One approach to account for this would be to recalibrate the original model using the partially treated validation data set. In a logistic regression model, a derivative of the incidence of the outcome is captured by the intercept term in the model, and thus a simple solution would seem to be to re-estimate the model intercept using the validation data set [23, 24]. In doing this, the average predicted risk provided by the recalibrated model should then be equal to the (observed) overall outcome frequency in the validation set. Further details of this procedure are given in Table ​Table1.1. Where treatment has been randomly allocated, intercept recalibration should indeed account for the risk-lowering effects, provided that the magnitude of the treatment effect does not vary depending on an individual’s risk and thus is constant over the entire predicted probability range. In non-randomized settings, where treatment use by definition is associated with participant characteristics, a simple intercept recalibration is unlikely to be sufficient due to interactions between treatment use and patient characteristics that are predictors in the model. However, although recalibration may seem a suitable solution for modelling the effects of treatment, when applying recalibration, concerns should also be raised over the interpretation of the estimated performance of the model. Differences in outcome incidence between the development data set and validation data set may not be entirely attributable to the effects of treatment use. By recalibrating the model to adjust for differences in treatment use and effects, we simultaneously adjust for differences in case-mix between the development and validation set. As the aim of validation is to evaluate the performance of the original prognostic model, in this case in a treatment-naïve sample, recalibration may actually lead to an optimistic impression of the accuracy of predictions made by the original model in the validation set. For example, if the validation set included individuals with a notably greater prevalence of comorbidities and thus were more likely to develop the outcome, recalibration prior to validation could mask any inadequacies of the model when making predictions in this subset of high-risk individuals.'[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)
+
+Due to the limitations, Pajouheshnia et al. 2017 do not recommend this approach.[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)

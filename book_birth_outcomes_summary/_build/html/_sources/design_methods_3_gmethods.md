@@ -281,9 +281,6 @@ Limitations:
 * 'Number of balancing variables may be limited by sample size - unusual (or very common) covariates histories may result in failture to achieve stability of estimated weights' - hence the importance of sensitivity analyses - often through trimming or inc/excluding observations with extreme values
 * 'IPTW-based marginal structural models need to include all covariates in the weight estimation. Interaction effect can be estimated for baseline modifiers but not for time-varying modifiers in standard marginal structural models (although history-adjusted marginal structural models have been formulated)' [[Williamson and Ravani 2017]](https://doi.org/10.1093/ndt/gfw341)
 
-
-## Augmented inverse probability weighting
-
 ## G-estimation of structural nested models
 
 '**G-estimation** of structural nested models (SNM) predicts the counterfactual outcome at each time point given no exposure from that point onwards, conditional on prior values of the exposure and confounders.' [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
@@ -292,7 +289,9 @@ Limitations:
 
 'G-estimation is a semiparametric method to estimate the effects of treatment (exposure) in structural nested models. These models control for time-varying confounding affected by previous treatment (exposure) by modeling the outcome at each time as a function of the treatment and covariate history up to that time' [[Williamson and Ravani 2017]](https://doi.org/10.1093/ndt/gfw341)
 
-## Doubly robust estimators
+<mark>add notes on this</mark>
+
+## G-computation + IPTW
 
 'Some authors have proposed combinations of G-computation and propensity scores to improve the estimation of the marginal causal effect. These methods are known as doubly robust estimators (DRE) because they require the specification of both the outcome (for GC) and treatment allocation (for PS) mechanisms to minimise the impact of model misspecification'. [[Chatton et al. 2020]](https://doi.org/10.1038/s41598-020-65917-x)
 

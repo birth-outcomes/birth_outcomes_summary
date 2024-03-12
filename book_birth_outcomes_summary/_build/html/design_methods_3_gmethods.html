@@ -447,9 +447,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strengths-and-limitations">Strengths and limitations</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-inverse-probability-weighting">Augmented inverse probability weighting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-estimation-of-structural-nested-models">G-estimation of structural nested models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#doubly-robust-estimators">Doubly robust estimators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-computation-iptw">G-computation + IPTW</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-cox-models">Sequential Cox models</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-methods">Comparing methods</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-computation-v-s-iptw">G-computation v.s. IPTW</a></li>
@@ -746,17 +745,15 @@ document.write(`
 </ul>
 </section>
 </section>
-<section id="augmented-inverse-probability-weighting">
-<h2>Augmented inverse probability weighting<a class="headerlink" href="#augmented-inverse-probability-weighting" title="Link to this heading">#</a></h2>
-</section>
 <section id="g-estimation-of-structural-nested-models">
 <h2>G-estimation of structural nested models<a class="headerlink" href="#g-estimation-of-structural-nested-models" title="Link to this heading">#</a></h2>
 <p>‘<strong>G-estimation</strong> of structural nested models (SNM) predicts the counterfactual outcome at each time point given no exposure from that point onwards, conditional on prior values of the exposure and confounders.’ <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
 <p>‘SNM are outcome models meant to handle time-varying effect measure modification (something that is technically difficult to define). But they are pretty straightforward in the single time-point setting. An additive SNM has two parameters, the effect of a when V=0 and the effect of a when V=1 (if V is binary). So, the structural nested model is a model we might assume for how the additive effect of A on Y varies by V.’<a class="reference external" href="https://stats.stackexchange.com/questions/612029/what-is-the-difference-between-the-g-formula-g-estmation-g-computation-and-g-m">[source]</a></p>
 <p>‘G-estimation is a semiparametric method to estimate the effects of treatment (exposure) in structural nested models. These models control for time-varying confounding affected by previous treatment (exposure) by modeling the outcome at each time as a function of the treatment and covariate history up to that time’ <a class="reference external" href="https://doi.org/10.1093/ndt/gfw341">[Williamson and Ravani 2017]</a></p>
+<p><mark>add notes on this</mark></p>
 </section>
-<section id="doubly-robust-estimators">
-<h2>Doubly robust estimators<a class="headerlink" href="#doubly-robust-estimators" title="Link to this heading">#</a></h2>
+<section id="g-computation-iptw">
+<h2>G-computation + IPTW<a class="headerlink" href="#g-computation-iptw" title="Link to this heading">#</a></h2>
 <p>‘Some authors have proposed combinations of G-computation and propensity scores to improve the estimation of the marginal causal effect. These methods are known as doubly robust estimators (DRE) because they require the specification of both the outcome (for GC) and treatment allocation (for PS) mechanisms to minimise the impact of model misspecification’. <a class="reference external" href="https://doi.org/10.1038/s41598-020-65917-x">[Chatton et al. 2020]</a></p>
 </section>
 <section id="sequential-cox-models">
@@ -860,9 +857,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strengths-and-limitations">Strengths and limitations</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-inverse-probability-weighting">Augmented inverse probability weighting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-estimation-of-structural-nested-models">G-estimation of structural nested models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#doubly-robust-estimators">Doubly robust estimators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#g-computation-iptw">G-computation + IPTW</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-cox-models">Sequential Cox models</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-methods">Comparing methods</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-computation-v-s-iptw">G-computation v.s. IPTW</a></li>
