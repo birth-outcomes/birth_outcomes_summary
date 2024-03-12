@@ -23,7 +23,7 @@ https://proceedings.neurips.cc/paper/2020/file/32e54441e6382a7fbacbbbaf3c450059-
 
 https://proceedings.neurips.cc/paper/2020/file/32e54441e6382a7fbacbbbaf3c450059-Paper.pdf
 
-SHAP values are usually symmetric, with no causal knowledge incorporated into their calculation. However, Frye et al. 2021(https://doi.org/10.48550/arXiv.1910.06358) proposed asymmetric Shapley values, which incorporate prior knowledge into the calculation. They 'can be tuned by the researcher to avoid splitting the Shapley feature effects uniformaly across related/correlated features - as is done in the symmetric case - and focus on the uniqute effect of a target feature after having conditioned on other pre-specified "causal" feature effects'.[[source]](https://github.com/nredell/shapFlex)
+SHAP values are usually symmetric, with no causal knowledge incorporated into their calculation. However, Frye et al. 2021(https://doi.org/10.48550/arXiv.1910.06358) proposed asymmetric Shapley values, which incorporate prior knowledge into the calculation. They 'can be tuned by the researcher to avoid splitting the Shapley feature effects uniformaly across related/correlated features - as is done in the symmetric case - and focus on the unique effect of a target feature after having conditioned on other pre-specified "causal" feature effects'.[[source]](https://github.com/nredell/shapFlex)
 
 The shapFlex package offers two asymmetric options (marked as experimental):
 * Asymmetric with weights of 0.5 - 'Agnostic causality. Similar to the symmetric algorithm. The difference is that, in the asymmetric algorithm, the entire set of causal effects is conditioned on as a group; the symmetric algorithm would condition on random subsets of the causal features.'

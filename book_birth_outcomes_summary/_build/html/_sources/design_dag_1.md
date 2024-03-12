@@ -1,4 +1,4 @@
-# Introduction to directed acyclic graphs (DAGs)
+# Directed acyclic graphs (DAGs) #1 (basics)
 
 `````{admonition} Executive summary
 :class: info

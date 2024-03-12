@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Additional DAG concepts &#8212; Birth Outcomes</title>
+    <title>DAGs #2 (advanced concepts) &#8212; Birth Outcomes</title>
   
   
   
@@ -70,8 +70,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'design_dag_2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="DAG for HIE" href="design_dag_hie.html" />
-    <link rel="prev" title="Introduction to directed acyclic graphs (DAGs)" href="design_dag_1.html" />
+    <link rel="next" title="DAG #3 (HIE)" href="design_dag_hie.html" />
+    <link rel="prev" title="Directed acyclic graphs (DAGs) #1 (basics)" href="design_dag_1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -205,18 +205,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal diagrams</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal concepts</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="design_introduction_causality.html">The problem: prediction, causation and the treatment paradox</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_dag_1.html">Introduction to directed acyclic graphs (DAGs)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Additional DAG concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_dag_hie.html">DAG for HIE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_intro_1_treatment_paradox.html">The treatment paradox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_intro_2_predict_vs_causal.html">Choosing between prediction and causal inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_intro_3_causal.html">Causal inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_counterfactuals.html">Counterfactuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_dag_1.html">Directed acyclic graphs (DAGs) #1 (basics)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">DAGs #2 (advanced concepts)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_dag_hie.html">DAG #3 (HIE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_sem.html">Structural equation modelling</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal methods</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="design_causal_assumptions.html">Causal assumptions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_causal_estimands.html">Causal estimands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_methods_1_intro.html">Methods #1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_target_trial.html">Target trial emulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods_1_intro.html">Methods #1: Introduction to methods to adjust for confounding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_methods_2_conventional.html">Methods #2: Conventional approaches</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_methods_3_gmethods.html">Methods #3: G-methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_methods_4_unobserved.html">Methods #4: Methods for unobserved confounding</a></li>
@@ -420,7 +425,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Additional DAG concepts</h1>
+    <h1>DAGs #2 (advanced concepts)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -460,8 +465,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="additional-dag-concepts">
-<h1>Additional DAG concepts<a class="headerlink" href="#additional-dag-concepts" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="dags-2-advanced-concepts">
+<h1>DAGs #2 (advanced concepts)<a class="headerlink" href="#dags-2-advanced-concepts" title="Link to this heading">#</a></h1>
 <div class="info admonition">
 <p class="admonition-title">Executive summary</p>
 <p><strong>D-seperation rules</strong> determine whether paths will be open (expect associations) or blocked (independent), which are based on whether condition or not on confounders and colliders.</p>
@@ -883,7 +888,7 @@ In other words:</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introduction to directed acyclic graphs (DAGs)</p>
+        <p class="prev-next-title">Directed acyclic graphs (DAGs) #1 (basics)</p>
       </div>
     </a>
     <a class="right-next"
@@ -891,7 +896,7 @@ In other words:</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">DAG for HIE</p>
+        <p class="prev-next-title">DAG #3 (HIE)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

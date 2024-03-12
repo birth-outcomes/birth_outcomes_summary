@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introduction to directed acyclic graphs (DAGs) &#8212; Birth Outcomes</title>
+    <title>Directed acyclic graphs (DAGs) #1 (basics) &#8212; Birth Outcomes</title>
   
   
   
@@ -70,8 +70,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'design_dag_1';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Additional DAG concepts" href="design_dag_2.html" />
-    <link rel="prev" title="The problem: prediction, causation and the treatment paradox" href="design_introduction_causality.html" />
+    <link rel="next" title="DAGs #2 (advanced concepts)" href="design_dag_2.html" />
+    <link rel="prev" title="Counterfactuals" href="design_counterfactuals.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -205,18 +205,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal diagrams</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal concepts</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="design_introduction_causality.html">The problem: prediction, causation and the treatment paradox</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to directed acyclic graphs (DAGs)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_dag_2.html">Additional DAG concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_dag_hie.html">DAG for HIE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_intro_1_treatment_paradox.html">The treatment paradox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_intro_2_predict_vs_causal.html">Choosing between prediction and causal inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_intro_3_causal.html">Causal inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_counterfactuals.html">Counterfactuals</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Directed acyclic graphs (DAGs) #1 (basics)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_dag_2.html">DAGs #2 (advanced concepts)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_dag_hie.html">DAG #3 (HIE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_sem.html">Structural equation modelling</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal methods</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="design_causal_assumptions.html">Causal assumptions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_causal_estimands.html">Causal estimands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_methods_1_intro.html">Methods #1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_target_trial.html">Target trial emulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods_1_intro.html">Methods #1: Introduction to methods to adjust for confounding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_methods_2_conventional.html">Methods #2: Conventional approaches</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_methods_3_gmethods.html">Methods #3: G-methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_methods_4_unobserved.html">Methods #4: Methods for unobserved confounding</a></li>
@@ -420,7 +425,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction to directed acyclic graphs (DAGs)</h1>
+    <h1>Directed acyclic graphs (DAGs) #1 (basics)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -468,8 +473,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-directed-acyclic-graphs-dags">
-<h1>Introduction to directed acyclic graphs (DAGs)<a class="headerlink" href="#introduction-to-directed-acyclic-graphs-dags" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="directed-acyclic-graphs-dags-1-basics">
+<h1>Directed acyclic graphs (DAGs) #1 (basics)<a class="headerlink" href="#directed-acyclic-graphs-dags-1-basics" title="Link to this heading">#</a></h1>
 <div class="info admonition">
 <p class="admonition-title">Executive summary</p>
 <p>Causal diagrams (directed acyclic graphs - DAGs) are based on expert knowledge. They depict the causal relationships between nodes using directed arrows. They are used to illustrate/identify sources of bias, to indicate where associations/independence should be expected, and to help inform study design.</p>
@@ -961,12 +966,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="design_introduction_causality.html"
+       href="design_counterfactuals.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">The problem: prediction, causation and the treatment paradox</p>
+        <p class="prev-next-title">Counterfactuals</p>
       </div>
     </a>
     <a class="right-next"
@@ -974,7 +979,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Additional DAG concepts</p>
+        <p class="prev-next-title">DAGs #2 (advanced concepts)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

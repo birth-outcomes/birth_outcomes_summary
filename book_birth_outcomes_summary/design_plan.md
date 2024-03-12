@@ -13,6 +13,21 @@ Target trial idea...
 * Within those groups, randomise to receive caesarean or not?
 * Or randomise to receive earlier or later?
 
+## Rough ideas
+
+On the surface, you may assume we just want to predict outcomes, but (a) we're interested in causal relationships - hence why we're so concerned by the treatment paradox, and (b) the application of making treatment decisions requires understanding of counterfactuals.
+
+To **demonstrate existence of the treatment paradox** (by comparison to models that are causal), and to allow comparability to other studies:
+* **Prediction model (association)** - can we predict HIE
+
+To actually **explore the proposed research question**:
+* **Causality (intervention)** - what is the causal relationship between caesarean and HIE?
+* **Counterfactuals** - what would have happened if we had done or not done the caesarean?
+
+We should:
+* Reporting predictive accuracy of all models
+* Being explicitly clear which variables in a model were considered in design of the causal model (to avoid Table 2 fallacy)
+
 ## Design ideas
 
 ### From Mike's email + Steve's comments - Research questions - 

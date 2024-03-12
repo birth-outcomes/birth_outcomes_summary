@@ -203,18 +203,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal diagrams</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal concepts</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="design_introduction_causality.html">The problem: prediction, causation and the treatment paradox</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_dag_1.html">Introduction to directed acyclic graphs (DAGs)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_dag_2.html">Additional DAG concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_dag_hie.html">DAG for HIE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_intro_1_treatment_paradox.html">The treatment paradox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_intro_2_predict_vs_causal.html">Choosing between prediction and causal inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_intro_3_causal.html">Causal inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_counterfactuals.html">Counterfactuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_dag_1.html">Directed acyclic graphs (DAGs) #1 (basics)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_dag_2.html">DAGs #2 (advanced concepts)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_dag_hie.html">DAG #3 (HIE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_sem.html">Structural equation modelling</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal methods</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="design_causal_assumptions.html">Causal assumptions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_causal_estimands.html">Causal estimands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_methods_1_intro.html">Methods #1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_target_trial.html">Target trial emulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods_1_intro.html">Methods #1: Introduction to methods to adjust for confounding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_methods_2_conventional.html">Methods #2: Conventional approaches</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_methods_3_gmethods.html">Methods #3: G-methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_methods_4_unobserved.html">Methods #4: Methods for unobserved confounding</a></li>
@@ -430,6 +435,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-aim">Overall aim</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#target-trial">Target trial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rough-ideas">Rough ideas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-ideas">Design ideas</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mike-s-email-steve-s-comments-research-questions">From Mike’s email + Steve’s comments - Research questions -</a></li>
 </ul>
@@ -460,6 +466,24 @@ document.write(`
 <li><p>Mother has particular combination of risk factors (e.g. gestational age, FHR concerns)</p></li>
 <li><p>Within those groups, randomise to receive caesarean or not?</p></li>
 <li><p>Or randomise to receive earlier or later?</p></li>
+</ul>
+</section>
+<section id="rough-ideas">
+<h2>Rough ideas<a class="headerlink" href="#rough-ideas" title="Link to this heading">#</a></h2>
+<p>On the surface, you may assume we just want to predict outcomes, but (a) we’re interested in causal relationships - hence why we’re so concerned by the treatment paradox, and (b) the application of making treatment decisions requires understanding of counterfactuals.</p>
+<p>To <strong>demonstrate existence of the treatment paradox</strong> (by comparison to models that are causal), and to allow comparability to other studies:</p>
+<ul class="simple">
+<li><p><strong>Prediction model (association)</strong> - can we predict HIE</p></li>
+</ul>
+<p>To actually <strong>explore the proposed research question</strong>:</p>
+<ul class="simple">
+<li><p><strong>Causality (intervention)</strong> - what is the causal relationship between caesarean and HIE?</p></li>
+<li><p><strong>Counterfactuals</strong> - what would have happened if we had done or not done the caesarean?</p></li>
+</ul>
+<p>We should:</p>
+<ul class="simple">
+<li><p>Reporting predictive accuracy of all models</p></li>
+<li><p>Being explicitly clear which variables in a model were considered in design of the causal model (to avoid Table 2 fallacy)</p></li>
 </ul>
 </section>
 <section id="design-ideas">
@@ -587,6 +611,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-aim">Overall aim</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#target-trial">Target trial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rough-ideas">Rough ideas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-ideas">Design ideas</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mike-s-email-steve-s-comments-research-questions">From Mike’s email + Steve’s comments - Research questions -</a></li>
 </ul>

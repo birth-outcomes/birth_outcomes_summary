@@ -25,16 +25,21 @@ parts:
     - file: neo_out_apgar
     - file: neo_out_death
     - file: neo_out_ctg
-  - caption: Study design
+  - caption: Study design - causal concepts
     chapters:
     - file: design_intro_1_treatment_paradox
-    - file: design_intro_2_predict_vs_cause
+    - file: design_intro_2_predict_vs_causal
     - file: design_intro_3_causal
+    - file: design_counterfactuals
     - file: design_dag_1
     - file: design_dag_2
     - file: design_dag_hie
+    - file: design_sem
+  - caption: Study design - causal methods
+    chapters:
     - file: design_causal_assumptions
     - file: design_causal_estimands
+    - file: design_target_trial
     - file: design_methods_1_intro
     - file: design_methods_2_conventional
     - file: design_methods_3_gmethods

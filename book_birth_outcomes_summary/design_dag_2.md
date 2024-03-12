@@ -1,4 +1,4 @@
-# Additional DAG concepts
+# DAGs #2 (advanced concepts)
 
 `````{admonition} Executive summary
 :class: info
