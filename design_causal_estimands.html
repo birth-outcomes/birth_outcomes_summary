@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Apgar scores &#8212; Birth Outcomes</title>
+    <title>Causal estimands &#8212; Birth Outcomes</title>
   
   
   
@@ -65,11 +65,11 @@ const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'neo_out_apgar';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'design_causal_estimands';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Death" href="neo_out_death.html" />
-    <link rel="prev" title="Symptoms of neonatal encephalopathy (NE)" href="neo_out_enceph_symptoms.html" />
+    <link rel="next" title="Methods #1: Introduction" href="design_methods_1_intro.html" />
+    <link rel="prev" title="Causal assumptions" href="design_causal_assumptions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -185,7 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="research_groups.html">Research groups</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Identifying HIE cases</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="neo_out_background.html">Examples of identifying hypoxic ischaemic encephalopathy (HIE)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_summary.html">Summary of possible indicators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_cooling.html">Therapeutic hypothermia</a></li>
@@ -198,7 +198,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="neo_out_cp.html">Cerebral palsy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_mri.html">Neuroimaging evidence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_enceph_symptoms.html">Symptoms of neonatal encephalopathy (NE)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Apgar scores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_apgar.html">Apgar scores</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_death.html">Death</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo_out_ctg.html">Abnormal CTG</a></li>
 
@@ -211,9 +211,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="design_dag_hie.html">DAG for HIE</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal methods</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="design_causal_assumptions.html">Causal assumptions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_causal_estimands.html">Causal estimands</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Causal estimands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_methods_1_intro.html">Methods #1: Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_methods_2_conventional.html">Methods #2: Conventional approaches</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_methods_3_gmethods.html">Methods #3: G-methods</a></li>
@@ -304,7 +304,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fneo_out_apgar.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdesign_causal_estimands.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -334,7 +334,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/neo_out_apgar.md" target="_blank"
+      <li><a href="_sources/design_causal_estimands.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -418,7 +418,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Apgar scores</h1>
+    <h1>Causal estimands</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -428,12 +428,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-they-are-calculated">How they are calculated</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-and-association-with-neonatal-outcomes">Interpretation and association with neonatal outcomes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inter-rater-reliability">Inter-rater reliability</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intended-use-of-apgar">Intended use of Apgar</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#causes-of-a-low-apgar-score">Causes of a low Apgar score</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#association-with-outcomes">Association with outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-effect-estimands">Causal effect estimands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intention-to-treat">Intention-to-treat</a></li>
 </ul>
             </nav>
         </div>
@@ -445,90 +441,110 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="apgar-scores">
-<h1>Apgar scores<a class="headerlink" href="#apgar-scores" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="causal-estimands">
+<h1>Causal estimands<a class="headerlink" href="#causal-estimands" title="Link to this heading">#</a></h1>
 <div class="info admonition">
 <p class="admonition-title">Executive summary</p>
-<p><strong>Outcome:</strong> Apgar score (at 1, 5 and/or 10 minutes)</p>
-<p><strong>Specific to HIE?</strong></p>
+<p>Possible causal effect measures:</p>
 <ul class="simple">
-<li><p>No - it is a non-specific sign of illness</p></li>
+<li><p>Causal mean difference</p></li>
+<li><p>Causal mean ratio</p></li>
+<li><p>Causal risk difference</p></li>
+<li><p>Causal risk ratio</p></li>
 </ul>
-<p><strong>Which infants with HIE?</strong></p>
+<p>Possible causal effects - i.e. causal estimand - choice of which can be guided by thinking of target trial you are trying to emulate:</p>
 <ul class="simple">
-<li><p>Not all infants with have low Apgar-5 and Apgar-10, but those that do have &lt;3 at 10 minutes are more likely to have morbidity or mortality</p></li>
+<li><p>Average treatment effect (ATE)</p></li>
+<li><p>Average treatment effect in the treated (ATT)</p></li>
+<li><p>Average treatment effect in the untreated (ATU/ATUT)</p></li>
+<li><p>Intention-to-treat effect (ITT)</p></li>
+<li><p>Complier average causal effect (CACE) or local average treatment effect</p></li>
 </ul>
-<p><strong>Any other benefits or caveats not already mentioned?</strong></p>
-<ul class="simple">
-<li><p>Subjective, inter-rater reliability</p></li>
-<li><p>Theoretical assumptions - assumes all variables contribute equally</p></li>
-</ul>
-<p><strong>Conclusion:</strong> Potentially recommended. The Apgar score is used to assess the status of a newborn immediately after birth and whether they are responding to resuscitation. It is repeatedly stated that it should not be considered to be (a) evidence of asphyxia, or (b) a consequence of asphyxia, or (c) to predict outcomes - even if it is associated with higher likelihood of HIE. However, it is often used.</p>
 </div>
-<p>Apgar scores are the most routinely used measure of the health status of newborns.<a class="reference external" href="https://doi.org/10.1136/bmj.l1656">[source]</a> They evaluate ‘neonates immediately after birth and in response to resucitation’. They were ‘originally designed to assess need for intervention to establish breathing at 1 minute’, and not as an outcome measure.<a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK470569/">[source]</a></p>
-<p>Apgar has been <strong>routinely collected</strong> and performed for a long time (first devised in 1952, and has since become a very common and routine measure)<a class="reference external" href="https://doi.org/10.1016/j.jclinepi.2004.04.012">[source]</a></p>
-<section id="how-they-are-calculated">
-<h2>How they are calculated<a class="headerlink" href="#how-they-are-calculated" title="Link to this heading">#</a></h2>
-<p>The Apgar score is typically quantified at 1 minute (<strong>Apgar-1</strong>), 5 minutes (<strong>Apgar-5</strong>) and 10 minutes(<strong>Apgar-10</strong>) after birth.<a class="reference external" href="https://doi.org/10.1136/bmj.l1656">[source]</a></p>
-<p>Score of 0-2 for five elements:</p>
+<section id="causal-effect-estimands">
+<h2>Causal effect estimands<a class="headerlink" href="#causal-effect-estimands" title="Link to this heading">#</a></h2>
+<p>‘The size of a causal effect is the difference in the potential outcomes for a particular population given different counterfactual scenarios (eg, one where everyone is exposed vs one where everyone is unexposed). As with potential outcomes, causal effects cannot be observed at an individual level, so we rely instead on estimating average effects in groups of people. The outcome may be the mean of a continuous variable or the risk of a binary outcome. The scale of an effect measure can be either additive or multiplicative’… <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Element</p></th>
-<th class="head"><p>Options</p></th>
+<tr class="row-odd"><th class="head"><p>Causal effect measure</p></th>
+<th class="head"><p>Outcome type</p></th>
+<th class="head"><p>Scale</p></th>
+<th class="head"><p>Example</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><strong>A</strong>ppearance</p></td>
-<td><p><ul><li>Pale/blue</li><li>Pink with blue extremeties</li><li>Pink</li></ul></p></td>
+<tr class="row-even"><td><p><strong>Causal mean difference</strong></p></td>
+<td><p>Continuous</p></td>
+<td><p>Additive</p></td>
+<td><p>‘An average increase in systolic blood pressure by 10 mmHg’</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>P</strong>ulse</p></td>
-<td><p><ul><li>Heart rate 0</li><li>&lt;100bpm</li><li>&gt;100pm</li></ul></p></td>
+<tr class="row-odd"><td><p><strong>Causal mean ratio</strong></p></td>
+<td><p>Continuous</p></td>
+<td><p>Multiplicative</p></td>
+<td><p>‘An average increase in systolic blood pressure by a factor of 1.1’ or ‘by 10%’</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>G</strong>rimace</p></td>
-<td><p><ul><li>No response to stimulation</li><li>Grimace to stimulation</li><li>Cry/cough/sneeze to stimulation</li></ul></p></td>
+<tr class="row-even"><td><p><strong>Causal risk difference</strong></p></td>
+<td><p>Binary</p></td>
+<td><p>Additive</p></td>
+<td><p>‘An average increase in the risk of stroke by 5%’</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>A</strong>ctivity</p></td>
-<td><p><ul><li>Loose/floppy muscle tone</li><li>Some tone</li><li>Flexed muscle tone</li></ul></p></td>
-</tr>
-<tr class="row-even"><td><p><strong>R</strong>espiration</p></td>
-<td><p><ul><li>Not breathing</li><li>Slow/weak breathing</li><li>Vigorous crying</li></ul></p></td>
+<tr class="row-odd"><td><p><strong>Causal risk ratio</strong></p></td>
+<td><p>Binary</p></td>
+<td><p>Multiplicative</p></td>
+<td><p>‘An average increase in the risk of stroke by a factor of 1.5’</p></td>
 </tr>
 </tbody>
 </table>
-<p>Note: Most will score 1 for color as peripheral cyanosis (blue discoloration of extremeties) is common among normal infants, and also colour can be misleading in non-white infants).<a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK470569/">[source]</a></p>
-<p>Most of the items require <strong>subjective</strong> judgements - most objective is the heart rate which is based on measured FHR<a class="reference external" href="https://doi.org/10.1016/j.jclinepi.2004.04.012">[source]</a></p>
-<p>The score is calculated without weighting, <strong>assuming all variables contribute equally</strong>, which is untenable - e.g. importance of heartrate v.s. colour<a class="reference external" href="https://doi.org/10.1016/j.jclinepi.2004.04.012">[source]</a></p>
+<p><a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+<p>Depending on how the exposure if defined and what population is considered, ‘several causal treatment effects can be distinguished’. It is important to specify which effect you are trying to estimate (i.e. <strong>the causal estimand</strong>), since these effects ‘can differ substantially in terms of effect size, risk of bias, and interpretation’.</p>
+<p>It can be challenging to identify the appropriate causal estimand. However, specifying a <strong>target trial</strong> (i.e. hypothetical RCT you are trying to emulate), can help with figuring this out. <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+<p>Possible causal treatment effects include:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Causal treatment effect</p></th>
+<th class="head"><p>Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Average treatment effect (ATE)</strong></p></td>
+<td><p>Difference between average outcome, when EVERYONE is exposed v.s. when NO-ONE is exposed</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Average treatment effect in the treated (ATT)</strong></p></td>
+<td><p>ATE calculated only in sub-population of individuals who were actually exposed</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Average treatment effect in the untreated (ATU/ATUT)</strong></p></td>
+<td><p>ATE calculated only in sub-population of individuals who were actually unexposed</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Intention-to-treat effect (ITT)</strong></p></td>
+<td><p>Average effect of being assigned to (but not necessarilly receiving) the exposure</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Complier average causal effect (CACE) or local average treatment effect</strong></p></td>
+<td><p>ATE calculated only among ‘compliers’</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
 </section>
-<section id="interpretation-and-association-with-neonatal-outcomes">
-<h2>Interpretation and association with neonatal outcomes<a class="headerlink" href="#interpretation-and-association-with-neonatal-outcomes" title="Link to this heading">#</a></h2>
-<p>Interpretation (as defined by ACOG-AAP) in term and late-preterm infant:</p>
+<section id="intention-to-treat">
+<h2>Intention-to-treat<a class="headerlink" href="#intention-to-treat" title="Link to this heading">#</a></h2>
+<p><strong>Intention-to-treat analysis</strong> is the preferred analysis strategy for RCTs. This means that the analysis includes all participants, all retained in the group to which they were allocated.</p>
+<p>However, this can be hard to achieve due to:</p>
+<ol class="arabic simple">
+<li><p><strong>Missing outcomes</strong></p>
 <ul class="simple">
-<li><p>Reassuring: 7-10</p></li>
-<li><p>Moderately abnormal: 4-6</p></li>
-<li><p>Low: &lt;=0-3<a class="reference external" href="https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2015/10/the-apgar-score">[ACOG guidelines]</a></p></li>
+<li><p>A “complete case” (or “available case”) analysis only includes participants with no missing outcomes, and whilst only a few missing outcomes won’t cause a problem, in half of trials more than 10% of randomised patients may have missing outcomes. Hence, exclusion will reduce the sample size, and may introduce bias if loss to follow-up is related to a patient’s response to treatment.</p></li>
+<li><p>Participants with missing outcomes can be included if their outcomes are imputed - but this requires strong assumptions. Common example is to use “last observation carried forward”, but this may introduce bias and makes no allowance for uncertainty imputation.</p></li>
 </ul>
-</section>
-<section id="inter-rater-reliability">
-<h2>Inter-rater reliability<a class="headerlink" href="#inter-rater-reliability" title="Link to this heading">#</a></h2>
-<p>Apgar has been found to have poor inter-rater reliablity - study of 223 health professionals found 68% agreement among pediatricians/pediatric house staff, and 24% agreement among nurses from community hospitals<a class="reference external" href="https://doi.org/10.1016/j.jclinepi.2004.04.012">[source]</a></p>
-</section>
-<section id="intended-use-of-apgar">
-<h2>Intended use of Apgar<a class="headerlink" href="#intended-use-of-apgar" title="Link to this heading">#</a></h2>
-<p>Apgar score alone is not ‘evidence of asphyxia or proof of intrapartum hypoxia’.<a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK470569/">[source]</a> The Apgar score provides an accepted and convenient method for reporting the status of the newborn infant immediately after birth and the response to resuscitation if needed. The Apgar score alone <strong>cannot be considered to be evidence of or a consequence of asphyxia, and does not predict individual neonatal mortality or neurologic outcome</strong>, and should not be used for that purpose.<a class="reference external" href="https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2015/10/the-apgar-score">[ACOG guidelines]</a></p>
-<p>It can serve as a ‘<strong>non-specific sign of illness</strong>, which may be one of the first indications of encephalopathy. However, a persistently low Apgar score alone is not a specific indicator for intrapartum compromise. Further, although the score is used widely in outcome studies, its inappropriate use has led to an erroneous definition of asphyxia. Asphyxia is defined as the marked impairment of gas exchange leading, if prolonged, to progressive hypoxemia, hypercapnia, and significant metabolic acidosis. The term asphyxia, which describes a process of varying severity and duration rather than an end point, should not be applied to birth events unless specific evidence of markedly impaired intrapartum or immediate postnatal gas exchange can be documented based on laboratory testing’.<a class="reference external" href="https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2015/10/the-apgar-score">[ACOG guidelines]</a></p>
-</section>
-<section id="causes-of-a-low-apgar-score">
-<h2>Causes of a low Apgar score<a class="headerlink" href="#causes-of-a-low-apgar-score" title="Link to this heading">#</a></h2>
-<p>‘There are numerous factors that can influence the Apgar score, including maternal sedation or anesthesia, congenital malformations, gestational age, trauma, and interobserver variability 6. In addition, the biochemical disturbance must be significant before the score is affected. Elements of the score such as tone, color, and reflex irritability can be subjective, and partially depend on the physiologic maturity of the infant. The score also may be affected by variations in normal transition. For example, lower initial oxygen saturations in the first few minutes need not prompt immediate supplemental oxygen administration; the Neonatal Resuscitation Program targets for oxygen saturation are 60–65% at 1 minute and 80–85% at 5 minutes. The healthy preterm infant with no evidence of asphyxia may receive a low score only because of immaturity. The incidence of low Apgar scores is inversely related to birth weight, and a low score cannot predict morbidity or mortality for any individual infant. As previously stated, it also is inappropriate to use an Apgar score alone to diagnose asphyxia.’<a class="reference external" href="https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2015/10/the-apgar-score">[ACOG guidelines]</a></p>
-<p>The most common antecedent of low Apgar scores is maternal fever in labor or a diagnosis of chorioamnionitis.<a class="reference external" href="https://doi.org/10.1111/dmcn.12016">[Ellenberg and Nelson 2012]</a></p>
-</section>
-<section id="association-with-outcomes">
-<h2>Association with outcomes<a class="headerlink" href="#association-with-outcomes" title="Link to this heading">#</a></h2>
-<p><strong>Low Apgar-1</strong> ‘is not predictive of adverse clinical outcomes or long-term health issues’ as most infants will have normal scores by 5 minutes.<a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK470569/">[source]</a></p>
-<p><strong>Low Apgar-5</strong> is non-reassuring, and low scores ‘correlate with mortality’ and ‘increased risk of cerebral palsy’ - most infants will ‘not go on to develop cerebral palsy, but lower scores over time increase risk’.<a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK470569/">[source]</a></p>
-<p>The Apgar scores of infants with HIE from a study by Laptook et al. 2010 are presented below.<a class="reference external" href="https://doi.org/10.1542%2Fpeds.2009-0934">[Laptook et al. 2010]</a></p>
-<p><img alt="APGAR scores of infants with HIE" src="_images/apgar_hie.jpg" /></p>
-<p>Their findings: ‘More than 90% of infants had Apgar scores of 0–2 at 1 minute and Apgars at 5 and 10 minutes shifted to progressively higher values; at 10 minutes 27% of infants had Apgar scores of 0–2. After adjustment each point decrease in Apgar score at 10 minutes was associated with a 45% increase in the odds of death or disability (OR 1.45, CI 1.22–1.72). Death or disability occurred in 76, 82 and 80% of infants with Apgar scores at 10 minutes of 0, 1 and 2, respectively. CART analysis indicated that Apgar scores at 10 minutes were discriminators of outcome.’<a class="reference external" href="https://doi.org/10.1542%2Fpeds.2009-0934">[Laptook et al. 2010]</a></p>
+</li>
+<li><p><strong>Non-adherence to protocol</strong></p>
+<ul class="simple">
+<li><p>Examples include participants who didn’t meet inclusion criteria (e.g. wrong diagnosis, too young), did not take all of the intended treatment, received a different treatment, or received no treatment</p></li>
+<li><p>Intention-to-treat analysis ignores protocol deviations, including participants in their assigned groups regardless. Modified intention-to-treat (or ‘per protocol analysis’) is an analysis that excludes participants who didn’t adequately adhere (e.g. minimum amount of intervention) - but this would need to be labelled as a non-randomised, observational comparison, and be aware that the exclusion of patients compromises randomisation.<a class="reference external" href="https://www.bmj.com/content/340/bmj.c869">[CONSORT]</a></p></li>
+</ul>
+</li>
+</ol>
+<p>These two problems can introduce <strong>non-random selection effects</strong> - i.e. randomisation isn’t the only cause for treatment - hence introducing confounding (bias), and meaning that exchangeability would no longer holder - and hence why intention-to-treat is recommended (i.e. ignore protocol deviations).</p>
+<p>The <strong>Complier-Average Causal Effect (CACE) estimate</strong> is the comparison of the average outcome of the compliers in the treatment arm compared with the average outcome of the comparable group of would-be compliers in the control arm. It is the intention-to-treat effect in the sub-group of participants who would always have complied with their treatment allocation, and is not subject to confounding.<a class="reference external" href="https://hummedia.manchester.ac.uk/institutes/methods-manchester/docs/CausalInference.pdf">[source]</a></p>
 </section>
 </section>
 
@@ -563,20 +579,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="neo_out_enceph_symptoms.html"
+       href="design_causal_assumptions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Symptoms of neonatal encephalopathy (NE)</p>
+        <p class="prev-next-title">Causal assumptions</p>
       </div>
     </a>
     <a class="right-next"
-       href="neo_out_death.html"
+       href="design_methods_1_intro.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Death</p>
+        <p class="prev-next-title">Methods #1: Introduction</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -596,12 +612,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-they-are-calculated">How they are calculated</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-and-association-with-neonatal-outcomes">Interpretation and association with neonatal outcomes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inter-rater-reliability">Inter-rater reliability</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intended-use-of-apgar">Intended use of Apgar</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#causes-of-a-low-apgar-score">Causes of a low Apgar score</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#association-with-outcomes">Association with outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-effect-estimands">Causal effect estimands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intention-to-treat">Intention-to-treat</a></li>
 </ul>
   </nav></div>
 

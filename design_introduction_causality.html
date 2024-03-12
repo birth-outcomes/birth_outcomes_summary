@@ -214,9 +214,13 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Study design - causal methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="design_estimands.html">Causal assumptions and estimands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_methods.html">Methods for causal effect estimation</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="design_causal_assumptions.html">Causal assumptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_causal_estimands.html">Causal estimands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods_1_intro.html">Methods #1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods_2_conventional.html">Methods #2: Conventional approaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods_3_gmethods.html">Methods #3: G-methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods_4_unobserved.html">Methods #4: Methods for unobserved confounding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_methods_5_other.html">Methods #5: Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_account_paradox.html">Accounting for a treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_examples.html">Examples of studies that account for the treatment paradox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_other.html">Other design considerations</a></li>
@@ -429,7 +433,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-difference-between-predictive-and-etiological-research">The difference between predictive and etiological research</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-research">Types of research</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-inference">Causal inference</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-outcomes-framework">Potential outcomes framework</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#counterfacturals-potential-outcomes-framework">Counterfacturals / Potential outcomes framework</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-v-s-average">Individual v.s. average</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#terminology">Terminology</a></li>
 </ul>
@@ -486,9 +490,14 @@ document.write(`
 </section>
 <section id="causal-inference">
 <h3>Causal inference<a class="headerlink" href="#causal-inference" title="Link to this heading">#</a></h3>
-<p>In etiogical research, we want an unbiased estimate of the effect of X and Y - i.e. estimate of the causal effect of an exposure on an outcome<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p>
-<section id="potential-outcomes-framework">
-<h4>Potential outcomes framework<a class="headerlink" href="#potential-outcomes-framework" title="Link to this heading">#</a></h4>
+<p>In etiogical research, we want an unbiased estimate of the effect of X and Y - i.e. estimate of the causal effect of an exposure on an outcome<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a> When it comes to defining causality, pioneers in causal inference have come up with three definitions/languages, with the strengths of each listed:</p>
+<ol class="arabic simple">
+<li><p><strong>Counterfactuals</strong> (also called <strong>potential outcomes</strong>) - good for articulating the inference for a small number of causes and effects</p></li>
+<li><p><strong>Causal graphical models</strong> - good for understanding the scientific problems</p></li>
+<li><p><strong>Structural equation models</strong> - good for fitting simultaneous models for the variables (espeically for abstract concepts)<a class="reference external" href="http://www.statslab.cam.ac.uk/~qz280/talk/ssrmp-2020/slides.pdf">[source]</a></p></li>
+</ol>
+<section id="counterfacturals-potential-outcomes-framework">
+<h4>Counterfacturals / Potential outcomes framework<a class="headerlink" href="#counterfacturals-potential-outcomes-framework" title="Link to this heading">#</a></h4>
 <p>To <strong>define a causal effect</strong>, we use the <strong>potential outcomes framework</strong> (also known as counterfactural or equivalent concepts approach<a class="reference external" href="https://www.coursera.org/learn/crash-course-in-causality/lecture/Lgb6O/hypothetical-interventions">[source]</a> or Rubin or Neyman-Rubin causal model). This framework ‘uses <strong>mathematical notation</strong> to describe <strong>counterfactual outcomes</strong> and can be used to describe the causal effect of an exposure on an outcome in statistical terms’. <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
 <p>Some key terms in the potential outcomes framework:</p>
 <ul class="simple">
@@ -602,7 +611,27 @@ document.write(`
 </ol>
 <p>If you wanted to demonstrate the presence of a treatment paradox, you would need to demonstrate the two criteria above.<a class="reference external" href="https://doi.org/10.1136%2Fbmjopen-2020-046518">[Uffen et al. 2021]</a></p>
 <p>The consequence of this is a lack of <strong>generalisability</strong>.<a class="reference external" href="https://doi.org/10.1503/cmaj.120812">[Schuit et al. 2013]</a> The aim of predictive models will often be to help guide decisions to treat on future patients (i.e. they have not yet received any treatments). Models trained on treated patients will offer poor/biased performance, underestimating risk, which can be attributed to treatment use in the validation data.<a class="reference external" href="https://doi.org/10.1186%2Fs12874-017-0375-8">[Pajouheshnia et al. 2017]</a></p>
-<section id="example-of-the-treatment-paradox-in-obstetrics">
+<p>In the language of causal inference:</p>
+<ul class="simple">
+<li><p>Treatment is a mediator</p></li>
+<li><p>We are interested in the bottom arrow - the direct causal effect of the exposure on the outcome - i.e. effect not due to mediator</p></li>
+</ul>
+<div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp(&quot;Exposure&quot;):::white;
+    treat(&quot;Treatment&quot;):::white;
+    out(&quot;Outcome&quot;):::white;
+
+    %% Produce the figure
+    exp --&gt; treat;
+    treat --&gt; out;
+    exp --&gt; out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+        </div><section id="example-of-the-treatment-paradox-in-obstetrics">
 <h3>Example of the treatment paradox in obstetrics<a class="headerlink" href="#example-of-the-treatment-paradox-in-obstetrics" title="Link to this heading">#</a></h3>
 <p><strong>Example 1: Intrapartum fever leads to metabolic acidosis, but it also triggers a ceasarean.</strong></p>
 <ul class="simple">
@@ -819,7 +848,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-difference-between-predictive-and-etiological-research">The difference between predictive and etiological research</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-research">Types of research</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-inference">Causal inference</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-outcomes-framework">Potential outcomes framework</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#counterfacturals-potential-outcomes-framework">Counterfacturals / Potential outcomes framework</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-v-s-average">Individual v.s. average</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#terminology">Terminology</a></li>
 </ul>
