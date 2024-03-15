@@ -33,7 +33,6 @@ parts:
     - file: design_counterfactuals
     - file: design_dag_1
     - file: design_dag_2
-    - file: design_dag_hie
     - file: design_sem
   - caption: Study design - causal methods
     chapters:
@@ -48,6 +47,10 @@ parts:
     - file: design_account_paradox
     - file: design_examples
     - file: design_other
+  - caption: Our study
+    chapters:
+    - file: our_dag
+    - file: our_target_trial_protocol
     - file: design_plan
   - caption: Appendices - archived or tbc
     chapters:
