@@ -1,5 +1,15 @@
 # Target trial emulation
 
+`````{admonition} Executive summary
+:class: info
+
+a
+`````
+
+<mark>don't understand difference between ITT and per-protocol?</mark>
+
+<mark>don't understand the three trial designs</mark>
+
 ## Introduction
 
 '**Target trial emulation** is a **framework** for designing and analysing observational studies that aim to estimate the causal effect of interventions. For each causal question on an intervention, one can imagine the randomized trial (the “target trial”) that could have been conducted to answer that question. This target trial should be explicitly specified in a target trial protocol'. This then informs design of the observational study. [[Fu 2023]](https://doi.org/10.1681/ASN.0000000000000152)
@@ -33,9 +43,37 @@ A recent review of observational studies found that:
 
 Target trial emulation 'forces investigators to ask causal questions about interventions, leading to findings that are directly useful in decision-making'.
 
-Example: *'Many observational studies have investigated the causal effect of BMI on outcomes. BMI is not an intervention; patients cannot be randomized to have a certain BMI—a certain BMI can only be achieved through a particular intervention, such as diet, physical exercise, bariatric surgery, or medications (e.g., semaglutide or tirzepatide). These observational studies thus lose the vital information on how a patient attained a different BMI level. Each of the interventions may lower BMI by the same amount but may have completely different causal effects on the outcome. Therefore, the association between BMI and outcomes becomes an amalgamation of each of these interventions, which makes the association difficult to interpret.'* [[Fu 2023]](https://doi.org/10.1681/ASN.0000000000000152)
+Example: *'Many observational studies have investigated the causal effect of BMI on outcomes. BMI is not an intervention; patients cannot be randomized to have a certain BMI—a certain BMI can only be achieved through a particular intervention, such as diet, physical exercise, bariatric surgery, or medications (e.g., semaglutide or tirzepatide). These observational studies thus lose the vital information on how a patient attained a different BMI level. Each of the interventions may lower BMI by the same amount but may have completely different causal effects on the outcome. Therefore, the association between BMI and outcomes becomes an amalgamation of each of these interventions, which makes the association difficult to interpret.*'
+
+'The fact that the causal effect of biomarkers cannot be directly studied does not necessarily mean that the target trial emulation is restrictive—the investigator just needs to reformulate the question in terms of an intervention, just as has been performed to research biomarker targets in real randomized trials.' [[Fu 2023]](https://doi.org/10.1681/ASN.0000000000000152)
+
+### Identify confounders
+
+Example: *'Suppose that an investigator is interested in estimating the causal effect of living donor kidney transplantation versus deceased donor kidney transplantation on graft and recipient survival. Which confounders should the investigator adjust for: donor characteristics, recipient characteristics, or both?*
+
+*When donor and recipient characteristics are imbalanced, the investigator may be inclined to adjust for both in the observational analysis. Fortunately, thinking about the target trial provides the solution. In a randomized trial, the investigator randomizes recipients to a kidney transplant from a living donor or a deceased donor. Consequently, the recipients in both groups have similar characteristics. However, living donors will not have characteristics similar to deceased donors in this randomized trial. The potential lower quality of kidneys from deceased donors is part of the treatment.*
+
+*The observational analysis should therefore only adjust for recipient characteristics to emulate this randomization and not for donor characteristics.'* [[Fu 2023]](https://doi.org/10.1681/ASN.0000000000000152)
+
+### Guides required data and analysis
+
+'The required data and statistical analysis logically flow from the specifications in the research question.' [[Fu 2023]](https://doi.org/10.1681/ASN.0000000000000152)
 
 ## How to design your target trial protocol
+
+You should include the following protocol elements. This table is adapted from [[Fu 2023]](https://doi.org/10.1681/ASN.0000000000000152). The example is 'for an observational study aiming to estimate the causal effect of renin-angiotensin system inhibitors versus calcium channel blockers on outcomes in patients with advanced CKD'.
+
+| Protocol element | Description | Target Trial | Subsequent observational study | Comments |
+| --- | --- | --- | --- | --- |
+| **Eligibility criteria** | **Who will be included in this study?** | - Age 18+<br>- Under nephrologist care<br>- CKD G4 (i.e., eGFR <30 ml/min per 1.73 m2)<br>- No history of kidney transplantation<br>- No use of RASi or CCB in previous 180 d between January 2007 and December 2016 | Same as target trial | Observational study could be tempted to include all individuals on treatment or with outcome in follow-up - but this would be incorrect, as eligibility criteria determine who is enrolled in a trial, and information from follow-up could **never** determine eligibility<br><br>Will often need to **compromise** in observational study if can't get all data required to determine eligibility
+| **Treatment strategies** | **Which precise treatment strategies or interventions will eligible individuals receive?** | 1. Initiate RASi (ACEi or ARB) only<br>2. Initiate CCB only | Same as target trial | In practice, more likely "initiate RASi only and always use during follow-up" - should capture that nauance. Important to be specific as guides follow-up and analysis, including whether need to adjust for time-varying confounding |
+| **Treatment assignment** | **How will eligible individuals be assigned to the treatment strategies?** | Randomization, no blinding | Eligible individuals are assigned at baseline to the treatment strategy that their data are consistent with. To emulate randomization, we adjust for the following baseline confounders: age, sex, eGFR, systolic and diastolic blood pressure, medical history (heart failure, arrhythmia, peripheral vascular disease, cerebrovascular disease, ischemic heart disease, diabetes mellitus, hyperkalemia, AKI), medication use (β-blocker, thiazide diuretic, potassium-sparing diuretic, statin), and health care use (the total number of hospitalizations in previous year) | Individuals will be randomly assigned to one of the treatment strategies in the target trial<br><br>Appropriate emulation of randomization requires sufficient adjustment for all baseline confounders, which need to be measured before treatment assignment. The difficulty is to obtain enough data on confounders to remove residual confounding. |
+| **Outcomes** | **What outcomes will be measured during follow-up?** | 1. Kidney replacement therapy (dialysis or kidney transplantation) 2. All-cause mortality 3. Major adverse cardiovascular events (composite of cardiovascular death, nonfatal myocardial infarction, nonfatal stroke) | Same as target trial. Kidney replacement therapy is registered in the Swedish renal registry; all-cause/cardiovascular mortality is identified from the Swedish death registry; hospitalizations for myocardial infarction or stroke are identified through ICD-10 codes in the national patient registry | Outcome data may often be missing<br><br>In observational data, outcomes usuallly not assessed blindly and systematically, so this can lead to bias (e.g. if you get more measurements when you're sicker - which you can addresss by comparing number of measurements - but not by restricting to patients with certain number of measurements, since randomised trial wouldn't have known that at baseline, and this would lead to selection bias) |
+| **Causal estimand** | **Which causal estimand will be estimated with the observational data?** | Intention-to-treat effect (effect of being randomized to treatment) Per protocol effect (effect of receiving treatment strategy as specified in protocol) | Per protocol effect (effect of receiving treatment strategy as specified in protocol) | Randomised trials are commonly effect of being randomised (intention-to-treat effect) and effect of receiving treatment as per protocol (per protocol effect). Observational studies are not randomised so you can only estimate per protocol effects, **never** intention-to-treat (despire investigators often using that term) |
+| **Start and end of follow-up** | **When does follow-up start and when does it end?** | Starts at randomization and ends at occurrence of end point, administrative censoring or 5 yr of follow-up | Starts at medication initiation (filled prescription) and ends at occurrence of end point, administrative censoring or 5 yr of follow-up | Target trial starts at randomization and finishes at reaching an end point, administrative censoring, or 5 years of follow-up<br><br>Observational starts when (1) patient eligible and (2) patient data congruent with start of treatment. There isn't clear time for when "do not initiate" treatment begins - solution is to analyse question in sequential trials, which uses idea that patients in "do not initiate treatment" group can be allocated to strategy at any point in time when are eligible. When interested in patients who "always use during follow-up", would need to censor (stop follow-up) when discontinue assigned treatment |
+| **Statistical analysis** | **Which statistical analyses will be used to estimate the causal estimand?** | Intention-to-treat analysis, non-naïve per protocol analysis | Per protocol analysis: Hazard ratios are estimated using Cox regression while adjusting for baseline confounders with inverse probability of treatment weighting. Weighted cumulative incidence curves are estimated using the Aalen–Johansen estimatora | Includes methods to adjust for confounding, how missing data are dealt with, and which methods were used to obtain effect estimates |
+
+[[Fu 2023]](https://doi.org/10.1681/ASN.0000000000000152)
 
 ## How to use this to inform your observational study
 
@@ -44,4 +82,9 @@ Example: *'Many observational studies have investigated the causal effect of BMI
 2. Treatment strategies are assigned.
 3. Follow-up is started, that is, we start counting outcomes.
 
-Note that these three components are naturally aligned in randomized trials at the moment of randomization.' [[Fu 2023]](https://doi.org/10.1681/ASN.0000000000000152)
+Note that these three components are naturally aligned in randomized trials at the moment of randomization.' 
+
+Observational study design options:
+* **Active comparator new user design** - used to compare effect of initiating two treatments
+* **Clone censor weight design** - useful for grace periods, treatment duration, or when treatment is started based on a biomarker level
+* **Sequential trial design** - appropriate when one group starts with treatment and other does not [[Fu 2023]](https://doi.org/10.1681/ASN.0000000000000152)
