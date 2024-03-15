@@ -54,7 +54,7 @@ It is also important to note the **timing** of the samples:
 
 NHS Milton Keynes Guidelines state that the samples should be taken from a **double clamped** segment of cord so it's isolated from the placenta.[[source]](https://www.mkuh.nhs.uk/wp-content/uploads/2018/10/4257-Cord-Blood-Analysis-Guideline.pdf)
 
-![Diagram of the fetus, placenta and umbilical blood vessels](images/umbilical_blood_vessels.jpg)
+![Diagram of the fetus, placenta and umbilical blood vessels](../images/umbilical_blood_vessels.jpg)
 
 Diagram of the fetus, placenta and umbilical blood vessels[[source]](https://socratic.org/questions/what-type-of-blood-do-each-of-the-umbilical-blood-vessels-carry)
 
@@ -175,7 +175,7 @@ My conclusions from these papers - focussing on the the largest and more recent 
 
 From Yeh et al. 2012, percentage of all cases with encephalopathy with seizures or death in each arterial pH group:
 
-![Percent](images/yeh_percent.png)
+![Percent](../images/yeh_percent.png)
 
 The key focus here is that we want to know if pH can be a reliable indicator of HIE - and not if its associated with high risk - but if majority of infants with a low pH go on to have HIE. Hence, below are good studies that are not relevant as they are about risk:
 | Study | Sample | pH threshold | Findings |
@@ -184,7 +184,7 @@ The key focus here is that we want to know if pH can be a reliable indicator of 
 
 From Yeh et al. 2012, relative risk of encephalopathy with seizures or death in each arterial pH group:
 
-![Risk](images/yeh_risk.png)
+![Risk](../images/yeh_risk.png)
 
 To add to tables:
 * 'Interestingly, a pH as low as 7.00 is usually tolerated by the fetus without any adverse outcome. Most infants with a cord pH less than 7.00 do not develop neurologic problems after birth, nor even when followed for 6.5 years. An isolated respiratory acidosis is very rarely associated with poor outcomes. Thus, infants born with a pH less than 7.00 and without other abnormal clinical findings typically do not require any further investigation or NICU admission.'[[source]](https://www.ncbi.nlm.nih.gov/books/NBK545290/)

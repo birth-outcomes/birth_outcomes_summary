@@ -60,7 +60,7 @@ The image below is the criteria for cooling, copied from the [NHS East of Englan
 
 These are the TOBY guidance, and they are followed by the vast majority of NICUs in the UK.[[source]](https://www.infantjournal.co.uk/pdf/inf_101_7241.pdf)
 
-![Flow diagram with criteria for cooling](images/cooling_criteria.png 'Criteria for cooling')
+![Flow diagram with criteria for cooling](../images/cooling_criteria.png 'Criteria for cooling')
 
 The criteria are also detailed in [[Mosalli 2012]](https://doi.org/10.4103/2249-4847.96777).
 

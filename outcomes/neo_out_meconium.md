@@ -32,7 +32,7 @@
 
 Figure from [[source]](https://www.respiratorytherapyzone.com/meconium-aspiration-syndrome/):
 
-![Meconium aspiration syndrome (MAS)](images/msaf.png)
+![Meconium aspiration syndrome (MAS)](../images/msaf.png)
 
 ## Association with HIE
 

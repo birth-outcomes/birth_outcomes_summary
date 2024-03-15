@@ -1,4 +1,4 @@
-# Design plans
+# Our study
 
 ## Overall aim
 

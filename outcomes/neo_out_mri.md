@@ -45,6 +45,6 @@ CT scans and ultrasounds can also be used but are not as sensitive / specific.[[
 
 Example of MRI from full-term infant with MRI pattern suggestive of acute near total asphyxia:
 
-![MRI](images/mri_near_total.png)
+![MRI](../images/mri_near_total.png)
 
 [[de Vries and Groenendaal 2010]](https://link.springer.com/article/10.1007/s00234-010-0674-9)

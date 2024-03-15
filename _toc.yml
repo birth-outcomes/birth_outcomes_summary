@@ -1,0 +1,62 @@
+# Table of contents
+
+format: jb-book
+root: intro
+chapters:
+- file: background/background
+  sections:
+  - file: background/stages
+  - file: background/interventions
+  - file: background/research_groups
+- file: outcomes/outcomes
+  sections:
+  - file: outcomes/neo_out_background
+  - file: outcomes/neo_out_summary
+  - file: outcomes/neo_out_cooling
+  - file: outcomes/neo_out_hie_diagnosis
+  - file: outcomes/neo_out_blood
+  - file: outcomes/neo_out_sentinel
+  - file: outcomes/neo_out_resus
+  - file: outcomes/neo_out_meconium
+  - file: outcomes/neo_out_care
+  - file: outcomes/neo_out_cp
+  - file: outcomes/neo_out_mri
+  - file: outcomes/neo_out_enceph_symptoms
+  - file: outcomes/neo_out_apgar
+  - file: outcomes/neo_out_death
+  - file: outcomes/neo_out_ctg
+- file: causal_concepts/intro
+  sections:
+  - file: causal_concepts/design_intro_1_treatment_paradox
+  - file: causal_concepts/design_intro_2_predict_vs_causal
+  - file: causal_concepts/design_intro_3_causal
+  - file: causal_concepts/design_counterfactuals
+  - file: causal_concepts/design_dag_1
+  - file: causal_concepts/design_dag_2
+  - file: causal_concepts/design_sem
+- file: design_methods/intro
+  sections:
+  - file: design_methods/design_causal_assumptions
+  - file: design_methods/design_causal_estimands
+  - file: design_methods/design_target_trial
+  - file: design_methods/design_methods_1_intro
+  - file: design_methods/design_methods_2_conventional
+  - file: design_methods/design_methods_3_gmethods
+  - file: design_methods/design_methods_4_unobserved
+  - file: design_methods/design_methods_5_other
+  - file: design_methods/design_account_paradox
+  - file: design_methods/design_examples
+  - file: design_methods/design_other
+- file: our_study/design_plan
+  sections:
+  - file: our_study/our_dag
+  - file: our_study/our_target_trial_protocol
+- file: appendices/intro
+  sections:
+  - file: appendices/neo_out_enceph_treatment_outcomes
+  - file: appendices/neo_out_chorio
+  - file: appendices/fetal_risk_factors
+  - file: appendices/cardiotocography
+  - file: appendices/parental_outcomes
+  - file: appendices/routine_data
+  - file: appendices/key_papers

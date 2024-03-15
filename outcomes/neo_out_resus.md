@@ -56,7 +56,7 @@ There are several different methods for mechanical ventilation, with new modalit
 
 Example of diagram for NAVA from van Kaam et al. 2021 [[source]](https://doi.org/10.1038/s41390-019-0704-1)
 
-![Neurally adjusted ventilatory assist (NAVA)](images/nava.png)
+![Neurally adjusted ventilatory assist (NAVA)](../images/nava.png)
 
 ### More about: intubation
 
@@ -64,7 +64,7 @@ Example of diagram for NAVA from van Kaam et al. 2021 [[source]](https://doi.org
 
 Image from [[source]](https://emedicine.medscape.com/article/1413467-overview):
 
-![Intubation](images/intubation.png)
+![Intubation](../images/intubation.png)
 
 #### Intubation during resuscitation
 

@@ -15,13 +15,13 @@ Examples:
 
     Example from [Egom 2014](http://dx.doi.org/10.1056/NEJMc1408400#SA1):
 
-![Immortal Time Bias example](images/immortal_time_bias.png)
+![Immortal Time Bias example](../images/immortal_time_bias.png)
 
 * **Lead time bias** - 'when a disease is detected by a screening or surveillance test at an earlier time point than it would have been if it had been diagnosed by its clinical appearance' [[Rollinson and Sabel 2007]](https://doi.org/10.1016/B978-0-8151-4385-7.50009-6)
 
     Example by [Mcstrother - Own work, CC BY 3.0](https://commons.wikimedia.org/w/index.php?curid=15703636):
 
-![Lead time bias example](images/Lead_time_bias.svg.png)
+![Lead time bias example](../images/Lead_time_bias.svg.png)
 
 * **Selection bias** - 'occurs when individuals or groups in a study differ systematically from the population of interest leading to a systematic error in an association or outcome' [[Catalogue of Bias Collaboration]](https://catalogofbias.org/biases/selection-bias/)
 

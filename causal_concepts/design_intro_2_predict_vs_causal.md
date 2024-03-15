@@ -74,11 +74,11 @@ Beck et al. 2018 also argue that **prediction remains relevant even if you're on
 
 As this example is from a simulation study where know true causal effects, we can plot the SHAP values from the prediction models v.s. the known true causal effects.
 
-![Causal effects](images/shap_bugs_causal_vs_shap.png)
+![Causal effects](../images/shap_bugs_causal_vs_shap.png)
 
 We can also add clustering to see the redundancy structure of the data as a dendrogram - 'when features merge together at the bottom (left) of the dendrogram it means that that the information those features contain about the outcome (renewal) is very redundant and the model could have used either feature. When features merge together at the top (right) of the dendrogram it means the information they contain about the outcome is independent from each other.'
 
-![Redundancy](images/shap_bugs_redundancy.png)
+![Redundancy](../images/shap_bugs_redundancy.png)
 
 **When can predictive models answer causal questions?** When the feature is independent of (a) other features in the model, and (b) unobserved confounders. Hence, it is not subject to bias from either unmeasured confounders or feature redundancy. Example: Economy
 * Independent from other features in dendogram (no observed confounding)

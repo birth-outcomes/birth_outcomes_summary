@@ -50,7 +50,7 @@ This is an explanation from Chat-GPT although note I've not yet found official s
 
 **The FHR is plotted over time and interpreted in the context of the UC.**[[source]](https://resources.wfsahq.org/wp-content/uploads/uia29-Fetal-heart-rate-monitoring-%E2%80%93-principles-and-interpretation-of-cardiotocography.pdf)
 
-![CTG](images/ctg.jpg)
+![CTG](../images/ctg.jpg)
 
 ## Abnormalities
 
@@ -67,7 +67,7 @@ As in the sticker -
 * Suspicious CTG - one non-reassuring feature
 * Pathological CTG - two+ non-reassuring features, or one+ abnormal features
 
-![Classifying CTG](images/classify_ctg.png)
+![Classifying CTG](../images/classify_ctg.png)
 
 ## Why would hypoxia associate with changes in fetal heart rate?
 
@@ -82,7 +82,7 @@ Associations with acidemia:
 
 **Technical explanation:** 'During labor the fetus is intermittently deprived of O<sub>2</sub>, with a fall of 5% to 10% in oxygen saturation (SaO<sub>2</sub>) below baseline when the intrauterine pressure exceeds approximately 30 mm Hg during myometrial contractions. At 35 mm Hg of intrauterine pressure, which is the level at which we can usually feel the contractions on the abdominal wall, the uteroplacental blood flow disappears at the end of diastole, and at 60 mm Hg diastolic flow ceases completely. The occurrence of FHR decelerations accompanied by transient shunting of blood from peripheral to central organs during such O<sub>2</sub> deprivation is a normal physiological fetal response, known as the “diving reflex” in aquatic mammals and birds. The diving reflex thus strives to preserve an aerobic metabolism in central organs, provided by the concomitant metabolic down-regulation in peripheral organs. In a fetus already suffering a baseline O<sub>2</sub> deficit when at rest, such as with placental insufficiency in fetal growth restriction (FGR), the superimposed hypoxic stress by uterine contractions may progressively cause severe hypoxia, acidosis, and severe FHR decelerations. A loss of umbilical artery end-diastolic flow may then appear during both variable and late FHR decelerations. The umbilical artery flow resistance increases concomitantly which further compromises the O<sub>2</sub> diffusion across the placental membranes. The lowest SaO<sub>2</sub> is reached at the end of a contraction, and it takes up to 2 minutes after the peak of contraction to recover to baseline. Thus, when >5 labor contractions per 10 minutes occur, a full recovery might not be reached between contractions, and a superimposed fetal hypoxemia (low blood oxygen) develops. An intact fetus resists the strain of normal labor, but with tachysystole (>5 contractions every 10 minutes) a critical limit might be reached, which then also affects a previously healthy fetus.[[source]](https://doi.org/10.1016/j.ajog.2022.07.001)
 
-![Uterine contractions transiently deplete oxygen delivery to the fetus](images/contractions_oxygen.jpg)
+![Uterine contractions transiently deplete oxygen delivery to the fetus](../images/contractions_oxygen.jpg)
 
 ## Challenges
 

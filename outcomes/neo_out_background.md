@@ -241,7 +241,7 @@ This definition may exclude some cases of HIE due to factors like:
 
 These are detailed more on the therapeutic hypothermia page, but the image below is the criteria for cooling, copied from the [NHS East of England Guidelines for Management of Infants with Suspected HIE](https://www.eoeneonatalpccsicnetwork.nhs.uk/wp-content/uploads/2021/10/HIE-Guideline.pdf).
 
-![Flow diagram with criteria for cooling](images/cooling_criteria.png 'Criteria for cooling')
+![Flow diagram with criteria for cooling](../images/cooling_criteria.png 'Criteria for cooling')
 
 ### Kurinczuk et al. 2010, and Ellenberg and Nelson 2012
 

@@ -29,7 +29,7 @@ In a graphical model, representations include:
 * Rectangles = manifest variables
 * Single or double headed arrows indicate nature of relationship [[Madhanagopal and Amrhein 2019]](https://support.sas.com/resources/papers/proceedings19/3240-2019.pdf)
 
-![Example of an SEM graphical model](images/sem_madhanagopal_2019.png)
+![Example of an SEM graphical model](../images/sem_madhanagopal_2019.png)
 
 ## Structural causal models 
 

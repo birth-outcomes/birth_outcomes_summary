@@ -523,7 +523,7 @@ Due to the large number of factors in the final model, to make the graph easier 
 
 This DAG was created using DAGitty.
 
-![DAG from Leith et al. 2023](images/leith_2023_dag.jpg)
+![DAG from Leith et al. 2023](../images/leith_2023_dag.jpg)
 
 ### Example: Badurdeen et al. 2024
 
@@ -533,7 +533,7 @@ Focus: Causal relationship between exposure to early hyperoxemia (following resu
 
 Context: Hyperoxemia is an increase in arterial oxygen partial pressure to more than 120mmHg. The exposure of interest with hyperoxemic exposure following resuscitation.
 
-![DAG from Badurdeen et al. 2024](images/badurdeen_2024_dag.jpg)
+![DAG from Badurdeen et al. 2024](../images/badurdeen_2024_dag.jpg)
 
 ### Example: Cavalcante et al. 2022
 
@@ -541,7 +541,7 @@ Cavalcante et al. 2022 - Cesarean section and body mass index in children: is th
 
 Focus: Causal relationship between caesarean section and BMI.
 
-![DAG from Cavalcante et al. 2022](images/cavalcante_2022_dag.jpg)
+![DAG from Cavalcante et al. 2022](../images/cavalcante_2022_dag.jpg)
 
 ## Example of complicated relationships in obstetrics in context of treatment paradox
 

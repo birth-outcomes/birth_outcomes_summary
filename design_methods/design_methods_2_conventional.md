@@ -46,7 +46,7 @@ Propensity scores are often estimated using a **logistic regression model** with
 
 Image from Shaw Talebi on [Towards Data Science](https://towardsdatascience.com/propensity-score-5c29c480130c):
 
-![Propensity score](images/propensity_score_tds.png)
+![Propensity score](../images/propensity_score_tds.png)
 
 Use of a propensity score enables incorporation of 'a larger number of background covariates because it uses the covariates to estimate a single number'. [[Valojerdi et al. 2018]](https://doi.org/10.14196%2Fmjiri.32.122)
 
@@ -100,7 +100,7 @@ See figure:
 
 Can observe that crude association between birth order and Down syndrome was just due to maternal age (as in each age category, birth order did not affect down syndrome frequency, but in each birth order category, age did). [[Tripepi et al. 2010]](https://doi.org/10.1159/000319590)
 
-![Tripepi et al. 2010 Figure 1](images/tripepi_2010_fig1.jpg)
+![Tripepi et al. 2010 Figure 1](../images/tripepi_2010_fig1.jpg)
 
 ### Mantel-Haenszel Formula
 
@@ -232,7 +232,7 @@ As IPTW aims to balance patient characteristics in the exposed and unexposed gro
 
 Image from [Chesnaye et al. 2022](https://doi.org/10.1093%2Fckj%2Fsfab158):
 
-![Chesnaye et al. 2022 propensity score diagram](images/chesnaye_2022_iptw.jpg)
+![Chesnaye et al. 2022 propensity score diagram](../images/chesnaye_2022_iptw.jpg)
 
 ### Strengths and limitations
 

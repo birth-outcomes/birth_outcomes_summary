@@ -74,6 +74,6 @@ The most common antecedent of low Apgar scores is maternal fever in labor or a d
 
 The Apgar scores of infants with HIE from a study by Laptook et al. 2010 are presented below.[[Laptook et al. 2010]](https://doi.org/10.1542%2Fpeds.2009-0934)
 
-![APGAR scores of infants with HIE](images/apgar_hie.jpg)
+![APGAR scores of infants with HIE](../images/apgar_hie.jpg)
 
 Their findings: 'More than 90% of infants had Apgar scores of 0–2 at 1 minute and Apgars at 5 and 10 minutes shifted to progressively higher values; at 10 minutes 27% of infants had Apgar scores of 0–2. After adjustment each point decrease in Apgar score at 10 minutes was associated with a 45% increase in the odds of death or disability (OR 1.45, CI 1.22–1.72). Death or disability occurred in 76, 82 and 80% of infants with Apgar scores at 10 minutes of 0, 1 and 2, respectively. CART analysis indicated that Apgar scores at 10 minutes were discriminators of outcome.'[[Laptook et al. 2010]](https://doi.org/10.1542%2Fpeds.2009-0934)
