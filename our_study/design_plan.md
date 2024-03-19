@@ -1,4 +1,4 @@
-# Our study
+# A rough plan
 
 ## Overall aim
 

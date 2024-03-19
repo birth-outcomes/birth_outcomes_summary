@@ -2,6 +2,8 @@
 
 format: jb-book
 root: intro
+options:
+  numbered: True
 chapters:
 - file: background/background
   sections:
@@ -47,8 +49,9 @@ chapters:
   - file: design_methods/design_account_paradox
   - file: design_methods/design_examples
   - file: design_methods/design_other
-- file: our_study/design_plan
+- file: our_study/intro
   sections:
+  - file: our_study/design_plan
   - file: our_study/our_dag
   - file: our_study/our_target_trial_protocol
 - file: appendices/intro
