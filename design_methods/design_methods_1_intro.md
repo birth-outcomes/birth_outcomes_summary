@@ -85,10 +85,9 @@ Different methods will produce effect measures that are **conditional** (specifi
 
 Wijn et al. 2022 conducted a mapping literature review to determine which confounding adjustment methods were used in longitudinal observational data to estimate a treatment effect. They identified the following studies:
 
-<p align='center'>
-    <img src='images/wijn_2022_methods.png'>
-     <i>Abbreviations: CA, covariate adjustment; IPW, inverse probability weighting; PS, propensity score; PSM, propensity score matching; TdPSM, time-dependent propensity score matching.</i>
-</p>
+![Wijn et al 2022 studies](../images/wijn_2022_methods.png)
+
+*Abbreviations: CA, covariate adjustment; IPW, inverse probability weighting; PS, propensity score; PSM, propensity score matching; TdPSM, time-dependent propensity score matching.*
 
 You can see that in the context of **longitudinal observational** data
 * 66% time-varying treatment, 26% treatment at baseline, 8% time of treatment not clearly defined
