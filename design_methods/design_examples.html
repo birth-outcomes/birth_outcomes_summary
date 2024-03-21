@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Examples of studies that account for the treatment paradox &#8212; Birth Outcomes</title>
+    <title>Obstetric studies that address the treatment paradox &#8212; Birth Outcomes</title>
   
   
   
@@ -65,6 +65,8 @@ const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'design_methods/design_examples';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -224,7 +226,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="design_methods_3_gmethods.html">Methods #3: G-methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="design_methods_4_unobserved.html">Methods #4: Methods for unobserved confounding</a></li>
 <li class="toctree-l2"><a class="reference internal" href="design_methods_5_other.html">Methods #5: Other</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Examples of studies that account for the treatment paradox</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Obstetric studies that address the treatment paradox</a></li>
 <li class="toctree-l2"><a class="reference internal" href="design_other.html">Other design considerations</a></li>
 </ul>
 </li>
@@ -429,7 +431,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Examples of studies that account for the treatment paradox</h1>
+    <h1>Obstetric studies that address the treatment paradox</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -439,14 +441,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commentary-on-prognostic-models-in-obstetrics">Commentary on prognostic models in obstetrics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-examples-of-studies-of-neonatal-outcomes-that-have-attempted-to-account-for-the-treatment-paradox">Are there examples of studies of neonatal outcomes that have attempted to account for the treatment paradox?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thangaratinam-et-al-2017">Thangaratinam et al. 2017</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helenius-et-al-2019">Helenius et al. 2019</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-to-look-at">Examples to look at</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#costa-ramon-et-al-2018">Costa-Ramón et al. 2018</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#costa-ramon-et-al-2022">Costa-Ramón et al. 2022</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#halla-et-al-2016">Halla et al. 2016</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jachetta-2015">Jachetta 2015</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thangaratinam-et-al-2017">Thangaratinam et al. 2017</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#helenius-et-al-2019">Helenius et al. 2019</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-to-look-at">Examples to look at</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other</a></li>
 </ul>
             </nav>
         </div>
@@ -458,31 +460,163 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="examples-of-studies-that-account-for-the-treatment-paradox">
-<h1>Examples of studies that account for the treatment paradox<a class="headerlink" href="#examples-of-studies-that-account-for-the-treatment-paradox" title="Link to this heading">#</a></h1>
-<p><a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0167629617307609">https://www.sciencedirect.com/science/article/pii/S0167629617307609</a></p>
-<section id="commentary-on-prognostic-models-in-obstetrics">
-<h2>Commentary on prognostic models in obstetrics<a class="headerlink" href="#commentary-on-prognostic-models-in-obstetrics" title="Link to this heading">#</a></h2>
-<p>‘Historically, the field of obstetrics has been successful in developing prediction models but has been poor in fully validating and thus implementing them effectively… Only two thirds of the papers [62.4%, 164/263] in a large systematic review of prognostic models in obstetrics were found to have presented their models in such a way that external validation would be feasible. This has been highlighted as a concern given the importance of validity in the development of such models.’<a class="reference external" href="https://doi.org/10.5772/intechopen.87311">[Murphy et al. 2019]</a></p>
-<p>‘Certain models can be too complex for routine clinical usage and this may lead to a reluctance on the part of the clinicians to accept them… It is also important that models which have been developed are also validated in a new population as otherwise it may not be possible to generalise them to a different cohort of patients. This is also known as impact analysis and this paper by Reilly et al. highlights that very few prediction models have undergone formal impact analysis or validation. This is essential in order for clinicians to know if the usage of such a model will have a positive or negative effect, i.e. is there a possibility that it will cause harm. The authors highlighted the benefit of having clinicians involved in the development and validation of such models before, during and after implementation.’<a class="reference external" href="https://doi.org/10.5772/intechopen.87311">[Murphy et al. 2019]</a></p>
-<p>‘Obstetrics focuses on the early identification of pregnancies at risk of adverse outcomes to plan targeted intervention. Clinicians often use probabilistic reasoning, intuitively based on clinical history and tests, to assess the risk of complications in a mother or fetus; however, they need to be aware of false-positive and false-negative test results in their clinical decision-making.</p>
-<p>Prediction models (also known as prognostic models) provide individualised risk estimates for clinically important outcomes in patients with a particular disease or condition. Derived using statistical models, they include multiple predictors, such as age, previous history, and, increasingly, biomarkers. Although clinicians’ intuition has a place and a role in prediction, it has been shown that statistical prediction models give more accurate prognosis than clinicians can achieve working on their own. As in other clinical fields, the development and use of prediction models in obstetrics has limitations.</p>
-<p>In the development phase there are many statistical challenges, including:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="obstetric-studies-that-address-the-treatment-paradox">
+<h1>Obstetric studies that address the treatment paradox<a class="headerlink" href="#obstetric-studies-that-address-the-treatment-paradox" title="Link to this heading">#</a></h1>
+<div class="info admonition">
+<p class="admonition-title">Executive summary</p>
+<p>This page summaries examples of studies in obstetrics that have attempted to account for the treatment paradox</p>
+</div>
+<section id="costa-ramon-et-al-2018">
+<h2>Costa-Ramón et al. 2018<a class="headerlink" href="#costa-ramon-et-al-2018" title="Link to this heading">#</a></h2>
+<p>Study: It’s about time: Cesarean sections and neonatal health. <a class="reference external" href="https://doi.org/10.1016/j.jhealeco.2018.03.004">[Costa-Ramón et al. 2018]</a></p>
+<p>Aim: Estimate causal relationship between caesarean section and newborn health:</p>
 <ul class="simple">
-<li><p>The ascertainment of a suitable sample size</p></li>
-<li><p>The choice of candidate predictors</p></li>
-<li><p>Reliable measurement of the outcome and predictors</p></li>
-<li><p>The identification of important predictors and their functional form</p></li>
-<li><p>Internal validation, potentially including bootstrap resampling and cross-validation, as well as shrinkage for potential over-optimism in model performance.</p></li>
+<li><p>Apgar-1 and Apgar-5</p></li>
+<li><p>Reanimation (assisted ventilation)</p></li>
+<li><p>ICU admission</p></li>
+<li><p>Neonatal death</p></li>
+<li><p>Umbilical cord pH</p></li>
 </ul>
-<p>Most, if not all, models perform well when they are internally validated; however, the use of prediction models has been hampered by a distinct lack of research into the external validation of prediction models distant from the specific population that they were developed in, and the assessment of models on the behaviour of doctors and on patient outcomes. Another issue that limits clinical use… is the handling of interventions in the prediction model.’<a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">[source]</a></p>
+<p>Reason for causal inference: Comparing women who had C-section to those who had vaginal birth…</p>
+<ul class="simple">
+<li><p>Suffers from omitted variable bias - they differe in characteristics that influence outcome - and analysis found observable characteristics that can relate to newborn health differed significantly (age, gestational length, obstetric risk, education achievement)</p></li>
+<li><p>‘Does not allow to identify which kind of c-section is causing whatever health effects are found, since we observe the outcomes of both medically and non-medically indicated interventions’</p></li>
+</ul>
+<p>Method:</p>
+<ul class="simple">
+<li><p><strong>Instrumental variable approach</strong> - use time of birth as instrument for mode of delivery</p>
+<ul>
+<li><p>Time of birth is associated by whether receive the treatment - unplanned C-sections more likely in early hours of the night</p></li>
+<li><p>Time of day unrelated to outcome and to other confounders - mothers giving birth at different times of day are observationally similar - suggesting excess number of C-sections observed are due to non-medical reasons</p></li>
+</ul>
+</li>
+<li><p>OLS regression with outcome of neonatal health, and predictors of:</p>
+<ul>
+<li><p>Mother’s personal and pregnancy characteristics</p></li>
+<li><p>Estimate from a regression with outcome of whether delivery was unplanned C-section or vaginal delivery and predictors of:</p>
+<ul>
+<li><p>Whether woman gave before from 11pm-4am or not (which is when obstetricians are more likely to, to get time for rest or leisure)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Unplanned C-sections by time of day" src="../_images/costa_ramon_2018.jpg" /></p>
+<p>My DAG:</p>
+<div class="mermaid">
+              flowchart LR;
+
+    iv(&quot;&lt;b&gt;Time of day of birth&lt;/b&gt;&lt;br&gt;Instrumental variable&quot;):::white;
+    e(&quot;&lt;b&gt;Caesarean section&lt;/b&gt;&lt;br&gt;Exposure/treatment&quot;):::white;
+    o(&quot;&lt;b&gt;Neonatal health&lt;/b&gt;&lt;br&gt;(Apgar-1, Apgar-5, assisted&lt;br&gt;ventilation, ICU admission,&lt;br&gt;neonatal death, umbilical pH)&lt;br&gt;Outcome&quot;):::white;
+    u(&quot;Unmeasured confounders&quot;):::white;
+
+    iv --&gt; e;
+    e --&gt; o;
+    u -.-&gt; e;
+    u -.-&gt; o;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div></section>
+<section id="costa-ramon-et-al-2022">
+<h2>Costa-Ramón et al. 2022<a class="headerlink" href="#costa-ramon-et-al-2022" title="Link to this heading">#</a></h2>
+<p><mark>finish notes on this study</mark></p>
+<p>Study: The Long-Run Effects of Cesarean Sections. <a class="reference external" href="https://doi.org/10.3368/jhr.58.2.0719-10334R1">[Costa-Ramón et al. 2022]</a></p>
+<p>Aim: Estimate causal relationship between potentially avoidable caesarean sections and health outcomes:</p>
+<ul class="simple">
+<li><p>Neonatal - ‘Apgar scores one minute after birth, admission to intensive care unit (ICU), need of assisted ventilation, and early neonatal mortality (defined as neonatal death in the first week of life)’</p></li>
+<li><p>Longer-term - ‘asthma, atopic diseases (atopic dermatitis and allergic rhinitis), type 1 diabetes, and obesity’</p></li>
+</ul>
+<p>Methods:</p>
+<ul class="simple">
+<li><p><strong>(1) Instrumental variable approach</strong></p>
+<ul>
+<li><p>Use combination of (1) type of day - working or pre-leisure day, and (2) work shift - normal or not - as found that unplanned C-section more likely during the normal working shift on pre-leisure days compared to regular working days</p></li>
+<li><p>Use 2SLS estimator to identify a local average treatment effect (LATE)</p></li>
+</ul>
+</li>
+<li><p><strong>(2) Difference-in-differences</strong></p>
+<ul>
+<li><p>For sample of sibling pairs, where older sibling was born by vaginal delivery, then ‘compare the health gap between siblings in families where the second child was born by an unplanned C-section with families where the second child was born by vaginal delivery’</p></li>
+<li><p>This controls for ‘time-invariant unobserved heterogeneity at the family level and the effect of birth order’</p></li>
+</ul>
+</li>
+</ul>
+<p><mark>’Our empirical strategy builds on numerous studies that have used siblings fixed effects to estimate the impact of health shocks while in utero or after birth (for example, Oreopoulos et al. 2008; Almond, Edlund, and Palme 2009; Almqvist et al. 2012; Aizer, Stroud, and Buka 2016) ‘</mark></p>
 </section>
-<section id="are-there-examples-of-studies-of-neonatal-outcomes-that-have-attempted-to-account-for-the-treatment-paradox">
-<h2>Are there examples of studies of neonatal outcomes that have attempted to account for the treatment paradox?<a class="headerlink" href="#are-there-examples-of-studies-of-neonatal-outcomes-that-have-attempted-to-account-for-the-treatment-paradox" title="Link to this heading">#</a></h2>
+<section id="halla-et-al-2016">
+<h2>Halla et al. 2016<a class="headerlink" href="#halla-et-al-2016" title="Link to this heading">#</a></h2>
+<p>Study: Cutting fertility? The effect of cesarean deliveries on subsequent fertility and maternal labor supply. <a class="reference external" href="https://doi.org/10.1016/j.jhealeco.2020.102325">[Halla et al. 2016]</a></p>
+<p>Aim: Identify effect of caesarean delivery on subsequent fertlity and maternal labour supply</p>
+<p>Method:</p>
+<ul class="simple">
+<li><p><strong>Instrumental variable approach</strong> - uses day of week as instrumental variable</p>
+<ul>
+<li><p>Obstetricians less likely to do caesarean deliveries on weekends and public holidays, and are incentivised to do them on Fridays and days before public holidays</p></li>
+<li><p>‘Women giving birth on different days of the week are pre-treatment observationally identical’</p></li>
+</ul>
+</li>
+</ul>
+<p>My DAG:</p>
+<div class="mermaid">
+              flowchart LR;
+
+    iv(&quot;&lt;b&gt;Day of week&lt;/b&gt;&lt;br&gt;Instrumental variable&quot;):::white;
+    e(&quot;&lt;b&gt;Caesarean section&lt;/b&gt;&lt;br&gt;Exposure/treatment&quot;):::white;
+    o(&quot;&lt;b&gt;Fertility &amp; Maternal labour supply&lt;/b&gt;&lt;br&gt;Outcome&quot;):::white;
+    u(&quot;Unmeasured confounders&quot;):::white;
+
+    iv --&gt; e;
+    e --&gt; o;
+    u -.-&gt; e;
+    u -.-&gt; o;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div></section>
+<section id="jachetta-2015">
+<h2>Jachetta 2015<a class="headerlink" href="#jachetta-2015" title="Link to this heading">#</a></h2>
+<p><em>Cannot find paper, so notes are from Costa-Ramón et al. 2018’s description of the study</em></p>
+<p>Study: Cesarean Sections and Later Health Outcomes. Jachetta 2015.</p>
+<p>Aim: Estimate causal relationship between caesarean section and hospitalisation (total or resulting in asthma)</p>
+<p>Method:</p>
+<ul class="simple">
+<li><p><strong>Instrumental variable approach</strong> - use ‘variation in medical malpractice premia at the Metropolitan Statistical Area (MSA) level in the US as an instrument for the rate of risk-adjusted cesarean sections’ - though note some threats to the validity of the instrument</p></li>
+</ul>
+<div class="mermaid">
+              flowchart LR;
+
+    iv(&quot;&lt;b&gt;Medical malpractice premia&lt;/b&gt;&lt;br&gt;Instrumental variable&quot;):::white;
+    e(&quot;&lt;b&gt;Caesarean section&lt;/b&gt;&lt;br&gt;Exposure/treatment&quot;):::white;
+    o(&quot;&lt;b&gt;Hospitalisation&lt;/b&gt;&lt;br&gt;Outcome&quot;):::white;
+    u(&quot;Unmeasured confounders&quot;):::white;
+
+    iv --&gt; e;
+    e --&gt; o;
+    u -.-&gt; e;
+    u -.-&gt; o;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div></section>
 <section id="thangaratinam-et-al-2017">
-<h3>Thangaratinam et al. 2017<a class="headerlink" href="#thangaratinam-et-al-2017" title="Link to this heading">#</a></h3>
-<p><strong>Model:</strong> Development and validation of Prediction models for Risks of complications in Early-onset Pre-eclampsia.<a class="reference external" href="https://doi.org/10.1186/s12916-017-0827-3">[Thangaratinam et al. 2017]</a></p>
-<p>This is a prediction model for pre-eclampsia that has been successfully validated. In a 2016 commentary in the British Journal of Obstetrics and Gynaecology (BJOG)<a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">[Cheong-See et al. 2016]</a>, they examined this model to identify what made it succesful and highlighted:</p>
+<h2>Thangaratinam et al. 2017<a class="headerlink" href="#thangaratinam-et-al-2017" title="Link to this heading">#</a></h2>
+<p>Study: Development and validation of Prediction models for Risks of complications in Early-onset Pre-eclampsia.<a class="reference external" href="https://doi.org/10.1186/s12916-017-0827-3">[Thangaratinam et al. 2017]</a></p>
+<p>Aim: Predict adverse maternal outcomes outcomes in patients with early-onset pre-eclampsia</p>
+<p>Methods:</p>
+<ul class="simple">
+<li><p>Survival model ‘censored at 34 completed weeks’ gestation to predict the risk over time at daily intervals from diagnosis of early onset pre-eclampsia’</p></li>
+<li><p>Logistic regression model ‘to predict the overall risk of maternal complications by postnatal discharge’</p></li>
+<li><p>Account for treatment paradox by <strong>including treatment as predictor:</strong> baseline treatment with hypertensives and magnesium sulfate as predictors in both models <a class="reference external" href="https://doi.org/10.1186/s12916-017-0827-3">[Thangaratinam et al. 2017]</a></p></li>
+</ul>
+<p>In a 2016 commentary in the British Journal of Obstetrics and Gynaecology (BJOG)<a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">[Cheong-See et al. 2016]</a>, they examined this model to identify what made it succesful and highlighted:</p>
 <ul class="simple">
 <li><p>Large sample size</p></li>
 <li><p>Standardisation of treatment or intervention</p></li>
@@ -490,7 +624,7 @@ document.write(`
 </ul>
 </section>
 <section id="helenius-et-al-2019">
-<h3>Helenius et al. 2019<a class="headerlink" href="#helenius-et-al-2019" title="Link to this heading">#</a></h3>
+<h2>Helenius et al. 2019<a class="headerlink" href="#helenius-et-al-2019" title="Link to this heading">#</a></h2>
 <p><mark> don’t quite understand </mark></p>
 <p>Study using data from the National Neonatal Research Database (NRRD) investigating whether birth in a non-tertiary hospital or transfer within 48 hours are associated with poor outcomes when compared with birth in a tertiary setting. A “tertiary” setting is one that provides specialist care. Their hypothesis was that mortality and severe brain injury would be higher in transferred infants compared with non-transferred infants born in tertiary hospitals.</p>
 <p>They use propensity score matching to create matched groups for comparison with near identical distributions of background and potential confounder variables.</p>
@@ -499,7 +633,7 @@ document.write(`
 <p>Responses: <a class="reference external" href="https://www.bmj.com/content/367/bmj.l5678/rapid-responses">https://www.bmj.com/content/367/bmj.l5678/rapid-responses</a></p>
 </section>
 <section id="examples-to-look-at">
-<h3>Examples to look at<a class="headerlink" href="#examples-to-look-at" title="Link to this heading">#</a></h3>
+<h2>Examples to look at<a class="headerlink" href="#examples-to-look-at" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://doi.org/10.1111/cdoe.12634">https://doi.org/10.1111/cdoe.12634</a> - Caesarean delivery and early childhood caries: Estimation with marginal structural models in Brazilian pre-schoolers - Ladeira et al. 2021</p></li>
 <li><p><a class="reference external" href="https://bmjopen.bmj.com/content/bmjopen/10/11/e038845.full.pdf">https://bmjopen.bmj.com/content/bmjopen/10/11/e038845.full.pdf</a> - Protocol for development and validation of a clinical prediction model for adverse pregnancy outcomes in women with gestational diabetes - Cooray et al. 2020</p>
@@ -533,10 +667,9 @@ document.write(`
 </ul>
 </section>
 <section id="other">
-<h3>Other<a class="headerlink" href="#other" title="Link to this heading">#</a></h3>
+<h2>Other<a class="headerlink" href="#other" title="Link to this heading">#</a></h2>
 <p><strong>Incorporation of treatment in the model:</strong> ‘In the prediction of metabolic acidosis in neonates (example 1) there could be an intervention effect present owing to cesarean delivery. An unexpected finding was observed for the relation between intrapartum fever and metabolic acidosis (OR 0.86 [95% CI 0.68–1.08]). Upon inclusion of cesarean delivery in the model, intrapartum fever was positively related to metabolic acidosis (OR 1.08 [95% CI 0.86–1.34]), which was in line with expectations.’<a class="reference external" href="https://doi.org/10.1503/cmaj.120812">[Schuit et al. 2013]</a></p>
 <p><strong>Including an alternative outcome not impacted by treatment paradox:</strong> By including abnormal CTG as a neonatal outcome (alongside stillbirth, early neonatal death, mean birthweight, incidence of small-for-gestational age, neonatal unit admission, and composite of Apgar5&lt;7, pH&lt;7 or neonatal encephalopathy).<a class="reference external" href="https://doi.org/10.1111/aogs.13671">[Bhatia et al. 2019]</a></p>
-</section>
 </section>
 </section>
 
@@ -604,14 +737,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commentary-on-prognostic-models-in-obstetrics">Commentary on prognostic models in obstetrics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-examples-of-studies-of-neonatal-outcomes-that-have-attempted-to-account-for-the-treatment-paradox">Are there examples of studies of neonatal outcomes that have attempted to account for the treatment paradox?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thangaratinam-et-al-2017">Thangaratinam et al. 2017</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helenius-et-al-2019">Helenius et al. 2019</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-to-look-at">Examples to look at</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#costa-ramon-et-al-2018">Costa-Ramón et al. 2018</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#costa-ramon-et-al-2022">Costa-Ramón et al. 2022</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#halla-et-al-2016">Halla et al. 2016</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jachetta-2015">Jachetta 2015</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thangaratinam-et-al-2017">Thangaratinam et al. 2017</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#helenius-et-al-2019">Helenius et al. 2019</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-to-look-at">Examples to look at</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other</a></li>
 </ul>
   </nav></div>
 
