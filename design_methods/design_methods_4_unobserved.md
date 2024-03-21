@@ -3,11 +3,20 @@
 `````{admonition} Executive summary
 :class: info
 
-Addressing unobserved confounding:
-* Instrumental variables
-* Regression discontinuity (RD)
-* Interrupted time series (ITS)
-* Difference in differences (DiD)
+These methods attempt to address unmeasured confounding.
+
+**Instrumental variables (IV)**
+* IV cause variation in treatment, but are unrelated to outcome and therefore unrelated to unmeasured confounders. Randomisation is an example of an IV.
+* You can then use two-stage least squares to estimate causal effect (regress exposure on instrumental variable to get estimate of exposure independent of confounders, then regress outcome on that estimate)
+
+**Regression discontinuity design (RDD)**
+* Can use RDD when exposure status is determined by a continuous variable exceeding an arbitrary threshold.
+* We look at individuals who fall just above and below the threshold. We expect the relationship between that variable and the outcome to be continuous (i.e. they're a similar group with similar values of variable, who would've otherwise expect to have similar outcomes if no exposure/treatment was triggered).
+* Therefore, any discontinuity/jump in that relationship indicates a causal relationship with the exposure. *"If you see a turtle on a fencepost, you know he didn’t get there by himself".*
+
+**Interrupted time series (ITS)**
+
+**Difference in differences (DiD)**
 `````
 
 ## Addressing unobserved confounding
@@ -34,7 +43,8 @@ This is illustrated below:
 
     iv --> e;
     e --> o;
-    u --> o;
+    u -.-> e;
+    u -.-> o;
   
     classDef white fill:#FFFFFF, stroke:#FFFFFF;
     classDef black fill:#FFFFFF, stroke:#000000;
@@ -54,13 +64,18 @@ Due to these characteristics, instrumental variables enable us to mimic randomis
 
     iv --> e;
     e --> o;
-    u --> o;
+    u -.-> e;
+    u -.-> o;
   
     classDef white fill:#FFFFFF, stroke:#FFFFFF;
     classDef black fill:#FFFFFF, stroke:#000000;
     classDef empty width:0px,height:0px;
     classDef green fill:#DDF2D1, stroke: #FFFFFF;
 ````
+
+You have likely identified an instrumental variable 'if people are confused when you tell them about the instrument's relationship to the outcome'.
+* No-one is confused if you say family size will reduce labour supply of women
+* They will be confused if you use gender composition of first two children as instrumental variable, and find 'that mothers whose first two children were the same gender were employed outside the home less than those whose two children had a balanced sex ratio', as they don't expect gender composition to incentive work outside home - but it is related as if both the same gender, they're more likely to try again for child of another gender [[Causal Inference: The Mixtape - Scott Cunningham]](https://mixtape.scunning.com/06-regression_discontinuity)
 
 ### Two-stage least squares (2SLS)
 
@@ -340,7 +355,7 @@ In this figure, notice:
 
 This might be less relevant for caesarean (no single one cut-off for a single treatment).
 
-However, it would be relevant to stroke, which has much clearer cut-offs.
+However, it would be relevant to stroke, which has much clearer cut-offs. Although maybe focus per hospital would you need to? If you think hospital has impact on threshold?
 
 ## Interrupted time series (ITS)
 
@@ -348,8 +363,54 @@ However, it would be relevant to stroke, which has much clearer cut-offs.
 
 'ITS can be regarded as a special case of IV or RD, with time being the instrument or forcing variable. ITS addresses time-invariant confounding but can be biased if other events that influence the outcome happen at the same time as the exposure'. [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
+<mark>add notes on this</mark>
+
 ## Difference in differences (DiD)
 
-'DiD studies measure the **change in a population-level outcome before and after an intervention** is introduced, compared with a **comparison group where the intervention is never introduced**. This is similar to RD and ITS, but attempts to control for changing time trends, by using a comparison group to represent the counterfactual outcome trend in the exposed.'
+The **difference-in-differences** (DiD) design predates the randomised experiment by roughly 85 years. It was first used in 1855 by John Snow in his analysis of the cause of cholera. However, it is used relatively infrequently nowadays. [[Canglia and Murray 2020]](https://doi.org/10.1007%2Fs40471-020-00245-2)
 
-'DiD also addresses time-invariant confounding but requires assuming that there would have been no difference in trend between the groups in the absence of the intervention (the ‘parallel trends’ assumption).' [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+In its simplest form, the Did method compares the **change over time in a continuous population-level outcome** between:
+* An **exposed** group
+* An **unexposed** group
+
+(Compares change over time in the exposed group, to change over time in the unexposed group, as just comparing the exposed group before and after has issues).
+
+It 'attempts to control for changing time trends, by using a comparison group to represent the counterfactual outcome trend in the exposed.' 'DiD also addresses time-invariant confounding but requires assuming that there would have been no difference in trend between the groups in the absence of the intervention (the **"parallel trends" assumption**).' [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+
+Image from Figarri Keisha 25 March 2022 [Medium blog post](https://medium.com/bukalapak-data/difference-in-differences-8c925e691fff):
+
+![DiD](../images/medium_did.png)
+
+### Example: John Snow and cholera
+
+In 1855, the cause of cholera was unknown. John Snow suspected it was waterborne. He compared:
+* Southwark and Vauxhall Company
+* Lambeth Water company
+
+Both used water from River Thames. Neighbourhoods served by them both had very high mortality during the 1849 outbreak. In 1852, Lambeth Water Company moved its water intake to a site upstream of the sewage outflow.
+
+Question: Did the rate of cholera death decrease when water intake moved upstream, compared to if it had remained downstream? He couldn't just compare before and after for Lambeth due to the change in cholera cases over time - so instead, answered by comparing the change in deaths, to the changes in deaths for Southwark and Vauxhall Company
+
+Answer by estimating the average causal effect in the treated, or average treatment effect in the treated, or ATT.
+
+Snow observed from 1849 to 1854 that:
+* Southwark: increased by 118 deaths per 100,000
+* Lambeth: decreased by 653 deaths per 100,000
+
+[[Canglia and Murray 2020]](https://doi.org/10.1007%2Fs40471-020-00245-2)
+
+### Assumptions
+
+**Consistency** - 'the observed exposure of interest is equal to the counterfactual exposure of interest'
+* e.g. 'Moving the water source from opposite Hungerford Market to Thames Ditton maps to a sufficiently well-defined intervention'
+
+**Exchangeability and parallel trends** - 'any unmeasured determinants of the outcome are either time-invariant or group-invariant'
+* e.g. 'Any unmeasured determinants of the cholera death rate either do not vary with time or do not vary by district.'
+
+**Exchangeability and strict exogeneity** - 'implementation of the change in exposure was not related to the baseline value of the outcome variable'
+* e.g. 'The decisions to move or not move the Lambeth Company and the Southwalk & Vauxhall Company water intake sources were independent of the cholera mortality rates in neighborhoods supplied by those companies.'
+
+**Positivity** - 'all individuals or subgroups of individuals are eligible to receive all levels of exposure'
+* e.g. 'The decision to move or not move the water intake source was available to both the Lambeth and Southwalk & Vauxhall Companies.'
+
+[[Canglia and Murray 2020]](https://doi.org/10.1007%2Fs40471-020-00245-2)
