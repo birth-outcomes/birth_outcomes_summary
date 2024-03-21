@@ -114,3 +114,24 @@ In our case, we have a treatment paradox as indicators of poor outcome (e.g. abn
 ## How do we deal with the treatment paradox?
 
 Our concern here is that we are interested in the true causal relationships at play, and not just in predicting HIE. If we were just interested in predicting HIE, it wouldn't matter that gestational age appears protective. However, if you then concluded that indivudals with a later gestational age would benefit less from a caesarean, (we anticipate) that that would be a incorrect and harmful conclusion. Therefore, we are **interested in causal inference, and not in prediction**.
+
+## Commentary on prognostic models in obstetrics
+
+**This commentary introduces some of the problems facing prediction mdoels in obstetrics - ending on the note of how they handle interventions in the prediction model** (the paper then continues on to focus on the treatment paradox).
+
+'Historically, the field of obstetrics has been successful in developing prediction models but has been poor in fully validating and thus implementing them effectively... Only two thirds of the papers [62.4%, 164/263] in a large systematic review of prognostic models in obstetrics were found to have presented their models in such a way that external validation would be feasible. This has been highlighted as a concern given the importance of validity in the development of such models.'[[Murphy et al. 2019]](https://doi.org/10.5772/intechopen.87311)
+
+'Certain models can be too complex for routine clinical usage and this may lead to a reluctance on the part of the clinicians to accept them... It is also important that models which have been developed are also validated in a new population as otherwise it may not be possible to generalise them to a different cohort of patients. This is also known as impact analysis and this paper by Reilly et al. highlights that very few prediction models have undergone formal impact analysis or validation. This is essential in order for clinicians to know if the usage of such a model will have a positive or negative effect, i.e. is there a possibility that it will cause harm. The authors highlighted the benefit of having clinicians involved in the development and validation of such models before, during and after implementation.'[[Murphy et al. 2019]](https://doi.org/10.5772/intechopen.87311)
+
+'Obstetrics focuses on the early identification of pregnancies at risk of adverse outcomes to plan targeted intervention. Clinicians often use probabilistic reasoning, intuitively based on clinical history and tests, to assess the risk of complications in a mother or fetus; however, they need to be aware of false-positive and false-negative test results in their clinical decision-making.
+
+Prediction models (also known as prognostic models) provide individualised risk estimates for clinically important outcomes in patients with a particular disease or condition. Derived using statistical models, they include multiple predictors, such as age, previous history, and, increasingly, biomarkers. Although clinicians’ intuition has a place and a role in prediction, it has been shown that statistical prediction models give more accurate prognosis than clinicians can achieve working on their own. As in other clinical fields, the development and use of prediction models in obstetrics has limitations.
+
+In the development phase there are many statistical challenges, including:
+* The ascertainment of a suitable sample size
+* The choice of candidate predictors
+* Reliable measurement of the outcome and predictors
+* The identification of important predictors and their functional form
+* Internal validation, potentially including bootstrap resampling and cross-validation, as well as shrinkage for potential over-optimism in model performance.
+
+Most, if not all, models perform well when they are internally validated; however, the use of prediction models has been hampered by a distinct lack of research into the external validation of prediction models distant from the specific population that they were developed in, and the assessment of models on the behaviour of doctors and on patient outcomes. Another issue that limits clinical use... is the handling of interventions in the prediction model.'[[source]](https://doi.org/10.1111/1471-0528.13859)
