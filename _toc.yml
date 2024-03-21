@@ -2,8 +2,6 @@
 
 format: jb-book
 root: intro
-options:
-  numbered: True
 chapters:
 - file: background/background
   sections:
