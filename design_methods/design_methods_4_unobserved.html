@@ -1,0 +1,1072 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Methods #4: Methods for unobserved confounding &#8212; Birth Outcomes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'design_methods/design_methods_4_unobserved';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Methods #5: Other" href="design_methods_5_other.html" />
+    <link rel="prev" title="Methods #3: G-methods" href="design_methods_3_gmethods.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Birth Outcomes</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Birth outcomes summary
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../background/background.html">Background</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../background/stages.html">Stages of pregnancy and birth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/interventions.html">Interventions during labour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/research_groups.html">Research groups</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../outcomes/outcomes.html">Identifying hypoxic ischaemic encephalopathy (HIE)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_background.html">Examples of identifying HIE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_summary.html">Summary of possible indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_cooling.html">Therapeutic hypothermia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_hie_diagnosis.html">Diagnostic codes for HIE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_blood.html">Umbilical cord blood gas analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_sentinel.html">Sentinel events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_resus.html">Resuscitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_meconium.html">Meconium-stained amniotic fluid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_care.html">Transfer to neonatal care services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_cp.html">Cerebral palsy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_mri.html">Neuroimaging evidence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_enceph_symptoms.html">Symptoms of neonatal encephalopathy (NE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_apgar.html">Apgar scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_death.html">Death</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_ctg.html">Abnormal CTG</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../causal_concepts/intro.html">Study design - causal concepts</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_intro_1_treatment_paradox.html">The treatment paradox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_intro_2_predict_vs_causal.html">Choosing between prediction and causal inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_intro_3_causal.html">Causal inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_counterfactuals.html">Counterfactuals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_dag_1.html">Directed acyclic graphs (DAGs) #1 (basics)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_dag_2.html">DAGs #2 (advanced concepts)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_sem.html">Structural equation modelling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Study design - causal methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="design_causal_assumptions.html">Causal assumptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_causal_estimands.html">Causal estimands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_target_trial.html">Target trial emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_observational.html">Observational study designs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_methods_1_intro.html">Methods #1: Introduction to methods to adjust for confounding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_methods_2_conventional.html">Methods #2: Conventional approaches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_methods_3_gmethods.html">Methods #3: G-methods</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Methods #4: Methods for unobserved confounding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_methods_5_other.html">Methods #5: Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_examples.html">Examples of studies that account for the treatment paradox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_other.html">Other design considerations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../our_study/intro.html">Our study</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/design_plan.html">A rough plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/our_dag.html">HIE DAG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/our_target_trial_protocol.html">HIE target trial protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendices/intro.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/neo_out_enceph_treatment_outcomes.html">Challenge 2: Outcomes for trials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/neo_out_chorio.html">More on chorioamnionitis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/fetal_risk_factors.html">Fetal risk factors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/cardiotocography.html">Cardiotocography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/parental_outcomes.html">Parental outcomes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/routine_data.html">Routinely collected data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/key_papers.html">Key Papers</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdesign_methods/design_methods_4_unobserved.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/design_methods/design_methods_4_unobserved.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Methods #4: Methods for unobserved confounding</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#addressing-unobserved-confounding">Addressing unobserved confounding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instrumental-variables">Instrumental variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-instrumental-variable">What is an instrumental variable?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-stage-least-squares-2sls">Two-stage least squares (2SLS)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-of-instrumental-variable-analysis">Assumptions of instrumental variable analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-mendelian-randomisation">Example: Mendelian randomisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-effect-of-intensive-treatment-on-mortality-in-patients-with-acute-myocardial-infarction">Example: Effect of intensive treatment on mortality in patients with acute myocardial infarction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-samuel">Example: SAMueL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-neonatal">Example: Neonatal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variants">Variants</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-discontinuity-rd">Regression discontinuity (RD)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-rdd-work">How does RDD work?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharp-v-s-fuzzy-rdd">Sharp v.s. fuzzy RDD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-to-our-work">Applying to our work</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interrupted-time-series-its">Interrupted time series (ITS)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#things-to-consider">Things to consider</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-in-differences-did">Difference in differences (DiD)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-john-snow-and-cholera">Example: John Snow and cholera</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">Assumptions</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="methods-4-methods-for-unobserved-confounding">
+<h1>Methods #4: Methods for unobserved confounding<a class="headerlink" href="#methods-4-methods-for-unobserved-confounding" title="Link to this heading">#</a></h1>
+<div class="info admonition">
+<p class="admonition-title">Executive summary</p>
+<p>These methods attempt to address unmeasured confounding.</p>
+<p><strong>Instrumental variables (IV)</strong></p>
+<ul class="simple">
+<li><p>IV cause variation in treatment, but are unrelated to outcome and therefore unrelated to unmeasured confounders. Randomisation is an example of an IV.</p></li>
+<li><p>You can then use two-stage least squares to estimate causal effect (regress exposure on instrumental variable to get estimate of exposure independent of confounders, then regress outcome on that estimate)</p></li>
+</ul>
+<p><strong>Regression discontinuity design (RDD)</strong></p>
+<ul class="simple">
+<li><p>Can use RDD when exposure status is determined by a continuous variable exceeding an arbitrary threshold.</p></li>
+<li><p>We look at individuals who fall just above and below the threshold. We expect the relationship between that variable and the outcome to be continuous (i.e. they’re a similar group with similar values of variable, who would’ve otherwise expect to have similar outcomes if no exposure/treatment was triggered).</p></li>
+<li><p>Therefore, any discontinuity/jump in that relationship indicates a causal relationship with the exposure. <em>“If you see a turtle on a fencepost, you know he didn’t get there by himself”.</em></p></li>
+</ul>
+<p><strong>Interrupted time series (ITS)</strong></p>
+<ul class="simple">
+<li><p>Compare change over time in a continuous population-level outcome before and after an exposure is introduced. Assuming the trend would have been unchanged without the exposure, a change in trend at point of introduction can be attributed to the exposure</p></li>
+</ul>
+<p><strong>Difference in differences (DiD)</strong></p>
+<ul class="simple">
+<li><p>Compare change over time in a continuous population-level outcome between a group that becomes exposed/treated, and a group that does not</p></li>
+</ul>
+</div>
+<section id="addressing-unobserved-confounding">
+<h2>Addressing unobserved confounding<a class="headerlink" href="#addressing-unobserved-confounding" title="Link to this heading">#</a></h2>
+<p>‘The above methods rely on an assumption of no unmeasured confounding (ie, conditional exchangeability), which is often not plausible in observational study designs. The following methods attempt to address unmeasured confounding, subject to certain unprovable assumptions, by exploiting some assignment mechanism (akin to randomisation in an RCT) that determines exposure status but is thought to be unrelated to any unobserved confounders.’ <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+</section>
+<hr class="docutils" />
+<section id="instrumental-variables">
+<h2>Instrumental variables<a class="headerlink" href="#instrumental-variables" title="Link to this heading">#</a></h2>
+<section id="what-is-an-instrumental-variable">
+<h3>What is an instrumental variable?<a class="headerlink" href="#what-is-an-instrumental-variable" title="Link to this heading">#</a></h3>
+<p>An <strong>instrumental variable (IV)</strong> is a variable that satisfies the following assumptions:</p>
+<ol class="arabic simple">
+<li><p>It <strong>causes variation in the exposure/treatment</strong> (i.e. relevance assumption - it is correlated with X, an endogenous explanatory variable)</p></li>
+<li><p>It is <strong>unrelated to the outcome</strong></p></li>
+<li><p>As it is unrelated to the outcome, is is therefore <strong>unrelated to unmeasured confounders</strong> (unmeasured differences in characteristics that affect outcomes) (i.e. <strong>exogeneity</strong> assumption - it is an exogneous variable) <a class="reference external" href="https://doi.org/10.1001/jama.1994.03520110039026">[McClellan et al. 1994]</a><a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a> <a class="reference external" href="https://towardsdatascience.com/instrumental-variables-a-practical-explanation-1a583408a5b9">[source]</a></p></li>
+</ol>
+<p>This is illustrated below:</p>
+<div class="mermaid">
+              flowchart LR;
+
+    iv(&quot;Instrumental variable&quot;):::white;
+    e(&quot;Exposure/treatment&quot;):::white;
+    o(&quot;Outcome&quot;):::white;
+    u(&quot;Unmeasured confounders&quot;):::white;
+
+    iv --&gt; e;
+    e --&gt; o;
+    u -.-&gt; e;
+    u -.-&gt; o;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><p>Due to these characteristics, instrumental variables enable us to mimic randomisation to treatment. <a class="reference external" href="https://doi.org/10.1001/jama.1994.03520110039026">[McClellan et al. 1994]</a> In fact, <strong>randomisation to treatment</strong> in an RCT is an example instrumental variable (it meets the above assumptions).</p>
+<div class="mermaid">
+              flowchart LR;
+
+    iv(&quot;RCT randomisation to treatment&quot;):::white;
+    e(&quot;Exposure/treatment&quot;):::white;
+    o(&quot;Outcome&quot;):::white;
+    u(&quot;Unmeasured confounders&quot;):::white;
+
+    iv --&gt; e;
+    e --&gt; o;
+    u -.-&gt; e;
+    u -.-&gt; o;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><p>You have likely identified an instrumental variable ‘if people are confused when you tell them about the instrument’s relationship to the outcome’.</p>
+<ul class="simple">
+<li><p>No-one is confused if you say family size will reduce labour supply of women</p></li>
+<li><p>They will be confused if you use gender composition of first two children as instrumental variable, and find ‘that mothers whose first two children were the same gender were employed outside the home less than those whose two children had a balanced sex ratio’, as they don’t expect gender composition to incentive work outside home - but it is related as if both the same gender, they’re more likely to try again for child of another gender <a class="reference external" href="https://mixtape.scunning.com/06-regression_discontinuity">[Causal Inference: The Mixtape - Scott Cunningham]</a></p></li>
+</ul>
+</section>
+<section id="two-stage-least-squares-2sls">
+<h3>Two-stage least squares (2SLS)<a class="headerlink" href="#two-stage-least-squares-2sls" title="Link to this heading">#</a></h3>
+<p>You can use the two-stage least squares (2SLS) method to estimate the causal effect, using instrumental variables for individual-level data.</p>
+<ol class="arabic simple">
+<li><p><strong>Regress exposure (<span class="math notranslate nohighlight">\({x}\)</span>) on instrumental variable (G) to produce <span class="math notranslate nohighlight">\(\hat{x}\)</span> (estimate of exposure independent of confounders)</strong></p></li>
+<li><p><strong>Regress outcome (Y) on <span class="math notranslate nohighlight">\(\hat{x}\)</span></strong>. Here, <span class="math notranslate nohighlight">\(\hat{x}\)</span> is replacing the actual value of the problematic predictor, <span class="math notranslate nohighlight">\({x}\)</span>. [BSc Medical Sciences]</p></li>
+</ol>
+<p>The ‘groups being compared differ only in likelihoods of treatment, as opposed to a division into pure treatment and control groups’. Hence, this ‘method estimates an incremental or “marginal” effect of treatment only over the range of variation in treatment across the IV groups’. <a class="reference external" href="https://doi.org/10.1001/jama.1994.03520110039026">[McClellan et al. 1994]</a></p>
+<p>‘IV analysis estimates a local average treatment effect (LATE) among ‘compliers’ - individudals whose exposure status is affected by the instrument. This group cannot be precisely identified, and the LATE may therefore sometimes be of limited practical or policy relevance’. <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+</section>
+<section id="assumptions-of-instrumental-variable-analysis">
+<h3>Assumptions of instrumental variable analysis<a class="headerlink" href="#assumptions-of-instrumental-variable-analysis" title="Link to this heading">#</a></h3>
+<p>(1) <strong>Instrumental variable assumptions</strong>(as above)</p>
+<p>(2) <strong>Homogeneity assumption</strong> - the association between the instrumental variable and the exposure is homogenous (same for everyone in the population), or the effect of the exposure on the outcome is homogenous [BSc Medical Sciences]</p>
+</section>
+<section id="example-mendelian-randomisation">
+<h3>Example: Mendelian randomisation<a class="headerlink" href="#example-mendelian-randomisation" title="Link to this heading">#</a></h3>
+<p>Disease association with non-genetic risk factors are often confounded - for example:</p>
+<div class="mermaid">
+              flowchart LR;
+
+    e(&quot;Drinking alcohol&quot;):::green;
+    o(&quot;Lung cancer&quot;):::green;
+    c(&quot;Smoking&quot;):::white;
+
+    e --&gt; o;
+    c --&gt; e; c --&gt; o;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><p>Genotype-phenotype associations are much less likely to be confounded. They are aetiological associations (causing or contributing to disease/condition development).</p>
+<p>If we know of a gene closely linked to the phenotype without direct effect on the disease, it can often be reasonably assumed that the gene is not itself associated with any confounding factors - a phenomenon called <strong>Mendelian randomization</strong>. Genetic variants (G) should influence the exposure (X) but should not be directly associated with confounders (U) or the outcome (Y).</p>
+<p>We can then identify the causal relationship between X and Y - if it doesn’t cause Y, then G should be independent of Y. This is the same logic as we use for an RCT (where G would be randomisation to treatment).</p>
+<div class="mermaid">
+              flowchart TD;
+
+    con:::outline;
+    subgraph con[&quot;If X doesn't cause Y...&quot;]
+      G:::white;
+      X:::white;
+      Y:::white;
+      U:::white;
+    end
+
+    G --&gt; X;
+    U --&gt; X;
+    U --&gt; Y;
+
+    uncon:::outline;
+    subgraph uncon[&quot;If X causes Y...&quot;]
+      G2(&quot;G&quot;):::white;
+      X2(&quot;X&quot;):::white;
+      Y2(&quot;Y&quot;):::white;
+      U2(&quot;U&quot;):::white;
+    end
+
+    G2 --&gt; X2;
+    U2 --&gt; X2;
+    U2 --&gt; Y2;
+    X2 --&gt; Y2;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef outline fill:#FFFFFF;
+        </div><p>[BSc Medical Sciences]</p>
+</section>
+<section id="example-effect-of-intensive-treatment-on-mortality-in-patients-with-acute-myocardial-infarction">
+<h3>Example: Effect of intensive treatment on mortality in patients with acute myocardial infarction<a class="headerlink" href="#example-effect-of-intensive-treatment-on-mortality-in-patients-with-acute-myocardial-infarction" title="Link to this heading">#</a></h3>
+<p>Example from <a class="reference external" href="https://doi.org/10.1001/jama.1994.03520110039026">McClellan et al. 1994</a>: Want to determine the effect of more intensive treatments (e.g. catheterisation and revascualisation) on mortality in elderly patients with acute myocardial infarction. They use distance from hospital as an ‘instrumental variable to account for unobserved case-mix variation (selection bias) in observational Medicare claims data’ <a class="reference external" href="https://doi.org/10.1001/jama.1994.03520110039026">[McClellan et al. 1994]</a></p>
+<p>Why is distance an instrumental variable?</p>
+<ul class="simple">
+<li><p>Intensive treatment only performed at certain hospitals</p></li>
+<li><p>Comparing treatments and outcomes between patients treated at different hospitals risks selection bias, ‘because physician and patient decisions that influence treatment choice may ALSO influence choice of hospital to go to - e.g. AMI patients who appear to be better candidates for catheterisation may be disproportionately admitted to catheterisation hospitals’ <a class="reference external" href="https://doi.org/10.1001/jama.1994.03520110039026">[McClellan et al. 1994]</a></p></li>
+<li><p>Distance from hospital (specifically, differential distance to hospital providing intensive treatment):</p>
+<ul>
+<li><p><strong>Affects</strong> probability of receiving intensive treatment</p></li>
+<li><p><strong>Does not affect</strong> patient characteristics</p></li>
+</ul>
+</li>
+<li><p>Hence, distance from hospital can be used as an instrumental variable <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a> - it meets the IV assumptions:</p>
+<ol class="arabic simple">
+<li><p>Causes variation in whether receive intensive treatment</p></li>
+<li><p>Unrelated to mortality</p></li>
+<li><p>Unrelated to unmeasured confounders (like the physician and patient decisions)</p></li>
+</ol>
+</li>
+</ul>
+<div class="mermaid">
+              flowchart LR;
+
+    treat(&quot;&lt;b&gt;Intensive treatment&lt;/b&gt;&lt;br&gt;(e.g. catheterisation)&quot;):::green;
+    mortality(&quot;&lt;b&gt;Mortality&lt;/b&gt;&quot;):::green;
+    hosp(&quot;&lt;b&gt;Hospital&lt;/b&gt; attended&lt;br&gt;(i.e. whether it&lt;br&gt;offers the treatment)&quot;):::white;
+    dist(&quot;&lt;b&gt;Differential distance&lt;/b&gt; to&lt;br&gt; hospital providing&lt;br&gt;intenstive treatment&quot;):::white;
+    decisions(&quot;Physician and patient&lt;br&gt;&lt;b&gt;decisions&lt;/b&gt;&quot;):::white;
+
+    dist --&gt; hosp;
+    decisions --&gt; hosp;
+    hosp --&gt; treat;
+    treat --&gt; mortality;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><p>First, checked for presence of selection bias (i.e. whether hospital type affects treatment intensity - and therefore whether simple comparisons of treatments and outcomes across hospital types are valid). Then, as was present, used IV methods to estimate effect of intensive treatment on mortality. <strong>Differential distance approximately randomises patients to different likelihoods of receiving intensive treatments</strong>, uncorrelated with health status.</p>
+<ul class="simple">
+<li><p>First, compared two groups of apx. equal size - patients near to catheterisation hospital (differential distance &lt;= 2.5 miles) and patients far from them (&gt; 2.5 miles). This evidenced assumption that distribution of health status in AMI patients is independent of differential distance, and illustrates IV method, estimating the ‘average effect of invasive treatment for all patients who are marginal from the standpoint of the near-far IVs - those who undergo catheterisation in the relatively near group and not in the relatively far group - if the two groups are balanced and if catheterisation is the only treatment that differs between the groups’</p></li>
+<li><p>Then used more general IV estimation netchniques with wide range of differential distance groups, and account for small remaining observable differences between differential-distance groups <a class="reference external" href="https://doi.org/10.1001/jama.1994.03520110039026">[McClellan et al. 1994]</a></p></li>
+</ul>
+</section>
+<section id="example-samuel">
+<h3>Example: SAMueL<a class="headerlink" href="#example-samuel" title="Link to this heading">#</a></h3>
+<p>This doesn’t suffer with problem as above, as here, we’re assuming that all patients would simply go to their closest unit.</p>
+<p>You could test that assumption, although we don’t have the data.</p>
+<div class="mermaid">
+              flowchart LR;
+
+    treat(&quot;&lt;b&gt;Thrombolysis&lt;/b&gt;&lt;br&gt;(e.g. catheterisation)&quot;):::green;
+    out(&quot;&lt;b&gt;Stroke outcome&lt;/b&gt;&quot;):::green;
+    con(&quot;NIHSS&lt;br&gt;Pre-stroke disability&lt;br&gt;Atrial fibrillation&quot;):::white;
+    hosp(&quot;Hospital propensity&lt;br&gt;to thrombolyse&quot;):::white;
+
+    hosp --&gt; treat;
+    treat --&gt; out;
+    con --&gt; treat;
+    con --&gt; out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div></section>
+<section id="example-neonatal">
+<h3>Example: Neonatal<a class="headerlink" href="#example-neonatal" title="Link to this heading">#</a></h3>
+<p>We could apply the same logic as in SAMueL - although we anticipate this might be more influenced by patient choice on where they want to give birth - in which case, would you use some kind of distance measure as above?</p>
+<div class="mermaid">
+              flowchart LR;
+
+    treat(&quot;&lt;b&gt;Caesarean&lt;/b&gt;&quot;):::green;
+    out(&quot;&lt;b&gt;HIE&lt;/b&gt;&quot;):::green;
+    con(&quot;Confounders&quot;):::white;
+    hosp(&quot;Hospital propensity&lt;br&gt;to do caesarean&quot;):::white;
+    choice(&quot;Physician and patient choice of hospital&lt;br&gt;(e.g. better candidates for caesarean&lt;br&gt;may be sent to hospitals with more propensity?)&quot;):::white;
+    dist(&quot;Hospital distance measure&quot;):::white;
+
+    choice --&gt; hosp;
+    dist --&gt; hosp;
+    hosp --&gt; treat;
+    treat --&gt; out;
+    con --&gt; treat;
+    con --&gt; out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div></section>
+<section id="variants">
+<h3>Variants<a class="headerlink" href="#variants" title="Link to this heading">#</a></h3>
+<p>‘<strong>Three-Stage Least Squares (3SLS)</strong> - this method is an extension of the 2SLS method and is used when there are more than two endogenous variables in the model. The 3SLS method is based on the idea that the endogenous variables are correlated with each other, and therefore, the coefficients of these variables need to be estimated simultaneously.’ <a class="reference external" href="https://fastercapital.com/content/Econometric-Techniques--Understanding-Tinbergen-s-Statistical-Innovations.html">[source]</a></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="regression-discontinuity-rd">
+<h2>Regression discontinuity (RD)<a class="headerlink" href="#regression-discontinuity-rd" title="Link to this heading">#</a></h2>
+<p>Regression Discontinuity Design (RDD) was first used by Thistlethwaite and Campbell (1960). It’s appeal is that it can convinvingly <strong>eliminate selection bias</strong>.</p>
+<p>It can be used when the <strong>exposure status</strong> (wholly or partly) is determined by some <strong>continuous variable exceeding some arbitrary threshold</strong>. <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a> It works best when the cut-off is known, precise and free of manipulation - and is most effect when the exposure ‘has a “hair trigger” that is not tightly related to the outcome being studied’. Examples:</p>
+<ul class="simple">
+<li><p>Arrest for DWI when &gt; 0.08 blood-alcohol content</p></li>
+<li><p>Probably of receiving healthcare insurance at 65</p></li>
+<li><p>Probability of receiving medical attention jumping when birthweight falls below 1,500 grams</p></li>
+<li><p>Probability of attending summer school when grades fall below some minimum level <a class="reference external" href="https://mixtape.scunning.com/06-regression_discontinuity">[Causal Inference: The Mixtape - Scott Cunningham]</a></p></li>
+</ul>
+<p>‘If the <strong>relationship between the forcing variable and the outcome is otherwise continuous, any discontinuity or jump in the relationship can be attributed to the exposure</strong>.’ RD estimates a local average treatment effect (LATE) ‘among the individuals who fall <strong>just above or just below the threshold</strong>.’ For this reason, we require <strong>large datasets</strong>.</p>
+<p>‘As with IV analysis, bias can occur if the forcing variable is connected to the outcome through a back-door path or any other pathway besides the exposure.’ <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+<p>Why does this work? See below…</p>
+<section id="how-does-rdd-work">
+<h3>How does RDD work?<a class="headerlink" href="#how-does-rdd-work" title="Link to this heading">#</a></h3>
+<p>To understand RDD, we first focus on <strong>continuity</strong>, which is a core assumption that is illustrated below.</p>
+<p>In the <strong>first graph</strong> observe that:</p>
+<ul class="simple">
+<li><p>X (often called the “running variable” or “assignment variable” or “forcing variable”) is a confounder (causes D and Y)</p></li>
+<li><p>As treatment assignment is based on cut-off, we can never observe units in both treatment and control with same value of X (does not satisfy overlap condition, can’t meet backdoor criterion)</p></li>
+</ul>
+<p>The <strong>second graph</strong> illustrates that:</p>
+<ul class="simple">
+<li><p>We can identify causal effects for subjects with <strong>values of X close to the cut-off c<sub>0</sub></strong>. This is possible because the cut-off is the sole point where treatment and control subjects overlap.</p></li>
+<li><p>There are lots of assumptions in this graph</p></li>
+<li><p>One of the assumptions is <strong>continuity</strong></p>
+<ul>
+<li><p>This means X has no direct effect on Y</p></li>
+<li><p>i.e. <strong>At c<sub>0</sub>, X no longer has a direct effect on Y</strong></p></li>
+<li><p>i.e. The cut-off c<sub>0</sub> <strong>cannot be triggering a competing intervention</strong> at the same time it triggers treatment D</p></li>
+<li><p>i.e. Expected potential outcomes are continuous at the cut-off (which would necessarily rule out competing interventions occurring at the same time)</p></li>
+<li><p><strong>The null hypothesis is continuity</strong> (i.e. things changes gradually), and <strong>any discontinuity implies some cause</strong> (“nature does not make jump” - ‘if you see a turtle on a fencepost, you know he didn’t get there by himself’)</p></li>
+</ul>
+</li>
+</ul>
+<p><a class="reference external" href="https://mixtape.scunning.com/06-regression_discontinuity">[Causal Inference: The Mixtape - Scott Cunningham]</a></p>
+<div class="mermaid">
+              flowchart TD;
+
+    graphb:::outline;
+    subgraph graphb[&quot; &quot;]
+      X2(&quot;&lt;b&gt;X near c&lt;sub&gt;0&lt;/sub&gt;&lt;/b&gt;&quot;):::white;
+      D2(&quot;&lt;b&gt;D&lt;/b&gt;&quot;):::white;
+      U2(&quot;&lt;b&gt;U&lt;/b&gt;&quot;):::white;
+      Y2(&quot;&lt;b&gt;Y&lt;/b&gt;&quot;):::white;
+    end
+
+    X2 --&gt; D2;
+    D2 --&gt; Y2;
+    U2 --&gt; Y2;
+
+    grapha:::outline;
+    subgraph grapha[&quot; &quot;]
+      X1(&quot;&lt;b&gt;X&lt;/b&gt; (continuous variable)&quot;):::white;
+      D1(&quot;&lt;b&gt;D&lt;/b&gt; (treatment)&lt;br&gt;&lt;i&gt;receive if X &gt; cut-off c&lt;sub&gt;0&lt;/sub&gt;&lt;/i&gt;&quot;):::white;
+      U1(&quot;&lt;b&gt;U&lt;/b&gt;&quot;):::white;
+      Y1(&quot;&lt;b&gt;Y&lt;/b&gt; (outcome)&quot;):::white;
+    end
+
+    X1 --&gt; D1;
+    D1 --&gt; Y1;
+    X1 --&gt; Y1;
+    U1 --&gt; Y1;
+    X1 &lt;-.-&gt; U1;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef outline fill:#FFFFFF;
+        </div><p>An example of RDD is Hoekstra (2009)</p>
+<ul class="simple">
+<li><p>Aim: Estimate causal effect of college on earnings</p></li>
+<li><p>Problem: <strong>Selection bias</strong>. State flagship universities are more selective than public universities in the same state. State flagship schools have individuals with higher observed and unobserved ability, and due to their ability, expected them to earn more regardless of their university.</p></li>
+</ul>
+<p>See first image from Hoekstra (2009), which is about admission to flagship college based on SAT points:</p>
+<ul class="simple">
+<li><p>Horizontal axis (SAT points above/below admission cut-off) is centred around 0 (cut-off). Cut-off was binding but not deterministic - some students below cut-off still get in - they likely had qualifications compensating for low SAT scores. Re-centred SAT scores are the running variable</p></li>
+<li><p>This is not individual data - it is binned, with each dot the conditional mean (enrollment rate)</p></li>
+<li><p>Lines are least squares fitted values of running variable, and regression could include higher-order terms, so line is above to more flexibly track central tendencies of data, with lines fit seperately for left and right</p></li>
+<li><p>There is a discontinuous jump at cut-off</p></li>
+<li><p><strong>Looking at a large sample of students just either side of the cut-off, we expect them to be pretty similar to one another in terms of observable and unobservable characteristics</strong>.</p></li>
+</ul>
+<p><a class="reference external" href="https://mixtape.scunning.com/06-regression_discontinuity">[Causal Inference: The Mixtape - Scott Cunningham]</a></p>
+<p><img alt="Hoekstra RDD" src="../_images/mixtape_hoekstra_rdd.jpg" /></p>
+<p>In this figure, notice:</p>
+<ul class="simple">
+<li><p>Estimated discontinuity 0.095 means that those just above cut-off earn 9.5% higher wages on average than those just below. With a variety of bins, estimates range from 7.4 to 11.1%.</p></li>
+<li><p>He has found that ‘<strong>where workers experienced a jump in the probability of enrolling at the state flagship university, there is, ten to fifteen years later, a separate jump in logged earnings of around 10%</strong>. Those individuals who just barely made it in to the state flagship university made around 10% more in long-term earnings than those individuals who just barely missed the cutoff.’</p></li>
+<li><p>‘Insofar as <strong>the two groups of applicants right around the cutoff have comparable future earnings in a world where neither attended the state flagship university, then there is no selection bias confounding his comparison</strong>’.</p></li>
+</ul>
+<p><a class="reference external" href="https://mixtape.scunning.com/06-regression_discontinuity">[Causal Inference: The Mixtape - Scott Cunningham]</a></p>
+<p><img alt="Hoekstra RDD" src="../_images/mixtape_hoekstra_rdd2.jpg" /></p>
+</section>
+<section id="sharp-v-s-fuzzy-rdd">
+<h3>Sharp v.s. fuzzy RDD<a class="headerlink" href="#sharp-v-s-fuzzy-rdd" title="Link to this heading">#</a></h3>
+<p><strong>Sharp RDD</strong> - when probability of treatment goes from 0 to 1 at cut-off - and so running variable is deterministic of X (dashed line)</p>
+<p><strong>Fuzzy RDD</strong> - when probability of treatment discontinuously increases at cut-off (as in example above) (solid line)</p>
+<p><img alt="Fuzzy v.s. sharp RDD" src="../_images/cunning_fuzzy_sharp_rdd.png" /></p>
+</section>
+<section id="applying-to-our-work">
+<h3>Applying to our work<a class="headerlink" href="#applying-to-our-work" title="Link to this heading">#</a></h3>
+<p>This might be less relevant for caesarean (no single one cut-off for a single treatment).</p>
+<p>However, it would be relevant to stroke, which has much clearer cut-offs. Although maybe focus per hospital would you need to? If you think hospital has impact on threshold?</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="interrupted-time-series-its">
+<h2>Interrupted time series (ITS)<a class="headerlink" href="#interrupted-time-series-its" title="Link to this heading">#</a></h2>
+<p>The <strong>interrupted time series (ITS)</strong> design compares ‘the <strong>trend over time in a population-level outcome before and after an exposure</strong> is introduced.’</p>
+<p>‘Assuming that the trend <strong>would have been unchanged</strong> if the intervention was not introduced, a <strong>change in trend at the point of introduction</strong> (in terms of level and/or slope) can be attributed to the exposure.’ <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+<p>Image from Tam D Tran-The 3 Feb 2022 <a class="reference external" href="https://towardsdatascience.com/sample-size-planning-for-interrupted-time-series-design-in-health-care-e16d22bba13f">Towards Data Science blogpost</a>:
+<img alt="ITS" src="../_images/medium_its.png" /></p>
+<p>‘ITS can be regarded as a special case of IV or RD, with time being the instrument or forcing variable. ITS addresses time-invariant confounding but can be biased if other events that influence the outcome happen at the same time as the exposure’. <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+<section id="things-to-consider">
+<h3>Things to consider<a class="headerlink" href="#things-to-consider" title="Link to this heading">#</a></h3>
+<p>It is vitally important to carefully design an ITS study. Considerations include…</p>
+<p><strong>Number of time-points before and after the intervention</strong></p>
+<ul class="simple">
+<li><p>Usually equally spaced intervals, recommendations from 3 - 50 time points per segment, depends on methods used for analysis (e.g. OLS can have fewer than ARIMA)</p></li>
+<li><p>General consensus: ‘longer time series tend to have more power than shorter time series’</p></li>
+</ul>
+<p><strong>Sample size per time point</strong>:</p>
+<ul class="simple">
+<li><p>Larger sample –&gt; more stable estimates –&gt; less variability and outliers</p></li>
+</ul>
+<p><strong>Frequency of time points</strong></p>
+<ul class="simple">
+<li><p>‘Trade-off between number of time points and sample size per time point, depending on the choice of time interval’</p></li>
+<li><p>‘When possible, choose frequency that have clinical or seasonal meaning so that a true underlying trend can be established. Also consider whether there may be a delay or waning intervention effect, especially when the impact occurs gradually, so you can choose frequency accordingly.’</p></li>
+</ul>
+<p><strong>Location of intervention</strong></p>
+<ul class="simple">
+<li><p>Intervention can be be early (e.g. 1/3 time points before), midway (most commonly), or late (e.g. 2/3 time points before) - as long as sufficient time points per segment + sample size</p></li>
+</ul>
+<p><strong>Expected effect size</strong></p>
+<ul class="simple">
+<li><p>Two effect types - <strong>slope change</strong> (gradual change in gradient of trend) and <strong>level change</strong> (instant change in level) - and can be a combination of both</p></li>
+</ul>
+<p><a class="reference external" href="https://towardsdatascience.com/sample-size-planning-for-interrupted-time-series-design-in-health-care-e16d22bba13f">[Tam D Tran-The 2022]</a></p>
+<p>Image from Tam D Tran-The 3 Feb 2022 <a class="reference external" href="https://towardsdatascience.com/sample-size-planning-for-interrupted-time-series-design-in-health-care-e16d22bba13f">Towards Data Science blogpost</a>:
+<img alt="ITS effect types" src="../_images/medium_its2.png" /></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="difference-in-differences-did">
+<h2>Difference in differences (DiD)<a class="headerlink" href="#difference-in-differences-did" title="Link to this heading">#</a></h2>
+<p>The <strong>difference-in-differences</strong> (DiD) design predates the randomised experiment by roughly 85 years. It was first used in 1855 by John Snow in his analysis of the cause of cholera. However, it is used relatively infrequently nowadays. <a class="reference external" href="https://doi.org/10.1007%2Fs40471-020-00245-2">[Canglia and Murray 2020]</a></p>
+<p>In its simplest form, the Did method compares the <strong>change over time in a continuous population-level outcome</strong> between:</p>
+<ul class="simple">
+<li><p>An <strong>exposed</strong> group</p></li>
+<li><p>An <strong>unexposed</strong> group</p></li>
+</ul>
+<p>(Compares change over time in the exposed group, to change over time in the unexposed group, as just comparing the exposed group before and after has issues).</p>
+<p>It ‘attempts to control for changing time trends, by using a comparison group to represent the counterfactual outcome trend in the exposed.’ ‘DiD also addresses time-invariant confounding but requires assuming that there would have been no difference in trend between the groups in the absence of the intervention (the <strong>“parallel trends” assumption</strong>).’ <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+<p>Image from Figarri Keisha 25 March 2022 <a class="reference external" href="https://medium.com/bukalapak-data/difference-in-differences-8c925e691fff">Medium blog post</a>:</p>
+<p><img alt="DiD" src="../_images/medium_did.png" /></p>
+<section id="example-john-snow-and-cholera">
+<h3>Example: John Snow and cholera<a class="headerlink" href="#example-john-snow-and-cholera" title="Link to this heading">#</a></h3>
+<p>In 1855, the cause of cholera was unknown. John Snow suspected it was waterborne. He compared:</p>
+<ul class="simple">
+<li><p>Southwark and Vauxhall Company</p></li>
+<li><p>Lambeth Water company</p></li>
+</ul>
+<p>Both used water from River Thames. Neighbourhoods served by them both had very high mortality during the 1849 outbreak. In 1852, Lambeth Water Company moved its water intake to a site upstream of the sewage outflow.</p>
+<p>Question: Did the rate of cholera death decrease when water intake moved upstream, compared to if it had remained downstream? He couldn’t just compare before and after for Lambeth due to the change in cholera cases over time - so instead, answered by comparing the change in deaths, to the changes in deaths for Southwark and Vauxhall Company</p>
+<p>Answer by estimating the average causal effect in the treated, or average treatment effect in the treated, or ATT.</p>
+<p>Snow observed from 1849 to 1854 that:</p>
+<ul class="simple">
+<li><p>Southwark: increased by 118 deaths per 100,000</p></li>
+<li><p>Lambeth: decreased by 653 deaths per 100,000</p></li>
+</ul>
+<p><a class="reference external" href="https://doi.org/10.1007%2Fs40471-020-00245-2">[Canglia and Murray 2020]</a></p>
+</section>
+<section id="assumptions">
+<h3>Assumptions<a class="headerlink" href="#assumptions" title="Link to this heading">#</a></h3>
+<p><strong>Consistency</strong> - ‘the observed exposure of interest is equal to the counterfactual exposure of interest’</p>
+<ul class="simple">
+<li><p>e.g. ‘Moving the water source from opposite Hungerford Market to Thames Ditton maps to a sufficiently well-defined intervention’</p></li>
+</ul>
+<p><strong>Exchangeability and parallel trends</strong> - ‘any unmeasured determinants of the outcome are either time-invariant or group-invariant’</p>
+<ul class="simple">
+<li><p>e.g. ‘Any unmeasured determinants of the cholera death rate either do not vary with time or do not vary by district.’</p></li>
+</ul>
+<p><strong>Exchangeability and strict exogeneity</strong> - ‘implementation of the change in exposure was not related to the baseline value of the outcome variable’</p>
+<ul class="simple">
+<li><p>e.g. ‘The decisions to move or not move the Lambeth Company and the Southwalk &amp; Vauxhall Company water intake sources were independent of the cholera mortality rates in neighborhoods supplied by those companies.’</p></li>
+</ul>
+<p><strong>Positivity</strong> - ‘all individuals or subgroups of individuals are eligible to receive all levels of exposure’</p>
+<ul class="simple">
+<li><p>e.g. ‘The decision to move or not move the water intake source was available to both the Lambeth and Southwalk &amp; Vauxhall Companies.’</p></li>
+</ul>
+<p><a class="reference external" href="https://doi.org/10.1007%2Fs40471-020-00245-2">[Canglia and Murray 2020]</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./design_methods"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="design_methods_3_gmethods.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Methods #3: G-methods</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="design_methods_5_other.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Methods #5: Other</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#addressing-unobserved-confounding">Addressing unobserved confounding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instrumental-variables">Instrumental variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-instrumental-variable">What is an instrumental variable?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-stage-least-squares-2sls">Two-stage least squares (2SLS)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-of-instrumental-variable-analysis">Assumptions of instrumental variable analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-mendelian-randomisation">Example: Mendelian randomisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-effect-of-intensive-treatment-on-mortality-in-patients-with-acute-myocardial-infarction">Example: Effect of intensive treatment on mortality in patients with acute myocardial infarction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-samuel">Example: SAMueL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-neonatal">Example: Neonatal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variants">Variants</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-discontinuity-rd">Regression discontinuity (RD)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-rdd-work">How does RDD work?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharp-v-s-fuzzy-rdd">Sharp v.s. fuzzy RDD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-to-our-work">Applying to our work</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interrupted-time-series-its">Interrupted time series (ITS)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#things-to-consider">Things to consider</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-in-differences-did">Difference in differences (DiD)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-john-snow-and-cholera">Example: John Snow and cholera</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">Assumptions</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Amy Heather
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

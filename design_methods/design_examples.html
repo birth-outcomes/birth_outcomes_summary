@@ -1,0 +1,669 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Examples of studies that account for the treatment paradox &#8212; Birth Outcomes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'design_methods/design_examples';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Other design considerations" href="design_other.html" />
+    <link rel="prev" title="Methods #5: Other" href="design_methods_5_other.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Birth Outcomes</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Birth outcomes summary
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../background/background.html">Background</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../background/stages.html">Stages of pregnancy and birth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/interventions.html">Interventions during labour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/research_groups.html">Research groups</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../outcomes/outcomes.html">Identifying hypoxic ischaemic encephalopathy (HIE)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_background.html">Examples of identifying HIE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_summary.html">Summary of possible indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_cooling.html">Therapeutic hypothermia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_hie_diagnosis.html">Diagnostic codes for HIE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_blood.html">Umbilical cord blood gas analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_sentinel.html">Sentinel events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_resus.html">Resuscitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_meconium.html">Meconium-stained amniotic fluid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_care.html">Transfer to neonatal care services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_cp.html">Cerebral palsy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_mri.html">Neuroimaging evidence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_enceph_symptoms.html">Symptoms of neonatal encephalopathy (NE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_apgar.html">Apgar scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_death.html">Death</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_ctg.html">Abnormal CTG</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../causal_concepts/intro.html">Study design - causal concepts</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_intro_1_treatment_paradox.html">The treatment paradox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_intro_2_predict_vs_causal.html">Choosing between prediction and causal inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_intro_3_causal.html">Causal inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_counterfactuals.html">Counterfactuals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_dag_1.html">Directed acyclic graphs (DAGs) #1 (basics)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_dag_2.html">DAGs #2 (advanced concepts)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_sem.html">Structural equation modelling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Study design - causal methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="design_causal_assumptions.html">Causal assumptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_causal_estimands.html">Causal estimands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_target_trial.html">Target trial emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_observational.html">Observational study designs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_methods_1_intro.html">Methods #1: Introduction to methods to adjust for confounding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_methods_2_conventional.html">Methods #2: Conventional approaches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_methods_3_gmethods.html">Methods #3: G-methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_methods_4_unobserved.html">Methods #4: Methods for unobserved confounding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_methods_5_other.html">Methods #5: Other</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Examples of studies that account for the treatment paradox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_other.html">Other design considerations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../our_study/intro.html">Our study</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/design_plan.html">A rough plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/our_dag.html">HIE DAG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/our_target_trial_protocol.html">HIE target trial protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendices/intro.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/neo_out_enceph_treatment_outcomes.html">Challenge 2: Outcomes for trials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/neo_out_chorio.html">More on chorioamnionitis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/fetal_risk_factors.html">Fetal risk factors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/cardiotocography.html">Cardiotocography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/parental_outcomes.html">Parental outcomes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/routine_data.html">Routinely collected data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/key_papers.html">Key Papers</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdesign_methods/design_examples.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/design_methods/design_examples.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Examples of studies that account for the treatment paradox</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commentary-on-prognostic-models-in-obstetrics">Commentary on prognostic models in obstetrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-examples-of-studies-of-neonatal-outcomes-that-have-attempted-to-account-for-the-treatment-paradox">Are there examples of studies of neonatal outcomes that have attempted to account for the treatment paradox?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thangaratinam-et-al-2017">Thangaratinam et al. 2017</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helenius-et-al-2019">Helenius et al. 2019</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-to-look-at">Examples to look at</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="examples-of-studies-that-account-for-the-treatment-paradox">
+<h1>Examples of studies that account for the treatment paradox<a class="headerlink" href="#examples-of-studies-that-account-for-the-treatment-paradox" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0167629617307609">https://www.sciencedirect.com/science/article/pii/S0167629617307609</a></p>
+<section id="commentary-on-prognostic-models-in-obstetrics">
+<h2>Commentary on prognostic models in obstetrics<a class="headerlink" href="#commentary-on-prognostic-models-in-obstetrics" title="Link to this heading">#</a></h2>
+<p>‘Historically, the field of obstetrics has been successful in developing prediction models but has been poor in fully validating and thus implementing them effectively… Only two thirds of the papers [62.4%, 164/263] in a large systematic review of prognostic models in obstetrics were found to have presented their models in such a way that external validation would be feasible. This has been highlighted as a concern given the importance of validity in the development of such models.’<a class="reference external" href="https://doi.org/10.5772/intechopen.87311">[Murphy et al. 2019]</a></p>
+<p>‘Certain models can be too complex for routine clinical usage and this may lead to a reluctance on the part of the clinicians to accept them… It is also important that models which have been developed are also validated in a new population as otherwise it may not be possible to generalise them to a different cohort of patients. This is also known as impact analysis and this paper by Reilly et al. highlights that very few prediction models have undergone formal impact analysis or validation. This is essential in order for clinicians to know if the usage of such a model will have a positive or negative effect, i.e. is there a possibility that it will cause harm. The authors highlighted the benefit of having clinicians involved in the development and validation of such models before, during and after implementation.’<a class="reference external" href="https://doi.org/10.5772/intechopen.87311">[Murphy et al. 2019]</a></p>
+<p>‘Obstetrics focuses on the early identification of pregnancies at risk of adverse outcomes to plan targeted intervention. Clinicians often use probabilistic reasoning, intuitively based on clinical history and tests, to assess the risk of complications in a mother or fetus; however, they need to be aware of false-positive and false-negative test results in their clinical decision-making.</p>
+<p>Prediction models (also known as prognostic models) provide individualised risk estimates for clinically important outcomes in patients with a particular disease or condition. Derived using statistical models, they include multiple predictors, such as age, previous history, and, increasingly, biomarkers. Although clinicians’ intuition has a place and a role in prediction, it has been shown that statistical prediction models give more accurate prognosis than clinicians can achieve working on their own. As in other clinical fields, the development and use of prediction models in obstetrics has limitations.</p>
+<p>In the development phase there are many statistical challenges, including:</p>
+<ul class="simple">
+<li><p>The ascertainment of a suitable sample size</p></li>
+<li><p>The choice of candidate predictors</p></li>
+<li><p>Reliable measurement of the outcome and predictors</p></li>
+<li><p>The identification of important predictors and their functional form</p></li>
+<li><p>Internal validation, potentially including bootstrap resampling and cross-validation, as well as shrinkage for potential over-optimism in model performance.</p></li>
+</ul>
+<p>Most, if not all, models perform well when they are internally validated; however, the use of prediction models has been hampered by a distinct lack of research into the external validation of prediction models distant from the specific population that they were developed in, and the assessment of models on the behaviour of doctors and on patient outcomes. Another issue that limits clinical use… is the handling of interventions in the prediction model.’<a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">[source]</a></p>
+</section>
+<section id="are-there-examples-of-studies-of-neonatal-outcomes-that-have-attempted-to-account-for-the-treatment-paradox">
+<h2>Are there examples of studies of neonatal outcomes that have attempted to account for the treatment paradox?<a class="headerlink" href="#are-there-examples-of-studies-of-neonatal-outcomes-that-have-attempted-to-account-for-the-treatment-paradox" title="Link to this heading">#</a></h2>
+<section id="thangaratinam-et-al-2017">
+<h3>Thangaratinam et al. 2017<a class="headerlink" href="#thangaratinam-et-al-2017" title="Link to this heading">#</a></h3>
+<p><strong>Model:</strong> Development and validation of Prediction models for Risks of complications in Early-onset Pre-eclampsia.<a class="reference external" href="https://doi.org/10.1186/s12916-017-0827-3">[Thangaratinam et al. 2017]</a></p>
+<p>This is a prediction model for pre-eclampsia that has been successfully validated. In a 2016 commentary in the British Journal of Obstetrics and Gynaecology (BJOG)<a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">[Cheong-See et al. 2016]</a>, they examined this model to identify what made it succesful and highlighted:</p>
+<ul class="simple">
+<li><p>Large sample size</p></li>
+<li><p>Standardisation of treatment or intervention</p></li>
+<li><p>Consideration of the initiation of treatment being an outcome itself - i.e. “when starting a treatment is likely to prevent an adverse outcome, those who received the treatment could also be considered to have experienced the outcome”<a class="reference external" href="https://doi.org/10.5772/intechopen.87311">[Murphy et al. 2019]</a></p></li>
+</ul>
+</section>
+<section id="helenius-et-al-2019">
+<h3>Helenius et al. 2019<a class="headerlink" href="#helenius-et-al-2019" title="Link to this heading">#</a></h3>
+<p><mark> don’t quite understand </mark></p>
+<p>Study using data from the National Neonatal Research Database (NRRD) investigating whether birth in a non-tertiary hospital or transfer within 48 hours are associated with poor outcomes when compared with birth in a tertiary setting. A “tertiary” setting is one that provides specialist care. Their hypothesis was that mortality and severe brain injury would be higher in transferred infants compared with non-transferred infants born in tertiary hospitals.</p>
+<p>They use propensity score matching to create matched groups for comparison with near identical distributions of background and potential confounder variables.</p>
+<p>Paper: <a class="reference external" href="https://doi.org/10.1136/bmj.l5678">https://doi.org/10.1136/bmj.l5678</a></p>
+<p>Supplementary: <a class="reference external" href="https://www.bmj.com/content/bmj/suppl/2019/10/16/bmj.l5678.DC1/helk050424.ww1.pdf">https://www.bmj.com/content/bmj/suppl/2019/10/16/bmj.l5678.DC1/helk050424.ww1.pdf</a></p>
+<p>Responses: <a class="reference external" href="https://www.bmj.com/content/367/bmj.l5678/rapid-responses">https://www.bmj.com/content/367/bmj.l5678/rapid-responses</a></p>
+</section>
+<section id="examples-to-look-at">
+<h3>Examples to look at<a class="headerlink" href="#examples-to-look-at" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://doi.org/10.1111/cdoe.12634">https://doi.org/10.1111/cdoe.12634</a> - Caesarean delivery and early childhood caries: Estimation with marginal structural models in Brazilian pre-schoolers - Ladeira et al. 2021</p></li>
+<li><p><a class="reference external" href="https://bmjopen.bmj.com/content/bmjopen/10/11/e038845.full.pdf">https://bmjopen.bmj.com/content/bmjopen/10/11/e038845.full.pdf</a> - Protocol for development and validation of a clinical prediction model for adverse pregnancy outcomes in women with gestational diabetes - Cooray et al. 2020</p>
+<ul>
+<li><p>Addressing the treatment paradox (in this case with insulin) is a challenge in prediction modelling studies. The traditional approach has been to accept predictions in the context of current care. However, this does not remove the possibility that a potentially useful model may appear to perform poorly due to the confounding effect of the judicious application of effective interventions to individual’s whom clinicians subjectively assess to be at high risk of the outcome of interest.</p></li>
+<li><p>Two solutions to address the problem of treatment paradox in prediction modelling studies have been advocated.50</p>
+<ul>
+<li><p>First, the use of treatments suspected to confound the predictor-outcome relationship can be set as a <strong>predictor</strong> in the final model.</p></li>
+<li><p>Second, the use of such effective treatments can be included within a composite <strong>outcome</strong> to be predicted.</p></li>
+</ul>
+</li>
+<li><p>For this study, both approaches were considered but deemed <strong>inappropriate</strong>. For the former, the inclusion of the requirement for insulin therapy as a predictor is not possible as this information is not available at the intended moment of prediction—the time of GDM diagnosis, usually around 24 to 28 weeks gestation. For the later, inclusion of the requirement for insulin therapy within the composite outcome would impair its interpretability as this outcome occurs at a significantly higher frequency than the other component outcomes (31% vs approximately 10% based on our prior work).44 This is likely to lead to a less meaningful composite that is primarily driven by the need for insulin therapy and no longer predicts what we want (adverse pregnancy outcomes). While many promising novel approaches have been proposed in the statistical literature, such as multistate modelling or marginal structural models for ‘treatment drop-ins’,51 52 at time of writing all are primarily based on empirical data and are yet to be applied to clinical prediction problems.</p></li>
+<li><p>The three possible results from the <strong>sensitivity analysis</strong> to evaluate the effect of including the decision to treat with insulin will be informative and may be interpreted as follows. If the sensitivity analyses find that the inclusion of the decision to treat with insulin within the outcome:</p>
+<ol class="arabic simple">
+<li><p>Positively affects model performance, then this suggests the presence of treatment paradox, that is, pregnancy complications are more likely to occur in the absence of insulin therapy;</p></li>
+<li><p>Has no significant effect on model performance then this suggests that the model is robust with predictive performance not affected by the decision to treat, that is, the absolute risk of adverse pregnancy outcomes for an individual woman with GDM is not affected by insulin therapy;</p></li>
+<li><p>Negatively affects model performance, then this would suggest that adverse pregnancy outcomes are more likely to occur in women treated with insulin, and thus imply more ‘severe’ GDM or a harmful effect for this treatment. (unlikely)</p></li>
+</ol>
+</li>
+<li><p>The effect of treatment with insulin will be further evaluated using an IPTW algorithm to weight women according to their propensity of having been treated and transformation of the logistic model into a multinomial model. This multinomial model will have four categories depending on the occurrence of the composite pregnancy outcome and whether the women have received treatment with insulin or not.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://doi.org/10.1093%2Finthealth%2Fihz111">https://doi.org/10.1093%2Finthealth%2Fihz111</a> - Adverse infant outcomes associated with caesarean section delivery in India - Gondwe et al. 2020</p></li>
+<li><p><a class="reference external" href="https://doi.org/10.1093%2Fpch%2Fpxz051">https://doi.org/10.1093%2Fpch%2Fpxz051</a> - Caesarean section and neonatal survival and neurodevelopmental impairments in preterm singleton neonates - Lodha et al. 2020</p></li>
+<li><p><a class="reference external" href="https://doi.org/10.1111/aogs.13214">https://doi.org/10.1111/aogs.13214</a> - Propensity score method for analyzing the effect of labor induction in prolonged pregnancy - Pyykönen et al. 2017</p></li>
+<li><p><a class="reference external" href="https://doi.org/10.1016/j.ejogrb.2015.09.011">https://doi.org/10.1016/j.ejogrb.2015.09.011</a> - Elective repeat cesarean delivery compared with trial of labor after a prior cesarean delivery: a propensity score analysis - Kok et al. 2015</p></li>
+<li><p><a class="reference external" href="https://jamanetwork.com/journals/jamapediatrics/fullarticle/2792041">https://jamanetwork.com/journals/jamapediatrics/fullarticle/2792041</a> - Developmental Outcomes for Children After Elective Birth at 39 Weeks’ Gestation - Lindquist et al. 2022</p></li>
+<li><p><a class="reference external" href="https://doi.org/10.1186%2Fs12887-018-1324-3">https://doi.org/10.1186%2Fs12887-018-1324-3</a> - Mode of delivery and short-term infant health outcomes: a prospective cohort study in a peri-urban Indian population - Gondwe et al. 2018</p></li>
+<li><p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7755743/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7755743/</a> - Mode of delivery, type of labor, and measures of adiposity from childhood to teenage: Project Viva - Mueller et al. 2021</p></li>
+<li><p><a class="reference external" href="https://doi.org/10.1111/cdoe.12634">https://doi.org/10.1111/cdoe.12634</a> - Caesarean delivery and early childhood caries: Estimation with marginal structural models in Brazilian pre-schoolers</p></li>
+</ul>
+</section>
+<section id="other">
+<h3>Other<a class="headerlink" href="#other" title="Link to this heading">#</a></h3>
+<p><strong>Incorporation of treatment in the model:</strong> ‘In the prediction of metabolic acidosis in neonates (example 1) there could be an intervention effect present owing to cesarean delivery. An unexpected finding was observed for the relation between intrapartum fever and metabolic acidosis (OR 0.86 [95% CI 0.68–1.08]). Upon inclusion of cesarean delivery in the model, intrapartum fever was positively related to metabolic acidosis (OR 1.08 [95% CI 0.86–1.34]), which was in line with expectations.’<a class="reference external" href="https://doi.org/10.1503/cmaj.120812">[Schuit et al. 2013]</a></p>
+<p><strong>Including an alternative outcome not impacted by treatment paradox:</strong> By including abnormal CTG as a neonatal outcome (alongside stillbirth, early neonatal death, mean birthweight, incidence of small-for-gestational age, neonatal unit admission, and composite of Apgar5&lt;7, pH&lt;7 or neonatal encephalopathy).<a class="reference external" href="https://doi.org/10.1111/aogs.13671">[Bhatia et al. 2019]</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./design_methods"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="design_methods_5_other.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Methods #5: Other</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="design_other.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Other design considerations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commentary-on-prognostic-models-in-obstetrics">Commentary on prognostic models in obstetrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-examples-of-studies-of-neonatal-outcomes-that-have-attempted-to-account-for-the-treatment-paradox">Are there examples of studies of neonatal outcomes that have attempted to account for the treatment paradox?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thangaratinam-et-al-2017">Thangaratinam et al. 2017</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helenius-et-al-2019">Helenius et al. 2019</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-to-look-at">Examples to look at</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Amy Heather
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

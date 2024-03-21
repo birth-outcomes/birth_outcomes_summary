@@ -1,0 +1,657 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Observational study designs &#8212; Birth Outcomes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'design_methods/design_observational';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Methods #1: Introduction to methods to adjust for confounding" href="design_methods_1_intro.html" />
+    <link rel="prev" title="Target trial emulation" href="design_target_trial.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Birth Outcomes</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Birth outcomes summary
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../background/background.html">Background</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../background/stages.html">Stages of pregnancy and birth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/interventions.html">Interventions during labour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/research_groups.html">Research groups</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../outcomes/outcomes.html">Identifying hypoxic ischaemic encephalopathy (HIE)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_background.html">Examples of identifying HIE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_summary.html">Summary of possible indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_cooling.html">Therapeutic hypothermia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_hie_diagnosis.html">Diagnostic codes for HIE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_blood.html">Umbilical cord blood gas analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_sentinel.html">Sentinel events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_resus.html">Resuscitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_meconium.html">Meconium-stained amniotic fluid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_care.html">Transfer to neonatal care services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_cp.html">Cerebral palsy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_mri.html">Neuroimaging evidence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_enceph_symptoms.html">Symptoms of neonatal encephalopathy (NE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_apgar.html">Apgar scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_death.html">Death</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_ctg.html">Abnormal CTG</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../causal_concepts/intro.html">Study design - causal concepts</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_intro_1_treatment_paradox.html">The treatment paradox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_intro_2_predict_vs_causal.html">Choosing between prediction and causal inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_intro_3_causal.html">Causal inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_counterfactuals.html">Counterfactuals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_dag_1.html">Directed acyclic graphs (DAGs) #1 (basics)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_dag_2.html">DAGs #2 (advanced concepts)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_sem.html">Structural equation modelling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Study design - causal methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="design_causal_assumptions.html">Causal assumptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_causal_estimands.html">Causal estimands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_target_trial.html">Target trial emulation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Observational study designs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_methods_1_intro.html">Methods #1: Introduction to methods to adjust for confounding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_methods_2_conventional.html">Methods #2: Conventional approaches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_methods_3_gmethods.html">Methods #3: G-methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_methods_4_unobserved.html">Methods #4: Methods for unobserved confounding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_methods_5_other.html">Methods #5: Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_examples.html">Examples of studies that account for the treatment paradox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_other.html">Other design considerations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../our_study/intro.html">Our study</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/design_plan.html">A rough plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/our_dag.html">HIE DAG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/our_target_trial_protocol.html">HIE target trial protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendices/intro.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/neo_out_enceph_treatment_outcomes.html">Challenge 2: Outcomes for trials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/neo_out_chorio.html">More on chorioamnionitis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/fetal_risk_factors.html">Fetal risk factors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/cardiotocography.html">Cardiotocography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/parental_outcomes.html">Parental outcomes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/routine_data.html">Routinely collected data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/key_papers.html">Key Papers</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdesign_methods/design_observational.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/design_methods/design_observational.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Observational study designs</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#active-comparator-new-user-acnu-design">Active comparator, new user (ACNU) design</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-censor-weight-design">Clone-censor-weight design</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-trial-design">Sequential trial design</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="observational-study-designs">
+<h1>Observational study designs<a class="headerlink" href="#observational-study-designs" title="Link to this heading">#</a></h1>
+<div class="info admonition">
+<p class="admonition-title">Executive summary</p>
+<p>There are several study designs that attempt to minimise bias in observational research. These include…</p>
+<p><strong>Active comparator (AC), new user (NU) (ACNU)</strong> design</p>
+<ul class="simple">
+<li><p>AC: Compares between two active treatment strategies, as no treatment can mean no indication for treatment (e.g. mild) or contraindications (e.g. severe co-existing conditions) - avoiding bias from contraindications</p></li>
+<li><p>NU: Follow from treatment initation, don’t include current users</p></li>
+</ul>
+<p><strong>Clone-censor-weight</strong> design</p>
+<ul class="simple">
+<li><p>Clone (each patient starts on every treatment arm) and then censor (when no longer on arm) to reduce confounding at baseline and immortal-time bias</p></li>
+<li><p>This introduces informative censoring, which then adjust for by weighting (using inverse-probability weights)</p></li>
+</ul>
+<p><strong>Sequential trial</strong> design</p>
+<ul class="simple">
+<li><p>Series of artifical trials that divide at time points (e.g. study visits), and then within each trial, people are censored when their treatment deviates from what it was at the start of that artifical trial. Inverse probability weighting used to adjust for artifical censoring.</p></li>
+<li><p>Can then estimate effect of sustained treatment v.s. no treatment, starting at each time point</p></li>
+</ul>
+</div>
+<section id="active-comparator-new-user-acnu-design">
+<h2>Active comparator, new user (ACNU) design<a class="headerlink" href="#active-comparator-new-user-acnu-design" title="Link to this heading">#</a></h2>
+<p>Used to compare effect of initiating two treatments <a class="reference external" href="https://doi.org/10.1681/ASN.0000000000000152">[Fu 2023]</a></p>
+<p>Designed to ‘emulate the intervention part of a RCT’, comparing two cohorts of drug users.</p>
+<ul class="simple">
+<li><p><strong>Active comparator (AC)</strong> design: restrict ‘study to individuals with an indication for treatment and without contraindications’ <a class="reference external" href="https://doi.org/10.1007%2Fs40471-015-0053-5">[Lund et al. 2015]</a></p>
+<ul>
+<li><p>Compares with <strong>active comparator</strong> (another drug/treatment) rather than <strong>non-active comparator</strong> (no active treatment… non-users). Patients in that group - who have disease but are not on active treatment - can include those with no indication for treatment (e.g. mild disease), or people for whom all treatment is contraindicated (e.g. if have severe co-existing conditions) - and as such, are often not included in RCTs</p></li>
+<li><p>Avoids <strong>bias from contraindications</strong>: In practice, ‘physicians carefully choose who should or should not be treated with the drug of interest , causing imbalance between treatment groups in the baseline level of risk for the outcome of interest in observational studies—that is, confounding by indication’</p></li>
+<li><p>‘The active-comparator design has three main advantages: increased similarity in measured patient characteristics between treatment groups; reduced potential for unmeasured confounding; and possibly improving the clinical relevance of the research question’ <a class="reference external" href="https://doi.org/10.1038/nrrheum.2015.30">[Yoshida et al. 2015]</a></p></li>
+</ul>
+</li>
+<li><p><strong>New user (NU)</strong> design: align ‘individuals at a uniform point in time to start follow-up (i.e., treatment initiation) and ensuring the correct temporality between covariate and exposure assessment’ <a class="reference external" href="https://doi.org/10.1007%2Fs40471-015-0053-5">[Lund et al. 2015]</a></p>
+<ul>
+<li><p>Also known as incident-user design or initator design</p></li>
+<li><p>This ‘includes a cohort of patients initiating treatment with a drug of interest who are followed up from treatment initiation, similar to RCTs. By contrast, the prevalent-user design includes both current and new users of a drug of interest within the study period, and follow-up thus starts at a different time point in the course of each individual’s treatment’</p></li>
+<li><p>‘The new-user design has three main advantages: time-varying hazards and drug effects associated with treatment duration can be assessed; appropriate adjustment for confounding is ensured by capturing pretreatment variables; and potential for immortal time bias is reduced when this design is combined with the active-comparator design’ <a class="reference external" href="https://doi.org/10.1038/nrrheum.2015.30">[Yoshida et al. 2015]</a></p></li>
+</ul>
+</li>
+</ul>
+<p>Illustration of ACNU and confounding by indication from <a class="reference external" href="https://doi.org/10.1002/pds.5407">Sendor and Stürmer 2022</a>:
+<img alt="Confounding by indication and ACNU" src="../_images/confounding_by_indication.jpg" /></p>
+</section>
+<section id="clone-censor-weight-design">
+<h2>Clone-censor-weight design<a class="headerlink" href="#clone-censor-weight-design" title="Link to this heading">#</a></h2>
+<p>Useful for grace periods, treatment duration, or when treatment is started based on a biomarker level <a class="reference external" href="https://doi.org/10.1681/ASN.0000000000000152">[Fu 2023]</a></p>
+<p>The approach involves three steps:</p>
+<ol class="arabic simple">
+<li><p>‘<strong>”Clone”</strong> each patient once for each treatment regimen of interest.’ <a class="reference external" href="https://www.targetrwe.com/news-events/one-model-to-rule-them-all-using-a-single-model-to-control-for-confounding-and-informative-censoring/">[source]</a></p>
+<ul class="simple">
+<li><p>‘Cloning patients allows us to assign patients to both arms for the duration for which treatment allocation is unknown. At baseline, in our illustration, we assumed that all patients were equally likely to be offered surgery or not. As such, all patients entered both arms of the trial, independently of their subsequent surgery status. Thus, we created two clones of each patient with one clone allocated to each study arm, hence doubling the size of our dataset. The study arms are therefore identical with respect to demographics and clinical characteristics at the time of diagnosis. This removes confounding bias, at baseline only.’ <a class="reference external" href="https://doi.org/10.1093%2Fije%2Fdyaa057">[Maring et al. 2020]</a></p></li>
+</ul>
+</li>
+<li><p>‘<strong>”Censor”</strong> each clone when their person-time is no longer consistent with the corresponding treatment regimen.’ <a class="reference external" href="https://www.targetrwe.com/news-events/one-model-to-rule-them-all-using-a-single-model-to-control-for-confounding-and-informative-censoring/">[source]</a></p></li>
+<li><p>‘<strong>”Weight”</strong> the remaining person-time by the inverse probability of being censored.’ <a class="reference external" href="https://www.targetrwe.com/news-events/one-model-to-rule-them-all-using-a-single-model-to-control-for-confounding-and-informative-censoring/">[source]</a></p>
+<ul class="simple">
+<li><p>‘If the decision to perform surgery was completely random or made based on patients’ characteristics that were not associated with the outcome, the artificial censoring done… would be ignorable, and would not bias the results. However, in most observational studies, treatment decision is based on characteristics also associated with the outcome, i.e. the confounders. In our example, the decision to perform surgery is associated with age, performance status and comorbidity index, which are also associated with survival. In such situations, the artificial censoring introduces selection bias… The proposed approach to address this problem is to use inverse-probability-of-censoring weighting (IPCW)’ <a class="reference external" href="https://doi.org/10.1093%2Fije%2Fdyaa057">[Maring et al. 2020]</a></p></li>
+</ul>
+</li>
+</ol>
+<p>Explanation of how this addresses bias: ‘When the start of follow-up and the time of treatment initiation do not coincide i.e. when the exposure (or treatment) status is not defined at the inclusion within the study, immortal-time bias is a concern if the study groups are defined based on the observed treatment allocation. Indeed, treatment receipt at a given time t is conditional on having survived up to time t, and consequently, treatment receipt is more likely to be observed among patients with longer survival. We illustrated how cloning patients at the start of follow-up, carefully defining the survival time and vital status for each clone, and choosing the length of the grace period, as proposed by Hernàn et al.,9,10 can address both confounding and immortal-time biases. However, by cloning and censoring the patients to account for confounding at baseline and immortal-time bias, we introduce an informative censoring, which does not exist in the original dataset. This artificial censoring can be adjusted for by inverse-probability weights in the statistical analysis, which is the main complexity of this approach’ <a class="reference external" href="https://doi.org/10.1093%2Fije%2Fdyaa057">[Maring et al. 2020]</a></p>
+<p>Illustration of design from <a class="reference external" href="https://doi.org/10.1093%2Fije%2Fdyaa057">Maring et al. 2020</a>:</p>
+<p><img alt="Clone-censor-weight design" src="../_images/clone_censor_weight.jpg" /></p>
+</section>
+<section id="sequential-trial-design">
+<h2>Sequential trial design<a class="headerlink" href="#sequential-trial-design" title="Link to this heading">#</a></h2>
+<p>Appropriate when one group starts with treatment and other does not <a class="reference external" href="https://doi.org/10.1681/ASN.0000000000000152">[Fu 2023]</a></p>
+<p>This design was first described by Hernan et al. in 2008 and Gran et al. in 2010. It ‘was originally proposed as a simple way of making efficient use of longitudinal observational data, as it enables use of a larger sample size than if an artificial trial were formed from a single time origin’. However, it is also an approach that can be used as an alternative to inverse probability weighted estimation of marginal structural models (MSM-IPTW)</p>
+<p>In this design:</p>
+<ul class="simple">
+<li><p>Artifical “trials” are created from a sequence of new time origins (e.g. ‘study visits at which new information recorded for each individual who remains under observation’).</p></li>
+<li><p>‘At each time origin individuals are divided into those who have just initiated the treatment under investigation and those who have not yet initiated the treatment.’</p></li>
+<li><p>‘Within each trial, individuals are artificially censored at the time at which their treatment status deviates from what it was at the time origin, if such deviation occurs.’</p></li>
+<li><p>‘Inverse probability of censoring weighting is used to account for dependence of this artificial censoring on time-dependent characteristics’</p></li>
+<li><p>‘ The overall effects of sustained treatment versus no treatment, starting from each time origin, can then be estimated using, for example, weighted pooled logistic or Cox regression’ <a class="reference external" href="https://doi.org/10.1002%2Fsim.9718">[Keogh 2023]</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./design_methods"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="design_target_trial.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Target trial emulation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="design_methods_1_intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Methods #1: Introduction to methods to adjust for confounding</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#active-comparator-new-user-acnu-design">Active comparator, new user (ACNU) design</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-censor-weight-design">Clone-censor-weight design</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-trial-design">Sequential trial design</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Amy Heather
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

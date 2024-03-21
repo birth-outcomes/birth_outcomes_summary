@@ -1,0 +1,998 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DAGs #2 (advanced concepts) &#8212; Birth Outcomes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'causal_concepts/design_dag_2';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Structural equation modelling" href="design_sem.html" />
+    <link rel="prev" title="Directed acyclic graphs (DAGs) #1 (basics)" href="design_dag_1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Birth Outcomes</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Birth outcomes summary
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../background/background.html">Background</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../background/stages.html">Stages of pregnancy and birth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/interventions.html">Interventions during labour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/research_groups.html">Research groups</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../outcomes/outcomes.html">Identifying hypoxic ischaemic encephalopathy (HIE)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_background.html">Examples of identifying HIE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_summary.html">Summary of possible indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_cooling.html">Therapeutic hypothermia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_hie_diagnosis.html">Diagnostic codes for HIE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_blood.html">Umbilical cord blood gas analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_sentinel.html">Sentinel events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_resus.html">Resuscitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_meconium.html">Meconium-stained amniotic fluid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_care.html">Transfer to neonatal care services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_cp.html">Cerebral palsy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_mri.html">Neuroimaging evidence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_enceph_symptoms.html">Symptoms of neonatal encephalopathy (NE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_apgar.html">Apgar scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_death.html">Death</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_ctg.html">Abnormal CTG</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Study design - causal concepts</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="design_intro_1_treatment_paradox.html">The treatment paradox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_intro_2_predict_vs_causal.html">Choosing between prediction and causal inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_intro_3_causal.html">Causal inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_counterfactuals.html">Counterfactuals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_dag_1.html">Directed acyclic graphs (DAGs) #1 (basics)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">DAGs #2 (advanced concepts)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_sem.html">Structural equation modelling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../design_methods/intro.html">Study design - causal methods</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_causal_assumptions.html">Causal assumptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_causal_estimands.html">Causal estimands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_target_trial.html">Target trial emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_observational.html">Observational study designs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_methods_1_intro.html">Methods #1: Introduction to methods to adjust for confounding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_methods_2_conventional.html">Methods #2: Conventional approaches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_methods_3_gmethods.html">Methods #3: G-methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_methods_4_unobserved.html">Methods #4: Methods for unobserved confounding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_methods_5_other.html">Methods #5: Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_examples.html">Examples of studies that account for the treatment paradox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_other.html">Other design considerations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../our_study/intro.html">Our study</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/design_plan.html">A rough plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/our_dag.html">HIE DAG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/our_target_trial_protocol.html">HIE target trial protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendices/intro.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/neo_out_enceph_treatment_outcomes.html">Challenge 2: Outcomes for trials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/neo_out_chorio.html">More on chorioamnionitis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/fetal_risk_factors.html">Fetal risk factors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/cardiotocography.html">Cardiotocography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/parental_outcomes.html">Parental outcomes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/routine_data.html">Routinely collected data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/key_papers.html">Key Papers</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcausal_concepts/design_dag_2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/causal_concepts/design_dag_2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>DAGs #2 (advanced concepts)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paths">Paths</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rules">D-seperation rules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rules">Rules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-each-rule">Examples of each rule</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faithfulness">Faithfulness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-varying-treatments-and-confounders">Time-varying treatments and confounders</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-time-varying-treatment">What is a time-varying treatment?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treatment-confounder-feedback">Treatment-confounder feedback</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presenting-results-from-causal-inference-studies">Presenting results from causal inference studies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-set-of-covariates">Minimal set of covariates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-cases">Example cases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-oestrogen-and-endometrial-cancer">Example: Oestrogen and endometrial cancer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-hiv-and-art">Example: HIV and ART</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dags-2-advanced-concepts">
+<h1>DAGs #2 (advanced concepts)<a class="headerlink" href="#dags-2-advanced-concepts" title="Link to this heading">#</a></h1>
+<div class="info admonition">
+<p class="admonition-title">Executive summary</p>
+<p><strong>D-seperation rules</strong> determine whether paths will be open (expect associations) or blocked (independent), which are based on whether condition or not on confounders and colliders.</p>
+<p>If you have <strong>time-varying treatment</strong> (takes different values over time), then you will have other time-varying components (e.g. time-varying confounding). If there is <strong>treatment-confounder feedback</strong> (i.e. earlier treatment impacts value of later confounder), then you will need to use a special type of method to adjust for confounders, referred to as <strong>G-methods</strong>.</p>
+<p>Since you have designed the study to appropriate control for confounding for your relationship of interest - between a given treatment/exposure and outcome - the other variables included may have residual confounding or other biases that affect their associations, and it is important that these effect estimates are not presented (or are explained) - otherwise this is called ‘<strong>Table 2 fallacy</strong>’.</p>
+</div>
+<section id="paths">
+<h2>Paths<a class="headerlink" href="#paths" title="Link to this heading">#</a></h2>
+<p>A <strong>path</strong> is any route through graph - it <strong>doesn’t have to follow</strong> the direction of the arrows. Paths can be either be:</p>
+<ul class="simple">
+<li><p><strong>Open</strong> paths - represent statistical associations between two variables</p>
+<ul>
+<li><p>E.g. If don’t condition on confounder, will be an open path, and see association with confounder</p></li>
+</ul>
+</li>
+<li><p><strong>Blocked</strong> (or “closed” paths) - represent the absence of associations</p>
+<ul>
+<li><p>E.g. An unconditioned collider should have no association <a class="reference external" href="https://doi.org/10.1038/s41390-018-0071-3">[Williams et al. 2018]</a></p></li>
+</ul>
+</li>
+</ul>
+<div class="mermaid">
+              flowchart TD;
+
+    block:::outline;
+    subgraph block[&quot;`**Path blocked at collider**`&quot;]
+      a(&quot;Treatment&quot;):::green;
+      y(&quot;Outcome&quot;):::green;
+      x(&quot;Collider&quot;):::white;
+    end
+
+    a --&gt; y;
+    a --&gt; x;
+    y --&gt; x;
+
+    open:::outline;
+    subgraph open[&quot;`**Path open at confounder**`&quot;]
+      a2(&quot;Treatment&quot;):::green;
+      y2(&quot;Outcome&quot;):::green;
+      x2(&quot;Confounder&quot;):::white;
+    end
+
+    a2 --&gt; y2;
+    x2 --&gt; a2;
+    x2 --&gt; y2;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+    classDef outline fill:#FFFFFF
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><p>The <strong>target (causal) paths</strong> are the directed paths from the exposure to the outcome which transmit the target effect. <strong>Biasing paths</strong> are non-directed open paths between the exposure and the outcome, which transmit bias for estimating the effect of the exposure on the outcome.<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3733703/">[source]</a></p>
+</section>
+<section id="d-seperation-rules">
+<h2>D-seperation rules<a class="headerlink" href="#d-seperation-rules" title="Link to this heading">#</a></h2>
+<section id="rules">
+<h3>Rules<a class="headerlink" href="#rules" title="Link to this heading">#</a></h3>
+<p><strong>D-seperation</strong> rules are used to determine whether paths are <strong>open or blocked</strong> - i.e. whether variables will be <strong>associated or independent</strong>.</p>
+<p>If <strong>all paths are blocked</strong> between two variables on the DAG, then they are <strong>d-seperated</strong> (i.e. not associated / statistical independence).<a class="reference external" href="https://sgfin.github.io/2019/06/19/Causal-Inference-Book-All-DAGs/">[source]</a> Otherwise, they are <strong>d-connected</strong>.<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3733703/">[source]</a></p>
+<p>When identified here, these are structural sources of association. Another cause of association - beyond it being a causal relationship - is by chance. However, increasing our sample size, chance associations should disappear (whilst structural remain and become sharper). <a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+<p>Rules:</p>
+<ol class="arabic simple">
+<li><p>If there are <strong>no</strong> variables being conditioned on</p>
+<ul class="simple">
+<li><p>A path is only <strong>blocked</strong> if it contains a <strong>collider</strong></p></li>
+<li><p>A path is <strong>open</strong> if it does not contain a collider</p></li>
+</ul>
+</li>
+<li><p>Path is <strong>blocked</strong> if it contains a <strong>non-collider</strong> that <strong>is</strong> conditioned on</p></li>
+<li><p>Path is <strong>open</strong> if <strong>collider is</strong> conditioned on</p></li>
+<li><p>Path is <strong>open</strong> if <strong>descendent</strong> of collider <strong>is</strong> conditioned on.<a class="reference external" href="https://sgfin.github.io/2019/06/19/Causal-Inference-Book-All-DAGs/">[source]</a></p></li>
+</ol>
+</section>
+<section id="examples-of-each-rule">
+<h3>Examples of each rule<a class="headerlink" href="#examples-of-each-rule" title="Link to this heading">#</a></h3>
+<p>Rule 1: L to Y open</p>
+<div class="mermaid">
+              flowchart LR;
+
+    l(&quot;L&quot;):::white;
+    a(&quot;A&quot;):::white;
+    y(&quot;Y&quot;):::white;
+
+    l --&gt; a;
+    a --&gt; y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+    classDef outline fill:#FFFFFF
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><p>Rule 1: L to A blocked</p>
+<div class="mermaid">
+              flowchart LR;
+
+    l(&quot;L&quot;):::white;
+    a(&quot;A&quot;):::white;
+    y(&quot;Y&quot;):::white;
+
+    l --&gt; y;
+    a --&gt; y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+    classDef outline fill:#FFFFFF
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><p>Rule 2: A to Y blocked.</p>
+<div class="mermaid">
+              flowchart LR;
+
+    a(&quot;A&quot;):::white;
+    b(&quot;B&quot;):::black;
+    y(&quot;Y&quot;):::white;
+    
+    a --&gt; b; b--&gt; y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div><p>Rule 3: A to Y open.</p>
+<div class="mermaid">
+              flowchart LR;
+
+    a(&quot;A&quot;):::white;
+    y(&quot;Y&quot;):::white;
+    l(&quot;L&quot;):::black;
+    
+    a --&gt; l; y--&gt; l;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div><p>Rule 4: A to Y open.</p>
+<div class="mermaid">
+              flowchart LR;
+
+    a(&quot;A&quot;):::white;
+    y(&quot;Y&quot;):::white;
+    l(&quot;L&quot;):::white
+    d(&quot;D&quot;):::black;
+    
+    a --&gt; l; y--&gt; l; l --&gt; d;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div></section>
+</section>
+<section id="faithfulness">
+<h2>Faithfulness<a class="headerlink" href="#faithfulness" title="Link to this heading">#</a></h2>
+<p>Faithfulness is the result of <strong>opposite effects of exactly equal magnitude</strong> - e.g. if aspirin caused stroke for half of poppulation and prevented it in the other half, then causal dag is correct (as aspirin affects stroke) but <strong>no association is observed (as they cancel each other out</strong>). In that case, we say the joint distribution of the data is not faithful to the causal DAG. These perfect cancellations are <strong>rare</strong> and we don’t expect them to happen in practice. <a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+</section>
+<section id="time-varying-treatments-and-confounders">
+<h2>Time-varying treatments and confounders<a class="headerlink" href="#time-varying-treatments-and-confounders" title="Link to this heading">#</a></h2>
+<section id="what-is-a-time-varying-treatment">
+<h3>What is a time-varying treatment?<a class="headerlink" href="#what-is-a-time-varying-treatment" title="Link to this heading">#</a></h3>
+<p>A <strong>time-varying treatment</strong> is treatment that can take different values over time - such as:</p>
+<ul class="simple">
+<li><p>Whether or not receive medicine at each timepoint</p></li>
+<li><p>Dose of medicine at each time point</p></li>
+</ul>
+<p>This is as opposed to <strong>fixed treatments</strong> that do not vary over time (e.g. whether took vitamin D at time of conception).</p>
+<p>We can represent this using two arbritary time points, K and K+1. Actual study includes many more weeks but for most purposes, two time points are enough to represent the main features of the causal structure when there is time varying treatment.</p>
+<p>You’ll notice that a consequence of the time-varying treatment is <strong>time-varying confounder and outcome</strong>. A confounder is time-varying when it can take different values at different timepoint, and confound at different timepoints.</p>
+<p>Example: EPO used to treat anemia, dose is based on haemoglobin level at time of appointment (which itself depends on disease severity, but we’ve just represented that as a single timepoint). To show that we have <strong>time-varying</strong> components, we refer to:</p>
+<ul class="simple">
+<li><p>L and A at timepoint K (e.g. week 0)</p></li>
+<li><p>Y, L and A at timepoint K+1 (e.g. week 1)</p></li>
+<li><p>Y at timepoint K+2 (e.g. week 2)</p></li>
+</ul>
+<div class="mermaid">
+              flowchart LR;
+
+    ak(&quot;A&lt;sub&gt;K&lt;/sub&gt;: EPO dose&quot;):::white;
+    ak1(&quot;A&lt;sub&gt;K+1&lt;/sub&gt;: EPO dose&quot;):::white;
+    yk1(&quot;Y&lt;sub&gt;K+1&lt;/sub&gt;: Death&quot;):::white;
+    yk2(&quot;Y&lt;sub&gt;K+2&lt;/sub&gt;: Death&quot;):::white;
+    lk(&quot;L&lt;sub&gt;K&lt;/sub&gt;: Haemoglobin&quot;):::white;
+    lk1(&quot;L&lt;sub&gt;K+1&lt;/sub&gt;: Haemoglobin&quot;):::white;
+    u(&quot;U: Disease severity&quot;):::white;
+
+    ak --&gt; yk1;
+    u --&gt; yk1;
+    u --&gt; lk;
+    lk --&gt; ak;
+    lk --&gt; ak1;
+    ak --&gt; ak1;
+    u --&gt; lk1;
+    lk1 --&gt; ak1;
+    ak1 --&gt; yk2;
+    u --&gt; yk2;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div></section>
+<section id="treatment-confounder-feedback">
+<h3>Treatment-confounder feedback<a class="headerlink" href="#treatment-confounder-feedback" title="Link to this heading">#</a></h3>
+<p>Our DAG above was incomplete - in this scenario, treatment at timepoint K will impact the confounder (levels of haemoglobin) at timepoint K+1. This is referred to as <strong>treatment-confounder feedback</strong> - when the later confounder is impacted by prior treatment.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a> This is also referred to as <strong>intermediate confounding</strong> - when a confoudner is affected by prior exposure/treatment status.<a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
+<p>When there is <strong>treatment-confounder feedback</strong>, then conventional adjustment methods, since:
+In other words:</p>
+<ol class="arabic simple">
+<li><p>Confounding on an intermediate confounder blocks part of the effect of prior exposure/treatment.</p></li>
+<li><p>Conditioning on an intermediate confounder can introduce collider bias, opening additional back-door paths between exposure/treatment and outcome.<a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p></li>
+</ol>
+<ul class="simple">
+<li><p>e.g. We’ll get a biased estimate if we condition on the Ls, as conditioning on L<sub>K+1</sub> will open a path that was previously blocked: A<sub>K</sub> to L<sub>K+1</sub> to U to Y<sub>K</sub>. Hence, we have introduced selection bias.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p></li>
+</ul>
+<p>This means we will be unable to yield an unbiased estimate and, if the time-varying confounder also affects the outcome (e.g. L<sub>K+1</sub> –&gt; Y<sub>K+2</sub>), it will be impossible to estimate the total effect of the treatment.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+<p>We need other methods to handle these settings: <strong>G-methods</strong>. <a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+<div class="mermaid">
+              flowchart LR;
+
+    ak(&quot;A&lt;sub&gt;K&lt;/sub&gt;: EPO dose&quot;):::white;
+    ak1(&quot;A&lt;sub&gt;K+1&lt;/sub&gt;: EPO dose&quot;):::white;
+    yk1(&quot;Y&lt;sub&gt;K+1&lt;/sub&gt;: Death&quot;):::white;
+    yk2(&quot;Y&lt;sub&gt;K+2&lt;/sub&gt;: Death&quot;):::white;
+    lk(&quot;L&lt;sub&gt;K&lt;/sub&gt;: Haemoglobin&quot;):::black;
+    lk1(&quot;L&lt;sub&gt;K+1&lt;/sub&gt;: Haemoglobin&quot;):::black;
+    u(&quot;U: Disease severity&quot;):::white;
+
+    ak --&gt; yk1;
+    u --&gt; yk1;
+    u --&gt; lk;
+    lk --&gt; ak;
+    lk --&gt; ak1;
+    ak --&gt; ak1;
+    ak --&gt; lk1;
+    u --&gt; lk1;
+    lk1 --&gt; ak1;
+    ak1 --&gt; yk2;
+    u --&gt; yk2;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div></section>
+</section>
+<section id="presenting-results-from-causal-inference-studies">
+<h2>Presenting results from causal inference studies<a class="headerlink" href="#presenting-results-from-causal-inference-studies" title="Link to this heading">#</a></h2>
+<p>‘Causal models are typically designed to test an association between a <strong>single exposure and an outcome</strong>. The additional independent variables in a model (often called “covariates”) <strong>serve to control for confounding</strong>. The observed associations between these covariates and the outcome have not been subject to the same approach to control of confounding as the exposure’ (i.e. they themselves have not been corrected for confounding - <em>and they shouldn’t and didn’t have to be</em>). ‘Therefore, <strong>residual confounding and other biases often heavily influence these associations</strong>.’</p>
+<p>‘This situation is known as “<strong>Table 2 fallacy</strong>,” a term arising from the practice of presenting effect estimates for all independent variables in “Table 2”.’ It is strongly recommended that these effect estimates are <strong>not presented</strong>.<a class="reference external" href="https://doi.org/10.1513/AnnalsATS.201808-564PS">[Lederer et al. 2018]</a></p>
+<p>Hartig 2019 discusses how this may not be practical in some fields (they give example of ecology) where you rarely have a clear target variable/hypothesis, but suggest instead that’s important to explicitly state/seperate reasonablly controlled varaibles from possibly confounded variables.<a class="reference external" href="https://theoreticalecology.wordpress.com/2019/04/14/mediators-confounders-colliders-a-crash-course-in-causal-inference/">[source]</a></p>
+</section>
+<section id="minimal-set-of-covariates">
+<h2>Minimal set of covariates<a class="headerlink" href="#minimal-set-of-covariates" title="Link to this heading">#</a></h2>
+<p>We want to identify a <strong>minimal set of covariates</strong> that:</p>
+<ol class="arabic simple">
+<li><p>Blocks all backdoor paths.</p></li>
+<li><p>Doesn’t inadvertenly open closed pathways by conditioning on colliders or descendents. <a class="reference external" href="https://med.stanford.edu/content/dam/sm/s-spire/documents/WIP-DAGs_ATrickey_Final-2019-01-28.pdf">[source]</a></p></li>
+</ol>
+<p>With the example below, the minimal set of variables you’d need to condition for would be <strong>L0 and L1 - wouldn’t need to for U</strong> as doing for L0 and L1 blocks the backdoor paths.<a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+<div class="mermaid">
+              flowchart LR;
+
+    ak(&quot;A&lt;sub&gt;K&lt;/sub&gt;: EPO dose&quot;):::white;
+    ak1(&quot;A&lt;sub&gt;K+1&lt;/sub&gt;: EPO dose&quot;):::white;
+    yk1(&quot;Y&lt;sub&gt;K+1&lt;/sub&gt;: Death&quot;):::white;
+    yk2(&quot;Y&lt;sub&gt;K+2&lt;/sub&gt;: Death&quot;):::white;
+    lk(&quot;L&lt;sub&gt;K&lt;/sub&gt;: Haemoglobin&quot;):::white;
+    lk1(&quot;L&lt;sub&gt;K+1&lt;/sub&gt;: Haemoglobin&quot;):::white;
+    u(&quot;U: Disease severity&quot;):::white;
+
+    ak --&gt; yk1;
+    u --&gt; yk1;
+    u --&gt; lk;
+    lk --&gt; ak;
+    lk --&gt; ak1;
+    ak --&gt; ak1;
+    u --&gt; lk1;
+    lk1 --&gt; ak1;
+    ak1 --&gt; yk2;
+    u --&gt; yk2;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div></section>
+<section id="example-cases">
+<h2>Example cases<a class="headerlink" href="#example-cases" title="Link to this heading">#</a></h2>
+<p>These examples help demonstrate the utility of causal diagrams.</p>
+<section id="example-oestrogen-and-endometrial-cancer">
+<h3>Example: Oestrogen and endometrial cancer<a class="headerlink" href="#example-oestrogen-and-endometrial-cancer" title="Link to this heading">#</a></h3>
+<p>In 1970s, women began to receive oestrogren after menopause. Some studies in 1975/6 found that women receiving oestrogen had higher risk of diagnosis with endometrical cancer than women not receiving them. Why? Possibilities include…</p>
+<ol class="arabic simple">
+<li><p>Oestrogens cause cancer</p></li>
+<li><p>Oestrogens can cause uterine bleeding, so women receive a uterine exam, during which the cancer (which is often silent, asymptomatic, and otherwise not diagnosed) is noticed and diagnosed - this phenomenon is called <strong>ascertainment bias</strong></p></li>
+</ol>
+<p>How do we decide which explanation is right?</p>
+<ul class="simple">
+<li><p>Yale researchers restricted the data analysis to women with uterine bleeding (regardless of whether they were on oestrogens), since they should all have the same likelihood of uterine exams and existing cancer being diagnosed. If there still an association, oestrogen causative.</p></li>
+<li><p>Boston researchers argued we would find association even in women who bleed and even if they don’t cause cancer, and so that this approach would still have ascertainment bias.</p></li>
+</ul>
+<p>Explanation one.</p>
+<div class="mermaid">
+              flowchart LR;
+
+    a(&quot;A: Oestrogens&quot;):::white;
+    u(&quot;U: Cancer (unmeasured)&quot;):::white;
+    y(&quot;Y: Cancer (diagnosed)&quot;):::white;
+
+    a --&gt; u;
+    u --&gt; y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div><p>Explanation two.</p>
+<div class="mermaid">
+              flowchart LR;
+
+    a(&quot;A: Oestrogens&quot;):::white;
+    u(&quot;U: Cancer (unmeasured)&quot;):::white;
+    y(&quot;Y: Cancer (diagnosed)&quot;):::white;
+    c(&quot;C: Uterine bleeding&quot;):::white;
+
+    a --&gt; c;
+    u --&gt; c;
+    c --&gt; y;
+    u --&gt; y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div><p>Restrict analysis to women who bleed. If association still found, must be path of A –&gt; U –&gt; Y. Boston argued could still exist.</p>
+<ul class="simple">
+<li><p>Conditioning on C blocks path A-C-Y</p></li>
+<li><p>However, we still have path of A-C-U-Y, and C is collider on that path, so when condition on C, it becomes open (and conditioning on C is what we do when we restrict analysis to bleeders)</p></li>
+</ul>
+<p>So Boston were right.</p>
+<div class="mermaid">
+              flowchart LR;
+
+    a(&quot;A: Oestrogens&quot;):::white;
+    u(&quot;U: Cancer (unmeasured)&quot;):::white;
+    y(&quot;Y: Cancer (diagnosed)&quot;):::white;
+    c(&quot;C: Uterine bleeding&quot;):::black;
+
+    a --&gt; c;
+    u --&gt; c;
+    c --&gt; y;
+    u --&gt; y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div><p>What can you do then? You can design study where C-Y doesn’t exist as you require all women to be screened for cancer frequently regardless of whether they bleed. If no association between A and Y, then we know there is no causal effect of A on U. If you still found association, then A must cause U.</p>
+<div class="mermaid">
+              flowchart LR;
+
+    a(&quot;A: Oestrogens&quot;):::white;
+    u(&quot;U: Cancer (unmeasured)&quot;):::white;
+    y(&quot;Y: Cancer (diagnosed)&quot;):::white;
+    c(&quot;C: Uterine bleeding&quot;):::white;
+
+    a --&gt; c;
+    u --&gt; c;
+    u --&gt; y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div><p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+</section>
+<section id="example-hiv-and-art">
+<h3>Example: HIV and ART<a class="headerlink" href="#example-hiv-and-art" title="Link to this heading">#</a></h3>
+<p>Randomised controlled trials of new antiretroviral therapy (ART) for HIV found it was effective and reduced morality by more than half.</p>
+<p>Observational of clinical data to look at real world effect of ART did not detect much benefit for new combination therapies - no increased survival among those taking ART. What was wrong with the studies?</p>
+<p>They were adjusting for lots of confounders - e.g. CD4 count - and yet could not eliminate the bias. Some people say there must be lots of unmeasured confounding. However, the more time-varying confounders were adjusted for, the more biased the effect estimate seemed to be. The problem was treatment-confounder feedback - the value of CD4 count was impacted by earlier treatment - in this case, the bias was in the opposite direction.</p>
+<p>There is a way to identify whether the bias is due to incomplete adjustment for confounding or for incorrect adjustment for time-varying confounders - and that is to use G-methods to adjust for the time-varying confounders. When they used G-methods, the effect estimates were much closer to the ARTs.</p>
+<div class="mermaid">
+              flowchart LR;
+
+    ak(&quot;A&lt;sub&gt;K&lt;/sub&gt;&lt;br&gt;ART&quot;):::white;
+    
+    lk(&quot;L&lt;sub&gt;K&lt;/sub&gt;&lt;br&gt;CD4 count&quot;):::black;
+    u(&quot;U&lt;br&gt;Immuno-suppression status&quot;):::white;
+    yk1(&quot;Y&lt;sub&gt;K+1&lt;/sub&gt;&lt;br&gt;Mortality&quot;):::white;
+    lk1(&quot;L&lt;sub&gt;K+1&lt;/sub&gt;&lt;br&gt;CD4 count&quot;):::black;
+    ak1(&quot;A&lt;sub&gt;K+1&lt;/sub&gt;&lt;br&gt;ART&quot;):::white;
+    yk2(&quot;Y&lt;sub&gt;K+2&lt;/sub&gt;&lt;br&gt;Mortality&quot;):::white;
+    
+    lk --&gt; ak;
+    u --&gt; lk; 
+    u --&gt; yk1;
+    u --&gt; lk1;
+    lk1 --&gt; ak1;
+    u --&gt; yk2;
+    ak --&gt; lk1;
+    
+    classDef white fill:#FFFFFF, stroke:#FFFFFF
+    classDef black fill:#FFFFFF, stroke:#000000
+        </div><p><a class="reference external" href="https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home">[HarvardX PH559x]</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./causal_concepts"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="design_dag_1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Directed acyclic graphs (DAGs) #1 (basics)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="design_sem.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Structural equation modelling</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paths">Paths</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-seperation-rules">D-seperation rules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rules">Rules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-each-rule">Examples of each rule</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faithfulness">Faithfulness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-varying-treatments-and-confounders">Time-varying treatments and confounders</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-time-varying-treatment">What is a time-varying treatment?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treatment-confounder-feedback">Treatment-confounder feedback</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presenting-results-from-causal-inference-studies">Presenting results from causal inference studies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-set-of-covariates">Minimal set of covariates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-cases">Example cases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-oestrogen-and-endometrial-cancer">Example: Oestrogen and endometrial cancer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-hiv-and-art">Example: HIV and ART</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Amy Heather
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
