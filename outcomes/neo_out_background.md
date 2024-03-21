@@ -1,4 +1,4 @@
-# Examples of identifying hypoxic ischaemic encephalopathy (HIE)
+# Examples of identifying HIE
 
 `````{admonition} Executive summary
 :class: info

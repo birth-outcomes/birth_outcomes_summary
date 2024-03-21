@@ -29,25 +29,9 @@ Methods for causal effect estimation.
 * Causal discover
 * Double machine learning
 * Causal forests
-* Strucrtural estimation
+* Structural estimation
 
 `````
-
-<mark> where does difference in differences fit in? </mark> https://dimewiki.worldbank.org/Difference-in-Difference
-
-<mark>continue to use this textbook throughout</mark> https://www.hsph.harvard.edu/miguel-hernan/wp-content/uploads/sites/1268/2024/01/hernanrobins_WhatIf_2jan24.pdf
-
-<mark>read this - may help with where difference in differences fits in - andjust generally looks good</mark> https://www2.stat.duke.edu/~fl35/CausalInferenceClass.html
-
-<mark>Will need to integrate with the page on methods to account for treatment paradox</mark>
-
-<mark>haven't covered bayesian causal inference</mark>... https://royalsocietypublishing.org/doi/10.1098/rsta.2022.0153 and http://www2.stat.duke.edu/~fl35/BayesianCausalInference.html
-
-erik shared these to have a look at:
-* I would also very much recommend [The Effect: An Introduction to Research Design and Causality by Nick Huntington-Klein](https://theeffectbook.net/)
-* I’ve heard good things about [Causal Inference: The Mixtape by Scott Cunningham](https://mixtape.scunning.com/)
-
-<mark>this is all about how you deal with confounders - but what about what to do with moderators and mediators?</mark>
 
 ## Designing a study to estimate a causal effect from observational data
 
@@ -85,10 +69,9 @@ Different methods will produce effect measures that are **conditional** (specifi
 
 Wijn et al. 2022 conducted a mapping literature review to determine which confounding adjustment methods were used in longitudinal observational data to estimate a treatment effect. They identified the following studies:
 
-<p align='center'>
-    <img src='images/wijn_2022_methods.png'>
-     <i>Abbreviations: CA, covariate adjustment; IPW, inverse probability weighting; PS, propensity score; PSM, propensity score matching; TdPSM, time-dependent propensity score matching.</i>
-</p>
+![Wijn et al 2022 studies](../images/wijn_2022_methods.png)
+
+*Abbreviations: CA, covariate adjustment; IPW, inverse probability weighting; PS, propensity score; PSM, propensity score matching; TdPSM, time-dependent propensity score matching.*
 
 You can see that in the context of **longitudinal observational** data
 * 66% time-varying treatment, 26% treatment at baseline, 8% time of treatment not clearly defined
@@ -159,3 +142,11 @@ Adjusting for these varaibles should not impact the total causal effect on the o
 'Observational studies are increasingly used to inform health decision-making when randomised trials are not feasible, ethical or timely. The target trial approach provides a framework to help minimise common biases in observational studies that aim to estimate the causal effect of interventions. Incomplete reporting of studies using the target trial framework limits the ability for clinicians, researchers, patients and other decision-makers to appraise, synthesise and interpret findings to inform clinical and public health practice and policy. This paper describes the methods that we will use to develop the TrAnsparent ReportinG of observational studies Emulating a Target trial (TARGET) reporting guideline.' [[Hansford et al. 2023]](https://doi.org/10.1136/bmjopen-2023-074626)
 
 Systematic review demonstrating inconsistencies in reporting of target trials - [[Hansford et al. 2023]](https://doi.org/10.1001/jamanetworkopen.2023.36023)
+
+## Resources
+
+Lots of different resources were used in this section, but I wanted to highlight a few of the key online textbooks/websites that were great:
+* [Causal Inference: What If - By Miguell A. Hernan and James M. Robins](https://www.hsph.harvard.edu/miguel-hernan/wp-content/uploads/sites/1268/2024/01/hernanrobins_WhatIf_2jan24.pdf)
+* [The Effect: An Introduction to Research Design and Causality by Nick Huntington-Klein](https://theeffectbook.net/)
+* [Causal Inference: The Mixtape by Scott Cunningham](https://mixtape.scunning.com/)
+* [STA 640: Causal Inference - Fan Li - Department of Statistical Science, Duke University](https://www2.stat.duke.edu/~fl35/CausalInferenceClass.html)
