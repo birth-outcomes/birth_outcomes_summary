@@ -15,6 +15,7 @@ These methods attempt to address unmeasured confounding.
 * Therefore, any discontinuity/jump in that relationship indicates a causal relationship with the exposure. *"If you see a turtle on a fencepost, you know he didn’t get there by himself".*
 
 **Interrupted time series (ITS)**
+* Compare change over time in a continuous population-level outcome before and after an exposure is introduced. Assuming the trend would have been unchanged without the exposure, a change in trend at point of introduction can be attributed to the exposure
 
 **Difference in differences (DiD)**
 * Compare change over time in a continuous population-level outcome between a group that becomes exposed/treated, and a group that does not
