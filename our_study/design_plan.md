@@ -1,4 +1,46 @@
-# A rough plan
+# Research proposal
+
+## Research problem
+
+Preventative adverse neontal outcomes (in particular, HIE).
+
+Intervention: caesarean.
+
+Want more evidence to support decisions on who to intervene with. Worry of people not intervening and leading to poor outcomes (HIE).
+
+Problem: treatment paradox. Prognostic --> caesarean. Alters relationship. Hence, just predicting who gets HIE will be unreliable. You can make a good prediction model, but would need to have no interest in how that prediction was made. If you're interested in true relationships, and what actually determines outcome, then treatment paradox is a problem. Hence, causal inference.
+
+Caesarean --> HIE
+
+Measured confounders
+
+Unmeasured confounders
+
+## Step 1
+
+SAMueL-1: Identify variation in propensity to thrombolyse between hospitals, and demonstrate which patients were treated differently by which hospitals.
+
+Similar approach here - identify variation in propensity to do caesarean between hospitals, and demonstrate who it varies for.
+* Doesn't just have to be between hospitals - can do for other variables like time of day
+* You could describ this as us "identifying an instrumental variable" - something that impacts decision to treat but not outcomes - and this is because it enables us to escape the treatment paradox
+
+## Step 2
+
+SAMueL-2: Look at association with outcomes
+
+Here, likewise would look at outcomes. A few options of how do this.
+
+Instruemntal variable added to DAG. Explain why that works.
+
+<mark>if you're not doing 2sls, is it still instrumental variable methodology?</mark>
+
+<mark>first, just start with trying to give a clear explanation of how you would do it with instrumental variable methods</mark>
+
+## Things to explore
+
+* Other causal methodologies could use
+* Designs of target trial
+* Building up a full DAG
 
 ## Overall aim
 
