@@ -1,4 +1,6 @@
-jupyter-book
-matplotlib
-numpy
-sphinxcontrib-mermaid
+jupyter-book==1.0.0
+matplotlib==3.8.2
+numpy==1.26.3
+pandas==2.2.1
+sphinxcontrib-mermaid==0.9.2
+statsmodels==0.14.1

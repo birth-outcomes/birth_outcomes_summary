@@ -46,14 +46,17 @@ chapters:
   - file: design_methods/design_methods_4_unobserved
   - file: design_methods/design_methods_5_other
   - file: design_methods/design_other
+- file: worked_examples/intro
+  sections:
+  - file: worked_examples/instrumental_variables
 - file: our_study/intro
   sections:
   - file: design_methods/design_examples
   - file: our_study/design_plan
-  - file: our_study/our_dag
-  - file: our_study/our_target_trial_protocol
 - file: appendices/intro
   sections:
+  - file: our_study/our_dag
+  - file: our_study/our_target_trial_protocol
   - file: appendices/neo_out_enceph_treatment_outcomes
   - file: appendices/neo_out_chorio
   - file: appendices/fetal_risk_factors
