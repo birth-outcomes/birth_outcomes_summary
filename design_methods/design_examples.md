@@ -3,10 +3,16 @@
 `````{admonition} Executive summary
 :class: info
 
-This page summaries examples of studies in obstetrics that have attempted to account for the treatment paradox
+This page summaries examples of studies in obstetrics that have attempted to account for the treatment paradox.
+
+Instrumental variable - Costa-Ramón et al. 2018; Costa-Ramón et al. 2022; Halla et al. 2016; Jachetta 2015
+
+Difference-in-differences - Costa-Ramón et al. 2022;
+
+Treatment as predictor - Thangaratinam et al. 2017;
 `````
 
-### Costa-Ramón et al. 2018
+## Costa-Ramón et al. 2018
 
 Study: It's about time: Cesarean sections and neonatal health. [[Costa-Ramón et al. 2018]](https://doi.org/10.1016/j.jhealeco.2018.03.004)
 
@@ -18,7 +24,7 @@ Aim: Estimate causal relationship between caesarean section and newborn health:
 * Umbilical cord pH
 
 Reason for causal inference: Comparing women who had C-section to those who had vaginal birth...
-* Suffers from omitted variable bias - they differe in characteristics that influence outcome - and analysis found observable characteristics that can relate to newborn health differed significantly (age, gestational length, obstetric risk, education achievement)
+* Suffers from omitted variable bias - they differ in characteristics that influence outcome - and analysis found observable characteristics that can relate to newborn health differed significantly (age, gestational length, obstetric risk, education achievement)
 * 'Does not allow to identify which kind of c-section is causing whatever health effects are found, since we observe the outcomes of both medically and non-medically indicated interventions'
 
 Method:
@@ -27,8 +33,7 @@ Method:
     * Time of day unrelated to outcome and to other confounders - mothers giving birth at different times of day are observationally similar - suggesting excess number of C-sections observed are due to non-medical reasons
 * OLS regression with outcome of neonatal health, and predictors of:
     * Mother's personal and pregnancy characteristics
-    * Estimate from a regression with outcome of whether delivery was unplanned C-section or vaginal delivery and predictors of:
-        * Whether woman gave before from 11pm-4am or not (which is when obstetricians are more likely to, to get time for rest or leisure)
+    * Estimate from a regression with outcome of whether delivery was unplanned C-section or vaginal delivery and predictor is whether woman gave before from 11pm-4am or not (which is when obstetricians are more likely to, to get time for rest or leisure)
 
 ![Unplanned C-sections by time of day](../images/costa_ramon_2018.jpg)
 
@@ -53,9 +58,7 @@ My DAG:
     classDef green fill:#DDF2D1, stroke: #FFFFFF;
 ````
 
-### Costa-Ramón et al. 2022
-
-<mark>finish notes on this study</mark>
+## Costa-Ramón et al. 2022
 
 Study: The Long-Run Effects of Cesarean Sections. [[Costa-Ramón et al. 2022]](https://doi.org/10.3368/jhr.58.2.0719-10334R1)
 
@@ -70,10 +73,40 @@ Methods:
 * **(2) Difference-in-differences**
     * For sample of sibling pairs, where older sibling was born by vaginal delivery, then 'compare the health gap between siblings in families where the second child was born by an unplanned C-section with families where the second child was born by vaginal delivery'
     * This controls for 'time-invariant unobserved heterogeneity at the family level and the effect of birth order'
+    * My explanation: Difference in differences compares change in continuous population-level outcome (neonatal health) between exposed (caesarean) and unexposed group (vaginal)
 
-<mark>'Our empirical strategy builds on numerous studies that have used siblings fixed effects to estimate the impact of health shocks while in utero or after birth (for example, Oreopoulos et al. 2008; Almond, Edlund, and Palme 2009; Almqvist et al. 2012; Aizer, Stroud, and Buka 2016) '</mark>
+Extracts from results:
+* 'We find that the OLS results replicate existing findings. Cesarean sections are associated with adverse outcomes at birth and higher neonatal mortality. Our 2SLS estimates are not significant for any of the outcomes. However, the magnitude of coefficients and large standard errors suggest that we cannot reject that there is a (potentially large) effect on neonatal outcomes... 2SLS estimates are expected to be particularly uninformative with low treatment and outcome probabilities.'
+* 'Bivariate probit marginal effects are substantially more precisely estimated than the 2SLS coefficients, yet all point estimates from the bivariate probit models are within the confidence intervals of the 2SLS estimates. The bivariate probit results suggest that unplanned C-sections increase the probability of having a low Apgar score (Apgar lower than seven), being admitted to the intensive care unit, and receiving assisted ventilation. The magnitudes of the bivariate probit marginal effect estimates are similar to OLS estimates. However, we do not find significantly increased mortality risk within seven days after birth. The results from the differences-in-differences models give support to these findings with similarly sized and more precise coefficients. Overall, our results suggest that unplanned C-sections have a negative impact on neonatal health. However, these adverse effects do not translate into a higher probability of early neonatal mortality.'
 
-### Halla et al. 2016
+'Our empirical strategy builds on numerous studies that have used siblings fixed effects to estimate the impact of health shocks while in utero or after birth' - for example:
+* [[Oreopoulos et al. 2008]](https://doi.org/10.3368/jhr.43.1.88) - Short-, Medium-, and Long-Term Consequences of Poor Infant Health: An Analysis Using Siblings and Twins
+* [[Almond, Edlund, and Palme 2009]](https://doi.org/10.1162/qjec.2009.124.4.1729) - Chernobyl’s Subclinical Legacy: Prenatal Exposure to Radioactive Fallout and School Outcomes in Sweden
+* [[Almqvist et al. 2012]](https://doi.org/10.1111/j.1365-2222.2012.04021.x) - The impact of birth mode of delivery on childhood asthma and allergic diseases–a sibling study
+* [[Aizer, Stroud, and Buka 2016]](https://doi.org/10.3368/jhr.51.3.0914-6664R) - Maternal Stress and Child Outcomes: Evidence from Siblings
+
+My DAG for the instrumental variable part:
+
+````{mermaid}
+  flowchart LR;
+
+    iv("<b>Type of day + work shift</b><br>Instrumental variable"):::white;
+    e("<b>Caesarean section</b><br>Exposure/treatment"):::white;
+    o("<b>Neonatal health</b><br>(Apgar-1, assisted ventilation,<br>ICU admission, neonatal death)<br><i>Also long-term (asthma, diabetes, etc)</i><br>Outcome"):::white;
+    u("Unmeasured confounders"):::white;
+
+    iv --> e;
+    e --> o;
+    u -.-> e;
+    u -.-> o;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+````
+
+## Halla et al. 2016
 
 Study: Cutting fertility? The effect of cesarean deliveries on subsequent fertility and maternal labor supply. [[Halla et al. 2016]](https://doi.org/10.1016/j.jhealeco.2020.102325)
 
@@ -105,7 +138,7 @@ My DAG:
     classDef green fill:#DDF2D1, stroke: #FFFFFF;
 ````
 
-### Jachetta 2015
+## Jachetta 2015
 
 *Cannot find paper, so notes are from Costa-Ramón et al. 2018's description of the study*
 
@@ -135,7 +168,7 @@ Method:
     classDef green fill:#DDF2D1, stroke: #FFFFFF;
 ````
 
-### Thangaratinam et al. 2017
+## Thangaratinam et al. 2017
 
 Study: Development and validation of Prediction models for Risks of complications in Early-onset Pre-eclampsia.[[Thangaratinam et al. 2017]](https://doi.org/10.1186/s12916-017-0827-3)
 
@@ -151,45 +184,136 @@ In a 2016 commentary in the British Journal of Obstetrics and Gynaecology (BJOG)
 * Standardisation of treatment or intervention
 * Consideration of the initiation of treatment being an outcome itself - i.e. "when starting a treatment is likely to prevent an adverse outcome, those who received the treatment could also be considered to have experienced the outcome"[[Murphy et al. 2019]](https://doi.org/10.5772/intechopen.87311)
 
-### Helenius et al. 2019
+## Helenius et al. 2019
 
-<mark> don't quite understand </mark>
+Study: Association of early postnatal transfer and birth outside a tertiary hospital with mortality and severe brain injury in extremely preterm infants: observational cohort study with propensity score matching. [[Helenius et al. 2019]](https://doi.org/10.1136/bmj.l5678)
 
-Study using data from the National Neonatal Research Database (NRRD) investigating whether birth in a non-tertiary hospital or transfer within 48 hours are associated with poor outcomes when compared with birth in a tertiary setting. A "tertiary" setting is one that provides specialist care. Their hypothesis was that mortality and severe brain injury would be higher in transferred infants compared with non-transferred infants born in tertiary hospitals.
+Aim: Relationship between birth in non-tertiary hospital, or birth then transfer to tertiary, and adverse outcomes.
+* Studies have found care extremely pre-term infants in tertiary hospitals (provide specialist care) gives optimal outcomes
+* It is unclear whether the association between postnatal transfer and adverse outcomes persists in the context of modern neonatal care and dedicated neonatal transfer services. Harms associated with postnatal transfer might relate to suboptimal stabilisation at a non-tertiary hospital, the transfer of sicker infants, or the transfer itself. - *this is the causality issue*
 
-They use propensity score matching to create matched groups for comparison with near identical distributions of background and potential confounder variables. 
+Methods:
+* UK National Neonatal Research Database (NRRD)
+* Groups of infants:
+    * Non-tertiary care (non-tertiary, no transfer)
+    * Upward transfer (non-tertiary --> tertiary within 48h)
+    * Horizontal transfer (tertiary --> tertiary within 48h)
+    * Control (tertiary, no transfer)
+* Primary analysis: matched groups of infnats from non-tertiary, upward and control (**propensity score matching** to create matched groups for comparison with near identical distributions of background and potential confounder variables).
+    * Matching 'entailed fitting a logistic regression of the treatment assignment (a variable that indicates upward transfer, non-tertiary care, or control) as the outcome and all the available background variables as the covariates'
+    * Then trimmed to exclude extreme propensities
+    * Then matched 1:1:1, Caliper matching
+* Outcomes: 'death before discharge from neonatal care, severe brain injury, and their combination: survival without severe brain injury'
 
-Paper: https://doi.org/10.1136/bmj.l5678
+Results example:
+* 'Compared with controls, infants in the upward transfer group had no significant difference in the odds of death before discharge (1.22, 95% confidence interval 0.92 to 1.61) but significantly higher odds of severe brain injury (2.32, 1.78 to 3.06) and significantly lower odds of survival without severe brain injury (0.60, 0.47 to 0.76). The NNT to prevent one case of severe brain injury was 8 (95% confidence interval 6 to 11) and to prevent one case of death or severe brain injury was 9 (6 to 17). Compared with controls, infants in the non-tertiary care group had significantly higher odds of death before discharge (1.34, 95% confidence interval 1.02 to 1.77) but no significant difference in the odds of severe brain injury (0.95, 0.70 to 1.30) or survival without severe brain injury (0.82, 0.64 to 1.05). The NNT to prevent one case of death was 20 (95% confidence interval 10 to 435). Compared with infants in the upward transfer group, infants in the non-tertiary care group had no significant difference in the odds of death before discharge (95% confidence interval 1.10, 0.84 to 1.44) but significantly lower odds of severe brain injury (0.41, 0.31 to 0.53) and significantly higher odds of survival without severe brain injury (1.37, 1.09 to 1.73). The NNT to prevent one case of severe brain injury was 8 (95% confidence interval 6 to 11) and to prevent one case of death or severe brain injury was 14 (8 to 58).'
 
-Supplementary: https://www.bmj.com/content/bmj/suppl/2019/10/16/bmj.l5678.DC1/helk050424.ww1.pdf
+[[Responses to the article here]](https://doi.org/10.1136/bmj.l5678).
 
-Responses: https://www.bmj.com/content/367/bmj.l5678/rapid-responses
+## Ladeira et al. 2021
 
-### Examples to look at
+Study: Caesarean delivery and early childhood caries: Estimation with marginal structural models in Brazilian pre-schoolers [[Ladeira et al. 2021]](https://doi.org/10.1111/cdoe.12634)
 
-* https://doi.org/10.1111/cdoe.12634 - Caesarean delivery and early childhood caries: Estimation with marginal structural models in Brazilian pre-schoolers - Ladeira et al. 2021
-* https://bmjopen.bmj.com/content/bmjopen/10/11/e038845.full.pdf - Protocol for development and validation of a clinical prediction model for adverse pregnancy outcomes in women with gestational diabetes - Cooray et al. 2020
-    * Addressing the treatment paradox (in this case with insulin) is a challenge in prediction modelling studies. The traditional approach has been to accept predictions in the context of current care. However, this does not remove the possibility that a potentially useful model may appear to perform poorly due to the confounding effect of the judicious application of effective interventions to individual’s whom clinicians subjectively assess to be at high risk of the outcome of interest.
-    * Two solutions to address the problem of treatment paradox in prediction modelling studies have been advocated.50
-        * First, the use of treatments suspected to confound the predictor-outcome relationship can be set as a **predictor** in the final model.
-        * Second, the use of such effective treatments can be included within a composite **outcome** to be predicted.
-    * For this study, both approaches were considered but deemed **inappropriate**. For the former, the inclusion of the requirement for insulin therapy as a predictor is not possible as this information is not available at the intended moment of prediction—the time of GDM diagnosis, usually around 24 to 28 weeks gestation. For the later, inclusion of the requirement for insulin therapy within the composite outcome would impair its interpretability as this outcome occurs at a significantly higher frequency than the other component outcomes (31% vs approximately 10% based on our prior work).44 This is likely to lead to a less meaningful composite that is primarily driven by the need for insulin therapy and no longer predicts what we want (adverse pregnancy outcomes). While many promising novel approaches have been proposed in the statistical literature, such as multistate modelling or marginal structural models for ‘treatment drop-ins’,51 52 at time of writing all are primarily based on empirical data and are yet to be applied to clinical prediction problems.
-    * The three possible results from the **sensitivity analysis** to evaluate the effect of including the decision to treat with insulin will be informative and may be interpreted as follows. If the sensitivity analyses find that the inclusion of the decision to treat with insulin within the outcome:
-        1. Positively affects model performance, then this suggests the presence of treatment paradox, that is, pregnancy complications are more likely to occur in the absence of insulin therapy;
-        2. Has no significant effect on model performance then this suggests that the model is robust with predictive performance not affected by the decision to treat, that is, the absolute risk of adverse pregnancy outcomes for an individual woman with GDM is not affected by insulin therapy;
-        3. Negatively affects model performance, then this would suggest that adverse pregnancy outcomes are more likely to occur in women treated with insulin, and thus imply more ‘severe’ GDM or a harmful effect for this treatment. (unlikely)
-    * The effect of treatment with insulin will be further evaluated using an IPTW algorithm to weight women according to their propensity of having been treated and transformation of the logistic model into a multinomial model. This multinomial model will have four categories depending on the occurrence of the composite pregnancy outcome and whether the women have received treatment with insulin or not.
+Aim: Association between caesarean section and early childhood caries (ECC) (study hypothesized that caesarean-born children would be at a higher risk of ECC). ECC is tooth decay in children under 6.
+
+Methods:
+* Bivariate Poisson regresison model
+* Multivariate analysis adjusted for minimal set of variables according to DAG rules
+* **Marginal structural model** - estimate weights using IPTW, then Poisson regressions weighted by the inverse probability of caesrean
+
+Theoretical model:
+
+![DAG](../images/ladeira_2021_dag.jpg)
+
+Results:
+* Caesarean protective in bivariate and multivariate models, but not in MSM
+* 'socioeconomic factors may underlie the spurious association between caesarean section protective for ECC, as observed in bivariate regression models.'
+
+## Cooray et al. 2020
+
+Study: Protocol for development and validation of a clinical prediction model for adverse pregnancy outcomes in women with gestational diabetes [[Cooray et al. 2020]](http://dx.doi.org/10.1136/bmjopen-2020-038845)
+
+Aim: Predicting adverse outcomes (neonatal and maternal) in women with gestational diabetes (in presence of treatment paradox from insulin)
+
+Method:
+* 'Sensitivity analyses to address the confounding effect of insulin treatment on predictor-outcome associations and hence the performance of the prediction model. These are:
+    * **IPTW** - propensity of being treated with insulin based on pre-treatment characteristics
+    * **Insulin as component of outcome**
+    * **Exclude insulin treatment** cases
+    * Multinomial regression for combinations of composite outcome of adverse pregnancy outcome and insulin treatment
+* The three possible results from the **sensitivity analysis** to evaluate the effect of including the decision to treat with insulin will be informative and may be interpreted as follows. If the sensitivity analyses find that the inclusion of the decision to treat with insulin within the outcome:
+    1. Positively affects model performance, then this suggests the presence of treatment paradox, that is, pregnancy complications are more likely to occur in the absence of insulin therapy;
+    2. Has no significant effect on model performance then this suggests that the model is robust with predictive performance not affected by the decision to treat, that is, the absolute risk of adverse pregnancy outcomes for an individual woman with GDM is not affected by insulin therapy;
+    3. Negatively affects model performance, then this would suggest that adverse pregnancy outcomes are more likely to occur in women treated with insulin, and thus imply more ‘severe’ GDM or a harmful effect for this treatment. (unlikely)
+
+Other notes:
+* Addressing the treatment paradox (in this case with insulin) is a challenge in prediction modelling studies. The traditional approach has been to accept predictions in the context of current care. However, this does not remove the possibility that a potentially useful model may appear to perform poorly due to the confounding effect of the judicious application of effective interventions to individual’s whom clinicians subjectively assess to be at high risk of the outcome of interest.
+* Two solutions to address the problem of treatment paradox in prediction modelling studies have been advocated.50
+    * First, the use of treatments suspected to confound the predictor-outcome relationship can be set as a **predictor** in the final model.
+    * Second, the use of such effective treatments can be included within a composite **outcome** to be predicted.
+* For this study, both approaches were considered but deemed **inappropriate**. For the former, the inclusion of the requirement for insulin therapy as a predictor is not possible as this information is not available at the intended moment of prediction—the time of GDM diagnosis, usually around 24 to 28 weeks gestation. For the later, inclusion of the requirement for insulin therapy within the composite outcome would impair its interpretability as this outcome occurs at a significantly higher frequency than the other component outcomes (31% vs approximately 10% based on our prior work).44 This is likely to lead to a less meaningful composite that is primarily driven by the need for insulin therapy and no longer predicts what we want (adverse pregnancy outcomes). While many promising novel approaches have been proposed in the statistical literature, such as multistate modelling or marginal structural models for ‘treatment drop-ins’,51 52 at time of writing all are primarily based on empirical data and are yet to be applied to clinical prediction problems.
+
+## Pyykönen et al. 2017
+
+Study: Propensity score method for analyzing the effect of labor induction in prolonged pregnancy [[Pyykönen et al. 2017]](https://doi.org/10.1111/aogs.13214)
+
+Aim: Relationship between timing of labour induction and adverse outcomes
+
+Methods:
+* **Propensity score matching** - covariated balanced PS using parity; maternal age; body mass index; smoking; previous section; infertility treatment; labor unit, year, month and weekday of birth along with 450 most typical diagnostic codes for pregnant women (according to ICD-10) grouped into 12 categories
+* PS-matched Poisson and logistic regression
+    * Timing of labour induction
+    * Outcome: 'emergency CS (vs. all vaginal deliveries), operative delivery (both emergency CS and instrumental vaginal delivery vs. spontaneous vaginal delivery), obstetric trauma (3rd or 4th degree perineal lacerations), five-minute Apgar <7, the use of a respirator on neonate, meconium aspiration syndrome, prolonged hospitalization of a neonate (more than seven days), intrapartum death, and perinatal mortality.'
+
+Other notes:
+* 'Induction seems to improve neonatal outcomes but the impact on the risk for emergency cesarean section (CS) is not clearly established. Observational setups are justifiably criticized for their methodological issues; unrecognized or uncontrollable confounders, and even wrong control groups (comparing labor induction with spontaneous labor instead of ongoing pregnancies), resulting in false causal inferences.'
+
+## Card et al. 2018
+
+Study: The Health Effects of Caesarean Delivery for Low-Risk First Biths [[Card et al. 2018]](http://www.nber.org/papers/w24493)
+
+Aim: Relationship between caesarean delivery and various outcomes
+
+Methods:
+* **Instrumental variable approach** - use relative distance from hospitals with high and low C-section rates as instrument for C-section
+* Outcomes at birth (eg. labour, birth-related injuries, apgar, ventilation), in year after brith (eg. ED visits, in-patient visits), longer-term (eg. fertility, later births), and infant death
+
+## Tonei 2018
+
+Study: Mother's mental health after childbirth: Does the delivery method matter? [[Tonei 2019]](https://doi.org/10.1016/j.jhealeco.2018.11.006)
+
+Aim: Effect of unplanned caesarean on mother's mental health
+
+Method:
+* **Instrumental variable approach**, combined with **hospital fixed effects** (the latter to control for time-invariant characteristics at hospital level)
+* The instrument is **position of baby in womb** at time of delivery - conditional on mother's observable characteristics, probability of having babies in abnormal position (i.e. with shoulders or feet first) is random and mothers cannot affect it with their behaviour
+
+Other notes:
+* Two main sources of endogeneity:
+    1. Unobserved hospital characteristics that affect both delivery method and risk of postnatal depression
+    2. Mothers who have unplanned caesarean might be systematically different from mothers who give birth naturally, in terms of own health and health of baby - can control for some characteristics, but will be many that can't due to data limitations
+* Most studies assume 'that the treatment (i.e. giving birth through an unplanned caesarean delivery) is randomly assigned. In other words, they implicitly assume that women who have an unplanned caesarean do not differ from those who give birth naturally except through observable characteristics for which we can control. However, because of data limitations and the multiplicity of factors that can have an impact on both the delivery method and the mothers’ mental health, it is very unlikely to be the case. As a result, the estimates reported in these studies may be (downward) biased.'
+
+## Jensen and Wüst 2015
+
+Study: Can Caesarean section improve child and maternal health? The case of breech babies [[Jensen and Wüst 2015]](https://doi.org/10.1016/j.jhealeco.2014.07.004)
+
+Aim: Caesarean and outcomes (e.g. APGAR, number of doctor visits, severe morbidity, hospitalisations, post-birth complications or infections) and costs
+
+Method:
+* 'Use exogenous variation in the probability of CS in a fuzzy **regression discontinuity** design' - CS rates smoothly increased for singleton pregnancies but sharply increased for breech pregnancies - and this was due to dissemintation of trial results changing best practice for breech births very rapidly
+* Thus, can 'use this exogenous variation in the CS rate for breech babies to evaluate the health effects for the marginal child. Our strategy entails the condition that OBs’ change of behavior, rather than maternal self-selection (potentially based on unobservables correlated with outcomes), drive the increase of CS' - which argue to be case as (1) was little media coverage of trial results so expect driven by obstetric behaviour rather than maternal request, and (2) even if mothers did have info from the trial, difficult for them to select into hospitals according to their knowledge on the hospitals’ propensity to perform a CS for breech babies
+
+![CS rate in non-breech and breech pregnancies](../images/jensen_wust_2015_rdd.jpg)
+
+## Examples to look at
+
 * https://doi.org/10.1093%2Finthealth%2Fihz111 - Adverse infant outcomes associated with caesarean section delivery in India - Gondwe et al. 2020
 * https://doi.org/10.1093%2Fpch%2Fpxz051 - Caesarean section and neonatal survival and neurodevelopmental impairments in preterm singleton neonates - Lodha et al. 2020
-* https://doi.org/10.1111/aogs.13214 - Propensity score method for analyzing the effect of labor induction in prolonged pregnancy - Pyykönen et al. 2017
 * https://doi.org/10.1016/j.ejogrb.2015.09.011 - Elective repeat cesarean delivery compared with trial of labor after a prior cesarean delivery: a propensity score analysis - Kok et al. 2015
 * https://jamanetwork.com/journals/jamapediatrics/fullarticle/2792041 - Developmental Outcomes for Children After Elective Birth at 39 Weeks’ Gestation - Lindquist et al. 2022
 * https://doi.org/10.1186%2Fs12887-018-1324-3 - Mode of delivery and short-term infant health outcomes: a prospective cohort study in a peri-urban Indian population - Gondwe et al. 2018
 * https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7755743/ - Mode of delivery, type of labor, and measures of adiposity from childhood to teenage: Project Viva - Mueller et al. 2021
-* https://doi.org/10.1111/cdoe.12634 - Caesarean delivery and early childhood caries: Estimation with marginal structural models in Brazilian pre-schoolers
-
-### Other
-
-**Incorporation of treatment in the model:** 'In the prediction of metabolic acidosis in neonates (example 1) there could be an intervention effect present owing to cesarean delivery. An unexpected finding was observed for the relation between intrapartum fever and metabolic acidosis (OR 0.86 [95% CI 0.68–1.08]). Upon inclusion of cesarean delivery in the model, intrapartum fever was positively related to metabolic acidosis (OR 1.08 [95% CI 0.86–1.34]), which was in line with expectations.'[[Schuit et al. 2013]](https://doi.org/10.1503/cmaj.120812)
-
-**Including an alternative outcome not impacted by treatment paradox:** By including abnormal CTG as a neonatal outcome (alongside stillbirth, early neonatal death, mean birthweight, incidence of small-for-gestational age, neonatal unit admission, and composite of Apgar5<7, pH<7 or neonatal encephalopathy).[[Bhatia et al. 2019]](https://doi.org/10.1111/aogs.13671)
+* Unexpected predictor–outcome associations in clinical prediction research: causes and solutions [[Schuit et al. 2013]](https://doi.org/10.1503/cmaj.120812) and The outcomes of pregnancies with reduced fetal movements: A retrospective cohort study [[Bhatia et al. 2019]](https://doi.org/10.1111/aogs.13671)
+    * Incorporation of treatment in the model: 'In the prediction of metabolic acidosis in neonates (example 1) there could be an intervention effect present owing to cesarean delivery. An unexpected finding was observed for the relation between intrapartum fever and metabolic acidosis (OR 0.86 [95% CI 0.68–1.08]). Upon inclusion of cesarean delivery in the model, intrapartum fever was positively related to metabolic acidosis (OR 1.08 [95% CI 0.86–1.34]), which was in line with expectations.'[[Schuit et al. 2013]](https://doi.org/10.1503/cmaj.120812)
+    * Including an alternative outcome not impacted by treatment paradox: By including abnormal CTG as a neonatal outcome (alongside stillbirth, early neonatal death, mean birthweight, incidence of small-for-gestational age, neonatal unit admission, and composite of Apgar5<7, pH<7 or neonatal encephalopathy).[[Bhatia et al. 2019]](https://doi.org/10.1111/aogs.13671)
