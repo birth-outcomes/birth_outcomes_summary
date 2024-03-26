@@ -5,11 +5,20 @@
 
 This page summaries examples of studies in obstetrics that have attempted to account for the treatment paradox.
 
-Instrumental variable - Costa-Ramón et al. 2018; Costa-Ramón et al. 2022; Halla et al. 2016; Jachetta 2015
+**Instrumental variable** - Costa-Ramón et al. 2018; Costa-Ramón et al. 2022; Halla et al. 2016; Jachetta 2015; Card et al. 2018; Tonei 2018; Chen and Pan 2022; Dawe et al. 2017;
 
-Difference-in-differences - Costa-Ramón et al. 2022;
+**Difference-in-differences** - Costa-Ramón et al. 2022;
 
-Treatment as predictor - Thangaratinam et al. 2017;
+**Treatment as predictor** - Thangaratinam et al. 2017;
+
+**Propensity score matching** - Helenius et al. 2019; Pyykönen et al. 2017;
+
+**Marginal structural model** - Ladeira et al. 2021;
+
+**Inverse probability of treatment weighting** - Cooray et al. 2020;
+
+**Regression discontinuity design** - Jensen and Wüst 2015;
+
 `````
 
 ## Costa-Ramón et al. 2018
@@ -306,9 +315,37 @@ Method:
 
 ![CS rate in non-breech and breech pregnancies](../images/jensen_wust_2015_rdd.jpg)
 
+## Chen and Pan 2022
+
+Study: The causal effect of delivery volume on severe maternal morbidity: an instrumental variable analysis in Sichuan, China [[Chen and Pan 2022]](https://doi.org/10.1136/bmjgh-2022-008428)
+
+Aim: Demonstrate causal effect of delivery volume on severe maternal morbidity
+
+Method:
+* **Instrumental variable** method - using the surrounding average number of delivery cases per institution as IV
+    * 'Based on the assumption that the number of delivery cases in the surrounding area of a specific hospital is positively related to its actual delivery volume without directly affecting the maternal health outcomes produced by that specific hospital'
+
+Other notes:
+* 'In the obstetric field, scholars have conducted several studies to investigate the relationship between delivery volume and maternal health outcomes, which, however, provided mixed findings. While some studies indicated that delivery volume is positively correlated with maternal health outcomes, other studies reported the absence of a statistically significant correlation between them'
+* 'Existing studies had to merely rely on observational data for analysis. It should be noticed that these studies generally adopted empirical analytical strategies to investigate such association. Due to the presence of confounding factors, such association identified might be a biased estimate. In other words, confounding factors or endogenous problems come from two aspects. First, the two study objects are in a simultaneous relationship where delivery volume and obstetric health outcomes affect each other. Specifically, while the delivery volume would affect maternal health outcomes, such outcomes would also affect the choice of mothers in seeking hospital services, thus further affecting the delivery volume. Second, unobservable heterogeneous confounding factors might be induced by patients in the association analyses. For instance, high-risk women might prefer to seek hospital services from healthcare institutions with better health outcomes, while they are more likely to have adverse outcomes.'
+
+## Dawe et al. 2017
+
+Study: Cesarean delivery rates among family physicians versus obstetricians: a population-based cohort study using instrumental variable methods [[Dawe et al. 2017]](https://doi.org/10.9778/cmajo.20170081)
+
+Aim: Risk of caesarean delivery in women attended by family physician v.s. obstetrician
+
+Method:
+* **Instrumental variable** adjusted regression. The IV was the proportion of women in the catchment area of each local hospital whose baby was being delivered by a familiy physician
+    * This assumes that living in an area with a relatively high frequency of delivery by family physician increases the likelihood of delivery by a family physician (treatment) without directly acting as a risk factor for cesarean delivery (outcome) itself
+    * Institutional culture may influence cesarean delivery rates and may itself be influenced by the proportion of delivery providers who are family physicians; however, this association is not clear. If this association between family physicians, institutional culture and cesarean rates is real, this would violate the assumptions necessary for instrumental variable analyses. However, because the association is small, if any, we feel that it is unlikely to explain the large difference between the results from conventional and instrumental variable analyses outlined below.
+
 ## Examples to look at
 
-* https://doi.org/10.1093%2Finthealth%2Fihz111 - Adverse infant outcomes associated with caesarean section delivery in India - Gondwe et al. 2020
+* **Paired availability and principal stratification** - Clarifying the Role of Principal Stratification in the Paired Availability Design [[Baker et al. 2011]](https://doi.org/10.2202%2F1557-4679.1338)
+* **G-computation** - Perfluoroalkyl Mixture Exposure in Relation to Fetal Growth: Potential Roles of Maternal Characteristics and Associations with Birth Outcomes [[Shen et al. 2022]](https://doi.org/10.3390/toxics10110650)
+* Adjustment for compliance behavior in trials of epidural analgesia in labor using instrumental variable meta-analysis [[Bannister-Tyrrell et al. 2015]](https://doi.org/10.1016/j.jclinepi.2014.11.005)
+* Adverse infant outcomes associated with caesarean section delivery in India [[Gondwe et al. 2020]](https://doi.org/10.1093%2Finthealth%2Fihz111)
 * https://doi.org/10.1093%2Fpch%2Fpxz051 - Caesarean section and neonatal survival and neurodevelopmental impairments in preterm singleton neonates - Lodha et al. 2020
 * https://doi.org/10.1016/j.ejogrb.2015.09.011 - Elective repeat cesarean delivery compared with trial of labor after a prior cesarean delivery: a propensity score analysis - Kok et al. 2015
 * https://jamanetwork.com/journals/jamapediatrics/fullarticle/2792041 - Developmental Outcomes for Children After Elective Birth at 39 Weeks’ Gestation - Lindquist et al. 2022
