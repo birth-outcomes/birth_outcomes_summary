@@ -98,6 +98,10 @@ The 'groups being compared differ only in likelihoods of treatment, as opposed t
 
 (2) **Homogeneity assumption** - the association between the instrumental variable and the exposure is homogenous (same for everyone in the population), or the effect of the exposure on the outcome is homogenous [BSc Medical Sciences]
 
+### Limitations
+
+'A concern with any IV strategy is that the instrumental variable is correlated with unobserved determinants of the outcome of interest.' Can address by estimating models for held=back risk factors pre-determined at delivery date, looking for correlation with the IV. [[Card et al. 2018]](http://www.nber.org/papers/w24493)
+
 ### Example: Mendelian randomisation
 
 Disease association with non-genetic risk factors are often confounded - for example:
