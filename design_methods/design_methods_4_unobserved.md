@@ -88,6 +88,10 @@ You can use the two-stage least squares (2SLS) method to estimate the causal eff
 1. **Regress exposure (${x}$) on instrumental variable (G) to produce $\hat{x}$ (estimate of exposure independent of confounders)**
 2. **Regress outcome (Y) on $\hat{x}$**. Here, $\hat{x}$ is replacing the actual value of the problematic predictor, ${x}$. [BSc Medical Sciences]
 
+We include the measured confounders in both stages.
+* Included in first stage to reflect exogenous movement in treatment
+* Included in second stage to avoid omitted variable bias
+
 The 'groups being compared differ only in likelihoods of treatment, as opposed to a division into pure treatment and control groups'. Hence, this 'method estimates an incremental or "marginal" effect of treatment only over the range of variation in treatment across the IV groups'. [[McClellan et al. 1994]](https://doi.org/10.1001/jama.1994.03520110039026)
 
 'IV analysis estimates a local average treatment effect (LATE) among 'compliers' - individudals whose exposure status is affected by the instrument. This group cannot be precisely identified, and the LATE may therefore sometimes be of limited practical or policy relevance'. [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
