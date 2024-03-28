@@ -1,6 +1,96 @@
-# Research proposal
+# Research proposal: Machine learning to avoid adverse neonatal outcomes
 
-## Research problem
+## Finding a focus
+
+In it's broadest sense, the end-goal of this project is to lead us towards producing a tool to provide live, real-time, data-driven risk assessment during labour. This could support decision making by the care providers and mother during labour, to help identify when and which interventions and delivery methods would most reduce risk of poor maternal or neonatal outcomes.
+
+However, this is a complex problem with lots of moving parts, and requires that we identify a clearer research focus. Some things to consider...
+
+### Outcome
+
+> Whether you focus on **neonatal and/or maternal** outcomes
+> 
+> **Which outcomes** you choose to focus on. Neonatal examples include:
+> * Neonatal encephalopathy (NE)
+> * Hypoxic ischaemic encephalopathy (HIE)
+> * Choroioamnionitis
+> * Mortality<mark>finish</mark>
+> 
+> Maternal outcomes include:
+> * Vaginal tearing or episiotomy
+> * Blood clots
+> * Urinary or anal incontinence
+> 
+> **Outcome measurement** - some outcomes are quite clear cut, but others are harder to define. For example, HIE might be defined based on:
+> * Diagnostic code for HIE
+> * Receiving treatment for cooling
+> 
+> But those decisions will then be based on a number of factors (which many studies specifically focus on) like:
+> * pH
+> * <mark>finish</mark>
+
+### Treatment/Intervention
+
+> Whether you focus on comparing **two or multiple** treatment/delivery pathways
+> 
+> Whether you focus on **type of delivery and/or other treatments that can be given during delivery**
+> 
+> **Which outcomes** you then choose to focus on. Examples of type of delivery include:
+> * Unassisted vaginal delivery
+> * Assisted vaginal delivery - ventouse (vacuum cup) or forceps
+> * C-section - elective or emergency
+> * Vaginal birth after C-section
+> 
+> Examples of treatments or other interventions during labour include:
+> * Gas and air (Enotox)
+> * Pethidine injections
+> * Epidural
+> * Remifentanil
+> * Water birth
+> * TENS machine
+> * Artifical rupture of the membranes
+> * Oxytocin drip/syntocinon
+> * Episiotomy
+> 
+> If the outcome is not immediately after birth, whether you focus on **subsquent treatments** with examples like:
+> * Magnesium sulfate and cooling for infants with HIE
+
+### Focus
+
+Choice of **treatment** and **outcome** are ultimately both about defining the focus of the project. Examples:
+> * Identifying infants who **did not receive caesareans** but who would have benefited
+> * Reducing risk of **unecessary caesarean** sections - with inherent maternal complications like infection, bleeding and bladder damage.
+> * Identifying women in whom **forceps or ventouse deliveries would be unsuccessful** and reduce the risk of traumatic assisted vaginal deliveries which lead to adverse neonatal outcomes
+
+This can be related not just to treatment and outcome, but also to the other characteristics included in the analysis, and how they are dealt with. Examples:
+
+> * Focus on **inequalities** in a particular treatment/outcome. Death and disability in pregnancy are much higher in disadvantaged groups. For example, stillbirth is up to four times higher in black than white women in the UK.
+
+### Methodological considerations
+
+Timing
+* Cross-sectional v.s. more live
+* Rapdily changing
+* 'The risk-benefit ratio is dynamic and changes during labour depending on how the labour progresses and how events unfold.' (the research bid)
+* Timing is important... e.g. caesarean safer earlier in labour than later<mark>finish</mark>
+
+FHR
+* How process, complexities<mark>finish</mark>
+* link to our repository
+
+Treatment paradox, causal inference
+* prediction v.s. causation and why this is a concern of ours
+* Using information from FHR and complexities in that...
+* Bias in predictions...<mark>finish</mark>
+* Produce DAGs 
+* Target trial emulation
+* methods
+
+## Example: Caesarean section and hypoxic ischaemic encephalopathy
+
+Here, I have focussed on one example (simply as it was the most discussed at our meeting earlier in the year). This is the problem of infants who would have benefitted from having a caesarean, and who go on to have hypoxic ischaemic encephalopathy, and then potentially further complications (for example, cerebral palsy).
+
+### Introduction
 
 Preventative adverse neontal outcomes (in particular, HIE).
 
@@ -36,28 +126,7 @@ Instruemntal variable added to DAG. Explain why that works.
 
 <mark>first, just start with trying to give a clear explanation of how you would do it with instrumental variable methods</mark>
 
-## Things to explore
-
-* Other causal methodologies could use
-* Designs of target trial
-* Building up a full DAG
-
-## Overall aim
-
-Using live labour data to predict who is likely to require caessarean, and reduce adverse effects for mother and baby. Combining data from fetus, parent, and CTG. Involves combining (a) risk factors during pregnancy, with (b) live risk factors during labour. Outcome of "X chance" of adverse outcome if don't go for caessarean or assisted delivery. Decision currently based on experience. Want some more objective evidence that can given women to help them understand and base risks on.
-
-## Target trial
-
-This can help guide study design (in general, and also specifically, like the appropriate causal estimand).
-
-Target trial idea...
-* Mother has particular combination of risk factors (e.g. gestational age, FHR concerns)
-* Within those groups, randomise to receive caesarean or not?
-* Or randomise to receive earlier or later?
-
 ## Rough ideas
-
-On the surface, you may assume we just want to predict outcomes, but (a) we're interested in causal relationships - hence why we're so concerned by the treatment paradox, and (b) the application of making treatment decisions requires understanding of counterfactuals.
 
 To **demonstrate existence of the treatment paradox** (by comparison to models that are causal), and to allow comparability to other studies:
 * **Prediction model (association)** - can we predict HIE
