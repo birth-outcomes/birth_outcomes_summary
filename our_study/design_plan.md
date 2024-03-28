@@ -1,5 +1,7 @@
 # Research proposal: Machine learning to avoid adverse neonatal outcomes
 
+<mark>add links throughout to relevant pages in the notebook</mark>
+
 ## Finding a focus
 
 In it's broadest sense, the end-goal of this project is to lead us towards producing a tool to provide live, real-time, data-driven risk assessment during labour. This is a tool for which the effectiveness could be evaluated, to ascertain whether it helps support decision making by the care providers and mother during labour, to help identify when and which interventions and delivery methods would most reduce risk of poor maternal or neonatal outcomes.
@@ -11,19 +13,17 @@ However, this is a complex problem with lots of moving parts, and requires that 
 > Whether you focus on **neonatal and/or maternal** outcomes
 > 
 > **Which outcomes** you choose to focus on. Neonatal examples include:
-> * Neonatal encephalopathy (NE)
-> * Hypoxic ischaemic encephalopathy (HIE)
-> * Choroioamnionitis
-> * Mortality<mark>finish</mark>
+> * Neonatal encephalopathy (NE), and specific types, like hypoxic ischaemic encephalopathy (HIE)
+> * Choroioamnionitis (intra-aminotic infection)
+> * Death
+> * Proxy measures/indicators of poor health - umbilical cord pH, Apgar, resuscitation, meconium-stained amniotic fluid, transfer to neonatal care services
 > 
 > Maternal outcomes include:
 > * Vaginal tearing or episiotomy
 > * Blood clots
 > * Urinary or anal incontinence
 > 
-> **Outcome measurement** - some outcomes are quite clear cut, but others are harder to define. For example, HIE might be defined based on:
-> * Diagnostic code for HIE
-> * Receiving treatment for cooling
+> **Outcome measurement** - some outcomes are quite clear cut, but others are harder to define, and may use proxy measures or combinations of measures
 > 
 > But those decisions will then be based on a number of factors (which many studies specifically focus on) like:
 > * pH
@@ -90,6 +90,8 @@ Treatment paradox, causal inference
 
 Here, I have focussed on one example (simply as it was the most discussed at our meeting earlier in the year). This is the problem of infants who would have benefitted from having a caesarean, and who go on to have hypoxic ischaemic encephalopathy, and then potentially further complications (for example, cerebral palsy).
 
+---
+
 ### Introduction
 
 <mark>set scene, provide context, what is of interest, what do we already know, what has not adequately been answered</mark>
@@ -98,7 +100,19 @@ Here, I have focussed on one example (simply as it was the most discussed at our
 
 Identifying when emergency caesareans helped prevent severe hypoxic ischaemic encephalopathy, compared with vaginal delivery.
 
-<mark>add dag</mark>
+````{mermaid}
+  flowchart LR;
+
+    t("Non-elective<br>caesarean section"):::white;
+    o("Hypoxic ischaemic<br>encephalopathy"):::white;
+
+    t --> o;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+````
 
 ### Research type (predictive or etiological (causal))
 
@@ -106,17 +120,28 @@ Our aim is uncover true relationships between variables. It is not just to predi
 
 One reason for this is the **treatment paradox**.<mark>finish</mark>
 
+file:///home/amy/Documents/birth_outcomes_summary/_build/html/causal_concepts/design_intro_1_treatment_paradox.html
+
 Another is **omitted variable bias**.<mark>finish... we'll measure many but that's also lots that we know we won't</mark>
 
 All ML models will also employ an explainability model such as SHAP (SHaply Additive exPlanations). When heightened risk is predicted, this will show clinicians what is making the ML model predict high risk. However, explainability is not the same as causation.<mark>finish</mark>
 
 ### Treatment
 
-Emergency caesarean section (v.s. vaginal birth).
+Emergency caesarean section, as opposed to vaginal birth.
+
+Exclusion: Elective caesarean (as interested in patients who begin with vaginal labour then transition to caesarean)
 
 ### Outcome
 
-Hypoxic ischaemic encephalopathy <mark>add how would measure</mark>
+Hypoxic ischaemic encephalopathy - defined as by [Neonatal Data Analysis Unit and the Department of Health](file:///home/amy/Documents/birth_outcomes_summary/_build/html/outcomes/neo_out_background.html#neonatal-data-analysis-unit-and-the-department-of-health) as:
+* Diagnosis of NE or HIE (severe, moderate, grade 2 or grade 3)
+* Therapeutic hypothermia for 2 or more consecutive days
+
+It's worth being aware that these diagnosis or treatment decisions will have been based on data - e.g. cooling guidelines:
+* Apgar, need for resuscitation, low pH, high base deficit
+* Altered state of consciousness (lethargy, stupor or coma, and one of: clinical seizures, abnormal reflexes, hypotonia, weak/absent suck)
+* 30 minute aEEG with one of: normal background with some seizure activity, moderately abnormal activity, suppressed activity, or continuous seizure activity
 
 ### Research design
 
@@ -161,3 +186,6 @@ Clinicians -
 
 Parents -
 * public and patient involvement
+
+---
+ 
