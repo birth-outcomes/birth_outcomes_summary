@@ -489,3 +489,13 @@ Their DAG: Due to the large number of factors in the final model, to make the gr
 * Emergency: sentinel event, fetal heart rate abnormalities.
 
 ![DAG from Leith et al. 2023](../images/leith_2023_dag.jpg)
+
+### Syngelaki et al. 2022
+
+Study: Competing-risks model for pre-eclampsia and adverse pregnancy outcomes. [[Syngelaki et al. 2022]](https://doi.org/10.1002/uog.26036)
+
+There is another paper that is quite relevant to this - [[Wright et al. 2020]](https://doi.org/10.1016/j.ajog.2019.11.1247) - The competing risk approach for prediction of preeclampsia
+
+Aim: Estimate risk of delivery with pre-eclampsia
+
+Methods: Competing-risks model
