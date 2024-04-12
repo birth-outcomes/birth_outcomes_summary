@@ -1,6 +1,6 @@
-# Research proposal: Machine learning to avoid adverse neonatal outcomes
+# Our study
 
-<mark>add links throughout to relevant pages in the notebook</mark>
+> Research proposal: Machine learning to avoid adverse neonatal outcomes
 
 ## Finding a focus
 
@@ -16,18 +16,11 @@ However, this is a complex problem with lots of moving parts, and requires that 
 > * Neonatal encephalopathy (NE), and specific types, like hypoxic ischaemic encephalopathy (HIE)
 > * Choroioamnionitis (intra-aminotic infection)
 > * Death
-> * Proxy measures/indicators of poor health - umbilical cord pH, Apgar, resuscitation, meconium-stained amniotic fluid, transfer to neonatal care services
+> * Indicators of poor health - umbilical cord pH, Apgar, resuscitation, meconium-stained amniotic fluid, transfer to neonatal care services
 > 
-> Maternal outcomes include:
-> * Vaginal tearing or episiotomy
-> * Blood clots
-> * Urinary or anal incontinence
+> Maternal outcomes include vaginal tearing or episiotomy, blood clots, and urinary or anal incontinence
 > 
 > **Outcome measurement** - some outcomes are quite clear cut, but others are harder to define, and may use proxy measures or combinations of measures
-> 
-> But those decisions will then be based on a number of factors (which many studies specifically focus on) like:
-> * pH
-> * <mark>finish</mark>
 
 ### Treatment/Intervention
 
@@ -52,12 +45,12 @@ However, this is a complex problem with lots of moving parts, and requires that 
 > * Oxytocin drip/syntocinon
 > * Episiotomy
 > 
-> If the outcome is not immediately after birth, whether you focus on **subsquent treatments** with examples like:
-> * Magnesium sulfate and cooling for infants with HIE
+> If the outcome is not immediately after birth, whether you focus on **subsequent treatments** - for example, magnesium sulfate and cooling for infants with HIE.
 
 ### Focus
 
 Choice of **treatment** and **outcome** are ultimately both about defining the focus of the project. Examples:
+> * Comparing outcomes from labours with similar characteristics except that there was an **earlier or later** decision to do a caesarean
 > * Identifying infants who **did not receive caesareans** but who would have benefited
 > * Reducing risk of **unecessary caesarean** sections - with inherent maternal complications like infection, bleeding and bladder damage.
 > * Identifying women in whom **forceps or ventouse deliveries would be unsuccessful** and reduce the risk of traumatic assisted vaginal deliveries which lead to adverse neonatal outcomes
@@ -68,23 +61,79 @@ This can be related not just to treatment and outcome, but also to the other cha
 
 ### Methodological considerations
 
-Timing
-* Cross-sectional v.s. more live
-* Rapdily changing
-* 'The risk-benefit ratio is dynamic and changes during labour depending on how the labour progresses and how events unfold.' (the research bid)
-* Timing is important... e.g. caesarean safer earlier in labour than later<mark>finish</mark>
+**Timing** will be important with regards to the choice to intervene and the outcome. The risk-benefit ratio is dynamic and changes during labour depending on how the labour progresses and how events unfold. For example, caesareans are safer earlier in labour than later.
 
-FHR
-* How process, complexities<mark>finish</mark>
-* link to our repository
+How **cardiotocograph data** is analysed and incorporated as a predictor is also complex, with a wide range of methods used in the literature, as explored in https://github.com/birth-outcomes/ctg_exploratory and https://github.com/birth-outcomes/fhrma_python. For example:
+
+> <mark>tidy this</mark>
+> * Identifying specific characteristics (baseline, accelerations, decelerations), different methods for doing that, also those other signal processing methods used
+> * Transformation of signal using e.g. CWT
+
+The **treatment paradox**
 
 Treatment paradox, causal inference
 * prediction v.s. causation and why this is a concern of ours
-* Using information from FHR and complexities in that...
 * Bias in predictions...<mark>finish</mark>
 * Produce DAGs 
 * Target trial emulation
 * methods
+
+e.g. matching people with similar characteristics and comparing the groups (as steve thornton comments - "can we compare with similar characteristics, those where a decision was made early compared with those where a decision was made late")
+
+> **Conventional methods:**
+> * (Principal) Stratification
+> * Matching
+> * Inverse probability of treatment weighting (IPTW)
+> * Multivariable regression
+> 
+> **G-methods:**
+> * G-computation (/ parametric G-formula / G-standardisation / standardisation / outcome regression)
+> * Marginal structure models
+> * G-estimation
+> 
+> **Methods to address unobserved confounding:**
+> * Instrumental variables
+> * Regression discontinuity (RD)
+> * Interrupted time series (ITS)
+> * Difference in differences (DiD)
+> 
+> **Other methods:**
+> * Marginal, asymmetric conditional, and causal SHAP values
+> * Synthetic control
+> * Matrix completion
+> * Causal discover
+> * Double machine learning
+> * Causal forests
+> * Structural estimation
+
+### Confounders/other variables included
+
+What variables are included and how depends on your chosen focus and methods. Things to consider here include -
+
+> **Which variables** are considered, which depends on the relationship you focus on, and your analysis method - e.g.
+> * Some may just have **one** (e.g. instrumental variable studies)
+> * Could look at **minimally important set of variables**
+> * Some studies use a really **wide range**
+> 
+> Examples of variables include:
+> * Suspected fetal growth restriction (FGR proxy is number of antenatal scans)
+> * Previous CS
+> * Parity (number, or nulliparity vs multiparity)
+> * Antepartum haemorrhage
+> * Body mass index
+> * Maternal age
+> * Maternal ethnicity
+> * Gestational age at delivery
+> * Induction of labour
+> * Analgesia - epidural use
+> * Oxytocin use
+> * Maternal pyrexia
+> * Abnormal FHR
+> * Meconium-stained amniotic fluid
+> * Single unsupported mother
+> * Highest antenatal blood pressure
+> * Duration of labour
+> * Fetal size on scan (if done)
 
 ## Example: Caesarean section and hypoxic ischaemic encephalopathy
 
@@ -134,6 +183,8 @@ Exclusion: Elective caesarean (as interested in patients who begin with vaginal 
 
 ### Outcome
 
+<mark>add sentinel event alternative as highlighted by steve</mark>
+
 Hypoxic ischaemic encephalopathy - defined as by [Neonatal Data Analysis Unit and the Department of Health](file:///home/amy/Documents/birth_outcomes_summary/_build/html/outcomes/neo_out_background.html#neonatal-data-analysis-unit-and-the-department-of-health) as:
 * Diagnosis of NE or HIE (severe, moderate, grade 2 or grade 3)
 * Therapeutic hypothermia for 2 or more consecutive days
@@ -156,7 +207,7 @@ Here, we would:
 <mark>add more detail on actual methods</mark>
 
 However, this doesn't necessarily need to be just between hospitals - you can, for example, look at variation in use of emergency caesarean by:
-* Time of day
+* Time of day - Steve Thornton comments that "the time of day is important in the rate of delivery. More deliveries tend to happen at night naturally (perhaps because this was safer in long gone times as predators were not around). Also, nowadays because the inductions happen in the morning on the whole, this influences the timing of delivery"
 * Weekday v.s. weekend
 
 When look into timing of caesarean, there is no simple way to define timing, but possibilities include:
@@ -179,13 +230,12 @@ Could look into causal inference methologies.
 
 You can demonstrate the existence of the treatment paradox by comparison of models designed to account for it, to those that are not.
 
-### Working with clinicians and parents
+## Working with clinicians and parents
+
+For any chosen study design and focus, involvement of clinicians, as well as public and patient involvement, will be important.
 
 Clinicians -
 * mike - how acceptable would such a system be to clinicians? How can co-production be used to inform design?
 
 Parents -
 * public and patient involvement
-
----
- 
