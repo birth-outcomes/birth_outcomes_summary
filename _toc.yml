@@ -46,13 +46,11 @@ chapters:
   - file: design_methods/design_methods_4_unobserved
   - file: design_methods/design_methods_5_other
   - file: design_methods/design_other
-- file: worked_examples/intro
+- file: examples/intro
   sections:
-  - file: worked_examples/instrumental_variables
-- file: our_study/intro
-  sections:
-  - file: design_methods/design_examples
-  - file: our_study/design_plan
+  - file: examples/obstetric_examples
+  - file: examples/instrumental_variables
+- file: our_study/design_plan
 - file: appendices/intro
   sections:
   - file: our_study/our_dag

@@ -15,10 +15,13 @@ This page summaries examples of studies in obstetrics that have attempted to acc
 
 **Marginal structural model** - Ladeira et al. 2021;
 
-**Inverse probability of treatment weighting** - Cooray et al. 2020;
+**Inverse probability of treatment weighting** - Cooray et al. 2020; Cavalcante et al. 2022;
 
 **Regression discontinuity design** - Jensen and Wüst 2015;
 
+**Randomised trial data** - Badurdeen et al. 2024;
+
+**Exclusion of treated** - Steer et al. 2023;
 `````
 
 ## Costa-Ramón et al. 2018
