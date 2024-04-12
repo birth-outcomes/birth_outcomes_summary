@@ -186,31 +186,6 @@ From Yeh et al. 2012, relative risk of encephalopathy with seizures or death in 
 
 ![Risk](../images/yeh_risk.png)
 
-To add to tables:
-* 'Interestingly, a pH as low as 7.00 is usually tolerated by the fetus without any adverse outcome. Most infants with a cord pH less than 7.00 do not develop neurologic problems after birth, nor even when followed for 6.5 years. An isolated respiratory acidosis is very rarely associated with poor outcomes. Thus, infants born with a pH less than 7.00 and without other abnormal clinical findings typically do not require any further investigation or NICU admission.'[[source]](https://www.ncbi.nlm.nih.gov/books/NBK545290/)
-* 'When a pH less than 7.00 and/or a base deficit of more than 12 mmol/L are associated with other abnormal findings such as abnormal fetal heart tracings, 5-minutes Apgar scores equal to or less than 5, a requirement for intubation, they become strong predictors of poor neurological sequelae. **80%** of these newborns with clinical indicators of acidemia with a low pH develop seizures in the first few days after birth. Previous studies have shown that cord pH less than 7.00 is proportional to the risk and the severity of neurologic abnormalities. Furthermore, **80%** of infants born with a cord pH less than 6.70 develop symptoms and signs of neonatal encephalopathy.'[[source]](https://www.ncbi.nlm.nih.gov/books/NBK545290/)
-
-## Suitability as a model outcome
-
-Pros:
-* pH can improve as a predictor if (a) the threshold is lower, (b) it is metabolic acidosis (i.e. combined with base deficit), or (c) it is combined with other indicators of adverse outcomes - the extent to which it improves as an indicator varies - but often this is about risk of outcome, rather than it being an indicator
-
-Cons:
-* Many infants with HIE won't have abnormal pH
-* Many infants with abnormal pH won't have HIE
-* There are many confounding factors that influence measurement obtained (artery or vein, length of labour, type of delivery, gestational age, timing of cord clamping, timing from sampling to analysis, base deficit calculation)
-* Biased measurement - more likely if doctors/nurses thought something was wrong
-
-## Conclusion
-
-`````{admonition} Unsuitable
-:class: error
-
-Metabolic acidosis (pH and base deficit), in combination with other indicators, can move us towards a good indicator - but ultimately I don't think it's suitable because:
-* (A) Not all infants with HIE will have abnormal blood gases
-* (B) There are so many confounding factors that influence the measurements obtained
-`````
-
 ## References
 
 Throughout this jupyter book, the hyperlinks for each reference are provided within the test. However, for the Joint Trust Guidelines referenced above, the link produces an error message, as it is a download link. Instead, the details for this document are provided below:
