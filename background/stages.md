@@ -15,7 +15,12 @@ Terms to refer to **before birth** are:
 Pregnancy consists of three trimesters, or 3-month intervals - *three (tri) months (mensis)*:
 * **1st trimester** (0-12 weeks)
 * **2nd trimester** (13-28 weeks)
-* **3rd trimester** (28 weeks-birth)
+* **3rd trimester** (28 weeks-birth) [[source]](https://www.ekhuft.nhs.uk/services/during-your-pregnancy/pregnancy-timeline/)
+
+As shared by Steve Thornton, the trimesters can also usually be referred to pregnancy divided into thirds:
+* **1st trimester** (0-13 weeks)
+* **2nd trimester** (13-26 weeks)
+* **3rd trimester** (26-39 weeks, or delivery)
 
 ## Labour
 

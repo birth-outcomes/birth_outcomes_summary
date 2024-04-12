@@ -45,12 +45,14 @@ Blood can be collected from the:
     * Less accurate as mainly reflects placental metabolism rather than fetal metabolism - as the umbilical vein carries oxygenated blood to the fetus from the placenta.
     * During umbilical cord compression, the venous flow will compress more than the arterial flow (as veins are more compressible than arteries). The fetus will respond by extracting more oxygen, hence eliminating more CO2 through the umbilical artieries, but the umbilical venous acid-base status will reamin equilibriated by the normally functioning placenta [[source]](https://www.ncbi.nlm.nih.gov/books/NBK545290/)
 
-Due to these differences, it is important to take **paired** arterial and venous cord blood samples. If only a single sample is taken, there is no way of knowing if it is arterial or venous.[Joint Trust Guideline (ref below)]
+Due to these differences, it is important to take **paired** arterial and venous cord blood samples. If only a single sample is taken, there is no way of knowing if it is arterial or venous.[Joint Trust Guideline (ref below)] Steve Thornton commented that "the artery is harder to sample than the vein. This means that sometimes **both samples are taken from the vein** and this leads to very similar results in both. This can be misleading. Usually a pH of more than 0.04 is used as a cut-off to demonstrate different samples."
 
 It is also important to note the **timing** of the samples:
 * Clamped umbilical cord (isolated) will have reliable pH, pO2 and pCO2 up to 60 minutes after bith
-* Unclamped (remianing in continuity with the placenta) will be unreliable as early as 20 minutes after delivery since ongoing placental metabolism will obscure the measurements
+* Unclamped (remaining in continuity with the placenta) will be unreliable as early as 20 minutes after delivery since ongoing placental metabolism will obscure the measurements
 * Lactate levels obtained more than 20 minutes after birth will be unreliable regardless of whether they are from a clamped or unclamped cord.[Joint Trust Guidelines (ref below)]
+
+Steve Thornton commented that "clamping of the cord at one minute is usually recommended to allow blood to go to the fetus and reduce the risk of anaemia".
 
 NHS Milton Keynes Guidelines state that the samples should be taken from a **double clamped** segment of cord so it's isolated from the placenta.[[source]](https://www.mkuh.nhs.uk/wp-content/uploads/2018/10/4257-Cord-Blood-Analysis-Guideline.pdf)
 
