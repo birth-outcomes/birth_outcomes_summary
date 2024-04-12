@@ -177,6 +177,61 @@ Method:
     classDef green fill:#DDF2D1, stroke: #FFFFFF;
 ````
 
+
+## Williams et al. 2018
+
+Study: Directed acyclic graphs: a tool for causal studies in paediatrics. [[Williams et al. 2018]](https://doi.org/10.1038/s41390-018-0071-3)
+
+This study is a slight exception as it is just explaining the likely existence of the treatment paradox in a previous study.
+
+Pre-eclampsia is hypothesised to cause cerebral palsy. It is also associated with higher risk of medically indicated (ordered by the physician) pre-term birth - and pre-term birth is also associated with higher risk of cerebral palsy. Steve Thornton comments that "pre-eclampsia leads to pre-term birth because women are induced or delivered early because of the pre-eclampsia to prevent it getting worse".
+
+You could adjust for pre-term birth or gestational age like a confounding variable. However, pre-term birth is a intermediate between pre-eclampsia and cerebral palsy, and not a common cause of both. Therefore, this adjustment (overadjustment) takes away from the detrimental effect of pre-elcampsia, mediated through pre-term birth - attenuating the effect or event reversing it.
+
+In an early study, pre-eclampsia was found to be protective in pre-term infants and detrimental for those born later. However, we expect pre-eclampsia to be detrimental for all infants. This finding could be as the analysis seperated out pre-term births and later births, closing the causal path between pre-eclampsia and cerebral palsy via pre-term birth.[[Williams et al. 2018]](https://doi.org/10.1038/s41390-018-0071-3)
+
+
+````{mermaid}
+  flowchart LR;
+
+    %% Define the nodes and subgraphs
+    eclam("Pre-eclampsia")
+    preterm("Preterm birth")
+    cp("Cerebral palsy")
+
+    %% Produce the figure
+    eclam --> preterm;
+    preterm --> cp;
+    eclam --> cp;
+````
+
+However, it's likely more complex. In a more realistic directed acyclic graph (DAG) below, chorioamnionitis is added. It is another cause of pre-term birth and cerebral palsy.
+
+Gestational age, as a shared effect of pre-eclampsia and chorioamnionitis, acts as a **collider**. This is the opposite of a confounder (where a common cause of exposure and outcome is not controlled for) - instead, a collider is when the exposure and outcome (or factors causing) each influence a common third variable, and that variable is controlled for in the design. Controlling for a collider can result in a distorted association betwene the exposure and outcome, when actually none exists.
+
+In this model, if we look in a group of pre-term infants:
+* Babies born to mothers with pre-eclampsia will be less likely to have chorioamnionitis and vice versa
+* The effect of pre-eclampsia will be compared with the effect of chorioamnionitis on cerebral palsy, and will falsy appear to be protective - the estimated direct causal effect of pre-eclampsia on the outcome will be biased (through the effect of chorioamnionitis)
+
+Hence, although widely used, conditioning on gestational at birth in studies of prenatal exposures and their relationship to postnatal outcomes may not reduce but actually lead to bias through overadjustment and faulty comparisons, and generate counterintuitive results and apparent changes of effect in different groups of patients.[[Williams et al. 2018]](https://doi.org/10.1038/s41390-018-0071-3)
+
+````{mermaid}
+  flowchart LR;
+
+    %% Define the nodes and subgraphs
+    chor("Chorioamnionitis")
+    eclam("Pre-eclampsia")
+    preterm("Preterm birth")
+    cp("Cerebral palsy")
+
+    %% Produce the figure
+    chor --> preterm;
+    eclam --> preterm;
+    chor --> cp;
+    preterm --> cp;
+    eclam --> cp;
+````
+
 ## Thangaratinam et al. 2017
 
 Study: Development and validation of Prediction models for Risks of complications in Early-onset Pre-eclampsia.[[Thangaratinam et al. 2017]](https://doi.org/10.1186/s12916-017-0827-3)
@@ -340,6 +395,63 @@ Method:
     * This assumes that living in an area with a relatively high frequency of delivery by family physician increases the likelihood of delivery by a family physician (treatment) without directly acting as a risk factor for cesarean delivery (outcome) itself
     * Institutional culture may influence cesarean delivery rates and may itself be influenced by the proportion of delivery providers who are family physicians; however, this association is not clear. If this association between family physicians, institutional culture and cesarean rates is real, this would violate the assumptions necessary for instrumental variable analyses. However, because the association is small, if any, we feel that it is unlikely to explain the large difference between the results from conventional and instrumental variable analyses outlined below.
 
+## Badurdeen et al. 2024
+
+Study: Early Hyperoxemia and 2-year Outcomes in Infants with Hypoxic-ischemic Encephalopathy: A Secondary Analysis of the Infant Cooling Evaluation Trial. [[Badurdeen et al. 2024]](https://doi.org/10.1016/j.jpeds.2024.113902)
+
+Aim: Estimate causal relationship between exposure to early hyperoxemia (following resus) and death or major disability in infants with hypoxic ischaemic encephalopathy
+* Hyperoxemia is an increase in arterial oxygen partial pressure to more than 120mmHg. The exposure of interest with hyperoxemic exposure following resuscitation.
+
+Method: Uses data from randomised trial. Used DAG to establish minimally sufficient adjustment set of variables. Analyse using log-binomial regression.
+
+![DAG from Badurdeen et al. 2024](../images/badurdeen_2024_dag.jpg)
+
+Interpretation:
+* Green lines: causal relationship under investigration
+* Grey circles: unmeasured covariates
+* Blue circles: ancestors of outcome
+* Red circles: ancestors of exposure and outcome
+* White circles: minimal sufficient adjustment set
+
+## Cavalcante et al. 2022
+
+Study: Cesarean section and body mass index in children: is there a causal effect? [[Cavalcante et al. 2022]](https://doi.org/10.1590/0102-311X00344020)
+
+Aim: Estimate causal relationship between caesarean section and BMI.
+
+Method: **Inverse probability of treatment weighting** (birth by caesarean section), with "**minimum set** of confounding variables by teffects ipwra (inverse probability weighting linear regression adjustment) routine, a **doubly robust** method".
+
+DAG:
+
+![DAG from Cavalcante et al. 2022](../images/cavalcante_2022_dag.jpg)
+
+Exposure: Type of delivery
+
+Outcome: BMI-for-age
+
+Minimum adjustment set:
+* Pre-gestational BMI
+* CCEB
+* Schooling years
+* Maternal age
+* Number of children
+* Prenatal care adequacy
+* Weight gain during pregnancy
+* Birth weight for gestational age 
+
+## Steer et al. 2023
+
+Study: Risk factors for a serious adverse outcome in neonates: a retrospective cohort study of vaginal births. [[Steer et al. 2023]](https://doi.org/10.1111/1471-0528.17531)
+
+Aim: Identify risk factors for adverse neonatal outcomes:
+1. 5-minute Apgar <7 - as it is proxy that indicates higher risk of HIE, CP and death
+2. Composite of:
+    * (i) 5-minute Apgar
+    * (ii) Neonatal resuscitation by intubation and positive pressure ventilation - as its a major intervention requiring expert input, particularly relevant for MSAF
+    * (iii) Perinatal death - as its the most important outcome to avoid
+
+Method: Exclusion of mothers who delivery by caesarean (i.e. only include vaginal deliveries) - as when included, emergency caesarean is a "major effect modifier and itself associated significantly with different maternal and labour risk factors"
+
 ## Examples to look at
 
 * **Paired availability and principal stratification** - Clarifying the Role of Principal Stratification in the Paired Availability Design [[Baker et al. 2011]](https://doi.org/10.2202%2F1557-4679.1338)
@@ -354,3 +466,23 @@ Method:
 * Unexpected predictor–outcome associations in clinical prediction research: causes and solutions [[Schuit et al. 2013]](https://doi.org/10.1503/cmaj.120812) and The outcomes of pregnancies with reduced fetal movements: A retrospective cohort study [[Bhatia et al. 2019]](https://doi.org/10.1111/aogs.13671)
     * Incorporation of treatment in the model: 'In the prediction of metabolic acidosis in neonates (example 1) there could be an intervention effect present owing to cesarean delivery. An unexpected finding was observed for the relation between intrapartum fever and metabolic acidosis (OR 0.86 [95% CI 0.68–1.08]). Upon inclusion of cesarean delivery in the model, intrapartum fever was positively related to metabolic acidosis (OR 1.08 [95% CI 0.86–1.34]), which was in line with expectations.'[[Schuit et al. 2013]](https://doi.org/10.1503/cmaj.120812)
     * Including an alternative outcome not impacted by treatment paradox: By including abnormal CTG as a neonatal outcome (alongside stillbirth, early neonatal death, mean birthweight, incidence of small-for-gestational age, neonatal unit admission, and composite of Apgar5<7, pH<7 or neonatal encephalopathy).[[Bhatia et al. 2019]](https://doi.org/10.1111/aogs.13671)
+
+## Not addressing treatment paradox
+
+### Leith et al. 2023
+
+Study: A predictive model for perinatal hypoxic ischemic encephalopathy using linked maternal and neonatal hospital data. [[Leith et al. 2023]](http://dx.doi.org/10.1016/j.annepidem.2023.11.011)
+
+Aim: Predict HIE - building on [[Odd et al. 2017]](https://doi.org/10.3233/NPM-16152), but with a model in a larger dataset of births. They describe Odd et al. 2017 as a paer in which "researchers in England published the first predictive model accounting for multiple risk factors to estimate the probability of an individual HIE injury".
+
+Method: They include the intervention as a predictor in the model, but not as a way to enable causal inferences. They state that "drawing causal inferences should be done with caution. For instance, some factors were found to be significantly protective against HIE injury, such as malpresentation and uterine inertia, which logically should not decrease risk. It is likely that such conditions heighten clinical awareness of risk, thus resulting in more timely initiation of protective interventions."
+
+Their DAG: Due to the large number of factors in the final model, to make the graph easier to read we have combined similar factors into groups as follows:
+* Maternal characteristics: age, race, payer, metropolitan residence, history of stillbirth, tobacco use.
+* Chronic conditions: diabetes, hypertension, total number of chronic conditions.
+* Antepartum complications: decreased fetal movement, polyhydramnios, amniotic fluid infection, intrauterine acidosis, cord compression, placental infarct.
+* Intrapartum complications: septicemia, hypertonic contractions, uterine inertia, prolonged 2nd stage.
+* Presentation: malpresentation, breech delivery, shoulder dystocia.
+* Emergency: sentinel event, fetal heart rate abnormalities.
+
+![DAG from Leith et al. 2023](../images/leith_2023_dag.jpg)
