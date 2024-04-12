@@ -7,6 +7,7 @@ Pain relief options include:
 * **Pethidine injections** - injected to thigh or buttock, last 2-4 hours, not recommended if close to pushing (second stage)
 * **Epidural** - type of local anaesthetic given through a drip, will then need to monitor contractions and baby's heart rate continuously
 * **Remifentanil** - into vein on arm, lasts a few minutes, control with push of button, will need to monitor oxygen levels
+    * Anecdotally, Steve Thornton says this is not used on their unit
 * **Water birth** - being in water can help contractions seem less painful
 * **TENS machine** (transcutaneous electrical nerve stimulation) - most effective during early stages when you may have lower back pain
 

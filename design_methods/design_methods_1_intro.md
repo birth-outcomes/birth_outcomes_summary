@@ -150,3 +150,4 @@ Lots of different resources were used in this section, but I wanted to highlight
 * [The Effect: An Introduction to Research Design and Causality by Nick Huntington-Klein](https://theeffectbook.net/)
 * [Causal Inference: The Mixtape by Scott Cunningham](https://mixtape.scunning.com/)
 * [STA 640: Causal Inference - Fan Li - Department of Statistical Science, Duke University](https://www2.stat.duke.edu/~fl35/CausalInferenceClass.html)
+* [Causal Inference for The Brave and True](https://matheusfacure.github.io/python-causality-handbook/landing-page.html)

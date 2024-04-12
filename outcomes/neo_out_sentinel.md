@@ -4,6 +4,8 @@
 
 A sentinel event is a patient safety event that results in death, permanent harm, or severe temporary harm. Specific acute clinical events which occur close to the time of delivery or are the primary reason for delivery are called perinatal sentinel events (PSE).[[Shankaran et al. 2017]](https://doi.org/10.1016%2Fj.jpeds.2016.09.026) Sentinel events associated with HIE are those that interrupt oxygen flow or blod flow to the infant.[[Ellenberg and Nelson 2012]](https://doi.org/10.1111/dmcn.12016):
 
+As explained by Steve Thronton, "they are usually clinical findings such as bleeding iwth abruption, or the identification of a cord prolapse".
+
 ## Sentinel events for HIE
 
 * Uterine rupture - uterus tears and baby slips into abdomen

@@ -45,19 +45,19 @@ chapters:
   - file: design_methods/design_methods_3_gmethods
   - file: design_methods/design_methods_4_unobserved
   - file: design_methods/design_methods_5_other
-  - file: design_methods/design_examples
   - file: design_methods/design_other
-- file: our_study/intro
+- file: examples/intro
   sections:
-  - file: our_study/design_plan
-  - file: our_study/our_dag
-  - file: our_study/our_target_trial_protocol
+  - file: examples/obstetric_examples
+  - file: examples/instrumental_variables
+- file: our_study/design_plan
 - file: appendices/intro
   sections:
+  - file: our_study/our_dag
+  - file: our_study/our_target_trial_protocol
   - file: appendices/neo_out_enceph_treatment_outcomes
   - file: appendices/neo_out_chorio
   - file: appendices/fetal_risk_factors
-  - file: appendices/cardiotocography
   - file: appendices/parental_outcomes
   - file: appendices/routine_data
   - file: appendices/key_papers

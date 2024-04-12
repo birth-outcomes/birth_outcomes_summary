@@ -45,12 +45,14 @@ Blood can be collected from the:
     * Less accurate as mainly reflects placental metabolism rather than fetal metabolism - as the umbilical vein carries oxygenated blood to the fetus from the placenta.
     * During umbilical cord compression, the venous flow will compress more than the arterial flow (as veins are more compressible than arteries). The fetus will respond by extracting more oxygen, hence eliminating more CO2 through the umbilical artieries, but the umbilical venous acid-base status will reamin equilibriated by the normally functioning placenta [[source]](https://www.ncbi.nlm.nih.gov/books/NBK545290/)
 
-Due to these differences, it is important to take **paired** arterial and venous cord blood samples. If only a single sample is taken, there is no way of knowing if it is arterial or venous.[Joint Trust Guideline (ref below)]
+Due to these differences, it is important to take **paired** arterial and venous cord blood samples. If only a single sample is taken, there is no way of knowing if it is arterial or venous.[Joint Trust Guideline (ref below)] Steve Thornton commented that "the artery is harder to sample than the vein. This means that sometimes **both samples are taken from the vein** and this leads to very similar results in both. This can be misleading. Usually a pH of more than 0.04 is used as a cut-off to demonstrate different samples."
 
 It is also important to note the **timing** of the samples:
 * Clamped umbilical cord (isolated) will have reliable pH, pO2 and pCO2 up to 60 minutes after bith
-* Unclamped (remianing in continuity with the placenta) will be unreliable as early as 20 minutes after delivery since ongoing placental metabolism will obscure the measurements
+* Unclamped (remaining in continuity with the placenta) will be unreliable as early as 20 minutes after delivery since ongoing placental metabolism will obscure the measurements
 * Lactate levels obtained more than 20 minutes after birth will be unreliable regardless of whether they are from a clamped or unclamped cord.[Joint Trust Guidelines (ref below)]
+
+Steve Thornton commented that "clamping of the cord at one minute is usually recommended to allow blood to go to the fetus and reduce the risk of anaemia".
 
 NHS Milton Keynes Guidelines state that the samples should be taken from a **double clamped** segment of cord so it's isolated from the placenta.[[source]](https://www.mkuh.nhs.uk/wp-content/uploads/2018/10/4257-Cord-Blood-Analysis-Guideline.pdf)
 
@@ -185,31 +187,6 @@ The key focus here is that we want to know if pH can be a reliable indicator of 
 From Yeh et al. 2012, relative risk of encephalopathy with seizures or death in each arterial pH group:
 
 ![Risk](../images/yeh_risk.png)
-
-To add to tables:
-* 'Interestingly, a pH as low as 7.00 is usually tolerated by the fetus without any adverse outcome. Most infants with a cord pH less than 7.00 do not develop neurologic problems after birth, nor even when followed for 6.5 years. An isolated respiratory acidosis is very rarely associated with poor outcomes. Thus, infants born with a pH less than 7.00 and without other abnormal clinical findings typically do not require any further investigation or NICU admission.'[[source]](https://www.ncbi.nlm.nih.gov/books/NBK545290/)
-* 'When a pH less than 7.00 and/or a base deficit of more than 12 mmol/L are associated with other abnormal findings such as abnormal fetal heart tracings, 5-minutes Apgar scores equal to or less than 5, a requirement for intubation, they become strong predictors of poor neurological sequelae. **80%** of these newborns with clinical indicators of acidemia with a low pH develop seizures in the first few days after birth. Previous studies have shown that cord pH less than 7.00 is proportional to the risk and the severity of neurologic abnormalities. Furthermore, **80%** of infants born with a cord pH less than 6.70 develop symptoms and signs of neonatal encephalopathy.'[[source]](https://www.ncbi.nlm.nih.gov/books/NBK545290/)
-
-## Suitability as a model outcome
-
-Pros:
-* pH can improve as a predictor if (a) the threshold is lower, (b) it is metabolic acidosis (i.e. combined with base deficit), or (c) it is combined with other indicators of adverse outcomes - the extent to which it improves as an indicator varies - but often this is about risk of outcome, rather than it being an indicator
-
-Cons:
-* Many infants with HIE won't have abnormal pH
-* Many infants with abnormal pH won't have HIE
-* There are many confounding factors that influence measurement obtained (artery or vein, length of labour, type of delivery, gestational age, timing of cord clamping, timing from sampling to analysis, base deficit calculation)
-* Biased measurement - more likely if doctors/nurses thought something was wrong
-
-## Conclusion
-
-`````{admonition} Unsuitable
-:class: error
-
-Metabolic acidosis (pH and base deficit), in combination with other indicators, can move us towards a good indicator - but ultimately I don't think it's suitable because:
-* (A) Not all infants with HIE will have abnormal blood gases
-* (B) There are so many confounding factors that influence the measurements obtained
-`````
 
 ## References
 
