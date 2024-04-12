@@ -9,7 +9,7 @@ G-methods address intermediate confounding, i.e. treatment-confounder feedback.
 * Predict outcomes in counterfactual populations that **assume all had treatment or not**, and compare
 
 **Marginal structural models (MSM) with weights estimated using inverse probability of treatment weighting** - also known as inverse probability of treatment weighting with time-varying covariates
-* Weight observations using IPTW, then use weights when estimate association between treatment and outcome (and this tyope of weighted model where you control for time-dependent confounding is a marginal structural model)
+* Weight observations using IPTW, then use weights when estimate association between treatment and outcome (and this type of weighted model where you control for time-dependent confounding is a marginal structural model)
 
 **G-estimation of structural nested models (SNM)**
 * Work back in time, predicting counterfactual outcome (with parameters estimated using G-estimation) at each time point, given no exposure from that time point onwards, controlling for treatment and confounders prior to that point

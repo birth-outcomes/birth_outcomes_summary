@@ -224,21 +224,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../design_methods/design_methods_3_gmethods.html">Methods #3: G-methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../design_methods/design_methods_4_unobserved.html">Methods #4: Methods for unobserved confounding</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../design_methods/design_methods_5_other.html">Methods #5: Other</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_examples.html">Obstetric studies that address the treatment paradox</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../design_methods/design_other.html">Other design considerations</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../our_study/intro.html">Our study</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../our_study/design_plan.html">A rough plan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../our_study/our_dag.html">HIE DAG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../our_study/our_target_trial_protocol.html">HIE target trial protocol</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../examples/intro.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/obstetric_examples.html">Obstetric studies that address the treatment paradox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/instrumental_variables.html">Instrumental variables</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../our_study/design_plan.html">Our study</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../appendices/intro.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/our_dag.html">HIE DAG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/our_target_trial_protocol.html">HIE target trial protocol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/neo_out_enceph_treatment_outcomes.html">Challenge 2: Outcomes for trials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/neo_out_chorio.html">More on chorioamnionitis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/fetal_risk_factors.html">Fetal risk factors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../appendices/cardiotocography.html">Cardiotocography</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/parental_outcomes.html">Parental outcomes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/routine_data.html">Routinely collected data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/key_papers.html">Key Papers</a></li>
@@ -480,6 +480,11 @@ document.write(`
 </ul>
 <p><strong>Conclusion:</strong> Not recommended. The high intra- and inter-observer variability in interpretation, likely minimal record of decision in records, and challenges in automated interpretation (and challenges of even getting that data) - along with the fact that this can have high false positive and false negative - mean I wouldn’t recommend this.</p>
 </div>
+<p>This page explores the use of cardiotocography as an outcome (which we conclude as not recommending) - but we are interested in using it as a predictor. For more work related to cardiotocography analysis, see the following GitHub repositories:</p>
+<ul class="simple">
+<li><p><a class="github reference external" href="https://github.com/birth-outcomes/ctg_exploratory">birth-outcomes/ctg_exploratory</a></p></li>
+<li><p><a class="github reference external" href="https://github.com/birth-outcomes/fhrma_python">birth-outcomes/fhrma_python</a></p></li>
+</ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="what-measurements-are-taken">
 <h1>What measurements are taken?<a class="headerlink" href="#what-measurements-are-taken" title="Link to this heading">#</a></h1>
@@ -497,7 +502,11 @@ document.write(`
 <p>Methods of recording UC:</p>
 <ul class="simple">
 <li><p>External monitoring using a transducer placed on women’s abdomen, based on how tense the abdomen is. This is called a <strong>tocodynamometer</strong> (TOCO).<a class="reference external" href="https://www.mdpi.com/2306-5354/10/9/1007">[source]</a></p></li>
-<li><p>Internal moniotring using an <strong>intrauterine pressure catheter</strong>.<a class="reference external" href="https://www.mdpi.com/2306-5354/10/9/1007">[source]</a></p></li>
+<li><p>Internal monitoring using an <strong>intrauterine pressure catheter</strong>.<a class="reference external" href="https://www.mdpi.com/2306-5354/10/9/1007">[source]</a></p>
+<ul>
+<li><p>Steve Thronton: “We no longer use intrauterine pressure catheters”</p></li>
+</ul>
+</li>
 </ul>
 <p>External monitoring methods (doppler and TOCO) can have signal dropout due to fetal and maternal movements, with worse quality for increased maternal body mass index (BMI), so invasive methods like the direct fECG and intrauterine pressure catheter can get more accurate readings - although have increased risk of infection, and can only be used by rupturing the membranes and so can only be used during labour.<a class="reference external" href="https://www.mdpi.com/2306-5354/10/9/1007">[source]</a></p>
 <section id="how-does-it-work">

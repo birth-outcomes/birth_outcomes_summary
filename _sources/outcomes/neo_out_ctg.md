@@ -18,6 +18,10 @@
 **Conclusion:** Not recommended. The high intra- and inter-observer variability in interpretation, likely minimal record of decision in records, and challenges in automated interpretation (and challenges of even getting that data) - along with the fact that this can have high false positive and false negative - mean I wouldn't recommend this.
 `````
 
+This page explores the use of cardiotocography as an outcome (which we conclude as not recommending) - but we are interested in using it as a predictor. For more work related to cardiotocography analysis, see the following GitHub repositories:
+* https://github.com/birth-outcomes/ctg_exploratory
+* https://github.com/birth-outcomes/fhrma_python
+
 # What measurements are taken?
 
 **Cardiotocography (CTG)**: Fetal heartbeat (*cardio*) + uterine contractions (*toco*) + drawing representing recording (*graphy*)
@@ -32,7 +36,8 @@ Methods of recording FHR:
 
 Methods of recording UC:
 * External monitoring using a transducer placed on women's abdomen, based on how tense the abdomen is. This is called a **tocodynamometer** (TOCO).[[source]](https://www.mdpi.com/2306-5354/10/9/1007)
-* Internal moniotring using an **intrauterine pressure catheter**.[[source]](https://www.mdpi.com/2306-5354/10/9/1007)
+* Internal monitoring using an **intrauterine pressure catheter**.[[source]](https://www.mdpi.com/2306-5354/10/9/1007)
+    * Steve Thronton: "We no longer use intrauterine pressure catheters"
 
 External monitoring methods (doppler and TOCO) can have signal dropout due to fetal and maternal movements, with worse quality for increased maternal body mass index (BMI), so invasive methods like the direct fECG and intrauterine pressure catheter can get more accurate readings - although have increased risk of infection, and can only be used by rupturing the membranes and so can only be used during labour.[[source]](https://www.mdpi.com/2306-5354/10/9/1007)
 

@@ -8,7 +8,11 @@
 * Causes include hypoxia-ischemia, stroke, infection, intracranial hemorrhage, congenital anomalies, neurometabolic and genetic factors. NE can have a single or multiple causes.
 * Approximately 1 to 6 per 1000 term births have NE. In more than half, the cause is unknown. The most common cause is hypoxia ischaemia (referred to as hypoxic-ischemic encephalopathy).
 
-**Hypoxic ischaemic encephalopathy (HIE)**: Our challenge is that there has not been a clear, consistent consensus definition for HIE and NE. The terms have often been used interchangeably (despite HIE actually being a sub-type of NE). The current recommendation is to first diagnose NE, and only diagnose HIE on the basis of sufficient evidence. Recent recommendations for defining (and thereby identifying/diagnosing/distinguishing HIE) are:
+**Hypoxic ischaemic encephalopathy (HIE)**: Our challenge is that there has not been a clear, consistent consensus definition for HIE and NE. The terms have often been used interchangeably (despite HIE actually being a sub-type of NE). The current recommendation is to first diagnose NE, and only diagnose HIE on the basis of sufficient evidence. 
+
+Steve Thornton highlighted that the findings of Kurinczuk et al. 2010, and Ellenberg and Nelson 2012 are very important. They suggest that HIE is identified based on the **presence of sentinel event** like uterine rupture, major placental abruption, or cord prolapse (and NOT features that are not specific to hypoxia ischaemia).
+
+Other recent recommendations for defining (and thereby identifying/diagnosing/distinguishing HIE) are:
 * Neonatal Data Analysis Unit (required one of):
     * **Diagnostic code for NE or HIE Diagnosis of NE or HIE (severe, moderate, grade 2 or grade 3)**
     * **OR Therapeutic hypothermia for 2 or more consecutive days**
@@ -33,9 +37,10 @@
         * **Hypotonia**
         * **Weak/absent suck**
     * A 30min aEEG with **abnormal, supressed or seizure activity**
-* Kurinczuk et al. 2010, and Ellenberg and Nelson 2012
-    * **Presence of sentinel event** like uterine rupture, major placental abruption, or cord prolapse (and NOT features that are not specific to hypoxia ischaemia)
-* DEFiNE group - research ongoing to establish consensus definition for NE
+
+The DEFiNE group are currently working on research to establish consensus definition for NE.
+
+Another option here is - **instead of trying to get a diagnosis of HIE** - you focus on things like admission to neonatal unit, low pH, resuscitation - and although this is no longer specific to HIE, it allows you to have a clear and defined endpoint, and could still be useful clinically.
 `````
 
 ## Neonatal encephalopathy (NE)
@@ -62,24 +67,22 @@ Possible causes of NE include:
 * **Neurometabolic** (extensive and diverse set of neurometabolic disorders that can impact the neonatal prain, presentation is non-specific and can mimic acquired things like HIE and sepsis. They are rare, and are primarily genetic disorders leading to disruption of enzyme activity, cellular transport, or energy production [[source]](https://journals.lww.com/topicsinmri/fulltext/2018/08000/neurometabolic_disorders_of_the_newborn.1.aspx))
 * **Genetic and epigenetics factors**[[COHESION - Quirke et al. 2013]](https://doi.org/10.1038/s41390-023-02938-y)[[Source - NHS East of England Guidelines for Management of Infants with Suspected HIE]](https://www.eoeneonatalpccsicnetwork.nhs.uk/wp-content/uploads/2021/10/HIE-Guideline.pdf)
 
-NE **does not have to have a single cause** - for example, you could distinguish between hypoxia-ischaemia alone, a combination of other etiologies with hypoxia ischaemia, or non-HI-related etiology.[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z) 'Sentinel events such as cord prolapse, uterine rupture, or abruptio placentae may be clearly associated with HIE but often HIE is a **secondary** event. Therefore although hypoxia-ischemia may be involved
+NE **does not have to have a single cause** - for example, you could distinguish between hypoxia-ischaemia alone, a combination of other etiologies with hypoxia ischaemia, or non-HI-related etiology.[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z) 'Sentinel events such as cord prolapse, uterine rupture, or abruptio placentae may be clearly associated with HIE but often HIE is a **secondary** event. Therefore although hypoxia-ischemia may be involved, the exact cause of HIE is often not identified. Causes include cord prolapse, uterine rupture, abruptio placenta, placenta previa, maternal hypotension, breech presentation, shoulder dystocia'[[source]](https://doi.org/10.1053%2Fj.nainr.2011.07.004)
 
-**Focusing on HIE...**
-
-The exact cause of HIE is often not identified. Causes include cord prolapse, uterine rupture, abruptio placenta, placenta previa, maternal hypotension, breech presentation, should dystonia[[source]](https://doi.org/10.1053%2Fj.nainr.2011.07.004)
+As commented by Steve Thornton, we need to consider both **infection** (chorioamnionitis) and hypoxia. Infection will make the effect of hypoxia worse. We may not be able to seperate them completely.
 
 There have been several medical malpractice claims related to HIE. This list of causes from [Michigan Cerbral Palsy Attornerys](https://www.michigancerebralpalsyattorneys.com/causes-and-risk-factors-of-cerebral-palsy/labor-and-delivery-problems/hypoxic-ischemic-encephalopathy-hie/hypoxic-ischemic-encephalopathy-hie-infographic/) includes some examples that relate to that.
 * Birth trauma - delayed emergency C-section, prolonged and arrested labour, post-term pregnancy, anaesthesia mistakes, intracrainal haemmhorage, fetal monitoring errors
 * Abnormal size and presentation - cephalopelvic disproportion (CPD), breech presentation, face presentation, macrosomia
-* Labour and delivery problems - miuse of pitocin or cytotec, uterine rupture, placental abruption, umbilical cord problems (prolapse, compression, nuchal and short), placenta previa, uteroplacental insufficiency, premature rupture of membranes
+* Labour and delivery problems - miuse of oxytocin or cytotec, uterine rupture, placental abruption, umbilical cord problems (prolapse, compression, nuchal and short), placenta previa, uteroplacental insufficiency, premature rupture of membranes
 * Maternal health problems - pre-eclampsia, polyhydramnios, oligohydramnios
 * Infant health problems - fetal stroke, mismanagement of fetal respiration after delivery, mismanaged of fetal anemia after delivery
 
-Note: Haven't checked all these - but for example of fetal stroke, from a quick google, it appears that HIE and neonatal stroke can often occur together, and that it seems more that the asphyxia is then a risk factor for stroke.
+Note: Haven't checked all these - but for example of fetal stroke, from a quick google, it appears that HIE and neonatal stroke can often occur together, and that it seems more that the asphyxia is then a risk factor for stroke. Steve Thornton confirmed that HIE and stroke are related.
 
-### Signs of HIE
+### Risks for and signs of HIE
 
-Signs and symptoms of HIE before birth include: 'decreased fetal movement, severe maternal cramping (often accompanied by severe back pain), abnormal fetal heart rate, abnormal contraction pattern, vaginal bleeding, abnormally low or high maternal weight gain, maternal high blood pressure'.
+Risk of HIE before birth is increased with observation of: 'decreased fetal movement, severe maternal cramping (often accompanied by severe back pain), abnormal fetal heart rate, abnormal contraction pattern, vaginal bleeding, abnormally low or high maternal weight gain, maternal high blood pressure'.
 
 Signs and symptoms of HIE shortly after birth (in neonates) include: 'low Apgar scores at five or 10 minutes, seizures, difficulty feeding, breathing problems, hypotonia (low muscle tone), organ problems (failure, damage), acidemia (low pH in umbilical cord blood gas tests), abnormal response to light, state of abnormal consciousness (hyperalert or lethargic), coma'
 

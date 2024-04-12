@@ -68,7 +68,7 @@ NHS records can include a grade indicating the observed level of HIE - these are
 * Moderate (code 2)
 * Severe (code 3)[[source]](https://www.datadictionary.nhs.uk/attributes/hypoxic_ischemic_encephalopathy_grade.html)
 
-I'm not certain what the criteria for these grades are, and whether they might be to do with the Sarnat score or not...
+I'm not certain what the criteria for these grades are, and whether they might be to do with the Sarnat score or not... Steve Thornton also not sure...
 
 ### Sarnat score
 

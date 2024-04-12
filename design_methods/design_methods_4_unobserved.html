@@ -228,21 +228,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="design_methods_3_gmethods.html">Methods #3: G-methods</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Methods #4: Methods for unobserved confounding</a></li>
 <li class="toctree-l2"><a class="reference internal" href="design_methods_5_other.html">Methods #5: Other</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design_examples.html">Obstetric studies that address the treatment paradox</a></li>
 <li class="toctree-l2"><a class="reference internal" href="design_other.html">Other design considerations</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../our_study/intro.html">Our study</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../our_study/design_plan.html">A rough plan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../our_study/our_dag.html">HIE DAG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../our_study/our_target_trial_protocol.html">HIE target trial protocol</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../examples/intro.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/obstetric_examples.html">Obstetric studies that address the treatment paradox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/instrumental_variables.html">Instrumental variables</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../our_study/design_plan.html">Our study</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../appendices/intro.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/our_dag.html">HIE DAG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/our_target_trial_protocol.html">HIE target trial protocol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/neo_out_enceph_treatment_outcomes.html">Challenge 2: Outcomes for trials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/neo_out_chorio.html">More on chorioamnionitis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/fetal_risk_factors.html">Fetal risk factors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../appendices/cardiotocography.html">Cardiotocography</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/parental_outcomes.html">Parental outcomes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/routine_data.html">Routinely collected data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/key_papers.html">Key Papers</a></li>
@@ -448,6 +448,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-instrumental-variable">What is an instrumental variable?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-stage-least-squares-2sls">Two-stage least squares (2SLS)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-of-instrumental-variable-analysis">Assumptions of instrumental variable analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-mendelian-randomisation">Example: Mendelian randomisation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-effect-of-intensive-treatment-on-mortality-in-patients-with-acute-myocardial-infarction">Example: Effect of intensive treatment on mortality in patients with acute myocardial infarction</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-samuel">Example: SAMueL</a></li>
@@ -570,6 +571,11 @@ document.write(`
 <li><p><strong>Regress exposure (<span class="math notranslate nohighlight">\({x}\)</span>) on instrumental variable (G) to produce <span class="math notranslate nohighlight">\(\hat{x}\)</span> (estimate of exposure independent of confounders)</strong></p></li>
 <li><p><strong>Regress outcome (Y) on <span class="math notranslate nohighlight">\(\hat{x}\)</span></strong>. Here, <span class="math notranslate nohighlight">\(\hat{x}\)</span> is replacing the actual value of the problematic predictor, <span class="math notranslate nohighlight">\({x}\)</span>. [BSc Medical Sciences]</p></li>
 </ol>
+<p>We include the measured confounders in both stages.</p>
+<ul class="simple">
+<li><p>Included in first stage to reflect exogenous movement in treatment</p></li>
+<li><p>Included in second stage to avoid omitted variable bias</p></li>
+</ul>
 <p>The ‘groups being compared differ only in likelihoods of treatment, as opposed to a division into pure treatment and control groups’. Hence, this ‘method estimates an incremental or “marginal” effect of treatment only over the range of variation in treatment across the IV groups’. <a class="reference external" href="https://doi.org/10.1001/jama.1994.03520110039026">[McClellan et al. 1994]</a></p>
 <p>‘IV analysis estimates a local average treatment effect (LATE) among ‘compliers’ - individudals whose exposure status is affected by the instrument. This group cannot be precisely identified, and the LATE may therefore sometimes be of limited practical or policy relevance’. <a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a></p>
 </section>
@@ -577,6 +583,10 @@ document.write(`
 <h3>Assumptions of instrumental variable analysis<a class="headerlink" href="#assumptions-of-instrumental-variable-analysis" title="Link to this heading">#</a></h3>
 <p>(1) <strong>Instrumental variable assumptions</strong>(as above)</p>
 <p>(2) <strong>Homogeneity assumption</strong> - the association between the instrumental variable and the exposure is homogenous (same for everyone in the population), or the effect of the exposure on the outcome is homogenous [BSc Medical Sciences]</p>
+</section>
+<section id="limitations">
+<h3>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h3>
+<p>‘A concern with any IV strategy is that the instrumental variable is correlated with unobserved determinants of the outcome of interest.’ Can address by estimating models for held=back risk factors pre-determined at delivery date, looking for correlation with the IV. <a class="reference external" href="http://www.nber.org/papers/w24493">[Card et al. 2018]</a></p>
 </section>
 <section id="example-mendelian-randomisation">
 <h3>Example: Mendelian randomisation<a class="headerlink" href="#example-mendelian-randomisation" title="Link to this heading">#</a></h3>
@@ -993,6 +1003,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-instrumental-variable">What is an instrumental variable?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-stage-least-squares-2sls">Two-stage least squares (2SLS)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-of-instrumental-variable-analysis">Assumptions of instrumental variable analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-mendelian-randomisation">Example: Mendelian randomisation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-effect-of-intensive-treatment-on-mortality-in-patients-with-acute-myocardial-infarction">Example: Effect of intensive treatment on mortality in patients with acute myocardial infarction</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-samuel">Example: SAMueL</a></li>

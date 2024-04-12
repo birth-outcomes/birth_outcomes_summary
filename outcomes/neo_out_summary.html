@@ -224,21 +224,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../design_methods/design_methods_3_gmethods.html">Methods #3: G-methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../design_methods/design_methods_4_unobserved.html">Methods #4: Methods for unobserved confounding</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../design_methods/design_methods_5_other.html">Methods #5: Other</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_examples.html">Obstetric studies that address the treatment paradox</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../design_methods/design_other.html">Other design considerations</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../our_study/intro.html">Our study</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../our_study/design_plan.html">A rough plan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../our_study/our_dag.html">HIE DAG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../our_study/our_target_trial_protocol.html">HIE target trial protocol</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../examples/intro.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/obstetric_examples.html">Obstetric studies that address the treatment paradox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/instrumental_variables.html">Instrumental variables</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../our_study/design_plan.html">Our study</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../appendices/intro.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/our_dag.html">HIE DAG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/our_target_trial_protocol.html">HIE target trial protocol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/neo_out_enceph_treatment_outcomes.html">Challenge 2: Outcomes for trials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/neo_out_chorio.html">More on chorioamnionitis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/fetal_risk_factors.html">Fetal risk factors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../appendices/cardiotocography.html">Cardiotocography</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/parental_outcomes.html">Parental outcomes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/routine_data.html">Routinely collected data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/key_papers.html">Key Papers</a></li>
@@ -458,8 +458,14 @@ document.write(`
 <h1>Summary of possible indicators<a class="headerlink" href="#summary-of-possible-indicators" title="Link to this heading">#</a></h1>
 <div class="admonition-executive-summary admonition">
 <p class="admonition-title">Executive summary</p>
-<p><strong>Option 1:</strong> Indicators where someone else decided HIE occurred</p>
-<p><strong>Option 2:</strong> Combination of indicators for hypoxia and encephalopathy (some combination of which would’ve been used by the person who decided HIE occurred above).</p>
+<p><strong>Standalone</strong>: Therapeutic hypothermia, diagnostic code for HIE, sentinel event</p>
+<p><strong>Combination</strong>:</p>
+<ul class="simple">
+<li><p><strong>Hypoxia</strong> - umbilical cord blood gas, sentinel event, resuscitation, meconium</p></li>
+<li><p><strong>Brain injury</strong> - transfer to neonatal care services, cerebral palsy diagnosis, neuroimaging evidence, symptoms of neonatal encephalopathy</p></li>
+<li><p><strong>Both</strong> - Apgar</p></li>
+</ul>
+<p><strong>Not recommended</strong>: Death, abnormal CTG</p>
 </div>
 <section id="context">
 <h2>Context<a class="headerlink" href="#context" title="Link to this heading">#</a></h2>
@@ -478,6 +484,7 @@ document.write(`
 <ul class="simple">
 <li><p><strong>Therapeutic hypothermia:</strong> Alone, this outcome is specific to HIE and should capture moderate to severe HIE cases. Requires consideration of whether certain units would be more likely to treat certain infants (either over time, or who don’t meet the accepted criteria). Do be aware though that use of this as an outcome means that your definition of HIE is that criteria used to decide whether infants require cooling.</p></li>
 <li><p><strong>Diagnostic codes for HIE</strong> - A French validation suggested half of infants coded with HIE were false positive, and that over a third of infants with HIE were not identified. Uncertain for English data, or for codes beyond ICD P91.6.</p></li>
+<li><p><strong>Sentinel events</strong></p></li>
 </ul>
 </section>
 <section id="combination-indicators">
@@ -485,16 +492,28 @@ document.write(`
 <p>Combination of indicators for hypoxia and encephalopathy (some combination of which would’ve been used by the person who decided HIE occurred above). I’ve attempted to divide them into indicators of hypoxia v.s. encephalopathy - but many of these are often thought of quite blurrily (limitations of which are pointed out on last page).</p>
 <p>Indicators that hypoxia occurred:</p>
 <ul class="simple">
-<li><p><strong>Umbilical cord blood gas analysis</strong> - Must (a) consider metabolic acidosis, (b) not require low pH (as many infants with HIE won’t have low pH), and (c) not base decision only on low pH (as many infants with low pH won’t have HIE)</p></li>
+<li><p><strong>Umbilical cord blood gas analysis</strong> - Must (a) consider metabolic acidosis, (b) not require low pH (as many infants with HIE won’t have low pH), and (c) not base decision only on low pH (as many infants with low pH won’t have HIE)</p>
+<ul>
+<li><p>Steve Thornton: “I think cord blood gases are a better indicator than implied in your text (if low).”</p></li>
+</ul>
+</li>
 <li><p><strong>Sentinel events</strong></p></li>
 <li><p><strong>Resuscitation</strong> - Resuscitation (e.g. mechanical ventilation, CPR, adrenaline) is often required in infants with HIE and infants who receive therapeutic hypothermia. However, not all infants need it, and not all infants who need it will have HIE, so should not use alone as an indicator. You might focus on a particular type of resuscitation - e.g. mechanical ventilation. Intubation may also be used as part of resuscitation (but no longer an indicator for meconium at delivery, as newborns are no longer intubated for this)</p></li>
-<li><p><strong>Meconium-stained amniotic fluid</strong> - Various possible causes. Associated with HIE.</p></li>
+<li><p><strong>Meconium-stained amniotic fluid</strong> - Various possible causes. Associated with HIE.</p>
+<ul>
+<li><p>Steve Thornton: “Meconium is a weak indicator”</p></li>
+</ul>
+</li>
 </ul>
 <p>Indicators for brain injury:</p>
 <ul class="simple">
 <li><p><strong>Transfer to neonatal care services</strong> - Alone, this is not suitable as 95%+ of admitted infants will not have HIE. However, in combination with other indicators of HIE, it could support identifying more unwell infants with HIE (most unwell, if focussed on NICU).</p></li>
 <li><p><strong>Cerebral palsy diagnosis</strong> - Spastic or dyskinetic Cerebral Palsy is an important outcome in the context of HIE. However, not all HIE cases will lead to cerebral palsy, and HIE is not the only possible cause of cerebral palsy.</p></li>
-<li><p><strong>Neuroimaging evidence consistent with HIE</strong> - Not certain whether this data would be available, and whether it would be in a format we could interpret (i.e. without knowledge of MRI, just notes with conclusions of professional). Would definitely indicate brain injury occurred. Not certain whether it distinguishes cause of injury (i.e. HIE different patterns to NE of other causes) - but there are patterns typical of HIE infants, so it does help support the case for HIE in that sense.</p></li>
+<li><p><strong>Neuroimaging evidence consistent with HIE</strong> - Not certain whether this data would be available, and whether it would be in a format we could interpret (i.e. without knowledge of MRI, just notes with conclusions of professional). Would definitely indicate brain injury occurred. Not certain whether it distinguishes cause of injury (i.e. HIE different patterns to NE of other causes) - but there are patterns typical of HIE infants, so it does help support the case for HIE in that sense.</p>
+<ul>
+<li><p>Steve Thronton: “Neuro imaging is really helpful, but it needs correct interpretation and my feeling is that often the local reports do not reflect expert opinion.” “I think that neuro imaging can distinguish between HIE, and other causes, but I am not a neuroradiologist.”</p></li>
+</ul>
+</li>
 <li><p><strong>Symptoms of neonatal encephalopathy</strong></p></li>
 </ul>
 <p>Often used for both:</p>
@@ -506,7 +525,11 @@ document.write(`
 <h2>Not recommended<a class="headerlink" href="#not-recommended" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Death</strong> - Death is an outcome that can result from HIE - however, it doesn’t help us identify whether or not an infant had HIE.</p></li>
-<li><p><strong>Abnormal CTG</strong> - The high intra- and inter-observer variability in interpretation, likely minimal record of decision in records, and challenges in automated interpretation (and challenges of even getting that data) - along with the fact that this can have high false positive and false negative - mean I wouldn’t recommend this.</p></li>
+<li><p><strong>Abnormal CTG</strong> - The high intra- and inter-observer variability in interpretation, likely minimal record of decision in records, and challenges in automated interpretation (and challenges of even getting that data) - along with the fact that this can have high false positive and false negative - mean I wouldn’t recommend this.</p>
+<ul>
+<li><p>Steve Thronton: Agrees that CTG is not recommended</p></li>
+</ul>
+</li>
 </ul>
 </section>
 </section>
