@@ -51,6 +51,10 @@ chapters:
   sections:
   - file: examples/obstetric_examples
   - file: examples/instrumental_variables
+- file: our_study/intro
+  sections:
+  - file: our_study/finding_focus
+  - file: our_study/research_proposal
 - file: our_study/design_plan
 - file: appendices/intro
   sections:
