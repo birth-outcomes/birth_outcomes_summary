@@ -8,6 +8,7 @@ chapters:
   - file: background/stages
   - file: background/interventions
   - file: background/research_groups
+  - file: background/encephalopathy
 - file: outcomes/outcomes
   sections:
   - file: outcomes/neo_out_background
