@@ -6,6 +6,8 @@ As in [research proposal 1](./research_proposal.md).
 
 <mark>add some literature on causal inference</mark>
 
+i.e. previous ones Missing: consideration of treatment paradox
+
 ## Aims and objectives
 
 Comparing the incidence of HIE between similar patients who received an emergency caesarean versus those who had a vaginal delivery.

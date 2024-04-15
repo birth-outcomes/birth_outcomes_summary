@@ -40,8 +40,12 @@ The outcome is infants experiencing HIE. My current recommendation on measuring 
 
 ## Research design
 
-<mark> add description </mark>
+Machine learning model with various maternal, antenatal and labour characteristics - including:
+* Information derived from the fetal heart rate traces
+* Method of delivery (as a predictor in the model) - included due to the treatment paradox - as we might find unexpected protective relationships between the risk factor and the outcome otherwise, as they result in an intervention and then improved outcomes
 
 ## Limitations
+
+* Including all confounders can introduce bias due to the presence of colliders and mediators
 
 <mark>why can't we just include whether they had a caesarean as a predictor in the model... explain why that's a limited strategy...</mark>
