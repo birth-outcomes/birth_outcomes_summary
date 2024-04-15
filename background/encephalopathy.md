@@ -1,4 +1,4 @@
-# Neonatal encephalopathy (NE)
+# Neonatal encephalopathy
 
 `````{admonition} Executive summary
 :class: info
@@ -82,4 +82,8 @@ This section is in no way comprehensive - these are just a couple of random stat
 
 ## Interventions
 
-A
+Used widely: **therapeutic hypothermia** - see more [on this page](../outcomes/neo_out_cooling.md)
+
+Being investigated: **Magnesium sulfate** (MgSO<sub>4</sub>) -
+* Recent systematic review and meta-analysis of MgSO<sub>4</sub> randomised trials concluded that there was minimal evidence on long-term outcomes, but that it may improve short-term (in-hospital) outcomes without affecting mortality
+* Majority of trials gave 3 doses of MgSO<sub>4</sub> within 6 hours of birth [[Gowda et al. 2023]](https://doi.org/10.1016/j.jpeds.2023.113610)
