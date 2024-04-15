@@ -55,6 +55,10 @@ chapters:
   sections:
   - file: our_study/finding_focus
   - file: our_study/research_proposal
+  - file: our_study/research_proposal2
+  - file: our_study/research_proposal3
+  - file: our_study/research_proposal4
+  - file: our_study/references
 - file: appendices/intro
   sections:
   - file: our_study/our_dag
