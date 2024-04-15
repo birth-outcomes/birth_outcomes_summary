@@ -24,7 +24,14 @@ html:
   use_issues_button: true
   use_repository_button: true
 
-# For rendering mermaid diagrams
+# Citations
+bibtex_bibfiles:
+    - references.bib
+
+# Citation style, and rendering mermaid diagrams
 sphinx:
+  config:
+    bibtex_default_style: unsrt
+    bibtex_reference_style: super
   extra_extensions:
   - sphinxcontrib.mermaid
