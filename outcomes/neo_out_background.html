@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Examples of identifying HIE &#8212; Birth Outcomes</title>
+    <title>Identifying HIE &#8212; Birth Outcomes</title>
   
   
   
@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'outcomes/neo_out_background';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Summary of possible indicators" href="neo_out_summary.html" />
+    <link rel="next" title="Indicator overview" href="neo_out_summary.html" />
     <link rel="prev" title="Identifying hypoxic ischaemic encephalopathy (HIE)" href="outcomes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -183,11 +183,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../background/stages.html">Stages of pregnancy and birth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../background/interventions.html">Interventions during labour</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../background/research_groups.html">Research groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/encephalopathy.html">Neonatal encephalopathy</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="outcomes.html">Identifying hypoxic ischaemic encephalopathy (HIE)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Examples of identifying HIE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="neo_out_summary.html">Summary of possible indicators</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Identifying HIE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neo_out_summary.html">Indicator overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="neo_out_cooling.html">Therapeutic hypothermia</a></li>
 <li class="toctree-l2"><a class="reference internal" href="neo_out_hie_diagnosis.html">Diagnostic codes for HIE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="neo_out_blood.html">Umbilical cord blood gas analysis</a></li>
@@ -232,8 +233,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../examples/instrumental_variables.html">Instrumental variables</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../our_study/design_plan.html">Our study</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../appendices/intro.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../our_study/intro.html">Our study</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/finding_focus.html">Finding a focus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/research_proposal.html">HIE proposal 1: predicting HIE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/research_proposal2.html">HIE proposal 2: caesarean v.s. vaginal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/research_proposal3.html">HIE proposal 3: timing of caesarean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/research_proposal4.html">HIE proposal 4: vaginal only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../our_study/references.html">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendices/intro.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../our_study/our_dag.html">HIE DAG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../our_study/our_target_trial_protocol.html">HIE target trial protocol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendices/neo_out_enceph_treatment_outcomes.html">Challenge 2: Outcomes for trials</a></li>
@@ -429,7 +438,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Examples of identifying HIE</h1>
+    <h1>Identifying HIE</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -439,13 +448,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neonatal-encephalopathy-ne">Neonatal encephalopathy (NE)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broad-definition-of-ne">Broad definition of NE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#causes-of-ne">Causes of NE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#risks-for-and-signs-of-hie">Risks for and signs of HIE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incidence">Incidence</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnosing-hie">Diagnosing HIE</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1-identifying-cause">Challenge 1: Identifying cause</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-diagnosis-of-ne">Initial diagnosis of NE</a></li>
@@ -480,18 +482,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="examples-of-identifying-hie">
-<h1>Examples of identifying HIE<a class="headerlink" href="#examples-of-identifying-hie" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="identifying-hie">
+<h1>Identifying HIE<a class="headerlink" href="#identifying-hie" title="Link to this heading">#</a></h1>
 <div class="info admonition">
 <p class="admonition-title">Executive summary</p>
-<p><strong>Neonatal encephalopthy (NE)</strong>:</p>
-<ul class="simple">
-<li><p>NE refers to neurological dysfunction in late pre-term or term infants, characterised by seizures, impaired consciousness, respiratory difficulties and reduced tone.</p></li>
-<li><p>Causes include hypoxia-ischemia, stroke, infection, intracranial hemorrhage, congenital anomalies, neurometabolic and genetic factors. NE can have a single or multiple causes.</p></li>
-<li><p>Approximately 1 to 6 per 1000 term births have NE. In more than half, the cause is unknown. The most common cause is hypoxia ischaemia (referred to as hypoxic-ischemic encephalopathy).</p></li>
-</ul>
-<p><strong>Hypoxic ischaemic encephalopathy (HIE)</strong>: Our challenge is that there has not been a clear, consistent consensus definition for HIE and NE. The terms have often been used interchangeably (despite HIE actually being a sub-type of NE). The current recommendation is to first diagnose NE, and only diagnose HIE on the basis of sufficient evidence.</p>
-<p>Steve Thornton highlighted that the findings of Kurinczuk et al. 2010, and Ellenberg and Nelson 2012 are very important. They suggest that HIE is identified based on the <strong>presence of sentinel event</strong> like uterine rupture, major placental abruption, or cord prolapse (and NOT features that are not specific to hypoxia ischaemia).</p>
+<p>Our challenge is that there has not been a clear, consistent consensus definition for HIE and neonatal encephalopathy (NE). The terms have often been used interchangeably (despite HIE actually being a sub-type of NE). The current recommendation is to first diagnose NE, and only diagnose HIE on the basis of sufficient evidence.</p>
+<p>Steve Thornton highlighted that the findings of Kurinczuk et al. 2010, and Ellenberg and Nelson 2012 are very important. They suggest that HIE is identified based on the <strong>presence of sentinel event</strong> like uterine rupture, major placental abruption, or cord prolapse (and NOT features that are not specific to hypoxia ischaemia). However, it is worth being aware that 10-36% HIE cases have a recognised sentinel event (as on sentinel event page).</p>
 <p>Other recent recommendations for defining (and thereby identifying/diagnosing/distinguishing HIE) are:</p>
 <ul class="simple">
 <li><p>Neonatal Data Analysis Unit (required one of):</p>
@@ -537,90 +533,6 @@ document.write(`
 <p>The DEFiNE group are currently working on research to establish consensus definition for NE.</p>
 <p>Another option here is - <strong>instead of trying to get a diagnosis of HIE</strong> - you focus on things like admission to neonatal unit, low pH, resuscitation - and although this is no longer specific to HIE, it allows you to have a clear and defined endpoint, and could still be useful clinically.</p>
 </div>
-<section id="neonatal-encephalopathy-ne">
-<h2>Neonatal encephalopathy (NE)<a class="headerlink" href="#neonatal-encephalopathy-ne" title="Link to this heading">#</a></h2>
-<section id="broad-definition-of-ne">
-<h3>Broad definition of NE<a class="headerlink" href="#broad-definition-of-ne" title="Link to this heading">#</a></h3>
-<p>Neonatal encephalopathy (NE) refers to brain disease, damage or malfunction, as a result of perinatal brain injury. The broad clinical definition of NE is that it is:</p>
-<ul class="simple">
-<li><p>A neurological syndrome</p></li>
-<li><p>In infants born at or beyond 35 weeks of gestation (late pre-term or term)</p></li>
-<li><p>Characterised by:</p>
-<ul>
-<li><p>Seizures</p></li>
-<li><p>Impaired levels of consciousness</p></li>
-<li><p>Difficulties initiating and maintaining respiration</p></li>
-<li><p>Reduced tone and reflexes<a class="reference external" href="https://doi.org/10.1038/s41390-023-02775-z">[DEFiNE - Molloy et al. 2023]</a><a class="reference external" href="https://doi.org/10.1038/s41390-023-02938-y">[COHESION - Quirke et al. 2013]</a></p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section id="causes-of-ne">
-<h3>Causes of NE<a class="headerlink" href="#causes-of-ne" title="Link to this heading">#</a></h3>
-<p>Possible causes of NE include:</p>
-<ul class="simple">
-<li><p><strong>Hypoxia ischaemia</strong> (most common cause, “hypoxia” means low levels of oxygen in blood flowing to tissues, and “ischaemia” means blood flow (and therefore oxygen) is restricted/reduced to tissues) (this has sometimes been referred to as asphyxia, perinatal asphyxia, or birth asphyxia - but these terminology are not recommended) (when this is the case, it is referred to as <strong>hypoxic-ischemic encephalopathy</strong>)</p></li>
-<li><p><strong>Perinatal/neonatal stroke</strong> (ischemic perinatal stroke (IPS) is the leading known cause of hemiplegic CP <a class="reference external" href="https://doi.org/10.1016/j.gpeds.2022.100025">[source]</a>)</p></li>
-<li><p><strong>Infection</strong> (chorioamnionitis)</p></li>
-<li><p><strong>Intracranial haemorrhage</strong> (bleed in the skull/brain)</p></li>
-<li><p><strong>Congenital brain anomalies/malformations</strong> (brain ‘abnormalities present at birth that can result from developmental disruptions at various embryonic or fetal stages’<a class="reference external" href="https://doi.org/10.1016/j.spen.2022.100973">[source]</a>)</p></li>
-<li><p><strong>Neurometabolic</strong> (extensive and diverse set of neurometabolic disorders that can impact the neonatal prain, presentation is non-specific and can mimic acquired things like HIE and sepsis. They are rare, and are primarily genetic disorders leading to disruption of enzyme activity, cellular transport, or energy production <a class="reference external" href="https://journals.lww.com/topicsinmri/fulltext/2018/08000/neurometabolic_disorders_of_the_newborn.1.aspx">[source]</a>)</p></li>
-<li><p><strong>Genetic and epigenetics factors</strong><a class="reference external" href="https://doi.org/10.1038/s41390-023-02938-y">[COHESION - Quirke et al. 2013]</a><a class="reference external" href="https://www.eoeneonatalpccsicnetwork.nhs.uk/wp-content/uploads/2021/10/HIE-Guideline.pdf">[Source - NHS East of England Guidelines for Management of Infants with Suspected HIE]</a></p></li>
-</ul>
-<p>NE <strong>does not have to have a single cause</strong> - for example, you could distinguish between hypoxia-ischaemia alone, a combination of other etiologies with hypoxia ischaemia, or non-HI-related etiology.<a class="reference external" href="https://doi.org/10.1038/s41390-023-02775-z">[DEFiNE - Molloy et al. 2023]</a> ‘Sentinel events such as cord prolapse, uterine rupture, or abruptio placentae may be clearly associated with HIE but often HIE is a <strong>secondary</strong> event. Therefore although hypoxia-ischemia may be involved, the exact cause of HIE is often not identified. Causes include cord prolapse, uterine rupture, abruptio placenta, placenta previa, maternal hypotension, breech presentation, shoulder dystocia’<a class="reference external" href="https://doi.org/10.1053%2Fj.nainr.2011.07.004">[source]</a></p>
-<p>As commented by Steve Thornton, we need to consider both <strong>infection</strong> (chorioamnionitis) and hypoxia. Infection will make the effect of hypoxia worse. We may not be able to seperate them completely.</p>
-<p>There have been several medical malpractice claims related to HIE. This list of causes from <a class="reference external" href="https://www.michigancerebralpalsyattorneys.com/causes-and-risk-factors-of-cerebral-palsy/labor-and-delivery-problems/hypoxic-ischemic-encephalopathy-hie/hypoxic-ischemic-encephalopathy-hie-infographic/">Michigan Cerbral Palsy Attornerys</a> includes some examples that relate to that.</p>
-<ul class="simple">
-<li><p>Birth trauma - delayed emergency C-section, prolonged and arrested labour, post-term pregnancy, anaesthesia mistakes, intracrainal haemmhorage, fetal monitoring errors</p></li>
-<li><p>Abnormal size and presentation - cephalopelvic disproportion (CPD), breech presentation, face presentation, macrosomia</p></li>
-<li><p>Labour and delivery problems - miuse of oxytocin or cytotec, uterine rupture, placental abruption, umbilical cord problems (prolapse, compression, nuchal and short), placenta previa, uteroplacental insufficiency, premature rupture of membranes</p></li>
-<li><p>Maternal health problems - pre-eclampsia, polyhydramnios, oligohydramnios</p></li>
-<li><p>Infant health problems - fetal stroke, mismanagement of fetal respiration after delivery, mismanaged of fetal anemia after delivery</p></li>
-</ul>
-<p>Note: Haven’t checked all these - but for example of fetal stroke, from a quick google, it appears that HIE and neonatal stroke can often occur together, and that it seems more that the asphyxia is then a risk factor for stroke. Steve Thornton confirmed that HIE and stroke are related.</p>
-</section>
-<section id="risks-for-and-signs-of-hie">
-<h3>Risks for and signs of HIE<a class="headerlink" href="#risks-for-and-signs-of-hie" title="Link to this heading">#</a></h3>
-<p>Risk of HIE before birth is increased with observation of: ‘decreased fetal movement, severe maternal cramping (often accompanied by severe back pain), abnormal fetal heart rate, abnormal contraction pattern, vaginal bleeding, abnormally low or high maternal weight gain, maternal high blood pressure’.</p>
-<p>Signs and symptoms of HIE shortly after birth (in neonates) include: ‘low Apgar scores at five or 10 minutes, seizures, difficulty feeding, breathing problems, hypotonia (low muscle tone), organ problems (failure, damage), acidemia (low pH in umbilical cord blood gas tests), abnormal response to light, state of abnormal consciousness (hyperalert or lethargic), coma’</p>
-<p>‘<strong>In some children with HIE, especially those with mild to moderate HIE, obvious signs and symptoms of an oxygen-depriving event may not be present at the time of birth</strong>… HIE may beconme more evident later in infancy.’ Signs and symptoms of HIE during infancy and early childhood include: ‘impaired motor function, delayed developmental milestones, seizure disorder, delayed growth, hearing and visual impairments’. <a class="reference external" href="https://hiehelpcenter.org/medical/identifying-hie/sign-symptoms/">[Source]</a></p>
-</section>
-<section id="incidence">
-<h3>Incidence<a class="headerlink" href="#incidence" title="Link to this heading">#</a></h3>
-<p>Below are some incidence estimates from a few difference sources.</p>
-<p>NE:</p>
-<ul class="simple">
-<li><p>‘The reported incidence of NE from different studies ranges from about 2.0 to 6.0 per 1000 live births. The incidence of HIE ranges from about 1.0 to 8.0, excluding the estimate from Nigeria. There are, however, several difficulties in interpreting these figures. With the exception of the data from Derby, UK where three retrospective analyses were conducted using similar methods over a 20 year period no two sets of investigators used the same case definition for either NE or HIE. Furthermore, only two of the estimates of NE incidence and three of the HIE estimates come from studies which were population-based’.<a class="reference external" href="https://doi.org/10.1016/j.earlhumdev.2010.05.010">[Kurinczuk et a. 2010]</a></p></li>
-<li><p>1.15 million infants per annum.<a class="reference external" href="https://doi.org/10.1038/s41390-023-02938-y">[COHESION - Quirke et al. 2013]</a></p></li>
-<li><p>Affects 2 to 6 per 1000 term births.<a class="reference external" href="https://doi.org/10.1542/neo.22-3-e148">[Russ et al. 2021]</a>, or in 1-3 per 1000 term births<a class="reference external" href="https://doi.org/10.1016%2Fj.nbd.2015.09.011">[Hagberg et al. 2016]</a></p></li>
-</ul>
-<p>Unknown cause:</p>
-<ul class="simple">
-<li><p>In more than half of cases of encephalopathy, the cause is <strong>unidentified</strong>.<a class="reference external" href="https://doi.org/10.1038/s41390-018-0169-7">[Molloy et al. 2018]</a></p></li>
-</ul>
-<p>Hypoxia ischaemia as cause of NE:</p>
-<ul class="simple">
-<li><p>Hypoxia ischaemia contributes to approximately 29% of neonatal encephalopathy.<a class="reference external" href="https://doi.org/10.1038/s41390-023-02938-y">[COHESION - Quirke et al. 2013]</a></p></li>
-<li><p>Hypoxic ischaemic encephalopathy accounts for 1.5 per 1000 term births.<a class="reference external" href="https://doi.org/10.1542/neo.22-3-e148">[Russ et al. 2021]</a></p></li>
-<li><p>Hypoxia ischaemia is known to be ‘the sole instigator of encephalopathy in an estimated 7% of infants with NE. The Vermont Oxford Network Neonatal Encephalopathy Registry found that an asphyxia event accounted for 15% and inflammation 24% of cases of NE with other maternal etiologies also implicated’.<a class="reference external" href="https://doi.org/10.1038/s41390-018-0169-7">[Molloy and Bearer 2018]</a></p></li>
-<li><p>‘Some authors state that HIE is the cause of NE in 50%–80% of cases based on clinical, EEG, and MRI criteria.’<a class="reference external" href="https://doi.org/10.1038/s41390-018-0169-7">[Molloy and Bearer 2018]</a></p></li>
-<li><p>‘The incidence of HIE has not declined even with advances in obstetric care (i.e. fetal monitoring) aimed at preventing the hypoxic-ischemic event.’<a class="reference external" href="https://doi.org/10.1053%2Fj.nainr.2011.07.004">[source]</a> Rapid recognition of and response to hypoxic ischaemia is extremely challenging for obstetricians.<a class="reference external" href="https://doi.org/10.1576/toag.13.3.169.27669">[source]</a></p></li>
-<li><p>The greatest burden of NE is in <strong>low-middle-income</strong> countries.<a class="reference external" href="https://doi.org/10.1038/s41390-023-02938-y">[COHESION - Quirke et al. 2013]</a></p></li>
-</ul>
-<p>This section is in no way comprehensive - these are just a couple of random statistics from various sources in varying cohorts - on outcomes of infants with HIE:</p>
-<ul class="simple">
-<li><p>‘Around 20%–50% of infants with HIE die early in infancy, and 25%–60% of surviving infants have long-term neurological disorders such as cerebral palsy, epilepsy, intellectual disability, and learning disabilities’.<a class="reference external" href="https://doi.org/10.3345/cep.2020.01459">[source]</a></p></li>
-<li><p>In a study of mild HIE, 4.1% (17/414) infants had the composite outcome, whilst 0.9% (4786/504661) without HIE had it. Infants with mild HIE are four times as likely to be diagnosed with the composite outcome (HR 4.42, 95% CI 2.75–7.12) compared with infants without HIE (outcome was composite of cerebral palsy, epilepsy, intellectual disability and death up to 6 years of age)<a class="reference external" href="https://doi.org/10.1111/1471-0528.17533">[source]</a></p></li>
-<li><p>By the age of 2, 40 to 60% of infants with HIE will either die or have severe disabilities.<a class="reference external" href="https://doi.org/10.1053%2Fj.nainr.2011.07.004">[source]</a> These include:</p>
-<ul>
-<li><p><strong>Intellectual disability</strong></p></li>
-<li><p><strong>Epilepsy</strong></p></li>
-<li><p><strong>Cerebral palsy (CP)</strong></p></li>
-</ul>
-</li>
-</ul>
-</section>
-</section>
 <section id="diagnosing-hie">
 <h2>Diagnosing HIE<a class="headerlink" href="#diagnosing-hie" title="Link to this heading">#</a></h2>
 <section id="challenge-1-identifying-cause">
@@ -819,7 +731,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Summary of possible indicators</p>
+        <p class="prev-next-title">Indicator overview</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -839,13 +751,6 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neonatal-encephalopathy-ne">Neonatal encephalopathy (NE)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broad-definition-of-ne">Broad definition of NE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#causes-of-ne">Causes of NE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#risks-for-and-signs-of-hie">Risks for and signs of HIE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incidence">Incidence</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnosing-hie">Diagnosing HIE</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1-identifying-cause">Challenge 1: Identifying cause</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-diagnosis-of-ne">Initial diagnosis of NE</a></li>

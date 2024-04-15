@@ -68,8 +68,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'our_study/intro';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Obstetric studies that address the treatment paradox" href="../design_methods/design_examples.html" />
-    <link rel="prev" title="Instrumental variables" href="../worked_examples/instrumental_variables.html" />
+    <link rel="next" title="Finding a focus" href="finding_focus.html" />
+    <link rel="prev" title="Instrumental variables" href="../examples/instrumental_variables.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,11 +183,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../background/stages.html">Stages of pregnancy and birth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../background/interventions.html">Interventions during labour</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../background/research_groups.html">Research groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/encephalopathy.html">Neonatal encephalopathy</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../outcomes/outcomes.html">Identifying hypoxic ischaemic encephalopathy (HIE)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_background.html">Examples of identifying HIE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_summary.html">Summary of possible indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_background.html">Identifying HIE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_summary.html">Indicator overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_cooling.html">Therapeutic hypothermia</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_hie_diagnosis.html">Diagnostic codes for HIE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_blood.html">Umbilical cord blood gas analysis</a></li>
@@ -227,13 +228,18 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../design_methods/design_other.html">Other design considerations</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../worked_examples/intro.html">Worked examples</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../worked_examples/instrumental_variables.html">Instrumental variables</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../examples/intro.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/obstetric_examples.html">Obstetric studies that address the treatment paradox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/instrumental_variables.html">Instrumental variables</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Our study</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_examples.html">Obstetric studies that address the treatment paradox</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design_plan.html">Research proposal: Machine learning to avoid adverse neonatal outcomes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="finding_focus.html">Finding a focus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="research_proposal.html">HIE proposal 1: predicting HIE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="research_proposal2.html">HIE proposal 2: caesarean v.s. vaginal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="research_proposal3.html">HIE proposal 3: timing of caesarean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="research_proposal4.html">HIE proposal 4: vaginal only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../appendices/intro.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -446,11 +452,15 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="our-study">
 <h1>Our study<a class="headerlink" href="#our-study" title="Link to this heading">#</a></h1>
-<p>This section begins to outline our study design.</p>
+<p>This section summarises things we need to consider when designing this study, then provides an example protocol/proposal.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../design_methods/design_examples.html">Obstetric studies that address the treatment paradox</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design_plan.html">Research proposal: Machine learning to avoid adverse neonatal outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finding_focus.html">Finding a focus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="research_proposal.html">HIE proposal 1: predicting HIE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="research_proposal2.html">HIE proposal 2: caesarean v.s. vaginal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="research_proposal3.html">HIE proposal 3: timing of caesarean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="research_proposal4.html">HIE proposal 4: vaginal only</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 </div>
 </section>
@@ -486,7 +496,7 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../worked_examples/instrumental_variables.html"
+       href="../examples/instrumental_variables.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -495,11 +505,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../design_methods/design_examples.html"
+       href="finding_focus.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Obstetric studies that address the treatment paradox</p>
+        <p class="prev-next-title">Finding a focus</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

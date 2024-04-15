@@ -1,4 +1,4 @@
-# Summary of possible indicators
+# Indicator overview
 
 `````{admonition} Executive summary
 

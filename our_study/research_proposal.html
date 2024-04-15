@@ -1,0 +1,649 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>HIE proposal 1: predicting HIE &#8212; Birth Outcomes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'our_study/research_proposal';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="HIE proposal 2: caesarean v.s. vaginal" href="research_proposal2.html" />
+    <link rel="prev" title="Finding a focus" href="finding_focus.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Birth Outcomes</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Birth outcomes summary
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../background/background.html">Background</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../background/stages.html">Stages of pregnancy and birth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/interventions.html">Interventions during labour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/research_groups.html">Research groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/encephalopathy.html">Neonatal encephalopathy</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../outcomes/outcomes.html">Identifying hypoxic ischaemic encephalopathy (HIE)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_background.html">Identifying HIE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_summary.html">Indicator overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_cooling.html">Therapeutic hypothermia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_hie_diagnosis.html">Diagnostic codes for HIE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_blood.html">Umbilical cord blood gas analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_sentinel.html">Sentinel events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_resus.html">Resuscitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_meconium.html">Meconium-stained amniotic fluid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_care.html">Transfer to neonatal care services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_cp.html">Cerebral palsy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_mri.html">Neuroimaging evidence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_enceph_symptoms.html">Symptoms of neonatal encephalopathy (NE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_apgar.html">Apgar scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_death.html">Death</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outcomes/neo_out_ctg.html">Abnormal CTG</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../causal_concepts/intro.html">Study design - causal concepts</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_intro_1_treatment_paradox.html">The treatment paradox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_intro_2_predict_vs_causal.html">Choosing between prediction and causal inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_intro_3_causal.html">Causal inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_counterfactuals.html">Counterfactuals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_dag_1.html">Directed acyclic graphs (DAGs) #1 (basics)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_dag_2.html">DAGs #2 (advanced concepts)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../causal_concepts/design_sem.html">Structural equation modelling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../design_methods/intro.html">Study design - causal methods</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_causal_assumptions.html">Causal assumptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_causal_estimands.html">Causal estimands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_target_trial.html">Target trial emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_observational.html">Observational study designs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_methods_1_intro.html">Methods #1: Introduction to methods to adjust for confounding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_methods_2_conventional.html">Methods #2: Conventional approaches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_methods_3_gmethods.html">Methods #3: G-methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_methods_4_unobserved.html">Methods #4: Methods for unobserved confounding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_methods_5_other.html">Methods #5: Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_methods/design_other.html">Other design considerations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../examples/intro.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/obstetric_examples.html">Obstetric studies that address the treatment paradox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/instrumental_variables.html">Instrumental variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Our study</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="finding_focus.html">Finding a focus</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">HIE proposal 1: predicting HIE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="research_proposal2.html">HIE proposal 2: caesarean v.s. vaginal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="research_proposal3.html">HIE proposal 3: timing of caesarean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="research_proposal4.html">HIE proposal 4: vaginal only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendices/intro.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="our_dag.html">HIE DAG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="our_target_trial_protocol.html">HIE target trial protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/neo_out_enceph_treatment_outcomes.html">Challenge 2: Outcomes for trials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/neo_out_chorio.html">More on chorioamnionitis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/fetal_risk_factors.html">Fetal risk factors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/parental_outcomes.html">Parental outcomes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/routine_data.html">Routinely collected data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/key_papers.html">Key Papers</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Four_study/research_proposal.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/our_study/research_proposal.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>HIE proposal 1: predicting HIE</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existing-studies">Existing studies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aims-and-objectives">Aims and objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inclusion-and-exclusion-criteria">Inclusion and exclusion criteria</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outcome">Outcome</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-design">Research design</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="hie-proposal-1-predicting-hie">
+<h1>HIE proposal 1: predicting HIE<a class="headerlink" href="#hie-proposal-1-predicting-hie" title="Link to this heading">#</a></h1>
+<p>I have included several examples of proposals, which all revolve around an example of a focus. This focus was simply based on what was most frequently discussed at our meeting earlier in Spring 2024. This focus was the problem of <strong>infants who would have benefitted from having a caesarean</strong>, and who go on to have <strong>hypoxic ischaemic encephalopathy</strong>, and then potentially further complications (for example, cerebral palsy).</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Neonatal encephalopathy (NE) refers to brain disease, damage or malfunction in late pre-term or term infants (born at or beyond 35 weeks). It is characterised by ‘challenges initiating and maintaining respiration, reduced tone and reflexes, seizures, and impaired levels of consciousness’.<span id="id1"><sup><a class="reference internal" href="references.html#id2" title="Eleanor J. Molloy, Aoife Branagan, Tim Hurley, Fiona Quirke, Declan Devane, Petek E. Taneri, Mohamed El-Dib, Frank H. Bloomfield, Beccy Maeso, Betsy Pilon, Sonia L. Bonifacio, Courtney J. Wusthoff, Lina Chalak, Cynthia Bearer, Deirdre M. Murray, Nadia Badawi, Suzann Campbell, Sarah Mulkey, Pierre Gressens, Donna M. Ferriero, Linda S. de Vries, Karen Walker, Sarah Kay, Geraldine Boylan, Chris Gale, Nicola J. Robertson, Mary D’Alton, Alistair Gunn, and Karin B. Nelson. Neonatal encephalopathy and hypoxic–ischemic encephalopathy: moving from controversy to consensus definitions and subclassification. Pediatric Research, 94(6):1860–1863, December 2023. Publisher: Nature Publishing Group. URL: https://www.nature.com/articles/s41390-023-02775-z (visited on 2024-04-15), doi:10.1038/s41390-023-02775-z.">1</a>,<a class="reference internal" href="references.html#id3" title="Fiona A. Quirke, Shabina Ariff, Malcolm R. Battin, Caitlin Bernard, Linda Biesty, Frank H. Bloomfield, Mandy Daly, Elaine Finucane, Patricia Healy, David M. Haas, Jamie J. Kirkham, Vincent Kibet, Sarah Koskei, Shireen Meher, Eleanor J. Molloy, Maira Niaz, Elaine Ní Bhraonáin, Christabell Omukagah Okaronon, Matthew J. Parkes, Farhana Tabassum, Karen Walker, James W. H. Webbe, and Declan Devane. COHESION: a core outcome set for the treatment of neonatal encephalopathy. Pediatric Research, 95(4):922–930, March 2024. Publisher: Nature Publishing Group. URL: https://www.nature.com/articles/s41390-023-02938-y (visited on 2024-04-15), doi:10.1038/s41390-023-02938-y.">2</a></sup></span> The cause of NE is often difficult to identify, with careful phenotyping using a range of measurements and examinations required to differentiate between posisble causes. Morover, there may not just be one cause, but several factors that lead to NE.<span id="id2"><sup><a class="reference internal" href="references.html#id2" title="Eleanor J. Molloy, Aoife Branagan, Tim Hurley, Fiona Quirke, Declan Devane, Petek E. Taneri, Mohamed El-Dib, Frank H. Bloomfield, Beccy Maeso, Betsy Pilon, Sonia L. Bonifacio, Courtney J. Wusthoff, Lina Chalak, Cynthia Bearer, Deirdre M. Murray, Nadia Badawi, Suzann Campbell, Sarah Mulkey, Pierre Gressens, Donna M. Ferriero, Linda S. de Vries, Karen Walker, Sarah Kay, Geraldine Boylan, Chris Gale, Nicola J. Robertson, Mary D’Alton, Alistair Gunn, and Karin B. Nelson. Neonatal encephalopathy and hypoxic–ischemic encephalopathy: moving from controversy to consensus definitions and subclassification. Pediatric Research, 94(6):1860–1863, December 2023. Publisher: Nature Publishing Group. URL: https://www.nature.com/articles/s41390-023-02775-z (visited on 2024-04-15), doi:10.1038/s41390-023-02775-z.">1</a></sup></span> The possible causes of NE include: hypoxia ischaemia, neonatal stroke, infection, intracranial haemorrhage, congenital brain anomalies, as well as neurometabolic, genetic and epigenetic factors.<span id="id3"><sup><a class="reference internal" href="references.html#id3" title="Fiona A. Quirke, Shabina Ariff, Malcolm R. Battin, Caitlin Bernard, Linda Biesty, Frank H. Bloomfield, Mandy Daly, Elaine Finucane, Patricia Healy, David M. Haas, Jamie J. Kirkham, Vincent Kibet, Sarah Koskei, Shireen Meher, Eleanor J. Molloy, Maira Niaz, Elaine Ní Bhraonáin, Christabell Omukagah Okaronon, Matthew J. Parkes, Farhana Tabassum, Karen Walker, James W. H. Webbe, and Declan Devane. COHESION: a core outcome set for the treatment of neonatal encephalopathy. Pediatric Research, 95(4):922–930, March 2024. Publisher: Nature Publishing Group. URL: https://www.nature.com/articles/s41390-023-02938-y (visited on 2024-04-15), doi:10.1038/s41390-023-02938-y.">2</a>,<a class="reference internal" href="references.html#id4" title="Topun Austin, Nazakat Merchant, and Lydia Harrington. Guidelines for Management of Infants with Suspected Hypoxic Ischaemic Encephalopathy (HIE). East of England Neonatal Operation Devliery network, September 2021. URL: https://www.eoeneonatalpccsicnetwork.nhs.uk/wp-content/uploads/2021/10/HIE-Guideline.pdf (visited on 2024-04-15).">3</a></sup></span></p>
+<p>Hypoxia ischaemia is the most common cause of NE. This is when there has been restricted blood flow to tissues (“ischaemia”), meaning that tissues that have low/insufficient oxygen levels (“hypoxia”).<span id="id4"><sup><a class="reference internal" href="references.html#id5" title="Richard Klabunde. Ischemia and Hypoxia. January 2023. URL: https://cvphysiology.com/cad/cad005 (visited on 2024-04-15).">4</a></sup></span> This type of NE is referred to as hypoxic ischaemic encephalopathy (HIE), but was often previously referred to as birth/perinatal asphyxia.<span id="id5"><sup><a class="reference internal" href="references.html#id6" title="Bliss. Hypoxic-ischaemic encephalopathy (HIE). URL: https://www.bliss.org.uk/parents/about-your-baby/medical-conditions/hypoxic-ischaemic-encephalopathy-hie (visited on 2024-04-15).">5</a></sup></span> The current treatment for infants with suspected HIE is therapeutic hypothermia. This must be started within six hours of birth,<span id="id6"><sup><a class="reference internal" href="references.html#id7" title="Corline E. J. Parmentier, Linda S. de Vries, and Floris Groenendaal. Magnetic Resonance Imaging in (Near-)Term Infants with Hypoxic-Ischemic Encephalopathy. Diagnostics, 12(3):645, March 2022. Number: 3 Publisher: Multidisciplinary Digital Publishing Institute. URL: https://www.mdpi.com/2075-4418/12/3/645 (visited on 2024-04-15), doi:10.3390/diagnostics12030645.">6</a></sup></span> and involves cooling of the infant’s head or whole body to reduce their body temperature to 33-36.5°C for 48 to 72 hours.<span id="id7"><sup><a class="reference internal" href="references.html#id8" title="Kimberly A. Allen and Debra H. Brandon. Hypoxic Ischemic Encephalopathy: Pathophysiology and Experimental Treatments. Newborn and Infant Nursing Reviews, 11(3):125–133, September 2011. URL: https://www.sciencedirect.com/science/article/pii/S1527336911001000 (visited on 2024-04-15), doi:10.1053/j.nainr.2011.07.004.">7</a></sup></span> Potential consequences of moderate/severe HIE include mortality, and the development of cerebral palsy, epilepsy, and intellectual disability.<span id="id8"><sup><a class="reference internal" href="references.html#id10" title="Gyu Hong Shim. Which factors predict outcomes of neonates with hypoxic-ischemic encephalopathy following therapeutic hypothermia? Clinical and Experimental Pediatrics, 64(4):169–171, April 2021. URL: http://www.e-cep.org/journal/view.php?doi=10.3345/cep.2020.01459 (visited on 2024-04-15), doi:10.3345/cep.2020.01459.">8</a>,<a class="reference internal" href="references.html#id9" title="Anna E. Törn, Susanne Hesselman, Kine Johansen, Johan Ågren, Anna-Karin Wikström, and Maria Jonsson. Outcomes in children after mild neonatal hypoxic ischaemic encephalopathy: A population-based cohort study. BJOG: An International Journal of Obstetrics &amp; Gynaecology, 130(13):1602–1609, 2023. _eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1111/1471-0528.17533. URL: https://onlinelibrary.wiley.com/doi/abs/10.1111/1471-0528.17533 (visited on 2024-04-15), doi:10.1111/1471-0528.17533.">9</a></sup></span></p>
+<p>There are several risk factors associated with HIE. These include maternal and pregnancy characteristics which indicate that a delivery is at higher risk of HIE occuring, as well as observations during labour which indicate HIE may have occured/is more likely to have occurred. Risk factors for HIE during labour include: decreased fetal movement; abnormal fetal heart rate or contractions patterns; severe maternal cramping, maternal high blood pressure, or vaginal bleeding. However, in some cases (particularly infants with mild to moderate HIE), there may not be any obvious signs or symptoms of HIE during labour or at the time of birth.<span id="id9"><sup><a class="reference internal" href="references.html#id11" title="HIE Help Center. Hypoxic-Ischemic Encephalopathy (HIE): Signs and Symptoms. URL: https://hiehelpcenter.org/medical/identifying-hie/sign-symptoms/ (visited on 2024-04-15).">10</a></sup></span></p>
+<p>If a clinician suspects that HIE is likely, they may choose to perform an emergency caesarean section, based on the rationale that if an infant is truly experiencing HIE, sooner delivery would reduce the severity of HIE by reducing the length of time that the infant experiences hypoxia ischaemia. However, in the United States, a third of malpractice claims in obstetrics are related to neurological injuries in neonates, with factors leading to these including that clinicians have failed to account for risk factors known before birth, and failure to identify or act on (or delays in acting on) identified risk factors during birth like abnormal fetal heart rate, fetal distress, and malpresentation.<span id="id10"><sup><a class="reference internal" href="references.html#id13" title="Wendy M. Leith, Maurice P. Zeegers, and Michael D. Freeman. A predictive model for perinatal hypoxic ischemic encephalopathy using linked maternal and neonatal hospital data. Annals of Epidemiology, 89:29–36, January 2024. URL: https://www.sciencedirect.com/science/article/pii/S1047279723002247 (visited on 2024-04-15), doi:10.1016/j.annepidem.2023.11.011.">11</a></sup></span></p>
+<section id="existing-studies">
+<h3>Existing studies<a class="headerlink" href="#existing-studies" title="Link to this heading">#</a></h3>
+<p>There have been some studies that have created predictive models for HIE which incorporate a wide range of known risk factors. The rationale/hope of these studies is that the development of models that can combined information on risk to generate an overall estimate of risk, can then help clinicians identify high-risk pregnancies and plan delivery accordingly to hopefully prevent HIE.</p>
+<p>Odd et al. 2017<span id="id11"><sup><a class="reference internal" href="references.html#id14" title="David Odd, Axel Heep, Karen Luyt, and Tim Draycott. Hypoxic-ischemic brain injury: Planned delivery before intrapartum events. Journal of Neonatal-Perinatal Medicine, 10(4):347–353, December 2017. URL: https://www.medra.org/servlet/aliasResolver?alias=iospress&amp;doi=10.3233/NPM-16152 (visited on 2024-04-15), doi:10.3233/NPM-16152.">12</a></sup></span> use a logistic regression model to predict cases of HIE (i.e. infants who need resuscitation and had NE symptoms). It is based on data from over 14,000 infants in a Bristol cohort study, with half used for training and half for validation. In the training set (n=6712), 130 infants had HIE (0.01%). The model includes a range of maternal, antepartum and intrapartum characteristics - although it does not include the delivery method. However, they do estimate the number of elective caesareans that would be required to prevent one case of HIE in different antenatal risk groups.<span id="id12"><sup><a class="reference internal" href="references.html#id14" title="David Odd, Axel Heep, Karen Luyt, and Tim Draycott. Hypoxic-ischemic brain injury: Planned delivery before intrapartum events. Journal of Neonatal-Perinatal Medicine, 10(4):347–353, December 2017. URL: https://www.medra.org/servlet/aliasResolver?alias=iospress&amp;doi=10.3233/NPM-16152 (visited on 2024-04-15), doi:10.3233/NPM-16152.">12</a></sup></span></p>
+<p>Leith et al. 2024<span id="id13"><sup><a class="reference internal" href="references.html#id13" title="Wendy M. Leith, Maurice P. Zeegers, and Michael D. Freeman. A predictive model for perinatal hypoxic ischemic encephalopathy using linked maternal and neonatal hospital data. Annals of Epidemiology, 89:29–36, January 2024. URL: https://www.sciencedirect.com/science/article/pii/S1047279723002247 (visited on 2024-04-15), doi:10.1016/j.annepidem.2023.11.011.">11</a></sup></span> use a logistic regression model to predict cases of HIE (i.e. presence of HIE diagnostic code) in a US dataset of 836,216 births - of which, 376 (0.00045%) had a diagnosis of HIE. The model includes a range of maternal, antepartum and intrapartum characteristics - including the delivery type (with predictors including forceps, vacuum, elective C-section, emergency C-section, and intrapartum C-section).<span id="id14"><sup><a class="reference internal" href="references.html#id13" title="Wendy M. Leith, Maurice P. Zeegers, and Michael D. Freeman. A predictive model for perinatal hypoxic ischemic encephalopathy using linked maternal and neonatal hospital data. Annals of Epidemiology, 89:29–36, January 2024. URL: https://www.sciencedirect.com/science/article/pii/S1047279723002247 (visited on 2024-04-15), doi:10.1016/j.annepidem.2023.11.011.">11</a></sup></span></p>
+<p>Abnormal fetal heart rate is an important indicator which we’d hope to include in our analysis, but is not included in Odd et al. 2017<span id="id15"><sup><a class="reference internal" href="references.html#id14" title="David Odd, Axel Heep, Karen Luyt, and Tim Draycott. Hypoxic-ischemic brain injury: Planned delivery before intrapartum events. Journal of Neonatal-Perinatal Medicine, 10(4):347–353, December 2017. URL: https://www.medra.org/servlet/aliasResolver?alias=iospress&amp;doi=10.3233/NPM-16152 (visited on 2024-04-15), doi:10.3233/NPM-16152.">12</a></sup></span>, and is included via identification of an ICD code for fetal heart rate abnormality in Leith et al. 2024<span id="id16"><sup><a class="reference internal" href="references.html#id13" title="Wendy M. Leith, Maurice P. Zeegers, and Michael D. Freeman. A predictive model for perinatal hypoxic ischemic encephalopathy using linked maternal and neonatal hospital data. Annals of Epidemiology, 89:29–36, January 2024. URL: https://www.sciencedirect.com/science/article/pii/S1047279723002247 (visited on 2024-04-15), doi:10.1016/j.annepidem.2023.11.011.">11</a></sup></span>. There is a study by Eden et al. 2018<span id="id17"><sup><a class="reference internal" href="references.html#id15" title="Robert D. Eden, Mark I. Evans, Shara M. Evans, and Barry S. Schifrin. The “Fetal Reserve Index”: Re-Engineering the Interpretation and Responses to Fetal Heart Rate Patterns. Fetal Diagnosis and Therapy, 43(2):90–104, June 2017. URL: https://doi.org/10.1159/000475927 (visited on 2024-04-15), doi:10.1159/000475927.">13</a></sup></span> which includes more detailed information on fetal heart rate. They used fetal heart rate, baseline variability, accelerations, decelerations and uterine activity - in combination with other maternal, obstetrical and fetal risk factors - to produce a risk score. This score was to distinguish between infants with intrapartum neurological injury and subsequent cerebral palsy, and control term infants who had a normal fetal tracing on admission.<span id="id18"><sup><a class="reference internal" href="references.html#id15" title="Robert D. Eden, Mark I. Evans, Shara M. Evans, and Barry S. Schifrin. The “Fetal Reserve Index”: Re-Engineering the Interpretation and Responses to Fetal Heart Rate Patterns. Fetal Diagnosis and Therapy, 43(2):90–104, June 2017. URL: https://doi.org/10.1159/000475927 (visited on 2024-04-15), doi:10.1159/000475927.">13</a></sup></span></p>
+</section>
+</section>
+<section id="aims-and-objectives">
+<h2>Aims and objectives<a class="headerlink" href="#aims-and-objectives" title="Link to this heading">#</a></h2>
+<p>Predicting the occurence of HIE.</p>
+</section>
+<section id="inclusion-and-exclusion-criteria">
+<h2>Inclusion and exclusion criteria<a class="headerlink" href="#inclusion-and-exclusion-criteria" title="Link to this heading">#</a></h2>
+<p>Inclusion criteria:</p>
+<ul class="simple">
+<li><p>Infants born at or beyond 35 weeks of gestation</p></li>
+<li><p>Singleton pregnancies</p></li>
+</ul>
+</section>
+<section id="outcome">
+<h2>Outcome<a class="headerlink" href="#outcome" title="Link to this heading">#</a></h2>
+<p>The outcome is infants experiencing HIE. My current recommendation on measuring this would be to follow the protocol defined by the Neonatal Data Analysis Unit and the Department of Health and use either:</p>
+<ul class="simple">
+<li><p>Diagnosis of NE or HIE (severe, moderate, grade 2 or grade 3)</p></li>
+<li><p>Therapeutic hypothermia for 2 or more consecutive days<span id="id19"><sup><a class="reference internal" href="references.html#id12" title="Chris Gale, Eugene Stanikov, Sena Jawad, Sabita Uthaya, and Neena Modi. Brain injury occurring during or soon after birth: a report for the national maternity ambition commissioned by the Department of Health. Imperial College London, March 2017. URL: https://assets.publishing.service.gov.uk/media/5a82446ced915d74e6236ad3/Report_on_brain_injury_occurring_during_or_soon_after_birth.pdf (visited on 2024-04-15).">14</a></sup></span></p></li>
+</ul>
+</section>
+<section id="research-design">
+<h2>Research design<a class="headerlink" href="#research-design" title="Link to this heading">#</a></h2>
+<p>Machine learning model with various maternal, antenatal and labour characteristics - including:</p>
+<ul class="simple">
+<li><p>Information derived from the fetal heart rate traces.</p></li>
+<li><p>Method of delivery (as a predictor in the model).</p></li>
+</ul>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h2>
+<p><mark>why can’t we just include whether they had a caesarean as a predictor in the model… explain why that’s a limited strategy…</mark></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./our_study"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="finding_focus.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Finding a focus</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="research_proposal2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">HIE proposal 2: caesarean v.s. vaginal</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existing-studies">Existing studies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aims-and-objectives">Aims and objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inclusion-and-exclusion-criteria">Inclusion and exclusion criteria</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outcome">Outcome</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-design">Research design</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Amy Heather
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
