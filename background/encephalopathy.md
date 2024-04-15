@@ -11,7 +11,7 @@
 
 ## Broad definition of NE
 
-Neonatal encephalopathy (NE) refers to brain disease, damage or malfunction, as a result of perinatal brain injury. The broad clinical definition of NE is that it is:
+Neonatal encephalopathy (NE) refers to brain disease, damage or malfunction in infants, with the broad clinical definition of NE being that it is:
 * A neurological syndrome
 * In infants born at or beyond 35 weeks of gestation (late pre-term or term)
 * Characterised by:

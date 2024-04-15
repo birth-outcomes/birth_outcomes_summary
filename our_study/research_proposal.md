@@ -1,12 +1,27 @@
 # Proposal example: caesarean and HIE
 
-Here, I have focussed on one example (simply as it was the most discussed at our meeting earlier in the year). This is the problem of infants who would have benefitted from having a caesarean, and who go on to have hypoxic ischaemic encephalopathy, and then potentially further complications (for example, cerebral palsy).
-
----
+This is an example of a proposal - but this does not necessarily have to be our focus - it was simply based on what was most frequently discussed at our meeting earlier in Spring 2024. This focus was the problem of **infants who would have benefitted from having a caesarean**, and who go on to have **hypoxic ischaemic encephalopathy**, and then potentially further complications (for example, cerebral palsy).
 
 ## Introduction
 
-<mark>set scene, provide context, what is of interest, what do we already know, what has not adequately been answered</mark>
+Neonatal encephalopathy (NE) refers to brain disease, damage or malfunction in late pre-term or term infants (born at or beyond 35 weeks). It is characterised by 'challenges initiating and maintaining respiration, reduced tone and reflexes, seizures, and impaired levels of consciousness'.[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z)[[COHESION - Quirke et al. 2013]](https://doi.org/10.1038/s41390-023-02938-y) The cause of NE is often difficult to identify, with careful phenotyping using a range of measurements and examinations required to differentiate between posisble causes. Morover, there may not just be one cause, but several factors that lead to NE.[[DEFiNE - Molloy et al. 2023]](https://doi.org/10.1038/s41390-023-02775-z) The possible causes of NE include: hypoxia ischaemia, neonatal stroke, infection, intracranial haemorrhage, congenital brain anomalies, as well as neurometabolic, genetic and epigenetic factors.[[COHESION - Quirke et al. 2013]](https://doi.org/10.1038/s41390-023-02938-y)[[Source - NHS East of England Guidelines for Management of Infants with Suspected HIE]](https://www.eoeneonatalpccsicnetwork.nhs.uk/wp-content/uploads/2021/10/HIE-Guideline.pdf)
+
+Hypoxia ischaemia is the most common cause of NE. This is when there has been restricted blood flow to tissues ("ischaemia"), meaning that tissues that have low/insufficient oxygen levels ("hypoxia").[[source]](https://cvphysiology.com/cad/cad005) This type of NE is referred to as hypoxic ischaemic encephalopathy (HIE), but was often previously referred to as birth/perinatal asphyxia.[[source]](https://www.bliss.org.uk/parents/about-your-baby/medical-conditions/hypoxic-ischaemic-encephalopathy-hie) The current treatment for infants with suspected HIE is therapeutic hypothermia. This must be started within six hours of birth,[[Parmentier et al. 2022]](https://doi.org/10.3390%2Fdiagnostics12030645) and involves cooling of the infant's head or whole body to reduce their body temperature to 33-36.5°C for 48 to 72 hours.[[Allen and Brandon 2011]](https://doi.org/10.1053%2Fj.nainr.2011.07.004) Potential consequences of moderate/severe HIE include mortality, and the development of cerebral palsy, epilepsy, and intellectual disability.[[Shim 2021]](https://doi.org/10.3345/cep.2020.01459)[[Törn et al. 2023]](https://doi.org/10.1111/1471-0528.17533)
+
+There are several risk factors associated with HIE. These include maternal and pregnancy characteristics which indicate that a delivery is at higher risk of HIE occuring, as well as observations during labour which indicate HIE may have occured/is more likely to have occurred. Risk factors for HIE during labour include: decreased fetal movement; abnormal fetal heart rate or contractions patterns; severe maternal cramping, maternal high blood pressure, or vaginal bleeding. However, in some cases (particularly infants with mild to moderate HIE), there may not be any obvious signs or symptoms of HIE during labour or at the time of birth.[[source]](https://hiehelpcenter.org/medical/identifying-hie/sign-symptoms/)
+
+<mark>finish this bit</mark>
+
+If a clinician suspects that HIE is likely, they can perform an emergency caesarean section, which can help reduce the severity of HIE by reducing the length of time that the infant experiences hypoxia ischaemia.
+* Variation in clinician decision making
+* Variation in caesarean use
+* Deifficult to decide whether to use caesarean
+* High rate of medical malpractice claims
+* Tools to support decision making, consider risk
+
+Examples of studies on risk of HIE
+* Missing: inclusion of detailed CTG info
+* Missing: consideration of treatment paradox
 
 ## Aims and objectives
 
