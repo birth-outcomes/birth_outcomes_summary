@@ -472,6 +472,28 @@ Method: Exclusion of mothers who delivery by caesarean (i.e. only include vagina
 
 ## Not addressing treatment paradox
 
+### Odd et al. 2017
+
+Study: Hypoxic-ischemic brain injury: Planned delivery before intrapartum events [[Odd et al. 2017]](https://doi.org/10.3233/NPM-16152)
+
+Aim: Predict risk of HIE
+
+Dataset: Avon Longitudinal Study of Parents and Children (ALSPAC) - cohort of 14000+ infants around Bristol born 1991-92.
+
+Outcome: Need resuscitation and then have symptoms of NE.
+
+Predictors: 
+* 'Booking factors (maternal age, smoking, primiparity, previous lower segment caesarean section (LSCS), multiple births)
+* Antenatal factors (preeclampsia, gestational diabetes, prelabor abruption, placenta previa, oligohydramnios, polyhydramnios, threatened preterm labor, gender, concerns of IUGR infant)
+* Labor factors (induction of labor, pre-labor rupture of membranes, planned LSCS, gestation at birth, presentation, prelabor breech, breech delivery, duration of ruptured membranes)'
+
+*Planned LSCS is lower segment caesarean section.*
+
+Model: Logistic regression.
+* Develop model in half the data
+* Test model in other half of the data
+* Then 'to give some indication of possible avoidable disease, the proportion of infants with HIE, potentially avoidable by earlier delivery was estimated by assuming that elective delivery would remove intrapartum risk of HIE for those infants undelivered at this point. This was calculated for the whole cohort and for each antenatal risk strata at each gestational age between 36 and 40 weeks. The a-priori clinical cut-off used was “clinical intervention” (e.g. elective LSCS) at 39 weeks'
+
 ### Leith et al. 2023
 
 Study: A predictive model for perinatal hypoxic ischemic encephalopathy using linked maternal and neonatal hospital data. [[Leith et al. 2023]](http://dx.doi.org/10.1016/j.annepidem.2023.11.011)
@@ -480,6 +502,8 @@ Aim: Predict HIE - building on [[Odd et al. 2017]](https://doi.org/10.3233/NPM-1
 
 Method: They include the intervention as a predictor in the model, but not as a way to enable causal inferences. They state that "drawing causal inferences should be done with caution. For instance, some factors were found to be significantly protective against HIE injury, such as malpresentation and uterine inertia, which logically should not decrease risk. It is likely that such conditions heighten clinical awareness of risk, thus resulting in more timely initiation of protective interventions."
 
+Dataset: US dataset of 836,216 births - of which, 376 (0.00045%) had a diagnosis of HIE (0.45 per 1000 live births). (They incorrectly state "0.045%").
+
 Their DAG: Due to the large number of factors in the final model, to make the graph easier to read we have combined similar factors into groups as follows:
 * Maternal characteristics: age, race, payer, metropolitan residence, history of stillbirth, tobacco use.
 * Chronic conditions: diabetes, hypertension, total number of chronic conditions.
@@ -487,6 +511,8 @@ Their DAG: Due to the large number of factors in the final model, to make the gr
 * Intrapartum complications: septicemia, hypertonic contractions, uterine inertia, prolonged 2nd stage.
 * Presentation: malpresentation, breech delivery, shoulder dystocia.
 * Emergency: sentinel event, fetal heart rate abnormalities.
+
+They use a logistic regression model to predict cases of HIE (i.e. presence of HIE diagnostic code). The model includes a range of maternal, antepartum and intrapartum characteristics - including the delivery type (with predictors including forceps, vacuum, elective C-section, emergency C-section, and intrapartum C-section).
 
 ![DAG from Leith et al. 2023](../images/leith_2023_dag.jpg)
 
