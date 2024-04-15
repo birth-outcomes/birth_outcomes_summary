@@ -12,13 +12,13 @@ However, this is a complex problem with lots of moving parts, and requires that 
 
 > Whether you focus on **neonatal and/or maternal** outcomes
 > 
-> **Which outcomes** you choose to focus on. Neonatal examples include:
-> * Neonatal encephalopathy (NE), and specific types, like hypoxic ischaemic encephalopathy (HIE)
-> * Choroioamnionitis (intra-aminotic infection)
-> * Death
-> * Indicators of poor health - umbilical cord pH, Apgar, resuscitation, meconium-stained amniotic fluid, transfer to neonatal care services
-> 
-> Maternal outcomes include vaginal tearing or episiotomy, blood clots, and urinary or anal incontinence
+> **Which outcomes** you choose to focus on.
+> * Neonatal examples include:
+>   * Neonatal encephalopathy (NE), and specific types, like hypoxic ischaemic encephalopathy (HIE)
+>   * Choroioamnionitis (intra-aminotic infection)
+>   * Death
+>   * Indicators of poor health - umbilical cord pH, Apgar, resuscitation, meconium-stained amniotic fluid, transfer to neonatal care services
+> * Maternal outcomes include vaginal tearing or episiotomy, blood clots, and urinary or anal incontinence
 > 
 > **Outcome measurement** - some outcomes are quite clear cut, but others are harder to define, and may use proxy measures or combinations of measures
 
@@ -65,20 +65,10 @@ This can be related not just to treatment and outcome, but also to the other cha
 
 How **cardiotocograph data** is analysed and incorporated as a predictor is also complex, with a wide range of methods used in the literature, as explored in https://github.com/birth-outcomes/ctg_exploratory and https://github.com/birth-outcomes/fhrma_python. For example:
 
-> <mark>tidy this</mark>
-> * Identifying specific characteristics (baseline, accelerations, decelerations), different methods for doing that, also those other signal processing methods used
-> * Transformation of signal using e.g. CWT
+> * Generating a set of parameters that describe the signal (clinically relevant or others), and the chosen method for that analysis
+> * Transforming the signal, such as into an image using continuous wavelet transformation, and the chosen parameters
 
-The **treatment paradox**
-
-Treatment paradox, causal inference
-* prediction v.s. causation and why this is a concern of ours
-* Bias in predictions...<mark>finish</mark>
-* Produce DAGs 
-* Target trial emulation
-* methods
-
-e.g. matching people with similar characteristics and comparing the groups (as steve thornton comments - "can we compare with similar characteristics, those where a decision was made early compared with those where a decision was made late")
+The **treatment paradox** is another important consideration, as explored [on this page](../causal_concepts/design_intro_1_treatment_paradox.md). This exists as the indicators for a poor outcome (e.g. abnormal cardiotocograph, gestational age) will trigger an effect treatment (caesarean), which then biases the observed relationship between the indicators and outcome. This is important to us - we are not just interested in prediction - but in the true relationships between variables. Hence, causal inference methodologies should be used within this work. This enables us to account for the treatment paradox when comparing outcomes in people with similar characteristics who received a caesarean or not, or received one earlier. There are a range of possible methods, including but not limited to...
 
 > **Conventional methods:**
 > * (Principal) Stratification
@@ -106,9 +96,7 @@ e.g. matching people with similar characteristics and comparing the groups (as s
 > * Causal forests
 > * Structural estimation
 
-### Confounders/other variables included
-
-What variables are included and how depends on your chosen focus and methods. Things to consider here include -
+Another methodological consideration is **what variables** are included. This will depend on our chosen focus. Things to consider here include -
 
 > **Which variables** are considered, which depends on the relationship you focus on, and your analysis method - e.g.
 > * Some may just have **one** (e.g. instrumental variable studies)
