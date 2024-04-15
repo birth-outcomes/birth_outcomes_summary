@@ -87,3 +87,9 @@ Used widely: **therapeutic hypothermia** - see more [on this page](../outcomes/n
 Being investigated: **Magnesium sulfate** (MgSO<sub>4</sub>) -
 * Recent systematic review and meta-analysis of MgSO<sub>4</sub> randomised trials concluded that there was minimal evidence on long-term outcomes, but that it may improve short-term (in-hospital) outcomes without affecting mortality
 * Majority of trials gave 3 doses of MgSO<sub>4</sub> within 6 hours of birth [[Gowda et al. 2023]](https://doi.org/10.1016/j.jpeds.2023.113610)
+
+## Economic burden and medical malpractice
+
+* 'HIE is the leading neonatal condition referred to pediatric neurologists, accounting for approximately 38% of new consultations.'
+* 'The economic burden of the long-term effects of HIE is estimated to be $1.2 million over the lifetime of a child with' cerebral palsy
+* 'When a diagnosis of HIE is potentially associated with the medical care provided during birth, it may result in a civil lawsuit alleging negligence. One-third of obstetrical malpractice claims are associated with neonatal neurological injuries. The primary factors leading to malpractice claims include failing to 1. account for poor obstetrical history (e.g. history of miscarriage or stillbirth); 2. predict fetopelvic or other disproportion; 3. act when admission findings, such as abnormal fetal heart rate, suggest a distressed or compromised fetus; 4. recognize when labor is not progressing; 5. diagnose a malpresentation or malposition; and injudicious use of oxytocin, delay or failure to diagnose fetal distress, delay in cesarean or operative delivery, and substandard operative delivery technique. These factors indicate that a fundamental issue in preventing HIE is the recognition of magnitude of individual risk factors, and how risk may accumulate when multiple risk factors are present.'[[Leith et al. 2024]](https://doi.org/10.1016/j.annepidem.2023.11.011)

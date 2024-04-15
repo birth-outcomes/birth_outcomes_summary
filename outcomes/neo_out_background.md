@@ -5,7 +5,7 @@
 
 Our challenge is that there has not been a clear, consistent consensus definition for HIE and neonatal encephalopathy (NE). The terms have often been used interchangeably (despite HIE actually being a sub-type of NE). The current recommendation is to first diagnose NE, and only diagnose HIE on the basis of sufficient evidence. 
 
-Steve Thornton highlighted that the findings of Kurinczuk et al. 2010, and Ellenberg and Nelson 2012 are very important. They suggest that HIE is identified based on the **presence of sentinel event** like uterine rupture, major placental abruption, or cord prolapse (and NOT features that are not specific to hypoxia ischaemia).
+Steve Thornton highlighted that the findings of Kurinczuk et al. 2010, and Ellenberg and Nelson 2012 are very important. They suggest that HIE is identified based on the **presence of sentinel event** like uterine rupture, major placental abruption, or cord prolapse (and NOT features that are not specific to hypoxia ischaemia). However, it is worth being aware that 10-36% HIE cases have a recognised sentinel event (as on sentinel event page).
 
 Other recent recommendations for defining (and thereby identifying/diagnosing/distinguishing HIE) are:
 * Neonatal Data Analysis Unit (required one of):
