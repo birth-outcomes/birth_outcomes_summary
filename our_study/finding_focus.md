@@ -63,6 +63,8 @@ This can be related not just to treatment and outcome, but also to the other cha
 
 > * Focus on **inequalities** in a particular treatment/outcome. Death and disability in pregnancy are much higher in disadvantaged groups. For example, stillbirth is up to four times higher in black than white women in the UK.
 
+The focus **may be necessitated by available data and sample sizes**. For example, if you hoped to focus on HIE but there were too few cases in the dataset, you might switch to a more general indicator of adverse outcomes (e.g. admission to neonatal unit), and so your focus shifts to being on admission to a unit rather than specifically on HIE.
+
 ## Methodological considerations
 
 **Timing** will be important with regards to the choice to intervene and the outcome. The risk-benefit ratio is dynamic and changes during labour depending on how the labour progresses and how events unfold. For example, caesareans are safer earlier in labour than later.
