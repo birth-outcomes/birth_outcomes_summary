@@ -1,6 +1,6 @@
-# Identifying hypoxic ischaemic encephalopathy (HIE)
+# Outcomes
 
-This section focuses on how you can identify cases of hypoxic ischaemic encephalopathy (HIE).
+This section discusses which adverse outcomes to focus on, and how best to measure these - in particular, identifying cases of hypoxic ischaemic encephalopathy.
 
 ```{tableofcontents}
 ```

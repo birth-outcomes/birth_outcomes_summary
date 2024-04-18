@@ -7,8 +7,26 @@ chapters:
   sections:
   - file: background/stages
   - file: background/interventions
-  - file: background/research_groups
   - file: background/encephalopathy
+- file: causal_concepts/intro
+  sections:
+  - file: causal_concepts/design_intro_2_predict_vs_causal
+  - file: causal_concepts/design_intro_3_causal
+  - file: causal_concepts/design_counterfactuals
+  - file: causal_concepts/design_dag_1
+  - file: causal_concepts/design_dag_2
+  - file: causal_concepts/design_sem
+  - file: design_methods/design_causal_assumptions
+  - file: design_methods/design_causal_estimands
+  - file: design_methods/design_target_trial
+  - file: design_methods/design_observational
+  - file: design_methods/design_methods_1_intro
+  - file: design_methods/design_methods_2_conventional
+  - file: design_methods/design_methods_3_gmethods
+  - file: design_methods/design_methods_4_unobserved
+  - file: design_methods/design_methods_5_other
+  - file: design_methods/design_other
+  - file: examples/instrumental_variables
 - file: outcomes/outcomes
   sections:
   - file: outcomes/neo_out_background
@@ -26,31 +44,13 @@ chapters:
   - file: outcomes/neo_out_apgar
   - file: outcomes/neo_out_death
   - file: outcomes/neo_out_ctg
-- file: causal_concepts/intro
+- file: risk_factors/intro
   sections:
-  - file: causal_concepts/design_intro_1_treatment_paradox
-  - file: causal_concepts/design_intro_2_predict_vs_causal
-  - file: causal_concepts/design_intro_3_causal
-  - file: causal_concepts/design_counterfactuals
-  - file: causal_concepts/design_dag_1
-  - file: causal_concepts/design_dag_2
-  - file: causal_concepts/design_sem
-- file: design_methods/intro
+  - file: risk_factors/treatment_paradox
+  - file: risk_factors/treat_obstetric_examples
+- file: intervention/intro
   sections:
-  - file: design_methods/design_causal_assumptions
-  - file: design_methods/design_causal_estimands
-  - file: design_methods/design_target_trial
-  - file: design_methods/design_observational
-  - file: design_methods/design_methods_1_intro
-  - file: design_methods/design_methods_2_conventional
-  - file: design_methods/design_methods_3_gmethods
-  - file: design_methods/design_methods_4_unobserved
-  - file: design_methods/design_methods_5_other
-  - file: design_methods/design_other
-- file: examples/intro
-  sections:
-  - file: examples/obstetric_examples
-  - file: examples/instrumental_variables
+  - file: intervention/intervene_obstetric_examples
 - file: our_study/intro
   sections:
   - file: our_study/finding_focus
@@ -58,7 +58,7 @@ chapters:
   - file: our_study/research_proposal2
   - file: our_study/research_proposal3
   - file: our_study/research_proposal4
-  - file: our_study/references
+- file: our_study/references
 - file: appendices/intro
   sections:
   - file: our_study/our_dag
@@ -67,5 +67,6 @@ chapters:
   - file: appendices/neo_out_chorio
   - file: appendices/fetal_risk_factors
   - file: appendices/parental_outcomes
+  - file: appendices/research_groups
   - file: appendices/routine_data
   - file: appendices/key_papers
