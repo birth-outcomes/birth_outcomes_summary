@@ -42,9 +42,9 @@ If we were to focus just on HIE, my recommendation would be to follow the protoc
 * Diagnosis of NE or HIE (severe, moderate, grade 2 or grade 3)
 * Therapeutic hypothermia for 2 or more consecutive days{cite}`gale_brain_2017`
 
-I would recommend checking the number of infants meeting this criteria - but I think it highly likely this will be insufficient for analysis, and so it will likely need to be one of the more general outcomes, such as:
+I would recommend checking the number of infants meeting this criteria - but I think it highly likely this will be insufficient for analysis (based on numbers in studies mentioned above), and so it will likely need to be one of the more general outcomes, such as:
 * Transfer to neonatal care services
-* Need to resuscitation
+* Need for resuscitation
 
 Although these are relevant to identifying HIE, if we use them as the outcome, we would need to explicitly state that the model is predicting that outcome, and *not* HIE.
 
@@ -54,9 +54,15 @@ Specific to the chosen outcome - for example:
 1. Predict risk of transfer to neonatal care services
 2. Assess effectiveness of caesarean section in preventing transfer to neonatal care services
 
-### Existing studies
+---
 
-<mark>refer to relevant studies - as this is not just about HIE now</mark>
+*If it is not possible to have HIE as an outcome, then I'm presuming the introduction would need to be broader and not wholy focussed on NE and HIE...*
+
+## Introduction v2
+
+<mark>explain wider context/reason for outcomes (?)</mark>
+
+<mark>refer to other relevant existing studies - as this is not just about HIE now</mark>
 
 ---
 
@@ -71,6 +77,20 @@ We are interested in the **true relationships** between predictors and the outco
 In the case of HIE, an example is an abnormal CTG, which is indicative of high risk of HIE having occurred, and triggers a caesarean. With our focus being more broadly on any adverse neonatal outcomes, this would become a wider range of observations and characteristics before or during labour, which would trigger the decision to do an elective or emergency caesarean.
 
 ### Using the "language of causal inference" to describe our research problem
+
+There are three "languages" for causality: potential outcomes (counterfactuals), graphs, and structural equation models. I will describe our research problem using the former two.
+
+We want to identify pregnancies at high risk of HIE, whilst accounting for the effect that treatment use has on these relationships. 
+
+We want to understand the effectiveness of caesarean section in preventing adverse neonatal outcomes.
+
+Causal models are designed to test the relationship between a signle exposure and outcome whilst controlling for confounding - so it's important to be aware that the other associations found between the covariate and outcome have not been through the same process to control for confounding in their relationship, and so their relationships may still be influenced by residual bias and confounding. This is referred to as Table 2 fallacy.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
+
+As such, if using causal models, we really only have one focus - and so it doesn't answer the broader question causally - and instead focusses on specific questions, like -
+* What is the effectiveness of this treatment on this outcome
+* What is the impact of this specific variable on the outcome
+
+Hence, if we build a causal model, it doesn't necessarily show true relationships between risk factors and the outcome. In fact, [Leder et al. 2018](https://doi.org/10.1513/AnnalsATS.201808-564PS) even caution against sharing those effect estimates for the other covariates in the model - whilst [Hartig 2019](https://theoreticalecology.wordpress.com/2019/04/14/mediators-confounders-colliders-a-crash-course-in-causal-inference/) suggests that you make it explicitly clear which variables are reasonaly controlled and which are possibly confounded.
 
 <mark>explain why we can view it as being treatment - outcome as focus, and not just treatment as a confounder of predictor - outcome</mark>
 * Because its what we hope to learn - in making our prediction model, we're trying to understand who needs treatment
