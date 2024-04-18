@@ -3,7 +3,7 @@
 `````{admonition} Executive summary
 :class: info
 
-This page summaries examples of studies in obstetrics that have attempted to account for the treatment paradox.
+This page summarises examples of studies in obstetrics that have attempted to account for the treatment paradox - or are focussed on estimating the causal relationship between the treatment and exposure (and so )
 
 **Instrumental variable** - Costa-Ramón et al. 2018; Costa-Ramón et al. 2022; Halla et al. 2016; Jachetta 2015; Card et al. 2018; Tonei 2018; Chen and Pan 2022; Dawe et al. 2017;
 
