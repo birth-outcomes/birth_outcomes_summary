@@ -1,4 +1,4 @@
-# Causal assumptions
+# Assumptions
 
 `````{admonition} Executive summary
 :class: info
@@ -12,8 +12,6 @@ Causal assumptions:
 * **Ignorability** = among people with same characteristics, can think of treatment as being randomly assigned
 
 `````
-
-## Causal assumptions
 
 'Causal effects are impossible to measure directly, since they involve comparing unobserved counterfactual outcomes that would have happened under different circumstances. A causal effect is identifiable if it can be **estimated** using observable data, given certain **assumptions** about the data and the underlying causal relationships. Such identifying assumptions typically cannot be fully tested statistically but have to be justified based on theory and/or existing evidence about the real-world processes under study'.[[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 

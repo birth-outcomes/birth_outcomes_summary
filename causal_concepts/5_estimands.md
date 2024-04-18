@@ -18,6 +18,10 @@ Possible causal effects - i.e. causal estimand - choice of which can be guided b
 
 `````
 
+In causal inference studies, you are estimating the **average causal effect** of the treatment/exposure when comparing between groups of individuals. This is because it is generally impossible to estimate the causal effect for an individual, as you can't go back in time and not give them an outcome.[[source]](https://hummedia.manchester.ac.uk/institutes/methods-manchester/docs/CausalInference.pdf)
+
+The terminology used varies, with [Lederer et al. 2018](https://doi.org/10.1513/AnnalsATS.201808-564PS) suggesting that we refer to finding **causal associations** and **effect estimates** - but not actual causal effects, or saying that the "exposure has an 'effect' or 'impact' on outcome", or that the "exposure 'protects against' or 'promotes' outcome". They suggest these are avoided without substantial evidence of a true causal effect.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
+
 ## Causal effect estimands
 
 'The size of a causal effect is the difference in the potential outcomes for a particular population given different counterfactual scenarios (eg, one where everyone is exposed vs one where everyone is unexposed). As with potential outcomes, causal effects cannot be observed at an individual level, so we rely instead on estimating average effects in groups of people. The outcome may be the mean of a continuous variable or the risk of a binary outcome. The scale of an effect measure can be either additive or multiplicative'... [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)

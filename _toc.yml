@@ -10,22 +10,22 @@ chapters:
   - file: background/encephalopathy
 - file: causal_concepts/intro
   sections:
-  - file: causal_concepts/design_intro_2_predict_vs_causal
-  - file: causal_concepts/design_intro_3_causal
-  - file: causal_concepts/design_counterfactuals
-  - file: causal_concepts/design_dag_1
-  - file: causal_concepts/design_dag_2
-  - file: causal_concepts/design_sem
-  - file: design_methods/design_causal_assumptions
-  - file: design_methods/design_causal_estimands
-  - file: design_methods/design_target_trial
-  - file: design_methods/design_observational
-  - file: design_methods/design_methods_1_intro
-  - file: design_methods/design_methods_2_conventional
-  - file: design_methods/design_methods_3_gmethods
-  - file: design_methods/design_methods_4_unobserved
-  - file: design_methods/design_methods_5_other
-  - file: design_methods/design_other
+  - file: causal_concepts/1_predict_vs_causal
+  - file: causal_concepts/2_intro_to_causality
+  - file: causal_concepts/3_dags
+  - file: causal_concepts/4_assumptions
+  - file: causal_concepts/5_estimands
+- file: causal_methods/intro
+  sections:
+  - file: causal_methods/1_summary
+  - file: causal_methods/design_target_trial
+  - file: causal_methods/design_observational
+  - file: causal_methods/design_methods_1_intro
+  - file: causal_methods/design_methods_2_conventional
+  - file: causal_methods/design_methods_3_gmethods
+  - file: causal_methods/design_methods_4_unobserved
+  - file: causal_methods/design_methods_5_other
+  - file: causal_methods/design_other
   - file: examples/instrumental_variables
 - file: outcomes/outcomes
   sections:

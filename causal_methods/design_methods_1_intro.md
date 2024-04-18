@@ -33,16 +33,6 @@ Methods for causal effect estimation.
 
 `````
 
-## Designing a study to estimate a causal effect from observational data
-
-The gold standard method for inferring causality is randomisation - e.g. randomising patients to receive a treatment or not. This is because it removes confounding - it removes the common cause of the treatment and outcome, since the only cause of treatment was randomisation.[[HarvardX PH559x]](https://learning.edx.org/course/course-v1:HarvardX+PH559x+2T2020/home)
-
-When we are using **observational data**, there are a variety of possible methods for **causal effect estimation**. They all rely on assumptions (although those cannot always be tested).
-
-When designing a study, you need to:
-1. Clearly specify the **research question** in terms of a **causal estimand**
-2. This allows you to **choose an appropriate method** for this estimand, and to carefully interrogate the influence of biases using **sensitivity and quantitative bias analysis**. [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
-
 ## Groups of methods for causal effect estimation
 
 Methods for causal effect estimation can be broadly grouped into:

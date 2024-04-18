@@ -1,4 +1,4 @@
-# Choosing between prediction and causal inference
+# Prediction v.s. causal inference
 
 `````{admonition} Executive summary
 :class: info
