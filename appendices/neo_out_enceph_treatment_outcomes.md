@@ -1,4 +1,4 @@
-# Challenge 2: Outcomes for trials
+# Outcomes for trials
 
 :::{toctree}
 :hidden:

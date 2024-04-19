@@ -1,43 +1,44 @@
-# Birth Outcomes: Research to support project design
+# <center>Birth outcomes</center>
 
-[![Amy Heather ORCID](https://img.shields.io/badge/Amy_Heather_ORCID:-0000--0002--6596--3479-brightgreen)](https://orcid.org/0000-0002-6596-3479)
+## Why did I make this book?
 
-We are designing a research project focussed around the prevention of adverse outcomes during labour. This book was developed by Amy Heather to further our understanding around this topic and help guide design of the project.
+We are designing a research project focussed around the prevention of adverse outcomes during labour. I developed this book to further our understanding around this topic and help guide design of the project. In particular, it is to help guide our thinking around the following...
 
-## Sections
+:::{admonition} Issue 1: Outcome choice and measurement
+:class: warning
 
-:::{admonition} Background
-:class: note
-
-Context of key topics (e.g. stages of pregnancy and labour, interventions during labour, introduction to neonatal encephalopathy)
-
+Which adverse neonatal outcomes should we focus on? If we focus on hypoxic ischaemic encephalopathy, how do we measure it? If we anticipate there being too few cases, what then should we focus on?
 :::
 
-:::{admonition} Causal inference
-:class: seealso
+:::{admonition} Issue 2: Accounting for treatment use when identifying risk factors
+:class: warning
 
-**Introduction and core concepts:** Introduces causal inference, differentiates it from prediction, goes over the theree "languages", and details about DAGs, estimands, assumptions and target trials.
-
-**Methods:** Describes key methods for causal inference.
-:::
-::::
-
-:::{admonition} Outcomes
-:class: important
-
-Identifying which adverse outcomes to focus on, and how best to measure these - in particular, identifying cases of hypoxic ischaemic encephalopathy.
-
+There are prognostic factors that are associated with an increased risk of adverse outcomes but also trigger an effective intervention (caesarean section), creating a treatment paradox. This biases observed relationships between risk factors and the outcome - so it is very important that study design accounts for this
 :::
 
-:::{admonition} Study design
-:class: danger
+:::{admonition} Issue 3: Intervention effectiveness
+:class: warning
 
-**Risk factors:** Designing a study to identify risk factors of an adverse outcomes, with designing accounting for the effect of treatment use on relationships. Includes examples of existing studies.
-
-**Intervention effectiveness:** Designing a study to assess the effectiveness of interventions in preventing adverse outcomes. Includes examples of existing studies.
+If we want to assess the effectiveness of an intervention, it requires that we use causal inference methodologies. These are introduced and explored in this book.
 :::
 
-There is also an Appendices section, which contains some additional notes around various topics (some incomplete/older).
+There is a further issue - how we **process and use cardiotocograph data** - but that is explored further in seperate repositories [here](https://github.com/birth-outcomes/ctg_exploratory) and [here](https://github.com/birth-outcomes/fhrma_python).
+
+## Section overview
+
+**Background** - Context of key topics (e.g. stages of pregnancy and labour, interventions during labour, introduction to neonatal encephalopathy)
+
+**Causal inference** -
+* **Introduction and core concepts:** Introduces causal inference, differentiates it from prediction, goes over the theree "languages", and details about DAGs, estimands, assumptions and target trials.
+* **Methods:** Describes key methods for causal inference.
+
+**Outcomes** - Identifying which adverse outcomes to focus on, and how best to measure these - in particular, identifying cases of hypoxic ischaemic encephalopathy.
+
+**Study design** -
+* **Risk factors:** Designing a study to identify risk factors of an adverse outcomes, with designing accounting for the effect of treatment use on relationships. Includes examples of existing studies.
+* **Intervention effectiveness:** Designing a study to assess the effectiveness of interventions in preventing adverse outcomes. Includes examples of existing studies.
+
+There is also an **Appendices** section, which contains some additional notes around various topics (some incomplete/older).
 
 ## Acknowledgements
 
@@ -61,7 +62,7 @@ Causal Inference <causal_concepts/1_predict_vs_causal>
 :hidden:
 :caption: Outcomes
 
-Outcomes <outcomes/neo_out_background>
+Outcomes <outcomes/summary>
 ```
 
 ```{toctree}

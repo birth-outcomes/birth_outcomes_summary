@@ -52,7 +52,12 @@ html_theme = 'pydata_sphinx_theme'
 
 html_theme_options = {
     # Set logo
-    'logo': {'text': 'Birth outcomes'},
+    'logo': {
+        # 'text': 'PenCHORD'
+        'image_light': 'images/penchord_birth.png',
+        'image_dark': 'images/penchord_birth.png',
+        'alt_text': 'PenCHORD'
+    },
     # Add icons to the bar across the top
     'icon_links': [
         {
