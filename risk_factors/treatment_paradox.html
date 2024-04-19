@@ -1,0 +1,849 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>The treatment paradox &#8212; Birth outcomes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=da435dbd" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'risk_factors/treatment_paradox';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Obstetric examples" href="treat_obstetric_examples.html" />
+    <link rel="prev" title="Caveat of HIE, and possible alternatives" href="../outcomes/choices.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/penchord_birth.png" class="logo__image only-light" alt="PenCHORD"/>
+    <script>document.write(`<img src="../_static/penchord_birth.png" class="logo__image only-dark" alt="PenCHORD"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../background/encephalopathy.html">
+                        Background
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../causal_concepts/1_predict_vs_causal.html">
+                        Causal Inference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../outcomes/summary.html">
+                        Outcomes
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Study Design
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../appendices/neo_out_enceph_treatment_outcomes.html">
+                        Appendices
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/birth-outcomes/birth_outcomes_summary" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github-square fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../background/encephalopathy.html">
+                        Background
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../causal_concepts/1_predict_vs_causal.html">
+                        Causal Inference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../outcomes/summary.html">
+                        Outcomes
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Study Design
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../appendices/neo_out_enceph_treatment_outcomes.html">
+                        Appendices
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/birth-outcomes/birth_outcomes_summary" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github-square fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Risk factors</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">The treatment paradox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="treat_obstetric_examples.html">Obstetric examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">Proposal</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Intervention effectiveness</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intervention/intervene_obstetric_examples.html">Obstetric examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">To sort</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../our_study/finding_focus.html">Finding a focus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../our_study/research_proposal.html">HIE proposal 1: predicting HIE</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../our_study/research_proposal2.html">HIE proposal 2: caesarean v.s. vaginal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../our_study/research_proposal3.html">HIE proposal 3: timing of caesarean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../our_study/research_proposal4.html">HIE proposal 4: vaginal only</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">The...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="the-treatment-paradox">
+<h1>The treatment paradox<a class="headerlink" href="#the-treatment-paradox" title="Link to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="info admonition">
+<p class="admonition-title">Executive summary</p>
+<p>A <strong>treatment paradox</strong> is when a prognostic factor:</p>
+<ul class="simple">
+<li><p>(A) Has a <strong>strong relationship</strong> with the outcome, and</p></li>
+<li><p>(B) When its present, <strong>triggers an effective treatment</strong></p></li>
+</ul>
+<p>It will mean that the prognostic factor will appear to have <strong>poorer performance</strong> than it actually has, and hence leading to <strong>underestimation of outcomes</strong> for people with that prognostic factor. For example, may find an unexpected protective relationship between two factors that actually have a harmful relationship.</p>
+<p>A treatment paradox is relevant to causal inference studies (as its about the true relationship between the treatment and the outcome, rather than using the presence of treatment to help best predict the outcome).</p>
+</div>
+<section id="what-is-a-treatment-paradox">
+<h2>What is a treatment paradox?<a class="headerlink" href="#what-is-a-treatment-paradox" title="Link to this heading">#</a></h2>
+<p>A <strong>treatment paradox</strong> (or “<strong>intervention effect</strong>”, or “<strong>treatment use</strong> in a validation study”) is ‘when a <strong>strong prognostic factor of an adverse outcome triggers an effective treatment</strong>.</p>
+<p>In other words, if we wanted to demonstrate the presence of a treatment paradox, we would need to meet two criteria:</p>
+<ol class="arabic simple">
+<li><p>The prognostic factor has a <strong>strong relationship with the outcome</strong></p></li>
+<li><p>When the prognostic factor is present, it <strong>triggers an effective treatment</strong> <a class="reference external" href="https://doi.org/10.1136%2Fbmjopen-2020-046518">[Uffen et al. 2021]</a></p></li>
+</ol>
+<div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp(&quot;Exposure&quot;):::white;
+    treat(&quot;Treatment&quot;):::white;
+    out(&quot;Outcome&quot;):::white;
+
+    %% Produce the figure
+    exp --&gt; treat;
+    treat --&gt; out;
+    exp --&gt; out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+        </div></section>
+<section id="why-does-it-matter">
+<h2>Why does it matter?<a class="headerlink" href="#why-does-it-matter" title="Link to this heading">#</a></h2>
+<p><strong>Lack of generalisability</strong> - the aim of predictive models will often be to help guide decisions to treat on future patients (i.e. they have not yet received any treatments). <strong>Models trained on treated patients will offer poor/biased performance, underestimating risk, which can be attributed to treatment use in the validation data.</strong><a class="reference external" href="https://doi.org/10.1186%2Fs12874-017-0375-8">[Pajouheshnia et al. 2017]</a></p>
+<p>The impact of treatment use depends on various factors…</p>
+<ul class="simple">
+<li><p>Strength of effect of treatment on outcome - e.g.</p>
+<ul>
+<li><p>If weak effect, then impact will be small<a class="reference external" href="https://doi.org/10.1186%2Fs12874-017-0375-8">[Pajouheshnia et al. 2017]</a></p></li>
+<li><p>When a strong prognostic factors triggers an effective treatment, it reduces incidence of the outcome, and meaning that the prognostic factor that initiated the treatment will <strong>appear to have a poorer prognostic performance than it actually has.</strong> This can lead to an <strong>underestimation of adverse outcomes for people with that prognostic factor</strong>. <a class="reference external" href="https://doi.org/10.1136%2Fbmjopen-2020-046518">[Uffen et al. 2021]</a> This leads to a lack of <strong>generalisability</strong>.<a class="reference external" href="https://doi.org/10.1503/cmaj.120812">[Schuit et al. 2013]</a></p></li>
+</ul>
+</li>
+<li><p>Proportion of individuals receiving treatment</p></li>
+<li><p>Underlying pattern of treatment use</p></li>
+<li><p>Whether treatment is allocated randomly or based on individual risk profile or based on strict treatment guidelines - e.g.</p>
+<ul>
+<li><p>If high-risk individuals are selectively treated, this will have a large impact - ‘<strong>distribution of observed risks will become narrower</strong>, due to the risk-lowering effects of treatment in the high-risk individuals,  making it <strong>more difficult for the model to discriminate</strong> between individuals who will or will not develop the outcome, and the calibration in high-risk individuals will be most greatly affected’<a class="reference external" href="https://doi.org/10.1186%2Fs12874-017-0375-8">[Pajouheshnia et al. 2017]</a></p></li>
+</ul>
+</li>
+</ul>
+<section id="is-this-relevant-to-obstetrics">
+<h3>Is this relevant to obstetrics?<a class="headerlink" href="#is-this-relevant-to-obstetrics" title="Link to this heading">#</a></h3>
+<p>Absolutely! In fact, obstetric examples are quite commonly cited in papers about the treatment paradox, and there are a few papers focused on this, such as the paper by <a class="reference external" href="http://dx.doi.org/10.1111/1471-0528.13860">Cheong-See et al. 2016</a> - ‘<strong>Prediction models in obstetrics: understanding the treatment paradox and potential solutions to the threat it poses</strong>’.</p>
+<p>They describe clinicians use “probabilitic reasoning” to identify high risk pregnancies (based on clinical history and tests) - and how there is potential benefit for data-driven prediction/prognostic models providing individualised risk estimates are relevant in helping identify pregnancies at risk of adverse outcomes, to help guide clinical management and targeted interventions - as we are hoping to explore in this project.</p>
+<p>They describe common statistical challenges - which are relevant to us also:</p>
+<ul class="simple">
+<li><p>The ascertainment of a suitable sample size - this is likely to be a problem, particularly if we choose a specific endpoint like HIE</p></li>
+<li><p>The choice of candidate predictors</p></li>
+<li><p>Reliable measurement of the outcome and predictors</p></li>
+<li><p>The identification of important predictors and their functional form</p></li>
+<li><p>Internal validation, potentially including bootstrap resampling and cross-validation, as well as shrinkage for potential over-optimism in model performance.</p></li>
+<li><p>Lack of external validation (many obstetric models perform well when internally validated but few have been externally validated using a population seperate from development) - <em>see end of page for a few extra notes on this</em></p></li>
+<li><p>Lack of evaluation of the impact of models on clinician behaviour and patient outcomes</p></li>
+<li><p><strong>Handling of interventions in the prediction model</strong> <a class="reference external" href="http://dx.doi.org/10.1111/1471-0528.13860">[Cheong-See et al. 2016]</a></p></li>
+</ul>
+<p>See examples below…</p>
+</section>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h3>
+<p><strong>Intrapartum fever leads to metabolic acidosis, but also triggers a caesarean section.</strong> Because of this:</p>
+<ul class="simple">
+<li><p>We find an <strong>unexpected negative (protective)</strong> relationship between intrapartum fever and metabolic acidosis</p></li>
+<li><p>If we include caesarean delivery in the model, we would expect to find a <strong>positive (harmful)</strong> relationship between intrapartum fever and metabolic acidosis <a class="reference external" href="https://doi.org/10.1503/cmaj.120812">[Schuit et al. 2013]</a></p></li>
+</ul>
+<div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    fever(&quot;Intrapartum fever&quot;):::white;
+    cs(&quot;Ceasarean section&quot;):::white;
+    met(&quot;Metabolic acidosis&quot;):::white;
+
+    %% Produce the figure
+    fever --&gt; cs;
+    cs --&gt; met;
+    fever --&gt; met;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+        </div><p><strong>Fetal compromise would lead to poor outcomes, but it also triggers quicker delivery (e.g. caesarean)</strong> (as in the NICE 2011 Caesarean guidance).</p>
+<ul class="simple">
+<li><p>Due to this treatment paradox, you will find that babies <strong>born within 30 minutes will consistently contain a higher proportion of babies in poorer condition</strong>, but that this likely due to this disparity (treatment paradox), rather than being due to differences in speed of delivery.’<a class="reference external" href="https://www.nice.org.uk/guidance/ng192/evidence/full-guideline-pdf-9071942942">[source]</a></p></li>
+</ul>
+<div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    comp(&quot;Compromised&quot;):::white;
+    quick(&quot;Quicker delivery&quot;):::white;
+    poor(&quot;Poor outcomes&quot;):::white;
+
+    %% Produce the figure
+    comp --&gt; quick;
+    quick --&gt; poor;
+    comp --&gt; poor;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+        </div><p><strong>High blood pressure leads to poor outcome, but also triggers effective treatment (antihypertensive, delivery)</strong>. A recent model for adverse outcomes in women with pre-eclampsia did not identify high blood pressure as a predictor. This may be due to the treatment paradox, as ‘women with high blood pressure are likely to receive effective interventions (antihypertensive or delivery)’ - and this effective treatment means they are unlikely to develop the outcome.</p>
+<ul class="simple">
+<li><p>‘If blood pressure is truly a predictor of high(er) risk in untreated patients, effective intervention will make it look like a poor predictor during the development of a model in treated patients. This problem frequently jeopardises obstetric modelling, altering the true predictor–outcome association and the natural outcome rate (incidence).’</p></li>
+<li><p>‘In pre-eclampsia, a prediction model without blood pressure risks overlooking patients with high blood pressure, and may actually underestimate the outcome risks (as an important predictor is missed).’ <a class="reference external" href="http://dx.doi.org/10.1111/1471-0528.13860">[Cheong-See et al. 2016]</a></p></li>
+</ul>
+<div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    bp(&quot;High blood pressure&quot;):::white;
+    adverse(&quot;Adverse outcomes&quot;):::white;
+    treat(&quot;Treatment (antihypertensive&lt;br&gt;or delivery)&quot;):::white;
+
+    %% Produce the figure
+    bp --&gt; adverse;
+    treat --&gt; adverse;
+    bp --&gt; treat;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+        </div><p><strong>Other examples</strong> (not detailed):</p>
+<ul class="simple">
+<li><p>Epidural, pyrexia (fever), and birth outcomes</p></li>
+<li><p>Pre-term birth, tocolytics, and birth outcomes<a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">[Cheong-See et al. 2016]</a> (tocolytics are drugs used to slow/stop contractions, typically given to women in pre-term labour)</p></li>
+</ul>
+</section>
+</section>
+<section id="treatment-paradox-for-caesarean-and-hie">
+<h2>Treatment paradox for caesarean and HIE<a class="headerlink" href="#treatment-paradox-for-caesarean-and-hie" title="Link to this heading">#</a></h2>
+<p>In our case, we have a treatment paradox as indicators of poor outcome (e.g. abnormal fetal heart rate (FHR), gestational age) will trigger an effective treatment (caesarean). Hence, if we fit a prediction model where those indicators were used to predict risk of HIE, the relationship between the indicators and outcome will be biased by the selection to receive treatment which helps prevent the outcome, e.g.</p>
+<ul class="simple">
+<li><p>Protective relationship between abnormal FHR and HIE, even though abnormal FHR is an indicator that there is likely something wrong</p></li>
+<li><p>Protective relationship between gestational age and HIE, even though we know later gestational age makes sentinal events that lead to hypoxia more likely, but masked by the fact that it also makes selection for caesarean section more likely</p></li>
+</ul>
+<div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    ind(&quot;Indicators of HIE&lt;br&gt;(e.g. abnormal FHR,&lt;br&gt;gestational age)&quot;):::white;
+    csection(&quot;Caesarean section&quot;):::white;
+    poor(&quot;Hypoxic ischaemic encephalopathy&quot;):::white;
+
+    %% Produce the figure
+    ind --&gt; csection;
+    csection --&gt; poor;
+    ind --&gt; poor;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+        </div><p>We could demonstrate the <strong>existence</strong> of this paradox as they do in <a class="reference external" href="https://doi.org/10.1136%2Fbmjopen-2020-046518">Uffen et al. 2021</a> - in which the aim of their study was to ‘evaluate the existence of a treatment paradox by determining the influence of baseline qSOFA on treatment decisions within the first 24 hours after admission’ - with patients with particularly values of qSOFA have higher odds of receiving intensive therapy, fast antibiotic administration, or vasopressic therapy.</p>
+</section>
+<section id="how-do-we-deal-with-the-treatment-paradox">
+<h2>How do we deal with the treatment paradox?<a class="headerlink" href="#how-do-we-deal-with-the-treatment-paradox" title="Link to this heading">#</a></h2>
+<p>In their paper, <a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">Cheong-See et al. 2016</a> convene ‘a panel of experts in pre-eclampsia and prognostic research, to explore the potential solutions in the development of a valid prediction model for adverse maternal or fetal outcomes’ - addressing this very problem! They panel had 24 members including ‘obstetricians, statisticians, clinical epidemiologists, and researchers’. It had a particular focus on the treatment paradox, as they developed a prediction model for the <a class="reference external" href="https://doi.org/10.3310/hta21180">PREP study (Thnagaratinam et al. 2017)</a>. They identified solutions of:</p>
+<ul class="simple">
+<li><p>Standardisation of treatment</p></li>
+<li><p>Predictor substitution</p></li>
+<li><p>Treatment as predictor</p></li>
+<li><p>Treatment as outcome</p></li>
+<li><p>Propensity scores</p></li>
+</ul>
+<p>Have also added, from other sources:</p>
+<ul class="simple">
+<li><p>Exclusion of treated</p></li>
+</ul>
+<section id="standardisation-of-treatment">
+<h3>Standardisation of treatment<a class="headerlink" href="#standardisation-of-treatment" title="Link to this heading">#</a></h3>
+<p>This is a scenario where there is complete collinearity between the predictor and the treatment, where the presence of a particular predictor will <strong>always</strong> guarantee the presence of a particular treatment. In this case, the predictor is deterministic of treatment (i.e. everyone with this predictor <em>definitely</em> receives treatment - complete colinearity between predictor and treatment). This requires <strong>fully standardised care (same medication, same dose, same treatment thresholds)</strong>.</p>
+<p>This is not realistic. Example: Management of early-onset pre-eclampsia, such as the commencement of anti-hypertensives and magnesium sulphate, this is somewhat standardised by guidelines [e.g. from the National Institute for Health and Care Excellence (NICE) in the UK], but the threshold for commencing treatment varies between clinicians and centres. Furthermore, the response from a specific antihypertensive and dosage varies between individual patients.</p>
+<p>You can however use multi-level models to account for differences between clinicians and treatment centres.<a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">[Cheong-See et al. 2016]</a> <a class="reference external" href="https://doi.org/10.1111/1471-0528.13860">Steer 2016</a> comments though that ‘such models rarely take into account all of the relevant factors (e.g. the coexistence of a modulating pathology such as an autoimmune disorder) or the social and emotional circumstances and preferences of the mother and her family.’<a class="reference external" href="https://doi.org/10.1111/1471-0528.13860">[Steer 2016]</a></p>
+</section>
+<section id="predictor-substitution">
+<h3>Predictor substitution<a class="headerlink" href="#predictor-substitution" title="Link to this heading">#</a></h3>
+<p>You could <strong>remove all the predictors upon which the decision to treat is based on</strong>.</p>
+<p>Limitations:</p>
+<ul class="simple">
+<li><p>Can prevent you from including meaningful predictors in the model</p></li>
+<li><p>Other predictors may be correlated with the predictors used to make treatment decisions. <a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">[Cheong-See et al. 2016]</a></p></li>
+</ul>
+</section>
+<section id="treatment-as-predictor">
+<h3>Treatment as predictor<a class="headerlink" href="#treatment-as-predictor" title="Link to this heading">#</a></h3>
+<p>You could include whether they were treated as a predictor in the model.<a class="reference external" href="https://doi.org/10.1186%2Fs12874-017-0375-8">[Pajouheshnia et al. 2017]</a><a class="reference external" href="https://doi.org/10.1503/cmaj.120812">[Schuit et al. 2013]</a> In practice, you won’t be able to input “they have been treated or not” for the as-yet untreated patients - but you could use the model to estimate outcomes in scenarios where they are or are not treated.<a class="reference external" href="https://doi.org/10.1186%2Fs12874-017-0375-8">[Pajouheshnia et al. 2017]</a></p>
+<p>You could just add the indicator on top of the prognostic model, keeping the original coefficients fixed.<a class="reference external" href="https://doi.org/10.1186%2Fs12874-017-0375-8">[Pajouheshnia et al. 2017]</a> However, if there is an interaction between the effectiveness of treatment and having a predictor (e.g. more effective in those with predictor), then the model will need to account for/incorporate this interaction.<a class="reference external" href="https://doi.org/10.1503/cmaj.120812">[Schuit et al. 2013]</a> Instead therefore, the model could be entirely refitted with the addition of an indicator term for treatment, with the inclusion of interaction terms where anticipated.<a class="reference external" href="https://doi.org/10.1186%2Fs12874-017-0375-8">[Pajouheshnia et al. 2017]</a></p>
+<p>Limitations:</p>
+<ul class="simple">
+<li><p>Failure to correctly specify any interactions between treatment and other predictors in the validation set could mean that the effects of treatment are not completely taken into account<a class="reference external" href="https://doi.org/10.1186%2Fs12874-017-0375-8">[Pajouheshnia et al. 2017]</a></p></li>
+<li><p>The addition of a term for treatment to the model that is to be validated may improve the performance beyond that of the original model due to the inclusion of additional predictive information<a class="reference external" href="https://doi.org/10.1186%2Fs12874-017-0375-8">[Pajouheshnia et al. 2017]</a></p></li>
+<li><p>Not possible if everyone in the study had the same intervention (but in that case, it is likely that  unexpected findings are not due to a treatment paradox)<a class="reference external" href="https://doi.org/10.1503/cmaj.120812">[Schuit et al. 2013]</a></p></li>
+<li><p>With this approach, ‘differentiating treatment from predictor effects becomes difficult. We could adjust for the interaction between ‘decision to treat’ as a predictor and each of the other prognostic factors in the model; however, when many predictors are involved, or when ‘decision to treat’ is based on multiple predictors, this approach becomes complex. In such situations, extremely large sample sizes are needed for the reliable assessment of interactions.’<a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">[Cheong-See et al. 2016]</a></p></li>
+</ul>
+<p>Due to the limitations, Pajouheshnia et al. 2017 do not recommend this approach.<a class="reference external" href="https://doi.org/10.1186%2Fs12874-017-0375-8">[Pajouheshnia et al. 2017]</a></p>
+</section>
+<section id="treatment-as-outcome">
+<h3>Treatment as outcome<a class="headerlink" href="#treatment-as-outcome" title="Link to this heading">#</a></h3>
+<p>If the treatment is likely to prevent an adverse outcome, then you can use treatment itself as the outcome, as it indicates they would’ve otherwise experienced an adverse outcome.</p>
+<p>Example: ‘In women with early-onset pre-eclampsia, if a large proportion of women are delivered at an early preterm gestation (before 34 weeks), then delivery itself could be considered as an outcome (replacing complications that would have occurred in the absence of delivery). In the absence of a standardised protocol for decision to deliver at early preterm gestation, such an approach could help to overcome the limitations in the model as a result of delivery preventing the occurrence of an adverse outcome.’<a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">[Cheong-See et al. 2016]</a></p>
+</section>
+<section id="propensity-scores">
+<h3>Propensity scores<a class="headerlink" href="#propensity-scores" title="Link to this heading">#</a></h3>
+<p>Use propensity score (treatment probability) to account for ‘multiway interactions with other predictors’. Either include in model, or use to weight contribution of participant towards the model (i.e. receiving no treatment –&gt; less treatment effect –&gt; more weight)</p>
+<p>Limitations:</p>
+<ul class="simple">
+<li><p>Limited clinical applicability as requires knowledge of a propensity score for clinicians to make a decision on whether to treat <a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">[Cheong-See et al. 2016]</a></p></li>
+</ul>
+</section>
+<section id="exclusion-of-treated-individuals">
+<h3>Exclusion of treated individuals<a class="headerlink" href="#exclusion-of-treated-individuals" title="Link to this heading">#</a></h3>
+<p>You can simply exclude the treated individuals.</p>
+<p>Limitations:</p>
+<ul class="simple">
+<li><p>Will ‘decrease the effective <strong>sample size</strong>’ (which could cause you to not see an effect if you don’t have the power). This, for example, leads to ‘the precision of estimates of both the observed:expected ratio and c-index (area under the ROC curve) decreased due to the reduction in effective sample size’.</p></li>
+<li><p>Results in loss of information about <strong>high risk individuals</strong>, if treatment allocation was dependent on risk (and so very few were untreated), with the discriminative ability of the model worsening with the exclusion of high-risk individuals and consequently narrower case mix.</p></li>
+<li><p>‘In the presence of a strong <strong>unmeasured predictor of the outcome associated with treatment use</strong>, exclusion of treated individuals resulted in an underestimation of the performance of the model.’ <a class="reference external" href="https://doi.org/10.1186%2Fs12874-017-0375-8">[Pajouheshnia et al. 2017]</a></p></li>
+</ul>
+</section>
+</section>
+<section id="how-does-this-relate-to-causal-inference">
+<h2>How does this relate to causal inference?<a class="headerlink" href="#how-does-this-relate-to-causal-inference" title="Link to this heading">#</a></h2>
+<p>Ultimately, our interest is in understanding the true relationships between variables, which is also the focus of causal inference studies.</p>
+<p>However, it is important to be aware that in causal inference, you are focussed on understanding the causal effect of an exposure or treatment on an outcome, whilst controlling for confounders for that relationship. If you create a model that includes those confounders, the effect estimates between the confounders and the outcome are still at risk of being impacted by residual confounding or bias, as we did not go through the process for their relationship, and only for the primary relationship of interest.</p>
+<p>Therefore, some of those methods fall under the banner of “causal inference”, and could be designed in such a way that you would be estimating the causal effect between an exposure and an outcome, but it does not mean that you are finding causal effects between all variables and the outcome (which is often the focus below - having a multivariable model that accounts for treatment use - that is still a prediction model).</p>
+<p>If you were however to just focus on the relationship between the treatment and the outcome, then similarities would be:</p>
+<ul class="simple">
+<li><p>Standardisation of treatment –&gt; Instrumental variable analysis - where the hospital/clinician (a) cause variation in treatment, (b) are unrelated to outcome - and so can be used as an instrumental variable</p></li>
+<li><p>Treatment as predictor –&gt; Multivariable regression - with treatment included as predictor</p></li>
+<li><p>Propensity scores –&gt; Inverse probability of treatment weighting (IPTW)</p></li>
+</ul>
+</section>
+<section id="other-important-considerations-when-designing-an-obstetric-model">
+<h2>Other important considerations when designing an obstetric model<a class="headerlink" href="#other-important-considerations-when-designing-an-obstetric-model" title="Link to this heading">#</a></h2>
+<section id="choice-of-population-predictors-and-outcomes">
+<h3>Choice of population, predictors and outcomes<a class="headerlink" href="#choice-of-population-predictors-and-outcomes" title="Link to this heading">#</a></h3>
+<p>The panel in <a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">Cheong-See et al. 2016</a> not only discuss methods for dealing with the treatment paradox, but also around definition of the study sample, predictors and outcomes.</p>
+<p><strong>Study sample</strong>: Pre-eclampsia is multisystemic, different predictor groups associated with different outcomes, ‘case mix impacts on the distribution of the predictors and the prevalence of the outcomes, and this in turn impacts on predictor–outcome associations, thereby influencing the accuracy of the model.’</p>
+<p><strong>Outcomes:</strong> More than one relevant outcome (e.g. eclampsia, abruption). As very few mothers will develop early-onset pre-eclampsia, these outcomes will occur at very low rates. This would not meet the suggested level of having 10-15 outcome events per predictor - and so, they recommend using composite outcomes and competing risk models.</p>
+<p>They note that models are population-specific.</p>
+</section>
+<section id="external-validation">
+<h3>External validation<a class="headerlink" href="#external-validation" title="Link to this heading">#</a></h3>
+<p>This is mentioned above, but a few other comments are included below:</p>
+<ul class="simple">
+<li><p>‘Historically, the field of obstetrics has been successful in developing prediction models but has been poor in fully validating and thus implementing them effectively… Only two thirds of the papers [62.4%, 164/263] in a large systematic review of prognostic models in obstetrics were found to have presented their models in such a way that external validation would be feasible. This has been highlighted as a concern given the importance of validity in the development of such models.’<a class="reference external" href="https://doi.org/10.5772/intechopen.87311">[Murphy et al. 2019]</a></p></li>
+<li><p>‘Certain models can be too complex for routine clinical usage and this may lead to a reluctance on the part of the clinicians to accept them… It is also important that models which have been developed are also validated in a new population as otherwise it may not be possible to generalise them to a different cohort of patients. This is also known as impact analysis and this paper by Reilly et al. highlights that very few prediction models have undergone formal impact analysis or validation. This is essential in order for clinicians to know if the usage of such a model will have a positive or negative effect, i.e. is there a possibility that it will cause harm. The authors highlighted the benefit of having clinicians involved in the development and validation of such models before, during and after implementation.’<a class="reference external" href="https://doi.org/10.5772/intechopen.87311">[Murphy et al. 2019]</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../outcomes/choices.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Caveat of HIE, and possible alternatives</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="treat_obstetric_examples.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Obstetric examples</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-treatment-paradox">What is a treatment paradox?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-it-matter">Why does it matter?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-this-relevant-to-obstetrics">Is this relevant to obstetrics?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#treatment-paradox-for-caesarean-and-hie">Treatment paradox for caesarean and HIE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-deal-with-the-treatment-paradox">How do we deal with the treatment paradox?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standardisation-of-treatment">Standardisation of treatment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predictor-substitution">Predictor substitution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treatment-as-predictor">Treatment as predictor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treatment-as-outcome">Treatment as outcome</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propensity-scores">Propensity scores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exclusion-of-treated-individuals">Exclusion of treated individuals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-this-relate-to-causal-inference">How does this relate to causal inference?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-important-considerations-when-designing-an-obstetric-model">Other important considerations when designing an obstetric model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choice-of-population-predictors-and-outcomes">Choice of population, predictors and outcomes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#external-validation">External validation</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/risk_factors/treatment_paradox.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Amy Heather.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

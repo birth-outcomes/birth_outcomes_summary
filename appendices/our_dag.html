@@ -1,0 +1,1033 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>HIE DAG &#8212; Birth outcomes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=da435dbd" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'appendices/our_dag';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="HIE target trial protocol" href="our_target_trial_protocol.html" />
+    <link rel="prev" title="Chorioamnionitis" href="neo_out_chorio.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/penchord_birth.png" class="logo__image only-light" alt="PenCHORD"/>
+    <script>document.write(`<img src="../_static/penchord_birth.png" class="logo__image only-dark" alt="PenCHORD"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../background/encephalopathy.html">
+                        Background
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../causal_concepts/1_predict_vs_causal.html">
+                        Causal Inference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../outcomes/summary.html">
+                        Outcomes
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../risk_factors/treatment_paradox.html">
+                        Study Design
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="neo_out_enceph_treatment_outcomes.html">
+                        Appendices
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/birth-outcomes/birth_outcomes_summary" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github-square fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../background/encephalopathy.html">
+                        Background
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../causal_concepts/1_predict_vs_causal.html">
+                        Causal Inference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../outcomes/summary.html">
+                        Outcomes
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../risk_factors/treatment_paradox.html">
+                        Study Design
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="neo_out_enceph_treatment_outcomes.html">
+                        Appendices
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/birth-outcomes/birth_outcomes_summary" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github-square fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="neo_out_enceph_treatment_outcomes.html">Outcomes for trials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_other.html">Other design considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo_out_chorio.html">Chorioamnionitis</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">HIE DAG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="our_target_trial_protocol.html">HIE target trial protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetal_risk_factors.html">Fetal risk factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parental_outcomes.html">Parental outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="research_groups.html">Research groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="routine_data.html">Routinely collected data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_papers.html">Key Papers</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="neo_out_enceph_treatment_outcomes.html" class="nav-link">Outcomes for trials</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">HIE DAG</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="hie-dag">
+<h1>HIE DAG<a class="headerlink" href="#hie-dag" title="Link to this heading">#</a></h1>
+<div class="info admonition">
+<p class="admonition-title">Executive summary</p>
+<p>On this page, I have attempted to draw causal diagrams for our research study, and included examples of diagrams from papers that involve caesareans or HIE.</p>
+</div>
+<section id="context">
+<h2>Context<a class="headerlink" href="#context" title="Link to this heading">#</a></h2>
+<p><strong>Starting point</strong> from Mike’s email (25th January):</p>
+<ul class="simple">
+<li><p>Focussed on avoidable harm, like hypoxic ischaemic encephalopathy (HIE)</p></li>
+<li><p>Ultimate target: to build a machine learning algorithm that monitors live data during childbirth, accounts for pre-existing risk factors, and alerts clinicians when infant health is at increased risk if intervention is delayed or missed</p></li>
+<li><p>How well can we predict poor neonatal outcomes?</p></li>
+<li><p>Can we predict the likely effect of intervention (ceasarean) when predicted outcome is poor?</p></li>
+<li><p>Can we predict the likely effect of intervention (ceasarean) dependent on timing during labour, when predicted outcome is poor?</p></li>
+</ul>
+<p><strong>Concern:</strong> Treatment paradox - that predictors of poor outcome (e.g. FHR) will trigger an effective intervention (caesarean), impacting relationship with outcome, and making it hard to understand what was associated with poor outcomes or not.</p>
+<p><strong>Why do we want to do causal inference?</strong> To understand true cases where they needed a ceasarean and it prevented poor outcomes, or cases where it wasn’t needed. We’re not interested in just being able to predict what happens - we’re interested in the causal relationship, and ultimately a counterfactual of when should we and when should we not do caesareans: <em>Should we have done a caesarean? If we had done one, or if we had done one earlier, would it have prevented HIE?</em></p>
+<p><strong>So what’s our research question?</strong> In causal inference, you start with drawing a DAG, which beings with your research question, which should be composed of an <strong>exposure/treatment</strong> and an <strong>outcome</strong>, for which you are interested in their causal relationship.</p>
+</section>
+<section id="proposed-dag">
+<h2>Proposed DAG<a class="headerlink" href="#proposed-dag" title="Link to this heading">#</a></h2>
+<section id="research-question">
+<h3>Research question<a class="headerlink" href="#research-question" title="Link to this heading">#</a></h3>
+<p>If we’re interested in whether we should do a caesarean to prevent HIE, then proposed research question is:</p>
+<div class="mermaid">
+              flowchart LR;
+
+    A(&quot;Treatment&lt;br&gt;&lt;b&gt;Caesarean&lt;/b&gt;&quot;):::green;
+    Y(&quot;Outcome&lt;br&gt;&lt;b&gt;Hypoxic ischaemic&lt;br&gt;encephalopathy (HIE)&lt;/b&gt;&quot;):::green;
+
+    A --&gt; Y;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div></section>
+<section id="add-confounders">
+<h3>Add confounders<a class="headerlink" href="#add-confounders" title="Link to this heading">#</a></h3>
+<p>We want to add confounders (which cause both the treatment and the outcome). These can be measured or unmeasured.</p>
+<ul class="simple">
+<li><p>Hypoxia is an unmeasured confounder, but it is indicated by abnormal fetal heart rate (FHR), which then triggers a decision to do a caesarean</p></li>
+<li><p>Sentinal events - since they cause hypoxia and can also cause decision to do a caesarean - not certain if these are “measured” or indicated by something else</p></li>
+</ul>
+<div class="mermaid">
+              flowchart LR;
+
+    L_sen(&quot;Confounder (L)&lt;br&gt;&lt;b&gt;Sentinal event&lt;/b&gt;&quot;):::white;
+    L_fhr(&quot;Confounder (L)&lt;br&gt;&lt;b&gt;Abnormal FHR&lt;/b&gt;&quot;):::white;
+    U(&quot;Unmeasured confounder (U)&lt;br&gt;&lt;b&gt;Hypoxia/Asphyxia&lt;/b&gt;&quot;):::white;
+    A(&quot;Treatment (A)&lt;br&gt;&lt;b&gt;Caesarean&lt;/b&gt;&quot;):::green;
+    Y(&quot;Outcome (Y)&lt;br&gt;&lt;b&gt;Hypoxic ischaemic&lt;br&gt;encephalopathy (HIE)&lt;/b&gt;&quot;):::green;
+    
+    L_sen --&gt; U; L_sen --&gt; A;
+    A --&gt; Y;
+    U --&gt; L_fhr; L_fhr --&gt; A; U --&gt; Y;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div></section>
+<section id="add-other-causes-of-at-least-two-things-in-the-dag">
+<h3>Add other causes of at least two things in the DAG<a class="headerlink" href="#add-other-causes-of-at-least-two-things-in-the-dag" title="Link to this heading">#</a></h3>
+<div class="mermaid">
+              flowchart LR;
+
+    L_sen(&quot;Confounder (L)&lt;br&gt;&lt;b&gt;Sentinal event&lt;/b&gt;&quot;):::white;
+    L_fhr(&quot;Confounder (L)&lt;br&gt;&lt;b&gt;Abnormal FHR&lt;/b&gt;&quot;):::white;
+    U(&quot;Unmeasured confounder (U)&lt;br&gt;&lt;b&gt;Hypoxia/Asphyxia&lt;/b&gt;&quot;):::white;
+    A(&quot;Treatment (A)&lt;br&gt;&lt;b&gt;Caesarean&lt;/b&gt;&quot;):::green;
+    Y(&quot;Outcome (Y)&lt;br&gt;&lt;b&gt;Hypoxic ischaemic&lt;br&gt;encephalopathy (HIE)&lt;/b&gt;&quot;):::green;
+    age(&quot;Gestational age&lt;br&gt;BMI&quot;):::white;
+  
+    age --&gt; L_sen; age --&gt; A;
+    L_sen --&gt; U; L_sen --&gt; A;
+    A --&gt; Y;
+    U --&gt; L_fhr; L_fhr --&gt; A; U --&gt; Y;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div></section>
+<section id="timing-of-the-caesarean">
+<h3>Timing of the caesarean<a class="headerlink" href="#timing-of-the-caesarean" title="Link to this heading">#</a></h3>
+<p>I think there might be two ways to view timing of the caesarean:</p>
+<ol class="arabic simple">
+<li><p>As a moderator</p></li>
+<li><p>As a time-varying treatment</p></li>
+</ol>
+<p>Since this is about timing of the treatment, rather than some other factors that moderates effectiveness of treatment, I think the latter is a more appropriate way of handling this.</p>
+<div class="mermaid">
+              flowchart LR;
+
+    age(&quot;Gestational age&lt;br&gt;BMI&quot;):::white;
+    AK(&quot;A&lt;sub&gt;K&lt;/sub&gt;&lt;br&gt;&lt;b&gt;Caesarean&lt;/b&gt;&quot;):::green;
+    AK1(&quot;A&lt;sub&gt;K+1&lt;/sub&gt;&lt;br&gt;&lt;b&gt;Caesarean&lt;/b&gt;&quot;):::green;
+    YK1(&quot;Y&lt;sub&gt;K+1&lt;/sub&gt;&lt;br&gt;&lt;b&gt;Hypoxic ischaemic&lt;br&gt;encephalopathy (HIE)&lt;/b&gt;&quot;):::green;
+    YK2(&quot;Y&lt;sub&gt;K+2&lt;/sub&gt;&lt;br&gt;&lt;b&gt;Hypoxic ischaemic&lt;br&gt;encephalopathy (HIE)&lt;/b&gt;&quot;):::green;
+    LK(&quot;Confounder (L&lt;sub&gt;K&lt;/sub&gt;)&lt;br&gt;Abnormal FHR&quot;):::white;
+    LK1(&quot;Confounder (L&lt;sub&gt;K+1&lt;/sub&gt;)&lt;br&gt;Abnormal FHR&quot;):::white;
+    sen_K(&quot;Sentinal event&lt;br&gt;at timepoint K&quot;):::white;
+    sen_K1(&quot;Sentinal event&lt;br&gt;at timepoint K+1&quot;):::white;
+    UK(&quot;U&lt;sub&gt;K&lt;/sub&gt;&lt;br&gt;&lt;b&gt;Hypoxia/Asphyxia&lt;/b&gt;&quot;):::white;
+    UK1(&quot;U&lt;sub&gt;K+1&lt;/sub&gt;&lt;br&gt;&lt;b&gt;Hypoxia/Asphyxia&lt;/b&gt;&quot;):::white;
+
+    age --&gt; sen_K; age --&gt; sen_K1; age --&gt; AK; age --&gt; AK1;
+    AK --&gt; YK1;
+    LK --&gt; AK;
+    sen_K --&gt; UK;
+    UK --&gt; LK;
+    UK --&gt; YK1;
+    sen_K1 --&gt; UK1;
+    UK1 --&gt; LK1;
+    LK1 --&gt; AK1;
+    AK1 --&gt; YK2;
+    UK1 --&gt; YK2;
+    sen_K --&gt; sen_K1;
+    UK --&gt; UK1;
+    YK1 --&gt; YK2;
+
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div></section>
+<section id="is-there-treatment-confounder-feedback">
+<h3>Is there treatment-confounder feedback?<a class="headerlink" href="#is-there-treatment-confounder-feedback" title="Link to this heading">#</a></h3>
+<p><mark>Not sure.</mark></p>
+<p>Here, its about whether or not they did a caesarean.</p>
+<ul class="simple">
+<li><p>If they don’t do a ceasarean, we expect things to get worse, FHR more abnormal, so no caesarean impacts later heart rate</p></li>
+<li><p>HOWEVER if they did do a caesarean, this will have no impact on later FHR, as there is no later FHR - it has ended</p></li>
+</ul>
+<p>So is it treatment-confounder feedback or not?</p>
+<div class="mermaid">
+              flowchart LR;
+
+    age(&quot;Gestational age&lt;br&gt;BMI&quot;):::white;
+    AK(&quot;A&lt;sub&gt;K&lt;/sub&gt;&lt;br&gt;&lt;b&gt;Caesarean&lt;/b&gt;&quot;):::green;
+    AK1(&quot;A&lt;sub&gt;K+1&lt;/sub&gt;&lt;br&gt;&lt;b&gt;Caesarean&lt;/b&gt;&quot;):::green;
+    YK1(&quot;Y&lt;sub&gt;K+1&lt;/sub&gt;&lt;br&gt;&lt;b&gt;Hypoxic ischaemic&lt;br&gt;encephalopathy (HIE)&lt;/b&gt;&quot;):::green;
+    YK2(&quot;Y&lt;sub&gt;K+2&lt;/sub&gt;&lt;br&gt;&lt;b&gt;Hypoxic ischaemic&lt;br&gt;encephalopathy (HIE)&lt;/b&gt;&quot;):::green;
+    LK(&quot;Confounder (L&lt;sub&gt;K&lt;/sub&gt;)&lt;br&gt;Abnormal FHR&quot;):::white;
+    LK1(&quot;Confounder (L&lt;sub&gt;K+1&lt;/sub&gt;)&lt;br&gt;Abnormal FHR&quot;):::white;
+    sen_K(&quot;Sentinal event&lt;br&gt;at timepoint K&quot;):::white;
+    sen_K1(&quot;Sentinal event&lt;br&gt;at timepoint K+1&quot;):::white;
+    UK(&quot;U&lt;sub&gt;K&lt;/sub&gt;&lt;br&gt;&lt;b&gt;Hypoxia/Asphyxia&lt;/b&gt;&quot;):::white;
+    UK1(&quot;U&lt;sub&gt;K+1&lt;/sub&gt;&lt;br&gt;&lt;b&gt;Hypoxia/Asphyxia&lt;/b&gt;&quot;):::white;
+
+    age --&gt; sen_K; age --&gt; sen_K1; age --&gt; AK; age --&gt; AK1;
+    AK --&gt; YK1;
+    LK --&gt; AK;
+    sen_K --&gt; UK;
+    UK --&gt; LK;
+    UK --&gt; YK1;
+    sen_K1 --&gt; UK1;
+    UK1 --&gt; LK1;
+    LK1 --&gt; AK1;
+    AK1 --&gt; YK2;
+    UK1 --&gt; YK2;
+    sen_K --&gt; sen_K1;
+    UK --&gt; UK1;
+    YK1 --&gt; YK2;
+    AK --&gt; LK1;
+
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div></section>
+<section id="what-about-all-our-other-risk-factors-we-re-interested-in">
+<h3>What about all our other risk factors we’re interested in?<a class="headerlink" href="#what-about-all-our-other-risk-factors-we-re-interested-in" title="Link to this heading">#</a></h3>
+<p>In a DAG, we should only include common causes. However, there are lots of risk factors that we often consider that I’m not sure if they are common causes e.g.</p>
+<ul class="simple">
+<li><p>Parity</p></li>
+<li><p>Meconium</p></li>
+<li><p>Analgesia</p></li>
+<li><p>Ethnicity</p></li>
+</ul>
+<p><mark>What do we do about those? Do we care?<mark> Should it be that I just haven’t managed to fit them on the DAG? If they don’t fit on, do we not care?</p>
+</section>
+<section id="diagnostic-error">
+<h3>Diagnostic error<a class="headerlink" href="#diagnostic-error" title="Link to this heading">#</a></h3>
+<p>You could also include representation of the diagnostic error in HIE - ignoring the rest of the DAG, would look like…</p>
+<p>Another representation with diagnostic error in HIE…</p>
+<div class="mermaid">
+              flowchart LR;
+
+    Y(&quot;Outcome (Y)&lt;br&gt;&lt;b&gt;Hypoxic ischaemic&lt;br&gt;encephalopathy (HIE)&lt;/b&gt;&quot;):::important;
+    Y*(&quot;Y* Mismeasurement of HIE&quot;):::white;
+    Yerr(&quot;Measurement error in HIE&quot;):::white;
+    
+    Y --&gt; Y*;
+    Yerr --&gt; Y*;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef important fill:#DDF2D1, stroke: #FFFFFF;
+        </div></section>
+</section>
+<section id="another-less-certain-proposal">
+<h2>Another (less certain) proposal<a class="headerlink" href="#another-less-certain-proposal" title="Link to this heading">#</a></h2>
+<p>Another angle (not sure if this is right)…</p>
+<p>We know gestational age is a risk factor for HIE - but does it have a causal relationship with HIE?</p>
+<div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp(&quot;Gestational age&quot;):::green;
+    out(&quot;HIE&quot;):::green;
+
+    %% Produce the figure
+    exp --&gt; out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><p>Would we then be interested in the direct causal effect of age on HIE that is not mediated by having a caesarean? (i.e. treating ceasarean as a mediator of the relationship between age and HIE)</p>
+<div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp(&quot;Gestational age&quot;):::green;
+    treat(&quot;Caesarean&quot;):::white;
+    out(&quot;HIE&quot;):::green;
+
+    %% Produce the figure
+    exp --&gt; treat;
+    treat --&gt; out;
+    exp --&gt; out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><p>Expanding on that, there are many risk factors of interest…</p>
+<div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp(&quot;Gestational age&quot;):::green;
+    treat(&quot;Caesarean&quot;):::white;
+    out(&quot;HIE&quot;):::green;
+
+    %% Produce the figure
+    exp --&gt; treat;
+    treat --&gt; out;
+    exp --&gt; out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp(&quot;Hypoxia&quot;):::green;
+    fhr(&quot;Abnormal FHR&quot;):::white;
+    treat(&quot;Caesarean&quot;):::white;
+    out(&quot;HIE&quot;):::green;
+
+    %% Produce the figure
+    exp --&gt; fhr;
+    fhr --&gt; treat;
+    treat --&gt; out;
+    fhr --&gt; out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp(&quot;Parity&quot;):::green;
+    treat(&quot;Caesarean&quot;):::white;
+    out(&quot;HIE&quot;):::green;
+
+    %% Produce the figure
+    exp --&gt; treat;
+    treat --&gt; out;
+    exp --&gt; out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp(&quot;Previous caesarean&quot;):::green;
+    treat(&quot;Caesarean&quot;):::white;
+    out(&quot;HIE&quot;):::green;
+
+    %% Produce the figure
+    exp --&gt; treat;
+    treat --&gt; out;
+    exp --&gt; out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp(&quot;BMI&quot;):::green;
+    treat(&quot;Caesarean&quot;):::white;
+    out(&quot;HIE&quot;):::green;
+
+    %% Produce the figure
+    exp --&gt; treat;
+    treat --&gt; out;
+    exp --&gt; out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp(&quot;Ethnicity&quot;):::green;
+    treat(&quot;Caesarean&quot;):::white;
+    out(&quot;HIE&quot;):::green;
+
+    %% Produce the figure
+    exp --&gt; treat;
+    treat --&gt; out;
+    exp --&gt; out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp(&quot;Analgesia&quot;):::green;
+    treat(&quot;Caesarean&quot;):::white;
+    out(&quot;HIE&quot;):::green;
+
+    %% Produce the figure
+    exp --&gt; treat;
+    treat --&gt; out;
+    exp --&gt; out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp(&quot;Meconium&quot;):::green;
+    treat(&quot;Caesarean&quot;):::white;
+    out(&quot;HIE&quot;):::green;
+
+    %% Produce the figure
+    exp --&gt; treat;
+    treat --&gt; out;
+    exp --&gt; out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    exp(&quot;Parity&quot;):::green;
+    treat(&quot;Caesarean&quot;):::white;
+    out(&quot;HIE&quot;):::green;
+
+    %% Produce the figure
+    exp --&gt; treat;
+    treat --&gt; out;
+    exp --&gt; out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><p>But as they are all causes of two things on the DAG, you’d need to add them all to each DAG….</p>
+<div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    age(&quot;Gestational age&quot;):::green;
+    par(&quot;Parity&quot;):::white;
+    hypo(&quot;Hypoxia&quot;):::white;
+    fhr(&quot;Abnormal FHR&quot;):::white;
+    mec(&quot;Meconium&quot;):::white;
+    ana(&quot;Analgesia&quot;):::white;
+    eth(&quot;Ethnicity&quot;):::white;
+    treat(&quot;Caesarean&quot;):::white;
+    out(&quot;HIE&quot;):::green;
+
+    %% Produce the figure
+    age --&gt; treat; age --&gt; out;
+    par --&gt; treat; par --&gt; out;
+    hypo--&gt; fhr; fhr --&gt; treat; fhr --&gt; out;
+    mec --&gt; treat; mec --&gt; out;
+    ana --&gt; treat; ana --&gt; out;
+    eth --&gt; treat; eth --&gt; out;
+    treat --&gt; out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div><div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    age(&quot;Gestational age&quot;):::white;
+    par(&quot;Parity&quot;):::green;
+    hypo(&quot;Hypoxia&quot;):::white;
+    fhr(&quot;Abnormal FHR&quot;):::white;
+    mec(&quot;Meconium&quot;):::white;
+    ana(&quot;Analgesia&quot;):::white;
+    eth(&quot;Ethnicity&quot;):::white;
+    treat(&quot;Caesarean&quot;):::white;
+    out(&quot;HIE&quot;):::green;
+
+    %% Produce the figure
+    age --&gt; treat; age --&gt; out;
+    par --&gt; treat; par --&gt; out;
+    hypo--&gt; fhr; fhr --&gt; treat; fhr --&gt; out;
+    mec --&gt; treat; mec --&gt; out;
+    ana --&gt; treat; ana --&gt; out;
+    eth --&gt; treat; eth --&gt; out;
+    treat --&gt; out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+        </div></section>
+<section id="context-reasons-for-doing-a-caesarean">
+<h2>Context: Reasons for doing a caesarean<a class="headerlink" href="#context-reasons-for-doing-a-caesarean" title="Link to this heading">#</a></h2>
+<p>A key thing to know is what causes need for caesarean - and whether those are also things that cause HIE (similar to hypoxia).</p>
+<p>Panda et al. 2018 - Clinicians’ views of factors influencing decision-making for caesarean section: A systematic review and metasynthesis of qualitative, quantitative and mixed methods studies - https://doi.org/10.1371%2Fjournal.pone.0200941 - some of the mentioned reasons across the world…</p>
+<ul class="simple">
+<li><p>Perceived risk of CS v.s. vaginal birth - e.g. concerns related to risk of urinary and fecal incontinence and pelvic floor collapse following vaginal births</p></li>
+<li><p>Perceived safety of CS - e.g. believing CS could reduce risks of and prevent complications for women living in isolated areas</p></li>
+<li><p>Women requesting CS (which itself is influenced by socio-cultural perspectives, women’s preferences, demands, obstetricians’ beliefs in women’s right and autonomy to choose a CS, and their perception of women’s anxiety and fear)</p></li>
+<li><p>Clinical reasons -</p>
+<ul>
+<li><p>previous CS</p></li>
+<li><p>risk of anorectal trauma</p></li>
+<li><p>preventing perineal injury, urinary and anal incontinence</p></li>
+<li><p>maternal age</p></li>
+<li><p>obesity</p></li>
+<li><p>previous birth complications</p></li>
+<li><p>risk of pelvic prolapse</p></li>
+<li><p>uterine rupture</p></li>
+<li><p>medical conditions like mypoia and previous abortions</p></li>
+<li><p>breech presentation</p></li>
+<li><p>previous classical CS</p></li>
+<li><p>fetal distress</p></li>
+<li><p>malpresentation</p></li>
+<li><p>dystocia</p></li>
+<li><p>placenta previa</p></li>
+<li><p>umbilical cord collapse</p></li>
+</ul>
+</li>
+<li><p>Fear of litigation / medico-legal problems</p></li>
+<li><p>Lack of resources (e.g. not enough experienced clinicians to facilitate natural birth, availability of personal for emergency CS, availability of anaesthesia, access to basic infrastructure, access to emergency care facilities)</p></li>
+<li><p>Type of health care coverage (private/public)</p></li>
+<li><p>Hospital policies</p></li>
+<li><p>Clinician characteristics - personal convenience, clinician demographics, confidence and skills</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="neo_out_chorio.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chorioamnionitis</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="our_target_trial_protocol.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">HIE target trial protocol</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#context">Context</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposed-dag">Proposed DAG</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-question">Research question</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-confounders">Add confounders</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-other-causes-of-at-least-two-things-in-the-dag">Add other causes of at least two things in the DAG</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timing-of-the-caesarean">Timing of the caesarean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-there-treatment-confounder-feedback">Is there treatment-confounder feedback?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-all-our-other-risk-factors-we-re-interested-in">What about all our other risk factors we’re interested in?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostic-error">Diagnostic error</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#another-less-certain-proposal">Another (less certain) proposal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#context-reasons-for-doing-a-caesarean">Context: Reasons for doing a caesarean</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/appendices/our_dag.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Amy Heather.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

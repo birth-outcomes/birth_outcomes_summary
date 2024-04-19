@@ -1,0 +1,736 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Obstetric examples &#8212; Birth outcomes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=da435dbd" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'risk_factors/treat_obstetric_examples';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Proposal" href="proposal.html" />
+    <link rel="prev" title="The treatment paradox" href="treatment_paradox.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/penchord_birth.png" class="logo__image only-light" alt="PenCHORD"/>
+    <script>document.write(`<img src="../_static/penchord_birth.png" class="logo__image only-dark" alt="PenCHORD"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../background/encephalopathy.html">
+                        Background
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../causal_concepts/1_predict_vs_causal.html">
+                        Causal Inference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../outcomes/summary.html">
+                        Outcomes
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="treatment_paradox.html">
+                        Study Design
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../appendices/neo_out_enceph_treatment_outcomes.html">
+                        Appendices
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/birth-outcomes/birth_outcomes_summary" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github-square fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../background/encephalopathy.html">
+                        Background
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../causal_concepts/1_predict_vs_causal.html">
+                        Causal Inference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../outcomes/summary.html">
+                        Outcomes
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="treatment_paradox.html">
+                        Study Design
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../appendices/neo_out_enceph_treatment_outcomes.html">
+                        Appendices
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/birth-outcomes/birth_outcomes_summary" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github-square fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Risk factors</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="treatment_paradox.html">The treatment paradox</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Obstetric examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">Proposal</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Intervention effectiveness</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intervention/intervene_obstetric_examples.html">Obstetric examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">To sort</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../our_study/finding_focus.html">Finding a focus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../our_study/research_proposal.html">HIE proposal 1: predicting HIE</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../our_study/research_proposal2.html">HIE proposal 2: caesarean v.s. vaginal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../our_study/research_proposal3.html">HIE proposal 3: timing of caesarean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../our_study/research_proposal4.html">HIE proposal 4: vaginal only</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="treatment_paradox.html" class="nav-link">The treatment paradox</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Obstetric examples</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="obstetric-examples">
+<h1>Obstetric examples<a class="headerlink" href="#obstetric-examples" title="Link to this heading">#</a></h1>
+<div class="info admonition">
+<p class="admonition-title">Executive summary</p>
+<p>This page summarises examples of studies in obstetrics that have attempted to account for the treatment paradox, whilst analysing the association of various risk factors with an outcome.</p>
+<p><strong>Treatment as predictor</strong> - Thangaratinam et al. 2017;</p>
+<p><strong>Inverse probability of treatment weighting</strong> - Cooray et al. 2020;</p>
+<p><strong>Exclusion of treated</strong> - Steer et al. 2023;</p>
+</div>
+<p><mark>sort out this page - identifying method used to address paradox, highlighting that in description, and including in summary</mark></p>
+<section id="thangaratinam-et-al-2017">
+<h2>Thangaratinam et al. 2017<a class="headerlink" href="#thangaratinam-et-al-2017" title="Link to this heading">#</a></h2>
+<p>Study: Development and validation of Prediction models for Risks of complications in Early-onset Pre-eclampsia.<a class="reference external" href="https://doi.org/10.1186/s12916-017-0827-3">[Thangaratinam et al. 2017]</a></p>
+<p>Aim: Predict adverse maternal outcomes outcomes in patients with early-onset pre-eclampsia</p>
+<p>Methods:</p>
+<ul class="simple">
+<li><p>Survival model ‘censored at 34 completed weeks’ gestation to predict the risk over time at daily intervals from diagnosis of early onset pre-eclampsia’</p></li>
+<li><p>Logistic regression model ‘to predict the overall risk of maternal complications by postnatal discharge’</p></li>
+<li><p>Account for treatment paradox by <strong>including treatment as predictor:</strong> baseline treatment with hypertensives and magnesium sulfate as predictors in both models <a class="reference external" href="https://doi.org/10.1186/s12916-017-0827-3">[Thangaratinam et al. 2017]</a></p></li>
+</ul>
+<p>In a 2016 commentary in the British Journal of Obstetrics and Gynaecology (BJOG)<a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">[Cheong-See et al. 2016]</a>, they examined this model to identify what made it succesful and highlighted:</p>
+<ul class="simple">
+<li><p>Large sample size</p></li>
+<li><p>Standardisation of treatment or intervention</p></li>
+<li><p>Consideration of the initiation of treatment being an outcome itself - i.e. “when starting a treatment is likely to prevent an adverse outcome, those who received the treatment could also be considered to have experienced the outcome”<a class="reference external" href="https://doi.org/10.5772/intechopen.87311">[Murphy et al. 2019]</a></p></li>
+</ul>
+</section>
+<section id="cooray-et-al-2020">
+<h2>Cooray et al. 2020<a class="headerlink" href="#cooray-et-al-2020" title="Link to this heading">#</a></h2>
+<p>Study: Protocol for development and validation of a clinical prediction model for adverse pregnancy outcomes in women with gestational diabetes <a class="reference external" href="http://dx.doi.org/10.1136/bmjopen-2020-038845">[Cooray et al. 2020]</a></p>
+<p>Aim: Predicting adverse outcomes (neonatal and maternal) in women with gestational diabetes (in presence of treatment paradox from insulin)</p>
+<p>Method:</p>
+<ul class="simple">
+<li><p>‘Sensitivity analyses to address the confounding effect of insulin treatment on predictor-outcome associations and hence the performance of the prediction model. These are:</p>
+<ul>
+<li><p><strong>IPTW</strong> - propensity of being treated with insulin based on pre-treatment characteristics</p></li>
+<li><p><strong>Insulin as component of outcome</strong></p></li>
+<li><p><strong>Exclude insulin treatment</strong> cases</p></li>
+<li><p>Multinomial regression for combinations of composite outcome of adverse pregnancy outcome and insulin treatment</p></li>
+</ul>
+</li>
+<li><p>The three possible results from the <strong>sensitivity analysis</strong> to evaluate the effect of including the decision to treat with insulin will be informative and may be interpreted as follows. If the sensitivity analyses find that the inclusion of the decision to treat with insulin within the outcome:</p>
+<ol class="arabic simple">
+<li><p>Positively affects model performance, then this suggests the presence of treatment paradox, that is, pregnancy complications are more likely to occur in the absence of insulin therapy;</p></li>
+<li><p>Has no significant effect on model performance then this suggests that the model is robust with predictive performance not affected by the decision to treat, that is, the absolute risk of adverse pregnancy outcomes for an individual woman with GDM is not affected by insulin therapy;</p></li>
+<li><p>Negatively affects model performance, then this would suggest that adverse pregnancy outcomes are more likely to occur in women treated with insulin, and thus imply more ‘severe’ GDM or a harmful effect for this treatment. (unlikely)</p></li>
+</ol>
+</li>
+</ul>
+<p>Other notes:</p>
+<ul class="simple">
+<li><p>Addressing the treatment paradox (in this case with insulin) is a challenge in prediction modelling studies. The traditional approach has been to accept predictions in the context of current care. However, this does not remove the possibility that a potentially useful model may appear to perform poorly due to the confounding effect of the judicious application of effective interventions to individual’s whom clinicians subjectively assess to be at high risk of the outcome of interest.</p></li>
+<li><p>Two solutions to address the problem of treatment paradox in prediction modelling studies have been advocated.50</p>
+<ul>
+<li><p>First, the use of treatments suspected to confound the predictor-outcome relationship can be set as a <strong>predictor</strong> in the final model.</p></li>
+<li><p>Second, the use of such effective treatments can be included within a composite <strong>outcome</strong> to be predicted.</p></li>
+</ul>
+</li>
+<li><p>For this study, both approaches were considered but deemed <strong>inappropriate</strong>. For the former, the inclusion of the requirement for insulin therapy as a predictor is not possible as this information is not available at the intended moment of prediction—the time of GDM diagnosis, usually around 24 to 28 weeks gestation. For the later, inclusion of the requirement for insulin therapy within the composite outcome would impair its interpretability as this outcome occurs at a significantly higher frequency than the other component outcomes (31% vs approximately 10% based on our prior work).44 This is likely to lead to a less meaningful composite that is primarily driven by the need for insulin therapy and no longer predicts what we want (adverse pregnancy outcomes). While many promising novel approaches have been proposed in the statistical literature, such as multistate modelling or marginal structural models for ‘treatment drop-ins’,51 52 at time of writing all are primarily based on empirical data and are yet to be applied to clinical prediction problems.</p></li>
+</ul>
+<section id="odd-et-al-2017">
+<h3>Odd et al. 2017<a class="headerlink" href="#odd-et-al-2017" title="Link to this heading">#</a></h3>
+<p>Study: Hypoxic-ischemic brain injury: Planned delivery before intrapartum events <a class="reference external" href="https://doi.org/10.3233/NPM-16152">[Odd et al. 2017]</a></p>
+<p>Aim: Predict risk of HIE</p>
+<p>Dataset: Avon Longitudinal Study of Parents and Children (ALSPAC) - cohort of 14000+ infants around Bristol born 1991-92.</p>
+<p>Outcome: Need resuscitation and then have symptoms of NE.</p>
+<p>Predictors:</p>
+<ul class="simple">
+<li><p>‘Booking factors (maternal age, smoking, primiparity, previous lower segment caesarean section (LSCS), multiple births)</p></li>
+<li><p>Antenatal factors (preeclampsia, gestational diabetes, prelabor abruption, placenta previa, oligohydramnios, polyhydramnios, threatened preterm labor, gender, concerns of IUGR infant)</p></li>
+<li><p>Labor factors (induction of labor, pre-labor rupture of membranes, planned LSCS, gestation at birth, presentation, prelabor breech, breech delivery, duration of ruptured membranes)’</p></li>
+</ul>
+<p><em>Planned LSCS is lower segment caesarean section.</em></p>
+<p>Model: Logistic regression.</p>
+<ul class="simple">
+<li><p>Develop model in half the data</p></li>
+<li><p>Test model in other half of the data</p></li>
+<li><p>Then ‘to give some indication of possible avoidable disease, the proportion of infants with HIE, potentially avoidable by earlier delivery was estimated by assuming that elective delivery would remove intrapartum risk of HIE for those infants undelivered at this point. This was calculated for the whole cohort and for each antenatal risk strata at each gestational age between 36 and 40 weeks. The a-priori clinical cut-off used was “clinical intervention” (e.g. elective LSCS) at 39 weeks’</p></li>
+</ul>
+</section>
+<section id="leith-et-al-2023">
+<h3>Leith et al. 2023<a class="headerlink" href="#leith-et-al-2023" title="Link to this heading">#</a></h3>
+<p>Study: A predictive model for perinatal hypoxic ischemic encephalopathy using linked maternal and neonatal hospital data. <a class="reference external" href="http://dx.doi.org/10.1016/j.annepidem.2023.11.011">[Leith et al. 2023]</a></p>
+<p>Aim: Predict HIE - building on <a class="reference external" href="https://doi.org/10.3233/NPM-16152">[Odd et al. 2017]</a>, but with a model in a larger dataset of births. They describe Odd et al. 2017 as a paer in which “researchers in England published the first predictive model accounting for multiple risk factors to estimate the probability of an individual HIE injury”.</p>
+<p>Method: They include the intervention as a predictor in the model, but not as a way to enable causal inferences. They state that “drawing causal inferences should be done with caution. For instance, some factors were found to be significantly protective against HIE injury, such as malpresentation and uterine inertia, which logically should not decrease risk. It is likely that such conditions heighten clinical awareness of risk, thus resulting in more timely initiation of protective interventions.”</p>
+<p>Dataset: US dataset of 836,216 births - of which, 376 (0.00045%) had a diagnosis of HIE (0.45 per 1000 live births). (They incorrectly state “0.045%”).</p>
+<p>Their DAG: Due to the large number of factors in the final model, to make the graph easier to read we have combined similar factors into groups as follows:</p>
+<ul class="simple">
+<li><p>Maternal characteristics: age, race, payer, metropolitan residence, history of stillbirth, tobacco use.</p></li>
+<li><p>Chronic conditions: diabetes, hypertension, total number of chronic conditions.</p></li>
+<li><p>Antepartum complications: decreased fetal movement, polyhydramnios, amniotic fluid infection, intrauterine acidosis, cord compression, placental infarct.</p></li>
+<li><p>Intrapartum complications: septicemia, hypertonic contractions, uterine inertia, prolonged 2nd stage.</p></li>
+<li><p>Presentation: malpresentation, breech delivery, shoulder dystocia.</p></li>
+<li><p>Emergency: sentinel event, fetal heart rate abnormalities.</p></li>
+</ul>
+<p>They use a logistic regression model to predict cases of HIE (i.e. presence of HIE diagnostic code). The model includes a range of maternal, antepartum and intrapartum characteristics - including the delivery type (with predictors including forceps, vacuum, elective C-section, emergency C-section, and intrapartum C-section).</p>
+<p><img alt="DAG from Leith et al. 2023" src="../_images/leith_2023_dag.jpg" /></p>
+</section>
+</section>
+<section id="syngelaki-et-al-2022">
+<h2>Syngelaki et al. 2022<a class="headerlink" href="#syngelaki-et-al-2022" title="Link to this heading">#</a></h2>
+<p>Study: Competing-risks model for pre-eclampsia and adverse pregnancy outcomes. <a class="reference external" href="https://doi.org/10.1002/uog.26036">[Syngelaki et al. 2022]</a></p>
+<p>There is another paper that is quite relevant to this - <a class="reference external" href="https://doi.org/10.1016/j.ajog.2019.11.1247">[Wright et al. 2020]</a> - The competing risk approach for prediction of preeclampsia</p>
+<p>Aim: Estimate risk of delivery with pre-eclampsia</p>
+<p>Methods: Competing-risks model</p>
+</section>
+<section id="steer-et-al-2023">
+<h2>Steer et al. 2023<a class="headerlink" href="#steer-et-al-2023" title="Link to this heading">#</a></h2>
+<p>Study: Risk factors for a serious adverse outcome in neonates: a retrospective cohort study of vaginal births. <a class="reference external" href="https://doi.org/10.1111/1471-0528.17531">[Steer et al. 2023]</a></p>
+<p>Aim: Identify risk factors for adverse neonatal outcomes:</p>
+<ol class="arabic simple">
+<li><p>5-minute Apgar &lt;7 - as it is proxy that indicates higher risk of HIE, CP and death</p></li>
+<li><p>Composite of:</p>
+<ul class="simple">
+<li><p>(i) 5-minute Apgar</p></li>
+<li><p>(ii) Neonatal resuscitation by intubation and positive pressure ventilation - as its a major intervention requiring expert input, particularly relevant for MSAF</p></li>
+<li><p>(iii) Perinatal death - as its the most important outcome to avoid</p></li>
+</ul>
+</li>
+</ol>
+<p>Method: Exclusion of mothers who delivery by caesarean (i.e. only include vaginal deliveries) - as when included, emergency caesarean is a “major effect modifier and itself associated significantly with different maternal and labour risk factors”</p>
+</section>
+<section id="williams-et-al-2018">
+<h2>Williams et al. 2018<a class="headerlink" href="#williams-et-al-2018" title="Link to this heading">#</a></h2>
+<p>Study: Directed acyclic graphs: a tool for causal studies in paediatrics. <a class="reference external" href="https://doi.org/10.1038/s41390-018-0071-3">[Williams et al. 2018]</a></p>
+<p>This study is a slight exception as it is just explaining the likely existence of the treatment paradox in a previous study.</p>
+<p>Pre-eclampsia is hypothesised to cause cerebral palsy. It is also associated with higher risk of medically indicated (ordered by the physician) pre-term birth - and pre-term birth is also associated with higher risk of cerebral palsy. Steve Thornton comments that “pre-eclampsia leads to pre-term birth because women are induced or delivered early because of the pre-eclampsia to prevent it getting worse”.</p>
+<p>You could adjust for pre-term birth or gestational age like a confounding variable. However, pre-term birth is a intermediate between pre-eclampsia and cerebral palsy, and not a common cause of both. Therefore, this adjustment (overadjustment) takes away from the detrimental effect of pre-elcampsia, mediated through pre-term birth - attenuating the effect or event reversing it.</p>
+<p>In an early study, pre-eclampsia was found to be protective in pre-term infants and detrimental for those born later. However, we expect pre-eclampsia to be detrimental for all infants. This finding could be as the analysis seperated out pre-term births and later births, closing the causal path between pre-eclampsia and cerebral palsy via pre-term birth.<a class="reference external" href="https://doi.org/10.1038/s41390-018-0071-3">[Williams et al. 2018]</a></p>
+<div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    eclam(&quot;Pre-eclampsia&quot;)
+    preterm(&quot;Preterm birth&quot;)
+    cp(&quot;Cerebral palsy&quot;)
+
+    %% Produce the figure
+    eclam --&gt; preterm;
+    preterm --&gt; cp;
+    eclam --&gt; cp;
+        </div><p>However, it’s likely more complex. In a more realistic directed acyclic graph (DAG) below, chorioamnionitis is added. It is another cause of pre-term birth and cerebral palsy.</p>
+<p>Gestational age, as a shared effect of pre-eclampsia and chorioamnionitis, acts as a <strong>collider</strong>. This is the opposite of a confounder (where a common cause of exposure and outcome is not controlled for) - instead, a collider is when the exposure and outcome (or factors causing) each influence a common third variable, and that variable is controlled for in the design. Controlling for a collider can result in a distorted association betwene the exposure and outcome, when actually none exists.</p>
+<p>In this model, if we look in a group of pre-term infants:</p>
+<ul class="simple">
+<li><p>Babies born to mothers with pre-eclampsia will be less likely to have chorioamnionitis and vice versa</p></li>
+<li><p>The effect of pre-eclampsia will be compared with the effect of chorioamnionitis on cerebral palsy, and will falsy appear to be protective - the estimated direct causal effect of pre-eclampsia on the outcome will be biased (through the effect of chorioamnionitis)</p></li>
+</ul>
+<p>Hence, although widely used, conditioning on gestational at birth in studies of prenatal exposures and their relationship to postnatal outcomes may not reduce but actually lead to bias through overadjustment and faulty comparisons, and generate counterintuitive results and apparent changes of effect in different groups of patients.<a class="reference external" href="https://doi.org/10.1038/s41390-018-0071-3">[Williams et al. 2018]</a></p>
+<div class="mermaid">
+              flowchart LR;
+
+    %% Define the nodes and subgraphs
+    chor(&quot;Chorioamnionitis&quot;)
+    eclam(&quot;Pre-eclampsia&quot;)
+    preterm(&quot;Preterm birth&quot;)
+    cp(&quot;Cerebral palsy&quot;)
+
+    %% Produce the figure
+    chor --&gt; preterm;
+    eclam --&gt; preterm;
+    chor --&gt; cp;
+    preterm --&gt; cp;
+    eclam --&gt; cp;
+        </div></section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="treatment_paradox.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">The treatment paradox</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="proposal.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Proposal</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thangaratinam-et-al-2017">Thangaratinam et al. 2017</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cooray-et-al-2020">Cooray et al. 2020</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#odd-et-al-2017">Odd et al. 2017</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leith-et-al-2023">Leith et al. 2023</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syngelaki-et-al-2022">Syngelaki et al. 2022</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steer-et-al-2023">Steer et al. 2023</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#williams-et-al-2018">Williams et al. 2018</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/risk_factors/treat_obstetric_examples.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Amy Heather.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
