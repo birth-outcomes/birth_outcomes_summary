@@ -1,5 +1,21 @@
 # Challenge 2: Outcomes for trials
 
+:::{toctree}
+:hidden:
+
+self
+design_other
+neo_out_chorio
+our_dag
+our_target_trial_protocol
+fetal_risk_factors
+parental_outcomes
+research_groups
+routine_data
+key_papers
+:::
+
+
 `````{admonition} Executive summary
 :class: info
 

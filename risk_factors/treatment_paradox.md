@@ -1,5 +1,39 @@
 # The treatment paradox
 
+:::{toctree}
+:hidden:
+:caption: Risk factors
+
+self
+treat_obstetric_examples
+proposal
+:::
+
+:::{toctree}
+:hidden:
+:caption: Intervention effectiveness
+
+../intervention/intervene_obstetric_examples
+:::
+
+:::{toctree}
+:hidden:
+:caption: To sort
+
+../our_study/finding_focus
+../our_study/research_proposal
+../our_study/research_proposal2
+../our_study/research_proposal3
+../our_study/research_proposal4
+:::
+
+:::{toctree}
+:hidden:
+:caption: References
+
+references
+:::
+
 `````{admonition} Executive summary
 :class: info
 
