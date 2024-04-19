@@ -1,5 +1,13 @@
 # Neonatal encephalopathy
 
+:::{toctree}
+:hidden:
+
+self
+stages
+interventions
+:::
+
 `````{admonition} Executive summary
 :class: info
 

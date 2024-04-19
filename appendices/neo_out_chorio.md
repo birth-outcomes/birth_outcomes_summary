@@ -1,4 +1,4 @@
-# More on chorioamnionitis
+# Chorioamnionitis
 
 `````{admonition} Executive summary
 :class: info
@@ -6,8 +6,6 @@
 * Chroioaminiotis refers to inflammation and/or infection of the intrauterine structures during pregnancy
 * It is rare in term deliveries, but is very common in premature births
 `````
-
-## Chorioamnionitis
 
 '**Chorioamnionitis (or intra-aminotic infection)** is a term encompassing a broad spectrum of disease during pregnancy that is characterized by **inflammation and/or infection of intrauterine structures** such as the placenta, the chorion and amnion. The clinical presentation of chorioamnionitis can vary based on clinical, microbiologic, and histologic factors which interact and overlap to varying degrees. Signs and symptoms depend on whether a primary inflammatory versus an infectious process is found.'[[Source]](https://doi.org/10.1016%2Fj.vaccine.2019.05.030)
 
@@ -56,7 +54,7 @@ Severe consequences include:
 
 [[source]](https://doi.org/10.1016%2Fj.vaccine.2019.05.030)
 
-## Defintion of chroioamionitis
+## Definition of chroioamionitis
 
 'There are a variety of definitions for chorioamnionitis set forth by international and national health authorities. In their guideline document, the World Health Organization (WHO) defines peripartum infections as “bacterial infection of the genital tract or its surrounding tissues occurring at any time between the onset of rupture of membranes or labor and the 42nd day postpartum in which two or more of the following are present: pelvic pain, fever, abnormal vaginal discharge, abnormal smell/foul odor discharge or delay in uterine involution”. The WHO’s International Classification of Diseases ICD-10 and ICD-11 define chorioamnionitis as O41.12X “Chorioamnionitis” and as JA88.1 “Infection of the amniotic sac and membranes,” respectively. The United Kingdom’s National Institute for Health and Care Excellence (NICE) guidelines for preterm labor does not mention “chorioamnionitis” but does describe prelabor rupture of membranes as risk factor for “intrauterine infection”. The American College of Obstetricians and Gynecologists defines chorioamnionitis as “an infection with resultant inflammation of any combination of the amniotic fluid, placenta, fetus, fetal membranes, or decidua”.'
 
