@@ -31,8 +31,7 @@ chapters:
   - file: causal_methods/c2_regression_discontinuity
   - file: causal_methods/c3_interrupted_time
   - file: causal_methods/c4_diff_in_diff
-  - file: causal_methods/design_methods_5_other
-  - file: causal_methods/design_other
+  - file: causal_methods/other
 - file: outcomes/outcomes
   sections:
   - file: outcomes/neo_out_background
@@ -54,6 +53,7 @@ chapters:
   sections:
   - file: risk_factors/treatment_paradox
   - file: risk_factors/treat_obstetric_examples
+  - file: risk_factors/proposal
 - file: intervention/intro
   sections:
   - file: intervention/intervene_obstetric_examples
@@ -64,13 +64,14 @@ chapters:
   - file: our_study/research_proposal2
   - file: our_study/research_proposal3
   - file: our_study/research_proposal4
-- file: our_study/references
+- file: references
 - file: appendices/intro
   sections:
-  - file: our_study/our_dag
-  - file: our_study/our_target_trial_protocol
   - file: appendices/neo_out_enceph_treatment_outcomes
+  - file: appendices/design_other
   - file: appendices/neo_out_chorio
+  - file: appendices/our_dag
+  - file: appendices/our_target_trial_protocol
   - file: appendices/fetal_risk_factors
   - file: appendices/parental_outcomes
   - file: appendices/research_groups

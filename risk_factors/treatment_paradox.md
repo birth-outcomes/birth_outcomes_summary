@@ -138,7 +138,6 @@ See examples below...
 * Epidural, pyrexia (fever), and birth outcomes
 * Pre-term birth, tocolytics, and birth outcomes[[Cheong-See et al. 2016]](https://doi.org/10.1111/1471-0528.13859) (tocolytics are drugs used to slow/stop contractions, typically given to women in pre-term labour)
 
-
 ## Treatment paradox for caesarean and HIE
 
 In our case, we have a treatment paradox as indicators of poor outcome (e.g. abnormal fetal heart rate (FHR), gestational age) will trigger an effective treatment (caesarean). Hence, if we fit a prediction model where those indicators were used to predict risk of HIE, the relationship between the indicators and outcome will be biased by the selection to receive treatment which helps prevent the outcome, e.g.
@@ -166,19 +165,80 @@ We could demonstrate the **existence** of this paradox as they do in [Uffen et a
 
 ## How do we deal with the treatment paradox?
 
-In their paper, [Cheong-See et al. 2016](https://doi.org/10.1111/1471-0528.13859) convene 'a panel of experts in pre-eclampsia and prognostic research, to explore the potential solutions in the development of a valid prediction model for adverse maternal or fetal outcomes' - addressing this very problem! They panel had 24 members including 'obstetricians, statisticians, clinical epidemiologists, and researchers'. It had a particular focus on the treatment paradox, as they developed a prediction model for the [PREP study (Thnagaratinam et al. 2017)](https://doi.org/10.3310/hta21180). The methods they identified are described in the table below. [[Cheong-See et al. 2016]](https://doi.org/10.1111/1471-0528.13859)
+In their paper, [Cheong-See et al. 2016](https://doi.org/10.1111/1471-0528.13859) convene 'a panel of experts in pre-eclampsia and prognostic research, to explore the potential solutions in the development of a valid prediction model for adverse maternal or fetal outcomes' - addressing this very problem! They panel had 24 members including 'obstetricians, statisticians, clinical epidemiologists, and researchers'. It had a particular focus on the treatment paradox, as they developed a prediction model for the [PREP study (Thnagaratinam et al. 2017)](https://doi.org/10.3310/hta21180). They identified solutions of:
+* Standardisation of treatment
+* Predictor substitution
+* Treatment as predictor
+* Treatment as outcome
+* Propensity scores
 
-**How does this relate to causal inference?** Ultimately, our interest is in understanding the true relationships between variables, which is also the focus of causal inference studies. However, it is important to be aware that in causal inference, you are focussed on understanding the causal effect of an exposure or treatment on an outcome, whilst controlling for confounders for that relationship. If you create a model that includes those confounders, the effect estimates between the confounders and the outcome are still at risk of being impacted by residual confounding or bias, as we did not go through the process for their relationship, and only for the primary relationship of interest. Therefore, some of those methods fall under the banner of "causal inference", and could be designed in such a way that you would be estimating the causal effect between an exposure and an outcome, but it does not mean that you are finding causal effects between all variables and the outcome (which is often the focus below - having a multivariable model that accounts for treatment use - that is still a prediction model).
+Have also added, from other sources:
+* Exclusion of treated
 
-| Method | Description | Limitations | Possible for us? | Related causal inference technique (or at least, my understanding!) |
-| --- | --- | --- | --- | --- |
-| Standardisation of treatment | If the predictor is deterministic of treatment (i.e. everyone with this predictor *definitely* receives treatment - complete colinearity between predictor and treatment), then this resolves the paradox, as we can interpret that e.g. normal blood pressure = no anti-hypertensives. | This requires fully standardised care (same medication, same dose, same treatment thresholds). However, you can deal with this statistically using a multi-level model to account for differences between clinicians and treatment centres | Yes - although not true in practice, as decision to intervene (caesarean) and timing of that intervention varies between clinicians and hospitals - could deal with statistically | Multivariable regression - with the hospital/clinician included as a predictor<br><br>Instrumental variable analysis - where the hospital/clinician (a) cause variation in treatment, (b) are unrelated to outcome - and so can be used as an instrumental variable |
-| Predictor substitution | Remove all predictors which are also used to guide treatment decisions | Often not possible as removes all the meaningful predictors | No | No equivalent |
-| Treatment as a predictor | Include whether they were treated as a predictor | As the decision to treat may be influenced by other predictors in the model, this will make differentiating the effect of the treatment from the effect of the predictor very difficult. You can adjust for this interactivation, although that becomes very complex if there are multiple predictors that would prompt decision to treat, and require extremely large sample sizes for 'reliable assessment of interactions' | Yes - although limitation is significant | Multivariable regression - with treatment included as a predictor |
-| Treatment as an outcome | If the treatment is likely to prevent an adverse outcome, then you can use treatment itself as the outcome, as it indicates they would've otherwise experienced an adverse outcome. | - | Yes - although, if I'm correct in understanding that there are many reasons why an emergency caesarean might be performed, this may not be specific enough? And that often, caesareans are performed and they think actually they shouldn't have been, and vice versa? | No equivalent |
-| Propensity scores | Use propensity score (treatment probability) to account for 'multiway interactions with other predictors'. Either include in model, or use to weight contribution of participant towards the model (i.e. receiving no treatment --> less treatment effect --> more weight) | Limited clinical applicability as requires knowledge of a propensity score for clinicians to make a decision on whether to treat | Yes - although being aware of that limitation | Propensity score methods make up most of the conventional causal inference approaches - in this example, referencing inverse probability of treatment weighting (IPTW) |
+### Standardisation of treatment
 
-Method and description and limitations based on [[Cheong-See et al. 2016]](https://doi.org/10.1111/1471-0528.13859), and relevant to us and link to causal inference based on my understanding of causal inference methodologies at this point.
+This is a scenario where there is complete collinearity between the predictor and the treatment, where the presence of a particular predictor will **always** guarantee the presence of a particular treatment. In this case, the predictor is deterministic of treatment (i.e. everyone with this predictor *definitely* receives treatment - complete colinearity between predictor and treatment). This requires **fully standardised care (same medication, same dose, same treatment thresholds)**.
+
+This is not realistic. Example: Management of early-onset pre-eclampsia, such as the commencement of anti-hypertensives and magnesium sulphate, this is somewhat standardised by guidelines [e.g. from the National Institute for Health and Care Excellence (NICE) in the UK], but the threshold for commencing treatment varies between clinicians and centres. Furthermore, the response from a specific antihypertensive and dosage varies between individual patients.
+
+You can however use multi-level models to account for differences between clinicians and treatment centres.[[Cheong-See et al. 2016]](https://doi.org/10.1111/1471-0528.13859) [Steer 2016](https://doi.org/10.1111/1471-0528.13860) comments though that 'such models rarely take into account all of the relevant factors (e.g. the coexistence of a modulating pathology such as an autoimmune disorder) or the social and emotional circumstances and preferences of the mother and her family.'[[Steer 2016]](https://doi.org/10.1111/1471-0528.13860)
+
+### Predictor substitution
+
+You could **remove all the predictors upon which the decision to treat is based on**.
+
+Limitations:
+* Can prevent you from including meaningful predictors in the model
+* Other predictors may be correlated with the predictors used to make treatment decisions. [[Cheong-See et al. 2016]](https://doi.org/10.1111/1471-0528.13859)
+
+### Treatment as predictor
+
+You could include whether they were treated as a predictor in the model.[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)[[Schuit et al. 2013]](https://doi.org/10.1503/cmaj.120812) In practice, you won't be able to input "they have been treated or not" for the as-yet untreated patients - but you could use the model to estimate outcomes in scenarios where they are or are not treated.[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)
+
+You could just add the indicator on top of the prognostic model, keeping the original coefficients fixed.[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8) However, if there is an interaction between the effectiveness of treatment and having a predictor (e.g. more effective in those with predictor), then the model will need to account for/incorporate this interaction.[[Schuit et al. 2013]](https://doi.org/10.1503/cmaj.120812) Instead therefore, the model could be entirely refitted with the addition of an indicator term for treatment, with the inclusion of interaction terms where anticipated.[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)
+
+Limitations:
+* Failure to correctly specify any interactions between treatment and other predictors in the validation set could mean that the effects of treatment are not completely taken into account[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)
+* The addition of a term for treatment to the model that is to be validated may improve the performance beyond that of the original model due to the inclusion of additional predictive information[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)
+* Not possible if everyone in the study had the same intervention (but in that case, it is likely that  unexpected findings are not due to a treatment paradox)[[Schuit et al. 2013]](https://doi.org/10.1503/cmaj.120812)
+* With this approach, 'differentiating treatment from predictor effects becomes difficult. We could adjust for the interaction between ‘decision to treat’ as a predictor and each of the other prognostic factors in the model; however, when many predictors are involved, or when ‘decision to treat’ is based on multiple predictors, this approach becomes complex. In such situations, extremely large sample sizes are needed for the reliable assessment of interactions.'[[Cheong-See et al. 2016]](https://doi.org/10.1111/1471-0528.13859)
+
+Due to the limitations, Pajouheshnia et al. 2017 do not recommend this approach.[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)
+
+### Treatment as outcome
+
+If the treatment is likely to prevent an adverse outcome, then you can use treatment itself as the outcome, as it indicates they would've otherwise experienced an adverse outcome.
+
+Example: 'In women with early-onset pre-eclampsia, if a large proportion of women are delivered at an early preterm gestation (before 34 weeks), then delivery itself could be considered as an outcome (replacing complications that would have occurred in the absence of delivery). In the absence of a standardised protocol for decision to deliver at early preterm gestation, such an approach could help to overcome the limitations in the model as a result of delivery preventing the occurrence of an adverse outcome.'[[Cheong-See et al. 2016]](https://doi.org/10.1111/1471-0528.13859)
+
+### Propensity scores
+
+Use propensity score (treatment probability) to account for 'multiway interactions with other predictors'. Either include in model, or use to weight contribution of participant towards the model (i.e. receiving no treatment --> less treatment effect --> more weight)
+
+Limitations:
+* Limited clinical applicability as requires knowledge of a propensity score for clinicians to make a decision on whether to treat [[Cheong-See et al. 2016]](https://doi.org/10.1111/1471-0528.13859)
+
+### Exclusion of treated individuals
+
+You can simply exclude the treated individuals.
+
+Limitations:
+* Will 'decrease the effective **sample size**' (which could cause you to not see an effect if you don't have the power). This, for example, leads to 'the precision of estimates of both the observed:expected ratio and c-index (area under the ROC curve) decreased due to the reduction in effective sample size'.
+* Results in loss of information about **high risk individuals**, if treatment allocation was dependent on risk (and so very few were untreated), with the discriminative ability of the model worsening with the exclusion of high-risk individuals and consequently narrower case mix.
+* 'In the presence of a strong **unmeasured predictor of the outcome associated with treatment use**, exclusion of treated individuals resulted in an underestimation of the performance of the model.' [[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)
+
+## How does this relate to causal inference?
+
+Ultimately, our interest is in understanding the true relationships between variables, which is also the focus of causal inference studies.
+
+However, it is important to be aware that in causal inference, you are focussed on understanding the causal effect of an exposure or treatment on an outcome, whilst controlling for confounders for that relationship. If you create a model that includes those confounders, the effect estimates between the confounders and the outcome are still at risk of being impacted by residual confounding or bias, as we did not go through the process for their relationship, and only for the primary relationship of interest.
+
+Therefore, some of those methods fall under the banner of "causal inference", and could be designed in such a way that you would be estimating the causal effect between an exposure and an outcome, but it does not mean that you are finding causal effects between all variables and the outcome (which is often the focus below - having a multivariable model that accounts for treatment use - that is still a prediction model).
+
+If you were however to just focus on the relationship between the treatment and the outcome, then similarities would be:
+* Standardisation of treatment --> Instrumental variable analysis - where the hospital/clinician (a) cause variation in treatment, (b) are unrelated to outcome - and so can be used as an instrumental variable
+* Treatment as predictor --> Multivariable regression - with treatment included as predictor
+* Propensity scores --> Inverse probability of treatment weighting (IPTW)
 
 ## Other important considerations when designing an obstetric model
 

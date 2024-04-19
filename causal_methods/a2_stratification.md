@@ -62,31 +62,3 @@ You can stratify subjects based on their propensity scores. 'The literature show
     * This is even if we're **not interested** in such effect modification. Solution: Stratification by something of interest (i.e. effect modifier) followed by IP weighting or standardisation (to adjust for confounding) allows you to deal with exchangeability (confounders) and effect modification (modifiers)
 * **Noncollapsibility** of certain effect measures like the odds ratio [[Hernán and Robins 2024]](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/) - i.e. 'the crude OR from the marginal table cannot be expressed as the weighted average of the stratum-specific ORs even in the absence of confounding' - as 'the magnitude of the OR is different when comparing the aggregate analysis to the subgroup analysis' - but both estimates are still valid. Other effect measures are **collapsible** e.g. stratified risk ratios [[Pang et al. 2013]](https://doi.org/10.1016/j.amjcard.2012.09.002)
 * Requires **continuous** confounders to be **constrained** to a limited number of categories, which could generate **residual confounding** [[Tripepi et al. 2010]](https://doi.org/10.1159/000319590)
-
-## Exclude treated individuals
-
-A variant on stratification is an anlysis which simply exclude treated individuals. This is proposed in the context of a treatment paradox, where you're interested in the direct causal effect of an exposure on the outcome that is not mediated via decision to treat, which is based on presence of the exposure.
-
-````{mermaid}
-  flowchart LR;
-
-    %% Define the nodes and subgraphs
-    exp("Exposure"):::white;
-    treat("Treatment"):::white;
-    out("Outcome"):::white;
-
-    %% Produce the figure
-    exp --> treat;
-    treat --> out;
-    exp --> out;
-  
-    classDef white fill:#FFFFFF, stroke:#FFFFFF;
-    classDef black fill:#FFFFFF, stroke:#000000;
-````
-
-Limitations:
-* Will 'decrease the effective **sample size**' (which could cause you to not see an effect if you don't have the power). This, for example, leads to 'the precision of estimates of both the observed:expected ratio and c-index (area under the ROC curve) decreased due to the reduction in effective sample size'.
-* Results in loss of information about **high risk individuals**, if treatment allocation was dependent on risk (and so very few were untreated), with the discriminative ability of the model worsening with the exclusion of high-risk individuals and consequently narrower case mix.
-* 'In the presence of a strong **unmeasured predictor of the outcome associated with treatment use**, exclusion of treated individuals resulted in an underestimation of the performance of the model.'
-
-[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)
