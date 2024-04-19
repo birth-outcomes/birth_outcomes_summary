@@ -18,28 +18,52 @@ Possible causal effects - i.e. causal estimand - choice of which can be guided b
 
 `````
 
+## Average causal effect
 In causal inference studies, you are estimating the **average causal effect** of the treatment/exposure when comparing between groups of individuals. This is because it is generally impossible to estimate the causal effect for an individual, as you can't go back in time and not give them an outcome.[[source]](https://hummedia.manchester.ac.uk/institutes/methods-manchester/docs/CausalInference.pdf)
 
-The terminology used varies, with [Lederer et al. 2018](https://doi.org/10.1513/AnnalsATS.201808-564PS) suggesting that we refer to finding **causal associations** and **effect estimates** - but not actual causal effects, or saying that the "exposure has an 'effect' or 'impact' on outcome", or that the "exposure 'protects against' or 'promotes' outcome". They suggest these are avoided without substantial evidence of a true causal effect.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
+The terminology used varies, with [Lederer et al. 2018](https://doi.org/10.1513/AnnalsATS.201808-564PS) suggesting that we refer to finding **causal associations** and **effect estimates** - but not **actual** causal effects, or saying that the "exposure has an 'effect' or 'impact' on outcome", or that the "exposure 'protects against' or 'promotes' outcome". They suggest these are avoided without substantial evidence of a true causal effect.[[Lederer et al. 2018]](https://doi.org/10.1513/AnnalsATS.201808-564PS)
 
 ## Causal effect estimands
 
-'The size of a causal effect is the difference in the potential outcomes for a particular population given different counterfactual scenarios (eg, one where everyone is exposed vs one where everyone is unexposed). As with potential outcomes, causal effects cannot be observed at an individual level, so we rely instead on estimating average effects in groups of people. The outcome may be the mean of a continuous variable or the risk of a binary outcome. The scale of an effect measure can be either additive or multiplicative'... [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+### Choosing a causal estimand
 
-| Causal effect measure | Outcome type | Scale |Example |
-| --- | --- | --- | --- |
-| **Causal mean difference** | Continuous | Additive | 'An average increase in systolic blood pressure by 10 mmHg' |
-| **Causal mean ratio** | Continuous | Multiplicative | 'An average increase in systolic blood pressure by a factor of 1.1' or 'by 10%' |
-| **Causal risk difference** | Binary | Additive | 'An average increase in the risk of stroke by 5%' |
-| **Causal risk ratio** | Binary | Multiplicative | 'An average increase in the risk of stroke by a factor of 1.5'
+Before you estimate the causal effect, you have to choose which effect you are trying to estimate (i.e. **the causal estimand**).[[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267) Things to consider...
 
-[[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
+**Target population** - different methods 'allow you to estimate effects that can generalise to different target populations' (e.g. difference between the various causal treatment effects below)
 
-Depending on how the exposure if defined and what population is considered, 'several causal treatment effects can be distinguished'. It is important to specify which effect you are trying to estimate (i.e. **the causal estimand**), since these effects 'can differ substantially in terms of effect size, risk of bias, and interpretation'.
+Whether effect is **marginal or conditional**
+* **Marginal** - 
+    * Relevant to whole population
+    * Involves comparing potential outcome under treatment to potential outcome under control (as in randomised trials)
+    * Useful for finding overall effect
+* **Conditional**
+    * Specific to certain population
+    * Involves comparing potential outcomes within strata
+    * Useful for finding treatment effect in particular subset of population
+
+The **outcome type** (continuous, binary, or time-to-event).
+
+Whether the effect measure is **non-collapsible or collapsible**.[[Greifer 2023]](https://cran.r-project.org/web/packages/MatchIt/vignettes/estimating-effects.html)
+* **Non-collapsible**
+    * This is when the conditional effect measure differs from the marginal effect measure even in the absence of confounding. This is true for certain non-linear effect measures like the odds ratio.
+    * It means that conditional measures are more **difficult to compare** between studies (since different studies typically adjust for different sets of covariates), and that marginal effects may be **less transportable** between populations[[Vansteelandt and Keiding 2011]](https://doi.org/10.1093/aje/kwq474)
+    * In these cases, it is very important to distinguish between marginal and conditional effects, as different methods target different types of effect
+* **Collapsible**
+    * Same methods can be used to estimate marginal and conditional effects [[Greifer 2023]](https://cran.r-project.org/web/packages/MatchIt/vignettes/estimating-effects.html)
 
 It can be challenging to identify the appropriate causal estimand. However, specifying a **target trial** (i.e. hypothetical RCT you are trying to emulate), can help with figuring this out. [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
-Possible causal treatment effects include:
+### Effect measures
+
+| Effect measure | Outcome type | Collapsiblility | Example |
+| --- | --- | --- | --- |
+| Mean difference | Continuous | Collapsible | 'An average increase in systolic blood pressure by 10 mmHg' |
+| Risk difference (RD) | Binary | Collapsible | 'An average increase in the risk of stroke by 5%' |
+| Risk ratio (RR) | Binary | Non-collapsible | 'An average increase in the risk of stroke by a factor of 1.5' |
+| Odds ratio (OR) | Binary | Non-collapsible | - |
+| Hazard ratio (HR) | Time-to-event (i.e. survival) | Non-collapsible [[Greifer 2023]](https://cran.r-project.org/web/packages/MatchIt/vignettes/estimating-effects.html) | - [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267) |
+
+### Treatment effects
 
 | Causal treatment effect | Definition |
 | --- | --- |
@@ -47,11 +71,10 @@ Possible causal treatment effects include:
 | **Average treatment effect in the treated (ATT)** | ATE calculated only in sub-population of individuals who were actually exposed |
 | **Average treatment effect in the untreated (ATU/ATUT)** | ATE calculated only in sub-population of individuals who were actually unexposed |
 | **Intention-to-treat effect (ITT)** | Average effect of being assigned to (but not necessarilly receiving) the exposure |
-| **Complier average causal effect (CACE) or local average treatment effect** | ATE calculated only among 'compliers' |
+| **Complier average causal effect (CACE) or local average treatment effect** | ATE calculated only among 'compliers' [[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267) |
 
-[[Igelström et al. 2022]](https://doi.org/10.1136/jech-2022-219267)
 
-## Intention-to-treat
+## More on: Intention-to-treat
 
 **Intention-to-treat analysis** is the preferred analysis strategy for RCTs. This means that the analysis includes all participants, all retained in the group to which they were allocated.
 

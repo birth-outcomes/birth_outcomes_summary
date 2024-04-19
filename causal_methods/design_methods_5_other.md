@@ -1,4 +1,4 @@
-# Methods #5: Other
+# Other
 
 `````{admonition} Executive summary
 :class: info
@@ -20,6 +20,11 @@ This page details other methods that either don't fit into the prior three categ
 * [Causal forests](https://theeffectbook.net/ch-TheEdge.html)
 * [Structural estimation](https://theeffectbook.net/ch-TheEdge.html)
 * Bayesian causal inference - [source 1](https://royalsocietypublishing.org/doi/10.1098/rsta.2022.0153) and [source 2](http://www2.stat.duke.edu/~fl35/BayesianCausalInference.html)
+
+## Sequential Cox models
+
+'Sequential Cox models are a simple and intuitive approach to estimate treatment effects in the presence of time-varying confounding affected by previous treatment. This method uses longitudinal data (including repeated measures) to mimic several randomized controlled trials. Each trial is constructed based on individuals starting treatment in a certain time interval. An overall effect estimate for all such trials is obtained with stratified Cox analysis on the joint data set of all trials, where each trial is one stratum. Although sequential Cox models are an alternative to marginal structural models, they may provide different estimates when applied to the same set of data (conditional as opposed to marginal), and require a different interpretation. They estimate the effect of starting (as opposed to receiving) treatment versus remaining untreated. Sequential Cox models allow adjustment for dependent censoring (using weights) and testing the potential modification effect of time (changing effect over time) or other variables, including timevarying covariates. One recent study applied this methodology to assess the role of high erythropoietin doses on mortality accounting for the time-varying confounding effect of anemia' [[Williamson and Ravani 2017]](https://doi.org/10.1093/ndt/gfw341)
+
 
 ## SHAP variants
 
