@@ -49,3 +49,22 @@ bibtex_reference_style = 'super'
 # -- Options for HTML output -------------------------------------------------
 
 html_theme = 'pydata_sphinx_theme'
+
+html_theme_options = {
+    # Set logo
+    'logo': {'text': 'Birth outcomes'},
+    # Add icons to the bar across the top
+    'icon_links': [
+        {
+            'name': 'GitHub',
+            'url': 'https://github.com/birth-outcomes/birth_outcomes_summary',
+            'icon': 'fab fa-github-square'
+        }
+    ]
+}
+
+# Custom CSS style sheet
+html_static_path = ['_static']
+html_css_files = [
+    'css/custom.css',
+]
