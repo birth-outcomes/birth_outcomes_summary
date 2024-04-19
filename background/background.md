@@ -2,5 +2,10 @@
 
 This section provides some context around key topics.
 
-```{tableofcontents}
-```
+:::{toctree}
+:hidden:
+
+stages
+interventions
+encephalopathy
+:::

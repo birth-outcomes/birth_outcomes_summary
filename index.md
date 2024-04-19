@@ -20,6 +20,22 @@ Context of key topics (e.g. stages of pregnancy and labour, interventions during
 ::::
 
 ::::{grid-item}
+:::{admonition} Causal inference: introduction and core concepts
+
+Introduces causal inference, differentiates it from prediction, goes over the theree "languages", and details about DAGs, estimands, assumptions and target trials.
+
+:::
+::::
+
+::::{grid-item}
+:::{admonition} Causal inference: methods
+
+Describes key methods for causal inference.
+
+:::
+::::
+
+::::{grid-item}
 :::{admonition} Outcomes
 :class: important
 
@@ -29,10 +45,10 @@ Identifying which adverse outcomes to focus on, and how best to measure these - 
 ::::
 
 ::::{grid-item}
-:::{admonition} Study Part 1: Risk factors
+:::{admonition} Study design: risk factors
 :class: danger
 
-Designing a study to identify risk factors of an adverse outcomes, with designing accounting for the effect of treatment use on relationships.
+Designing a study to identify risk factors of an adverse outcomes, with designing accounting for the effect of treatment use on relationships. Includes examples of existing studies.
 
 :::
 ::::
@@ -41,7 +57,7 @@ Designing a study to identify risk factors of an adverse outcomes, with designin
 :::{admonition} Study Part 2: Intervention effectiveness
 :class: seealso
 
-Designing a study to assess the effectiveness of interventions in preventing adverse outcomes.
+Designing a study to assess the effectiveness of interventions in preventing adverse outcomes. Includes examples of existing studies.
 
 :::
 ::::
@@ -53,3 +69,38 @@ There is also an Appendices section, which contains some additional notes around
 ## Acknowledgements
 
 Throughout this book, I have reused text and images from various publications and sources - these have been provided throughout. These references will be the source I acquired the information/image from - but they themselves may sometimes have been referencing other studies and authors. 
+
+```{toctree}
+:hidden:
+:caption: Background
+
+Background <background/background>
+```
+
+```{toctree}
+:hidden:
+:caption: Causal Inference
+
+Causal Inference <causal_concepts/intro>
+```
+
+```{toctree}
+:hidden:
+:caption: Outcomes
+
+Outcomes <outcomes/outcomes>
+```
+
+```{toctree}
+:hidden:
+:caption: Study Design
+
+Study Design <risk_factors/intro>
+```
+
+```{toctree}
+:hidden:
+:caption: Appendices
+
+Appendices <appendices/intro>
+```

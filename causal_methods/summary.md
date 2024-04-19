@@ -1,4 +1,4 @@
-# Introduction to causal study design and methods
+# Overview
 
 This page describes how to design a causal inference study, and provides a brief overview of the possible methods you could use within your study.
 
