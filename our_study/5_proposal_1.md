@@ -1,6 +1,8 @@
-# HIE Proposal
+# HIE Proposal #1
 
-*This proposal assumes sufficient data to focus on HIE. However, if move to using wider indicators (e.g. transfer to neonatal care services, need for resuscitation), would likely need to reframe more widely, and away from focus on HIE?*.
+This is just **an example** of how we could design this study. It requires further thought, with regards to whether this is the chosen focus of the study, and whether these are the methods we would to use, as summarised on the page ['Focus of the research'](./1_finding_focus.md)
+
+In this proposal, I am assuming a focus of **retrospective cross-sectional identification of risk factors for HIE (whilst accounting for the impact of caesarean section on the observed relationships)**.
 
 ## Introduction
 
@@ -33,6 +35,10 @@ Identify risk factors for HIE, but accounting for treatment use (caesarean) whil
 Inclusion criteria:
 * Infants born at or beyond 35 weeks of gestation - *as that's the minimum age for diagnosis of neonatal encephalopathy*
 * Singleton pregnancies - *only recommending as that's a common criteria similar studies set*
+* HIE or no NE
+
+Exclusion criteria:
+* NE that is not caused by hypoxia ischaemia
 
 ### Outcome
 
@@ -40,26 +46,24 @@ Hypoxic ischaemic encephalopathy identified based on the method defined by the N
 * Diagnosis of NE or HIE (severe, moderate, grade 2 or grade 3)
 * Therapeutic hypothermia for 2 or more consecutive days{cite}`gale_brain_2017`
 
-### Identifying risk factors whilst accounting for treatment use
+### Analysis
 
-Explore a selection of methods to answer the same problem...
+It would be beneficial to consider a range of methods that can be used to answer the same problem. On the [treatment paradox](./2_treatment_paradox.md), I outline some of the suggested methods for accounting for treatment use. These are commented on for this study below...
+* **Standardisation of treatment** - potentially suitable, although only through statistical techniques that achieve this, as it is not true in practice - the decision to perform a caesarean and the timing of that decision varies between clinicians
+* **Predictor substitution** - unsuitable
+* **Treatment as predictor** - potentially suitable
+* **Treatment as outcome** - potentially unsuitable, assuming I am correct in understanding that there are many possible reasons why a clinician might perform an emergency caesarean (and it is not just due to suspect HIE).
+* **Propensity scores** - potentially suitable
+* **Exclusion of treated individuals** - potentially suitable (although may be unsuitable if sample size is too small)
 
-Standardisation of treatment
-Yes - although not true in practice, as decision to intervene (caesarean) and timing of that intervention varies between clinicians and hospitals - could deal with statistically 
+### Limitations
 
-Predictor substitution 
-No
+* There may be insufficient HIE cases in the dataset
+* This analysis is retrospective and not designed in a way that allows "live" predictions
+* Haven't specified how the CTG data would be incorporated
+* Limitations of particular methods (e.g. as on [treatment paradox](./2_treatment_paradox.md) page)
+* Although we've attempted to account for treatment use, we (a) may not be successful, and (b) will still have other sources of bias such as omitted variable bias
 
-Treatment as a predictor
-Yes - although limitation is significant
+### Other analyses
 
-Treatment as an outcome
-Yes - although, if I'm correct in understanding that there are many reasons why an emergency caesarean might be performed, this may not be specific enough? And that often, caesareans are performed and they think actually they shouldn't have been, and vice versa? 
-
-Propensity scores
-Yes - although being aware of that limitation
-
-Exclusion of treated individuals
-Yes - although a bit limited
-
-Add the method similar to SAMueL.
+Given the concern here about accounting for treatment use, it might be wise to consider demonstrating that a paradox does indeed exist, as they do in [Uffen et al. 2021](https://doi.org/10.1136%2Fbmjopen-2020-046518).

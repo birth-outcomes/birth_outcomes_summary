@@ -20,11 +20,8 @@ self
 :hidden:
 :caption: Example research proposals
 
-proposal
-research_proposal
-research_proposal2
-research_proposal3
-research_proposal4
+5_proposal_1
+6_proposal_2
 references
 :::
 
