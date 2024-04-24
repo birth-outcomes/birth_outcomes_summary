@@ -1,32 +1,5 @@
 # Identifying HIE: an overview
 
-:::{toctree}
-:hidden:
-:caption: Identifying hypoxic ischaemic encephalopathy (HIE)
-
-self
-neo_out_cooling
-neo_out_hie_diagnosis
-neo_out_blood
-neo_out_sentinel
-neo_out_resus
-neo_out_meconium
-neo_out_care
-neo_out_cp
-neo_out_mri
-neo_out_enceph_symptoms
-neo_out_apgar
-neo_out_death
-neo_out_ctg
-:::
-
-:::{toctree}
-:hidden:
-:caption: Beyond HIE
-
-choices
-:::
-
 `````{admonition} Executive summary
 :class: info
 
@@ -200,7 +173,7 @@ Indicators for brain injury:
 * **Transfer to neonatal care services** - Alone, this is not suitable as 95%+ of admitted infants will not have HIE. However, in combination with other indicators of HIE, it could support identifying more unwell infants with HIE (most unwell, if focussed on NICU).
 * **Cerebral palsy diagnosis** - Spastic or dyskinetic Cerebral Palsy is an important outcome in the context of HIE. However, not all HIE cases will lead to cerebral palsy, and HIE is not the only possible cause of cerebral palsy.
 * **Neuroimaging evidence consistent with HIE** - Not certain whether this data would be available, and whether it would be in a format we could interpret (i.e. without knowledge of MRI, just notes with conclusions of professional). Would definitely indicate brain injury occurred. Not certain whether it distinguishes cause of injury (i.e. HIE different patterns to NE of other causes) - but there are patterns typical of HIE infants, so it does help support the case for HIE in that sense.
-    * Steve Thronton: "Neuro imaging is really helpful, but it needs correct interpretation and my feeling is that often the local reports do not reflect expert opinion." "I think that neuro imaging can distinguish between HIE, and other causes, but I am not a neuroradiologist."
+    * Steve Thornton: "Neuro imaging is really helpful, but it needs correct interpretation and my feeling is that often the local reports do not reflect expert opinion." "I think that neuro imaging can distinguish between HIE, and other causes, but I am not a neuroradiologist."
 * **Symptoms of neonatal encephalopathy**
 
 Often used for both:
@@ -210,4 +183,4 @@ Often used for both:
 
  * **Death** - Death is an outcome that can result from HIE - however, it doesn't help us identify whether or not an infant had HIE.
  * **Abnormal CTG** - The high intra- and inter-observer variability in interpretation, likely minimal record of decision in records, and challenges in automated interpretation (and challenges of even getting that data) - along with the fact that this can have high false positive and false negative - mean I wouldn't recommend this.
-    * Steve Thronton: Agrees that CTG is not recommended
+    * Steve Thornton: Agrees that CTG is not recommended

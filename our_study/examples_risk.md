@@ -1,4 +1,4 @@
-# Obstetric examples
+# Obstetric studies identifying risk factors with treatment paradox
 
 `````{admonition} Executive summary
 :class: info

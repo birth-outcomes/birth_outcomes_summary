@@ -1,4 +1,4 @@
-# Obstetric examples
+# Obstetric studies assessing intervention effectiveness
 
 `````{admonition} Executive summary
 :class: info
