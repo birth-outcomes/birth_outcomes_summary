@@ -22,7 +22,7 @@ neo_out_ctg
 
 :::{toctree}
 :hidden:
-:caption: Choosing an outcome
+:caption: Beyond HIE
 
 choices
 :::

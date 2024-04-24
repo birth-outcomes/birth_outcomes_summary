@@ -25,6 +25,10 @@ Methods:
 * Logistic regression model 'to predict the overall risk of maternal complications by postnatal discharge'
 * Account for treatment paradox by **including treatment as predictor:** baseline treatment with hypertensives and magnesium sulfate as predictors in both models [[Thangaratinam et al. 2017]](https://doi.org/10.1186/s12916-017-0827-3)
 
+Outcomes (as determined by indepenent panel of experts, ranking importance of outcomes, with components selected by Delphic consensus):
+* Primary: Maternal complication = maternal death, neurological, hepatic, cardiorespiratory, renal or haematological complications, or delivery before 34 weeks.
+* Secondary: Perinal complications by discharge = perinatal or infant mortality, bronchopulmonary dysplasia, necrotising enterecolitis, intraventricular haemorrhage, cystic periventricular leukomalacia, retionpathy of prematury, or HIE.
+
 In a 2016 commentary in the British Journal of Obstetrics and Gynaecology (BJOG)[[Cheong-See et al. 2016]](https://doi.org/10.1111/1471-0528.13859), they examined this model to identify what made it succesful and highlighted:
 * Large sample size
 * Standardisation of treatment or intervention
@@ -35,6 +39,9 @@ In a 2016 commentary in the British Journal of Obstetrics and Gynaecology (BJOG)
 Study: Protocol for development and validation of a clinical prediction model for adverse pregnancy outcomes in women with gestational diabetes [[Cooray et al. 2020]](http://dx.doi.org/10.1136/bmjopen-2020-038845)
 
 Aim: Predicting adverse outcomes (neonatal and maternal) in women with gestational diabetes (in presence of treatment paradox from insulin)
+
+Outcomes (as determined by study steering committee, considering outcomes from several sources):
+* Composite of: hypertensive disorders of pregnancy, LGA, neonatal hypoglycaemia, shoulder dystocia, fetal death, neonatal death, bone fracture, nerve palsy
 
 Method:
 * 'Sensitivity analyses to address the confounding effect of insulin treatment on predictor-outcome associations and hence the performance of the prediction model. These are:
