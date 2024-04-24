@@ -48,7 +48,7 @@ Throughout this book, I have reused text and images from various publications an
 :hidden:
 :caption: Background
 
-Background <background/encephalopathy>
+Background <background/stages>
 ```
 
 ```{toctree}
@@ -62,14 +62,14 @@ Causal Inference <causal_concepts/1_predict_vs_causal>
 :hidden:
 :caption: Outcomes
 
-Outcomes <outcomes/summary>
+Encephalopathy <outcomes/encephalopathy>
 ```
 
 ```{toctree}
 :hidden:
 :caption: Study Design
 
-Study Design <risk_factors/treatment_paradox>
+Study Design <our_study/1_finding_focus>
 ```
 
 ```{toctree}

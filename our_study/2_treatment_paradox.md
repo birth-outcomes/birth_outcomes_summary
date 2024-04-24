@@ -1,39 +1,5 @@
 # The treatment paradox
 
-:::{toctree}
-:hidden:
-:caption: Risk factors
-
-self
-treat_obstetric_examples
-proposal
-:::
-
-:::{toctree}
-:hidden:
-:caption: Intervention effectiveness
-
-../intervention/intervene_obstetric_examples
-:::
-
-:::{toctree}
-:hidden:
-:caption: To sort
-
-../our_study/finding_focus
-../our_study/research_proposal
-../our_study/research_proposal2
-../our_study/research_proposal3
-../our_study/research_proposal4
-:::
-
-:::{toctree}
-:hidden:
-:caption: References
-
-references
-:::
-
 `````{admonition} Executive summary
 :class: info
 
@@ -232,6 +198,7 @@ You could include whether they were treated as a predictor in the model.[[Pajouh
 You could just add the indicator on top of the prognostic model, keeping the original coefficients fixed.[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8) However, if there is an interaction between the effectiveness of treatment and having a predictor (e.g. more effective in those with predictor), then the model will need to account for/incorporate this interaction.[[Schuit et al. 2013]](https://doi.org/10.1503/cmaj.120812) Instead therefore, the model could be entirely refitted with the addition of an indicator term for treatment, with the inclusion of interaction terms where anticipated.[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)
 
 Limitations:
+* Information on treatment use may not be available at the intended moment of prediction. [[Cooray et al. 2020]](http://dx.doi.org/10.1136/bmjopen-2020-038845)
 * Failure to correctly specify any interactions between treatment and other predictors in the validation set could mean that the effects of treatment are not completely taken into account[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)
 * The addition of a term for treatment to the model that is to be validated may improve the performance beyond that of the original model due to the inclusion of additional predictive information[[Pajouheshnia et al. 2017]](https://doi.org/10.1186%2Fs12874-017-0375-8)
 * Not possible if everyone in the study had the same intervention (but in that case, it is likely that  unexpected findings are not due to a treatment paradox)[[Schuit et al. 2013]](https://doi.org/10.1503/cmaj.120812)
