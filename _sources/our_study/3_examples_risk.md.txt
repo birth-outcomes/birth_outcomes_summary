@@ -1,18 +1,18 @@
-# Obstetric examples
+# Obstetric studies identifying risk factors with treatment paradox
 
 `````{admonition} Executive summary
 :class: info
 
 This page summarises examples of studies in obstetrics that have attempted to account for the treatment paradox, whilst analysing the association of various risk factors with an outcome.
 
-**Treatment as predictor** - Thangaratinam et al. 2017;
+**Treatment as predictor** - Thangaratinam et al. 2017; Odd et al. 2017; Leith et al. 2023;
 
 **Inverse probability of treatment weighting** - Cooray et al. 2020;
 
-**Exclusion of treated** - Steer et al. 2023;
-`````
+**Treatment as outcome** - Cooray et al. 2020; Syngelaki et al. 2022;
 
-<mark>sort out this page - identifying method used to address paradox, highlighting that in description, and including in summary</mark>
+**Exclusion of treated** - Cooray et al. 2020; Steer et al. 2023;
+`````
 
 ## Thangaratinam et al. 2017
 
@@ -25,6 +25,10 @@ Methods:
 * Logistic regression model 'to predict the overall risk of maternal complications by postnatal discharge'
 * Account for treatment paradox by **including treatment as predictor:** baseline treatment with hypertensives and magnesium sulfate as predictors in both models [[Thangaratinam et al. 2017]](https://doi.org/10.1186/s12916-017-0827-3)
 
+Outcomes (as determined by indepenent panel of experts, ranking importance of outcomes, with components selected by Delphic consensus):
+* Primary: Maternal complication = maternal death, neurological, hepatic, cardiorespiratory, renal or haematological complications, or delivery before 34 weeks.
+* Secondary: Perinal complications by discharge = perinatal or infant mortality, bronchopulmonary dysplasia, necrotising enterecolitis, intraventricular haemorrhage, cystic periventricular leukomalacia, retionpathy of prematury, or HIE.
+
 In a 2016 commentary in the British Journal of Obstetrics and Gynaecology (BJOG)[[Cheong-See et al. 2016]](https://doi.org/10.1111/1471-0528.13859), they examined this model to identify what made it succesful and highlighted:
 * Large sample size
 * Standardisation of treatment or intervention
@@ -35,6 +39,9 @@ In a 2016 commentary in the British Journal of Obstetrics and Gynaecology (BJOG)
 Study: Protocol for development and validation of a clinical prediction model for adverse pregnancy outcomes in women with gestational diabetes [[Cooray et al. 2020]](http://dx.doi.org/10.1136/bmjopen-2020-038845)
 
 Aim: Predicting adverse outcomes (neonatal and maternal) in women with gestational diabetes (in presence of treatment paradox from insulin)
+
+Outcomes (as determined by study steering committee, considering outcomes from several sources):
+* Composite of: hypertensive disorders of pregnancy, LGA, neonatal hypoglycaemia, shoulder dystocia, fetal death, neonatal death, bone fracture, nerve palsy
 
 Method:
 * 'Sensitivity analyses to address the confounding effect of insulin treatment on predictor-outcome associations and hence the performance of the prediction model. These are:
@@ -54,7 +61,7 @@ Other notes:
     * Second, the use of such effective treatments can be included within a composite **outcome** to be predicted.
 * For this study, both approaches were considered but deemed **inappropriate**. For the former, the inclusion of the requirement for insulin therapy as a predictor is not possible as this information is not available at the intended moment of prediction—the time of GDM diagnosis, usually around 24 to 28 weeks gestation. For the later, inclusion of the requirement for insulin therapy within the composite outcome would impair its interpretability as this outcome occurs at a significantly higher frequency than the other component outcomes (31% vs approximately 10% based on our prior work).44 This is likely to lead to a less meaningful composite that is primarily driven by the need for insulin therapy and no longer predicts what we want (adverse pregnancy outcomes). While many promising novel approaches have been proposed in the statistical literature, such as multistate modelling or marginal structural models for ‘treatment drop-ins’,51 52 at time of writing all are primarily based on empirical data and are yet to be applied to clinical prediction problems.
 
-### Odd et al. 2017
+## Odd et al. 2017
 
 Study: Hypoxic-ischemic brain injury: Planned delivery before intrapartum events [[Odd et al. 2017]](https://doi.org/10.3233/NPM-16152)
 
@@ -67,22 +74,20 @@ Outcome: Need resuscitation and then have symptoms of NE.
 Predictors: 
 * 'Booking factors (maternal age, smoking, primiparity, previous lower segment caesarean section (LSCS), multiple births)
 * Antenatal factors (preeclampsia, gestational diabetes, prelabor abruption, placenta previa, oligohydramnios, polyhydramnios, threatened preterm labor, gender, concerns of IUGR infant)
-* Labor factors (induction of labor, pre-labor rupture of membranes, planned LSCS, gestation at birth, presentation, prelabor breech, breech delivery, duration of ruptured membranes)'
-
-*Planned LSCS is lower segment caesarean section.*
+* Labor factors (induction of labor, pre-labor rupture of membranes, **planned LSCS (i.e. lower segment caesarean section - so inclusion of treatment as predictor)**, gestation at birth, presentation, prelabor breech, breech delivery, duration of ruptured membranes)'
 
 Model: Logistic regression.
 * Develop model in half the data
 * Test model in other half of the data
 * Then 'to give some indication of possible avoidable disease, the proportion of infants with HIE, potentially avoidable by earlier delivery was estimated by assuming that elective delivery would remove intrapartum risk of HIE for those infants undelivered at this point. This was calculated for the whole cohort and for each antenatal risk strata at each gestational age between 36 and 40 weeks. The a-priori clinical cut-off used was “clinical intervention” (e.g. elective LSCS) at 39 weeks'
 
-### Leith et al. 2023
+## Leith et al. 2023
 
 Study: A predictive model for perinatal hypoxic ischemic encephalopathy using linked maternal and neonatal hospital data. [[Leith et al. 2023]](http://dx.doi.org/10.1016/j.annepidem.2023.11.011)
 
 Aim: Predict HIE - building on [[Odd et al. 2017]](https://doi.org/10.3233/NPM-16152), but with a model in a larger dataset of births. They describe Odd et al. 2017 as a paer in which "researchers in England published the first predictive model accounting for multiple risk factors to estimate the probability of an individual HIE injury".
 
-Method: They include the intervention as a predictor in the model, but not as a way to enable causal inferences. They state that "drawing causal inferences should be done with caution. For instance, some factors were found to be significantly protective against HIE injury, such as malpresentation and uterine inertia, which logically should not decrease risk. It is likely that such conditions heighten clinical awareness of risk, thus resulting in more timely initiation of protective interventions."
+Method: They **include the intervention as a predictor in the model**, but not as a way to enable causal inferences. They state that "drawing causal inferences should be done with caution. For instance, some factors were found to be significantly protective against HIE injury, such as malpresentation and uterine inertia, which logically should not decrease risk. It is likely that such conditions heighten clinical awareness of risk, thus resulting in more timely initiation of protective interventions."
 
 Dataset: US dataset of 836,216 births - of which, 376 (0.00045%) had a diagnosis of HIE (0.45 per 1000 live births). (They incorrectly state "0.045%").
 
@@ -94,19 +99,9 @@ Their DAG: Due to the large number of factors in the final model, to make the gr
 * Presentation: malpresentation, breech delivery, shoulder dystocia.
 * Emergency: sentinel event, fetal heart rate abnormalities.
 
-They use a logistic regression model to predict cases of HIE (i.e. presence of HIE diagnostic code). The model includes a range of maternal, antepartum and intrapartum characteristics - including the delivery type (with predictors including forceps, vacuum, elective C-section, emergency C-section, and intrapartum C-section).
+They use a logistic regression model to predict cases of HIE (i.e. presence of HIE diagnostic code). The model includes a range of maternal, antepartum and intrapartum characteristics - including the delivery type (with predictors including **forceps, vacuum, elective C-section, emergency C-section, and intrapartum C-section**).
 
 ![DAG from Leith et al. 2023](../images/leith_2023_dag.jpg)
-
-## Syngelaki et al. 2022
-
-Study: Competing-risks model for pre-eclampsia and adverse pregnancy outcomes. [[Syngelaki et al. 2022]](https://doi.org/10.1002/uog.26036)
-
-There is another paper that is quite relevant to this - [[Wright et al. 2020]](https://doi.org/10.1016/j.ajog.2019.11.1247) - The competing risk approach for prediction of preeclampsia
-
-Aim: Estimate risk of delivery with pre-eclampsia
-
-Methods: Competing-risks model
 
 ## Steer et al. 2023
 
@@ -119,9 +114,23 @@ Aim: Identify risk factors for adverse neonatal outcomes:
     * (ii) Neonatal resuscitation by intubation and positive pressure ventilation - as its a major intervention requiring expert input, particularly relevant for MSAF
     * (iii) Perinatal death - as its the most important outcome to avoid
 
-Method: Exclusion of mothers who delivery by caesarean (i.e. only include vaginal deliveries) - as when included, emergency caesarean is a "major effect modifier and itself associated significantly with different maternal and labour risk factors"
+Method: **Exclusion of mothers who delivery by caesarean** (i.e. only include vaginal deliveries) - as when included, emergency caesarean is a "major effect modifier and itself associated significantly with different maternal and labour risk factors"
 
-## Williams et al. 2018
+## Syngelaki et al. 2022
+
+Study: Competing-risks model for pre-eclampsia and adverse pregnancy outcomes. [[Syngelaki et al. 2022]](https://doi.org/10.1002/uog.26036)
+
+Aim: Estimate risk of delivery with pre-eclampsia
+
+Methods: Competing-risks model, looking at incidence and relative risk of adverse outcomes in patient groups stratified by estimated risk of delivery with PE.
+
+Delivery by elective or emergency **caesarean section is an outcome** - alongside pre-eclampsia, gestational hypertension, small-for-gestational-age, stillbirth, neonatal death and neonatal unit admission for at least 48 hours.
+
+There is another paper that is quite relevant to this - [[Wright et al. 2020]](https://doi.org/10.1016/j.ajog.2019.11.1247) - The competing risk approach for prediction of preeclampsia
+
+## Other studies
+
+### Williams et al. 2018
 
 Study: Directed acyclic graphs: a tool for causal studies in paediatrics. [[Williams et al. 2018]](https://doi.org/10.1038/s41390-018-0071-3)
 
