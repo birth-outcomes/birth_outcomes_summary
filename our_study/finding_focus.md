@@ -1,5 +1,48 @@
 # Finding a focus
 
+<mark>sort this page</mark>
+
+:::{toctree}
+:hidden:
+:caption: Overview
+
+self
+:::
+
+:::{toctree}
+:hidden:
+:caption: Risk factors
+
+../risk_factors/treatment_paradox
+../risk_factors/treat_obstetric_examples
+../risk_factors/proposal
+:::
+
+:::{toctree}
+:hidden:
+:caption: Intervention effectiveness
+
+../intervention/intervene_obstetric_examples
+../intervention/proposal
+:::
+
+:::{toctree}
+:hidden:
+:caption: To sort
+
+research_proposal
+research_proposal2
+research_proposal3
+research_proposal4
+:::
+
+:::{toctree}
+:hidden:
+:caption: References
+
+references
+:::
+
 `````{admonition} Executive summary
 :class: info
 

@@ -69,7 +69,7 @@ Outcomes <outcomes/summary>
 :hidden:
 :caption: Study Design
 
-Study Design <risk_factors/treatment_paradox>
+Study Design <our_study/finding_focus>
 ```
 
 ```{toctree}

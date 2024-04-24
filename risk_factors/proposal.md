@@ -31,8 +31,8 @@ Identify risk factors for HIE, but accounting for treatment use (caesarean) whil
 ### Inclusion and exclusion criteria
 
 Inclusion criteria:
-* Infants born at or beyond 35 weeks of gestation
-* Singleton pregnancies
+* Infants born at or beyond 35 weeks of gestation - *as that's the minimum age for diagnosis of neonatal encephalopathy*
+* Singleton pregnancies - *only recommending as that's a common criteria similar studies set*
 
 ### Outcome
 
@@ -51,7 +51,7 @@ Predictor substitution
 No
 
 Treatment as a predictor
-Yes - although limitation is significan
+Yes - although limitation is significant
 
 Treatment as an outcome
 Yes - although, if I'm correct in understanding that there are many reasons why an emergency caesarean might be performed, this may not be specific enough? And that often, caesareans are performed and they think actually they shouldn't have been, and vice versa? 
