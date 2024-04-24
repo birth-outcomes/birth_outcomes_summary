@@ -6,15 +6,14 @@
 
 self
 2_treatment_paradox
-3_causality
 :::
 
 :::{toctree}
 :hidden:
 :caption: Previous studies
 
-examples_risk
-examples_intervene
+3_examples_risk
+4_examples_intervene
 :::
 
 :::{toctree}
@@ -40,7 +39,7 @@ The aim of this research is currently quite broad. There are several things to c
 
 **What we hope to learn** - e.g. timing of caesarean, where caesarean was needed, where caesarean was not needed, where forceps or ventouse deliveries would be unsuccessful, understanding inequalities.
 
-**Methods** - considering the timing of events; which predictors we include; how we analyse cardiotocograph data; as explored on subsequent pages, how we identify risk factors, and how we assess intervention effectiveness.
+**Methods** - considering the timing of events; which predictors we include; how we analyse cardiotocograph data; how we identify risk factors; how we assess intervention effectiveness.
 `````
 
 ## Stated aim of this research
@@ -156,13 +155,14 @@ Another methodological consideration is **what variables** are included. This wi
 > * Duration of labour
 > * Fetal size on scan (if done)
 
-
 How **cardiotocograph data** is analysed and incorporated as a predictor is also complex, with a wide range of methods used in the literature, as explored in https://github.com/birth-outcomes/ctg_exploratory and https://github.com/birth-outcomes/fhrma_python. For example:
 
 > * Generating a set of parameters that describe the signal (clinically relevant or others), and the chosen method for that analysis
 > * Transforming the signal, such as into an image using continuous wavelet transformation, and the chosen parameters
 
-Other important aspects, as touched on in **subsequent pages**, are how we account for treatment use, and how we assess intervention effectiveness.
+How we account for **treatment use** when identifying risk factors is another important factor [explored on the subsequent page](./2_treatment_paradox.md)
+
+Finally, how we assess **intervention effectiveness**. When making recommendations about whether or not to intervene, we are focussed on the true causal relationship between the intervention and the outcome, which necessitates that we consider the use of [causal inference techniques](../causal_concepts/1_predict_vs_causal.md)
 
 ## Working with clinicians and parents
 
