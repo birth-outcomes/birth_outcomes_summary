@@ -5,9 +5,8 @@
 :caption: Things to consider
 
 self
-2_ctg
-3_treatment_paradox
-4_causality
+2_treatment_paradox
+3_causality
 :::
 
 :::{toctree}
@@ -33,7 +32,15 @@ references
 `````{admonition} Executive summary
 :class: info
 
-tbc
+The aim of this research is currently quite broad. There are several things to consider when clarifying the focus of this work.
+
+**Outcome** - neonatal and/or maternal; conditions, interventions and/or clinical observations; number of outcomes and whether seperate or composite; how outcomes are measured; expert feedback.
+
+**Treatment/intervention** - which interventions, how many you compare, whether you also include treatments after birth.
+
+**What we hope to learn** - e.g. timing of caesarean, where caesarean was needed, where caesarean was not needed, where forceps or ventouse deliveries would be unsuccessful, understanding inequalities.
+
+**Methods** - considering the timing of events; which predictors we include; how we analyse cardiotocograph data; as explored on subsequent pages, how we identify risk factors, and how we assess intervention effectiveness.
 `````
 
 ## Stated aim of this research
@@ -129,12 +136,7 @@ We have talked about a range of possible things that we might hope to learn from
 
 Another methodological consideration is **what variables** are included. This will depend on our chosen focus. Things to consider here include -
 
-> **Which variables** are considered, which depends on the relationship you focus on, and your analysis method - e.g.
-> * Some may just have **one** (e.g. instrumental variable studies)
-> * Could look at **minimally important set of variables**
-> * Some studies use a really **wide range**
-> 
-> Examples of variables include:
+> **Which variables** are considered, which depends on the relationship you focus on, and your analysis method. Examples include:
 > * Suspected fetal growth restriction (FGR proxy is number of antenatal scans)
 > * Previous CS
 > * Parity (number, or nulliparity vs multiparity)
@@ -154,7 +156,13 @@ Another methodological consideration is **what variables** are included. This wi
 > * Duration of labour
 > * Fetal size on scan (if done)
 
-Other important aspects, as touched on in **subsequent pages**, is how cardiotocograph data is analysed, how we account for treatment use, and how we assess intervention effectiveness.
+
+How **cardiotocograph data** is analysed and incorporated as a predictor is also complex, with a wide range of methods used in the literature, as explored in https://github.com/birth-outcomes/ctg_exploratory and https://github.com/birth-outcomes/fhrma_python. For example:
+
+> * Generating a set of parameters that describe the signal (clinically relevant or others), and the chosen method for that analysis
+> * Transforming the signal, such as into an image using continuous wavelet transformation, and the chosen parameters
+
+Other important aspects, as touched on in **subsequent pages**, are how we account for treatment use, and how we assess intervention effectiveness.
 
 ## Working with clinicians and parents
 
