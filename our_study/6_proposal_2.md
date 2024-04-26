@@ -1,4 +1,4 @@
-# HIE Proposal #2
+# HIE Proposal (intervention)
 
 As in [HIE Proposal #1](./5_proposal_1.md), this is just an **example** of how we could design this study. Here, I am assuming a focus on **assessing the effectiveness of caesarean section as a intervention for HIE**.
 
@@ -48,28 +48,59 @@ Inclusion and exclusion criteria and outcome as in [HIE Proposal #1](./5_proposa
 
 ### Analysis
 
+<mark>Mike's ideas - 'This step will likely require the natural experiment of comparing between units with high and low intervention rates, using matched cohorts of labours (or conditioning machine model on a propensity score for likelihood of a mother having a CS). Using machine learning we can estimate a teams’ propensity to use CS; this score allows comparison of different units with different populations. We will also use expert opinion and literature review to build qualitative causal models. These will be articulated using Directional Acyclic Graphs (DAGs), and will inform any machine learning.'</mark>
+
 #### As in SAMUeL-1
 
-There is not one right way to perform this analysis. However, a good starting point could be to replicate the methods used in [SAMueL-1](https://samuel-book.github.io/samuel-1/introduction/intro.html) (which focussed on variation in thrombolysis use between hospitals). For this, we would be - for example - comparing the incidence of HIE between similar patients who received an emergency caesarean versus those who had a vaginal delivery.
+One possible avenue could be to replicate methods used in [SAMueL-1](https://samuel-book.github.io/samuel-1/introduction/intro.html). SAMueL-1 focussed on variation in thrombolysis use between hospitals, to ask the question *"What treatment would my patient receive at hospitals*"? They also then used clinical pathway simulation to ask the question "*What would happen to a hospital’s thrombolysis use of, and benefit from, thrombolysis by changing key aspects of the pathway?*" (e.g. pathway speed, stroke onset times, what majority of high-thrombolysing hospitals would do for patient). Whilst this is not explicitly assessing the effectiveness of interventions, it does teach us which patients low-thrombolysis units and high-thrombolysis units treat differently, assuming that perhaps they might be patients low-thrombolysis units should consider treating.
 
-Here, we would:
-* Model variation in use of emergency caesareans between hospitals so we can ask: *'What treatment would my patient receive at other hospitals?'*
-* Model the delivery pathway, using clinical pathway simulation, so we can ask the question: *'What would happen to a hospital's use of and benefit from use of emergency caesarean sections, by changing key aspects of the pathway*, especially focussing on timing of the caesarean
+Applying this to HIE, we could - for example - model **variation in emergency caesarean** use **between hospitals**.
+* This would involve comparing units with low and high caesarean rates and looking whether a similar patient would receive a caesarean at a different hospital. However, this may be difficult to interpret, particularly with no information on timing, which is often the key thing of interest (i.e. caesarean too late).
+* **How do you incorporate timing of caesarean?** I'm not quite sure. Could you focus just on those who receive a caesarean, and see what factors influence time to receive it? However, we're not learning about intervention effectiveness from this but instead, reasons for time to treatment.
+* **What do we learn?**
+  * For SAMueL-1, you start in a scenario where there is a demand to increase thrombolysis use, and so seeing which patients are thrombolysed at high v.s. low thrombolysing units, tells you perhaps where the low thrombolysing units could focus.
+  * However, do we want to learn that here? In this context, there is not a large demand for more caesareans. Instead, there is a case-by-case scenario where some rare (but expensive) cases intervene too late. There are also cases where caesareans are done unnecessarily.
 
-However, this doesn't necessarily need to be just between hospitals - you can, for example, look at variation in use of emergency caesarean by:
-* Time of day - Steve Thornton comments that "the time of day is important in the rate of delivery. More deliveries tend to happen at night naturally (perhaps because this was safer in long gone times as predators were not around). Also, nowadays because the inductions happen in the morning on the whole, this influences the timing of delivery"
-* Weekday v.s. weekend
+There are other examples of variables that lead to variation in caesareans. This might be particularly relevant as our first dataset is **only two hospitals**. Other variables include:
+* **Time of day** - "*What treatment would my patient receive at a different time of day?*". Steve Thornton comments that "the time of day is important in the rate of delivery. More deliveries tend to happen at night naturally (perhaps because this was safer in long gone times as predators were not around). Also, nowadays because the inductions happen in the morning on the whole, this influences the timing of delivery"
+* **Day of week** - hence asking, "*What treatment would my patient receive on a different day of the week?*"
 
-When look into timing of caesarean, there is no simple way to define timing, but possibilities include:
-* The presence of multiple (𝑘) risk factors.
-* Length of labour, or length of Stage-II labour.
-* Cervical dilation (Steve: This is the standard method of determining the length of labour. The time from the start is really variable and inaccurate)
-* Contraction rate/force (Steve: Unfortunately, we cannot determine the force of contraction, only the timing which is really important for any changes in the fetal heart rate)
+SAMueL-2 incorporates outcomes.<mark>i'm less clear on how it works</mark>
 
-Mike's ideas - 'This step will likely require the natural experiment of comparing between units with high and low intervention rates, using matched cohorts of labours (or conditioning machine model on a propensity score for likelihood of a mother having a CS). Using machine learning we can estimate a teams’ propensity to use CS; this score allows comparison of different units with different populations. We will also use expert opinion and literature review to build qualitative causal models. These will be articulated using Directional Acyclic Graphs (DAGs), and will inform any machine learning.'
+#### Instrumental variable analysis
 
-#### Using causal inference methods
+Another example of a method we could look at is **instrumental variable analysis**. We first must identify an instrumental variable, which needs to meet the criteria:
+* Cause variation in exposure (caesarean)
+* Be unrelated to outcome (HIE)
 
-Would recommend we explore a selection of methods to answer the same problem.
+Many of the variables listed above - **hospital attended, time of day, day of week** - may be good candidates.
 
-<mark>summarise options, give IV example, how to convert sam1 to IV</mark>
+For hospital attended though, if there are any concerns prior to labour, which are linked to outcome, which dictate where the person gives birth - although I'm not sure if this is definitely a true concern or not.
+
+Example:
+
+````{mermaid}
+  flowchart LR;
+
+    treat("<b>Caesarean</b>"):::green;
+    out("<b>HIE</b>"):::green;
+    con("Confounders"):::white;
+    hosp("Instrumental variable<br>Time of day"):::white;
+    hosp --> treat;
+    treat --> out;
+    con --> treat;
+    con --> out;
+  
+    classDef white fill:#FFFFFF, stroke:#FFFFFF;
+    classDef black fill:#FFFFFF, stroke:#000000;
+    classDef empty width:0px,height:0px;
+    classDef green fill:#DDF2D1, stroke: #FFFFFF;
+````
+
+To perform this analysis, we would want to test the first assumption of instrumental variable analysis, which is the strength of the relationship between the instrumental variable and the exposure. We would then use the two-stage least squares (2SLS) method, which is regression based, and described further on the [instrumental variable page](../causal_methods/c1_instrumental_variable.ipynb)
+
+There have been some papers suggesting methods for instrumental variable analysis that incorporate deep learning, to avoid the assumptions that come with regression like linearity and homogeneity.{cite}`hartford_deep_2017,xu_learning_2021` However, I am not confident in understanding the validity of these methods. Several criticisms (with responses from the authors) can be viewed for Xu et al. 2021.{cite}`xu_learning_2021`
+
+### IPTW
+
+mike - or condition model on propensity score for likelihood of mother to have caesarean)

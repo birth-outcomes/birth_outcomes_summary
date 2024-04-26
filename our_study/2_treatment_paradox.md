@@ -241,6 +241,8 @@ If you were however to just focus on the relationship between the treatment and 
 * Treatment as predictor --> Multivariable regression - with treatment included as predictor
 * Propensity scores --> Inverse probability of treatment weighting (IPTW)
 
+You could also focus on just the relationship between a particular risk factor and the outcome.
+
 ## Other important considerations when designing an obstetric model
 
 ### Choice of population, predictors and outcomes
