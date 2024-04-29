@@ -57,17 +57,7 @@ Absolutely! In fact, obstetric examples are quite commonly cited in papers about
 
 They describe clinicians use "probabilitic reasoning" to identify high risk pregnancies (based on clinical history and tests) - and how there is potential benefit for data-driven prediction/prognostic models providing individualised risk estimates are relevant in helping identify pregnancies at risk of adverse outcomes, to help guide clinical management and targeted interventions - as we are hoping to explore in this project.
 
-They describe common statistical challenges - which are relevant to us also:
-* The ascertainment of a suitable sample size - this is likely to be a problem, particularly if we choose a specific endpoint like HIE
-* The choice of candidate predictors
-* Reliable measurement of the outcome and predictors
-* The identification of important predictors and their functional form
-* Internal validation, potentially including bootstrap resampling and cross-validation, as well as shrinkage for potential over-optimism in model performance.
-* Lack of external validation (many obstetric models perform well when internally validated but few have been externally validated using a population seperate from development) - *see end of page for a few extra notes on this*
-* Lack of evaluation of the impact of models on clinician behaviour and patient outcomes
-* **Handling of interventions in the prediction model** [[Cheong-See et al. 2016]](http://dx.doi.org/10.1111/1471-0528.13860)
-
-See examples below...
+They describe common statistical challenges for these models - and one of which is the handling of interventions in the prediction model (i.e. the treatment paradox). [[Cheong-See et al. 2016]](http://dx.doi.org/10.1111/1471-0528.13860)
 
 ### Examples
 
@@ -241,20 +231,4 @@ If you were however to just focus on the relationship between the treatment and 
 * Treatment as predictor --> Multivariable regression - with treatment included as predictor
 * Propensity scores --> Inverse probability of treatment weighting (IPTW)
 
-## Other important considerations when designing an obstetric model
-
-### Choice of population, predictors and outcomes
-
-The panel in [Cheong-See et al. 2016](https://doi.org/10.1111/1471-0528.13859) not only discuss methods for dealing with the treatment paradox, but also around definition of the study sample, predictors and outcomes.
-
-**Study sample**: Pre-eclampsia is multisystemic, different predictor groups associated with different outcomes, 'case mix impacts on the distribution of the predictors and the prevalence of the outcomes, and this in turn impacts on predictor–outcome associations, thereby influencing the accuracy of the model.'
-
-**Outcomes:** More than one relevant outcome (e.g. eclampsia, abruption). As very few mothers will develop early-onset pre-eclampsia, these outcomes will occur at very low rates. This would not meet the suggested level of having 10-15 outcome events per predictor - and so, they recommend using composite outcomes and competing risk models.
-
-They note that models are population-specific.
-
-### External validation
-
-This is mentioned above, but a few other comments are included below:
-* 'Historically, the field of obstetrics has been successful in developing prediction models but has been poor in fully validating and thus implementing them effectively... Only two thirds of the papers [62.4%, 164/263] in a large systematic review of prognostic models in obstetrics were found to have presented their models in such a way that external validation would be feasible. This has been highlighted as a concern given the importance of validity in the development of such models.'[[Murphy et al. 2019]](https://doi.org/10.5772/intechopen.87311)
-* 'Certain models can be too complex for routine clinical usage and this may lead to a reluctance on the part of the clinicians to accept them... It is also important that models which have been developed are also validated in a new population as otherwise it may not be possible to generalise them to a different cohort of patients. This is also known as impact analysis and this paper by Reilly et al. highlights that very few prediction models have undergone formal impact analysis or validation. This is essential in order for clinicians to know if the usage of such a model will have a positive or negative effect, i.e. is there a possibility that it will cause harm. The authors highlighted the benefit of having clinicians involved in the development and validation of such models before, during and after implementation.'[[Murphy et al. 2019]](https://doi.org/10.5772/intechopen.87311)
+You could also focus on just the relationship between a particular risk factor and the outcome.

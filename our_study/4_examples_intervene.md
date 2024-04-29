@@ -345,8 +345,9 @@ Minimum adjustment set:
 * Birth weight for gestational age 
 
 
-## Examples to look at
+## Other examples
 
+These are some more I've come across but not yet looked into, that may or may not be relevant:
 * **Paired availability and principal stratification** - Clarifying the Role of Principal Stratification in the Paired Availability Design [[Baker et al. 2011]](https://doi.org/10.2202%2F1557-4679.1338)
 * **G-computation** - Perfluoroalkyl Mixture Exposure in Relation to Fetal Growth: Potential Roles of Maternal Characteristics and Associations with Birth Outcomes [[Shen et al. 2022]](https://doi.org/10.3390/toxics10110650)
 * Adjustment for compliance behavior in trials of epidural analgesia in labor using instrumental variable meta-analysis [[Bannister-Tyrrell et al. 2015]](https://doi.org/10.1016/j.jclinepi.2014.11.005)
