@@ -137,4 +137,4 @@ Conventional methods:
 For unobserved confounding:
 * **Regression discontinuity** - unlikely to be feasible as we don't anticipate there being a sudden change in the caesarean section rates for infants with HIE
 * **Interrupted time series** - not feasible
-* **Difference in differences** - potentially feasible, such as by Costa-Ramón et al. 2022{cite}`costa-ramon_long-run_2022` who compare outcomes in sibling pairs where the older sibling was born by vaginal delivery and the young sibling was born by emergency caesarean or vaginal delivery.{cite}`costa-ramon_long-run_2022`
+* **Difference in differences** - unlikely to be feasible. If you wanted to run an example like Costa-Ramón et al. 2022{cite}`costa-ramon_long-run_2022`, you would need linked sibling data or identifiable data (which we won't have) as they compare outcomes in sibling pairs where the older sibling was born by vaginal delivery and the young sibling was born by emergency caesarean or vaginal delivery.{cite}`costa-ramon_long-run_2022` We would otherwise need to identify another comparison for difference-in-differences.
