@@ -32,7 +32,7 @@ The aim of this research is currently quite broad. There are several things to c
 
 **What we hope to learn** - e.g. timing of caesarean, where caesarean was needed, where caesarean was not needed, where forceps or ventouse deliveries would be unsuccessful, understanding inequalities.
 
-**Outcome** - neonatal and/or maternal; conditions, interventions and/or clinical observations; number of outcomes and whether seperate or composite; how outcomes are measured; expert feedback.
+**Outcome** - Assuming our aim is still a bit broad, need to choose a suitable outcome, and thinking about why we perform caesareans can help with that. For the outcome itself, things to consider include: neonatal and/or maternal; conditions, interventions and/or clinical observations; number of outcomes and whether seperate or composite; how outcomes are measured; expert feedback.
 
 **Treatment/intervention** - which interventions, how many you compare, whether you also include treatments after birth.
 
@@ -41,7 +41,9 @@ The aim of this research is currently quite broad. There are several things to c
 
 ## Stated aim of this research
 
-As stated in the protocol for the ethics application, the ultimate aim of this project is to produce a tool that provides **real-time, data-driven risk assessment during labour, using machine learning to avoid adverse neonatal and maternal outcomes**. Key components of this work are:
+As stated in the protocol for the ethics application, the ultimate aim of this project is to produce a tool that provides **real-time, data-driven risk assessment during labour, using machine learning to avoid adverse neonatal and maternal outcomes**.
+
+Key components of this work are:
 1. Identifying an appropriate method of analysis for the **cardiotocograph data**
 2. Identifying **risk factors** (maternal characteristics during labour, and risk factors that develop during labour) that influence maternal and neonatal outcomes
 3. Identifying when **intervention** during labour would beneficial (as that is the natural recommendation you would be making off the back of such a tool)
@@ -61,9 +63,11 @@ The stated aim above is quite general and, as such, there have been a wide range
 
 Depending on what we hope to learn, we will find a more specific outcome, as well as relevant methods and treatments to consider.
 
-## Why do we perform caesareans?
+## Outcome
 
-As this research revolves around when we should use caesareans to prevent poor neonatal outcomes, it would be good to understand the various reasons **why caesareans are performed** (and so, **what they are trying to prevent**).
+### Outcome: Why we do perform caesareans?
+
+Given the broad stated aim of this project, there are a range of possibile choices for the outcome. Thinking about the range of possible outcomes is therefore a good starting point. As this research revolves around when we should use caesareans to prevent poor neonatal outcomes, it would be good to understand the various reasons **why caesareans are performed** (and so, **what they are trying to prevent**).
 
 To be clear, I'm not referring to risk factors that mean a poor outcome is more likely - examples from [Panda et al. 2018](https://doi.org/10.1371%2Fjournal.pone.0200941)
 * Before labour:
@@ -105,9 +109,7 @@ Instead, I'm referring to the outcomes themselves, that they are trying to preve
 > Clinical outcomes:
 > * Transfer to neonatal care services (*not sure this example is right, but my thinking was along the lines of, examples like infants where they have a stressful birth and poor clinical signs in the first instance and so are watched, but with a little intervention they are shortly discharged? so wouldn't fall under above outcomes but is an outcome?*)
 
-## Outcome
-
-Given the broad stated aim of this project, there are a range of possibile choices for the outcome.
+### Outcome: Things to consider
 
 > Whether you focus on **neonatal and/or maternal** outcomes
 > 
@@ -116,11 +118,11 @@ Given the broad stated aim of this project, there are a range of possibile choic
 > * **Interventions** - e.g. transfer to neonatal care services, resuscitation, mode of delivery (spontaneous, vacuum, forceps, caesarean), whether rotation is needed
 > * **Clinical observations** - e.g. chorioamnionitis, perinatal death (antenatal and intrapartum), Apgar (1-, 5-, 10-minute), meconium-stained amniotic fluid, vaginal tearing or episiotomy, blood clots, and urinary or anal incontinence
 >
-> **How many** outcomes you focus on...
+> **How many** outcomes you focus on - [Cheong-See et al. 2016](https://doi.org/10.1111/1471-0528.13859) explain that obstetric models may often have more than one relevant outcome (e.g. eclampsia, abruption). As (in their example) very few mothers will develop early-onset pre-eclampsia, these outcomes will occur at very low rates. This would not meet the suggested level of having 10-15 outcome events per predictor - and so, they recommend using composite outcomes and competing risk models.[[Cheong-See et al. 2016]](https://doi.org/10.1111/1471-0528.13859) Options:
 > * **One** outcome
 > * **Several** seperate outcomes
 > * A **composite** of several outcomes (which could even combine neonatal + maternal outcomes, and different types of outcome)
->
+> 
 > How the chosen outcome/s are **measured** - as some will be quite simple, but others may be harder to define, and require proxy measures or a combination of indicators for that one outcome. This requires careful thought for each outcome.
 >
 > These decisions could also involve **expert feedback** which could be quite structured (such as in previous studies, with steering committees and Delphi studies to form consensus opinions)
@@ -219,5 +221,29 @@ Finally, how we assess **intervention effectiveness**. When making recommendatio
 ## Working with clinicians and parents
 
 For any chosen study design and focus, involvement of clinicians, as well as public and patient involvement, will be important.
-* Clinicians - e.g. how acceptable a live tool would be, and how co-production could be used to inform design
 * Public and patient involvement - e.g. parents of infants who experienced adverse outcomes (short or long-term)
+* Clinicians - e.g. how acceptable a live tool would be, and how co-production could be used to inform design
+
+## Other things to consider
+
+### Sample
+
+[Cheong-See et al. 2016](https://doi.org/10.1111/1471-0528.13859) note that models are population-specific. For the example of pre-eclampsia, it is multisystemic, different predictor groups associated with different outcomes, 'case mix impacts on the distribution of the predictors and the prevalence of the outcomes, and this in turn impacts on predictor–outcome associations, thereby influencing the accuracy of the model.' [[Cheong-See et al. 2016]](https://doi.org/10.1111/1471-0528.13859)
+
+### External validation
+
+It has been commented that - for obstetric models - there is a lack of external validation (many obstetric models perform well when internally validated but few have been externally validated using a population seperate from development).[[Cheong-See et al. 2016]](http://dx.doi.org/10.1111/1471-0528.13860)
+* 'Historically, the field of obstetrics has been successful in developing prediction models but has been poor in fully validating and thus implementing them effectively... Only two thirds of the papers [62.4%, 164/263] in a large systematic review of prognostic models in obstetrics were found to have presented their models in such a way that external validation would be feasible. This has been highlighted as a concern given the importance of validity in the development of such models.'[[Murphy et al. 2019]](https://doi.org/10.5772/intechopen.87311)
+* 'Certain models can be too complex for routine clinical usage and this may lead to a reluctance on the part of the clinicians to accept them... It is also important that models which have been developed are also validated in a new population as otherwise it may not be possible to generalise them to a different cohort of patients. This is also known as impact analysis and this paper by Reilly et al. highlights that very few prediction models have undergone formal impact analysis or validation. This is essential in order for clinicians to know if the usage of such a model will have a positive or negative effect, i.e. is there a possibility that it will cause harm. The authors highlighted the benefit of having clinicians involved in the development and validation of such models before, during and after implementation.'[[Murphy et al. 2019]](https://doi.org/10.5772/intechopen.87311)
+
+### Other statistical challenges
+
+As from [Cheong-See et al. 2016](http://dx.doi.org/10.1111/1471-0528.13860):
+* The ascertainment of a suitable sample size - this is likely to be a problem, particularly if we choose a specific endpoint like HIE
+* The choice of candidate predictors
+* Reliable measurement of the outcome and predictors
+* The identification of important predictors and their functional form
+* Internal validation, potentially including bootstrap resampling and cross-validation, as well as shrinkage for potential over-optimism in model performance.
+* Lack of external validation (many obstetric models perform well when internally validated but few have been externally validated using a population seperate from development)
+* Lack of evaluation of the impact of models on clinician behaviour and patient outcomes
+* **Handling of interventions in the prediction model** [[Cheong-See et al. 2016]](http://dx.doi.org/10.1111/1471-0528.13860)

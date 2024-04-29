@@ -26,9 +26,17 @@ Abnormal fetal heart rate is an important indicator which we'd hope to include i
 
 ### Treatment use
 
-When predicting HIE, it is important to account for treatment use. This is because we have a treatment paradox, where classical prognostic factors for HIE (like abnormal fetal heart rate) trigger an effective intervention (caesarean section). As such, a predictive model from this partially treated population would actually be comparing outcomes between:
-1. Infants without HIE - composed of (a) infants who never would have had HIE, and (b) infants who would have received HIE but received a caesarean section (whether due to a classical prognostic factor or otherwise).
-2. Infants with HIE - composed of (a) infants with classical prognostic factor for whom there was no or a delayed caesarean, and (b) infants without classical prognostic factors.
+When predicting HIE, it is important to account for treatment use. This is because we have a treatment paradox, where classical prognostic factors for HIE (like abnormal fetal heart rate) trigger an effective intervention (caesarean section).
+
+As such, a predictive model from this partially treated population would actually be comparing outcomes between:
+1. Infants without HIE - composed of:
+    * (a) infants who never would have had HIE, and
+    * (b) infants who would have received HIE but received a caesarean section (whether due to a classical prognostic factor or otherwise).
+2. Infants with HIE - composed of:
+    * (a) infants with classical prognostic factor for whom there was no or a delayed caesarean, and
+    * (b) infants without classical prognostic factors.
+
+This is a problem as we want to apply the model to an untreated population, and be simply comparing infants who would have HIE and infants who would not.
 
 The consequence of this treatment paradox is that **good predictors in the untreated population will look like poor predictors in the partially treated population**. As such, it is important we account for treatment use when making predictions.
 

@@ -64,7 +64,7 @@ As part of this work, they had to develop a definition and methodology for ident
 * Population - all babies admitted to a neonatal unit
 * Time period after birth - all brain injuries detected during neonatal unit stay
 * Conditions included -
-    - Signs consistent with neonatal encephalopathy in term or near term infants (**altered tone, altered consciousness, seizures)
+    - Signs consistent with neonatal encephalopathy in term or near term infants (altered tone, altered consciousness, seizures)
         * Caveat: They found that data on signs of NE were not consistent over time - the fields used to define "altered tone" and "altered consciousness" only began from October 2010 onwards. Therefore, for this project, they dropped those and just looked for "seizures".
     - Diagnosis of intracranial haemorrhage, perinatal stroke, hypoxic ischaemic encephalopathy (HIE), central nervous system infection, or kernicterus (bilirubin encephalopathy) in any infants
     - Preterm white matter disease (periventricular leukomalacia) in pre-term infants
