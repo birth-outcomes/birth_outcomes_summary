@@ -373,8 +373,8 @@ document.write(`
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Example research proposals</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="5_proposal_1.html">HIE Proposal #1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="6_proposal_2.html">HIE Proposal #2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_proposal_1.html">HIE Proposal (risk factors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_proposal_2.html">HIE Proposal (intervention)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 </div>
@@ -441,14 +441,15 @@ document.write(`
 <div class="info admonition">
 <p class="admonition-title">Executive summary</p>
 <p>The aim of this research is currently quite broad. There are several things to consider when clarifying the focus of this work.</p>
-<p><strong>Outcome</strong> - neonatal and/or maternal; conditions, interventions and/or clinical observations; number of outcomes and whether seperate or composite; how outcomes are measured; expert feedback.</p>
-<p><strong>Treatment/intervention</strong> - which interventions, how many you compare, whether you also include treatments after birth.</p>
 <p><strong>What we hope to learn</strong> - e.g. timing of caesarean, where caesarean was needed, where caesarean was not needed, where forceps or ventouse deliveries would be unsuccessful, understanding inequalities.</p>
+<p><strong>Outcome</strong> - Assuming our aim is still a bit broad, need to choose a suitable outcome, and thinking about why we perform caesareans can help with that. For the outcome itself, things to consider include: neonatal and/or maternal; conditions, interventions and/or clinical observations; number of outcomes and whether seperate or composite; how outcomes are measured; expert feedback.</p>
+<p><strong>Treatment/intervention</strong> - which interventions, how many you compare, whether you also include treatments after birth.</p>
 <p><strong>Methods</strong> - considering the timing of events; which predictors we include; how we analyse cardiotocograph data; how we identify risk factors; how we assess intervention effectiveness.</p>
 </div>
 <section id="stated-aim-of-this-research">
 <h2>Stated aim of this research<a class="headerlink" href="#stated-aim-of-this-research" title="Link to this heading">#</a></h2>
-<p>As stated in the protocol for the ethics application, the ultimate aim of this project is to produce a tool that provides live, real-time, data-driven risk assessment during labour, using machine learning to avoid adverse neonatal and maternal outcomes. Key components of this work are:</p>
+<p>As stated in the protocol for the ethics application, the ultimate aim of this project is to produce a tool that provides <strong>real-time, data-driven risk assessment during labour, using machine learning to avoid adverse neonatal and maternal outcomes</strong>.</p>
+<p>Key components of this work are:</p>
 <ol class="arabic simple">
 <li><p>Identifying an appropriate method of analysis for the <strong>cardiotocograph data</strong></p></li>
 <li><p>Identifying <strong>risk factors</strong> (maternal characteristics during labour, and risk factors that develop during labour) that influence maternal and neonatal outcomes</p></li>
@@ -460,9 +461,77 @@ document.write(`
 <li><p>Current studies of risk factors for adverse outcomes do not use live data to predict outcomes during labour, and to modify the pre-labour risk [Protocol]</p></li>
 </ul>
 </section>
+<section id="what-do-we-hope-to-learn">
+<h2>What do we hope to learn?<a class="headerlink" href="#what-do-we-hope-to-learn" title="Link to this heading">#</a></h2>
+<p>The stated aim above is quite general and, as such, there have been a wide range of suggestions regarding what we might hope to learn from this analysis (such as in the expression of interest, and ethics protocol). This have included reference to:</p>
+<ul class="simple">
+<li><p>Comparing outcomes from labours with similar characteristics except that there was an <strong>earlier or later</strong> decision to do a caesarean</p></li>
+<li><p>Identifying infants who <strong>did not receive caesareans</strong> but who would have benefited</p></li>
+<li><p>Reducing risk of <strong>unecessary caesarean</strong> sections - with inherent maternal complications like infection, bleeding and bladder damage.</p></li>
+<li><p>Identifying women in whom <strong>forceps or ventouse deliveries would be unsuccessful</strong> and reduce the risk of traumatic assisted vaginal deliveries which lead to adverse neonatal outcomes</p></li>
+<li><p>Focus on <strong>inequalities</strong> in a particular treatment/outcome. Death and disability in pregnancy are much higher in disadvantaged groups. For example, stillbirth is up to four times higher in black than white women in the UK.</p></li>
+</ul>
+<p>Depending on what we hope to learn, we will find a more specific outcome, as well as relevant methods and treatments to consider.</p>
+</section>
 <section id="outcome">
 <h2>Outcome<a class="headerlink" href="#outcome" title="Link to this heading">#</a></h2>
-<p>Given the broad stated aim of this project, there are a range of possibile choices for the outcome.</p>
+<section id="outcome-why-we-do-perform-caesareans">
+<h3>Outcome: Why we do perform caesareans?<a class="headerlink" href="#outcome-why-we-do-perform-caesareans" title="Link to this heading">#</a></h3>
+<p>Given the broad stated aim of this project, there are a range of possibile choices for the outcome. Thinking about the range of possible outcomes is therefore a good starting point. As this research revolves around when we should use caesareans to prevent poor neonatal outcomes, it would be good to understand the various reasons <strong>why caesareans are performed</strong> (and so, <strong>what they are trying to prevent</strong>).</p>
+<p>To be clear, I’m not referring to risk factors that mean a poor outcome is more likely - examples from <a class="reference external" href="https://doi.org/10.1371%2Fjournal.pone.0200941">Panda et al. 2018</a></p>
+<ul class="simple">
+<li><p>Before labour:</p>
+<ul>
+<li><p>Previous caesarean</p></li>
+<li><p>Maternal age</p></li>
+<li><p>Obesity</p></li>
+<li><p>Previous birth complications</p></li>
+<li><p>Medical conditions like mypoia and previous abortions</p></li>
+</ul>
+</li>
+<li><p>During labour:</p>
+<ul>
+<li><p>Uterine rupture</p></li>
+<li><p>Breech presentation</p></li>
+<li><p>Fetal distess</p></li>
+<li><p>Malpresentation</p></li>
+<li><p>Dystocia (obstructed labour - pelvis physically blocked) <a class="reference external" href="https://doi.org/10.1371%2Fjournal.pone.0200941">[Panda et al. 2018]</a></p></li>
+</ul>
+</li>
+</ul>
+<p>Instead, I’m referring to the outcomes themselves, that they are trying to prevent. Some examples I’ve compiled (which may or may not be outcomes that relate to caesarean - wasn’t always 100% sure, but <a class="reference external" href="https://www.birthinjuryhelpcenter.org/birth-injuries.html">lots more that may or may not be here</a>)…</p>
+<blockquote>
+<div><p>Maternal outcomes:</p>
+<ul class="simple">
+<li><p>Perineal injury or anorectal trauma</p></li>
+<li><p>Urinary and fecal incontinence</p></li>
+<li><p>Pelvic floor collapse</p></li>
+<li><p>Pelvic prolapse <a class="reference external" href="https://doi.org/10.1371%2Fjournal.pone.0200941">[Panda et al. 2018]</a></p></li>
+<li><p>Post-partum haemorrhage (PPH) <a class="reference external" href="https://www.marchofdimes.org/find-support/topics/pregnancy/preeclampsia">[source]</a></p></li>
+<li><p>Mortality</p></li>
+</ul>
+<p>Neonatal outcomes:</p>
+<ul class="simple">
+<li><p>Transfer of a chorioamnionitis to the infant <a class="reference external" href="https://www.birthinjuryhelpcenter.org/chorioamnionitis.html">[source]</a></p></li>
+<li><p>Hypoxic ischaemic encephalopathy (HIE) [no specific source]</p></li>
+<li><p>Neonatal seizures</p></li>
+<li><p>Mortality due to complications during labour (e.g. cord prolapse, placental abruption) <a class="reference external" href="https://doi.org/10.1053/beog.2000.0146">[Penn et al. 2001]</a></p></li>
+<li><p>Erb’s palsy / brachial pleus birth palsy  (damage to nerves that supply arms and hands, e.g. due to shoulder dystocia) <a class="reference external" href="https://my.clevelandclinic.org/health/diseases/21986-erbs-palsy">[source]</a> <a class="reference external" href="https://www.stanfordchildrens.org/en/topic/default?id=birth-injuries-90-P02687">[source]</a></p></li>
+<li><p>Brachial palsy</p></li>
+<li><p>Caput succedaneum (swelling of scalp soft tissues)</p></li>
+<li><p>Cephalohematoma (bleeding between skull bone and fibrous covering)</p></li>
+<li><p>Facial paralysis</p></li>
+<li><p>Fractures</p></li>
+<li><p>Subconjunctival hemorrhage <a class="reference external" href="https://www.stanfordchildrens.org/en/topic/default?id=birth-injuries-90-P02687">[source]</a></p></li>
+</ul>
+<p>Clinical outcomes:</p>
+<ul class="simple">
+<li><p>Transfer to neonatal care services (<em>not sure this example is right, but my thinking was along the lines of, examples like infants where they have a stressful birth and poor clinical signs in the first instance and so are watched, but with a little intervention they are shortly discharged? so wouldn’t fall under above outcomes but is an outcome?</em>)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="outcome-things-to-consider">
+<h3>Outcome: Things to consider<a class="headerlink" href="#outcome-things-to-consider" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><p>Whether you focus on <strong>neonatal and/or maternal</strong> outcomes</p>
 <p>The <strong>type of outcome</strong> you focus on…</p>
@@ -471,7 +540,7 @@ document.write(`
 <li><p><strong>Interventions</strong> - e.g. transfer to neonatal care services, resuscitation, mode of delivery (spontaneous, vacuum, forceps, caesarean), whether rotation is needed</p></li>
 <li><p><strong>Clinical observations</strong> - e.g. chorioamnionitis, perinatal death (antenatal and intrapartum), Apgar (1-, 5-, 10-minute), meconium-stained amniotic fluid, vaginal tearing or episiotomy, blood clots, and urinary or anal incontinence</p></li>
 </ul>
-<p><strong>How many</strong> outcomes you focus on…</p>
+<p><strong>How many</strong> outcomes you focus on - <a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">Cheong-See et al. 2016</a> explain that obstetric models may often have more than one relevant outcome (e.g. eclampsia, abruption). As (in their example) very few mothers will develop early-onset pre-eclampsia, these outcomes will occur at very low rates. This would not meet the suggested level of having 10-15 outcome events per predictor - and so, they recommend using composite outcomes and competing risk models.<a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">[Cheong-See et al. 2016]</a> Options:</p>
 <ul class="simple">
 <li><p><strong>One</strong> outcome</p></li>
 <li><p><strong>Several</strong> seperate outcomes</p></li>
@@ -505,6 +574,7 @@ document.write(`
 <li><p><strong>Adverse pregnancy outcomes</strong> - delivery by elective or emergency caesarean section,pre-eclampsia, gestational hypertension, small-for-gestational-age, stillbirth, neonatal death and neonatal unit admission for at least 48 hours. <a class="reference external" href="https://doi.org/10.1002/uog.26036">[Syngelaki et al. 2022]</a></p></li>
 </ul>
 </section>
+</section>
 <section id="treatment-intervention">
 <h2>Treatment/Intervention<a class="headerlink" href="#treatment-intervention" title="Link to this heading">#</a></h2>
 <p>We are often concerned about interventions - either in the context of accounting for treatment use when identifying risk factors for adverse outcomes, or in making recommendations about changes in risk when an intervention occurs. Things to consider here include…</p>
@@ -537,23 +607,23 @@ document.write(`
 <p>If the outcome is not immediately after birth, whether you focus on <strong>subsequent treatments</strong> - for example, magnesium sulfate and cooling for infants with HIE.</p>
 </div></blockquote>
 </section>
-<section id="what-do-we-hope-to-learn">
-<h2>What do we hope to learn?<a class="headerlink" href="#what-do-we-hope-to-learn" title="Link to this heading">#</a></h2>
-<p>We have talked about a range of possible things that we might hope to learn from analysis of the sorts of outcome listed above. Examples have included:</p>
-<ul class="simple">
-<li><p>Comparing outcomes from labours with similar characteristics except that there was an <strong>earlier or later</strong> decision to do a caesarean</p></li>
-<li><p>Identifying infants who <strong>did not receive caesareans</strong> but who would have benefited</p></li>
-<li><p>Reducing risk of <strong>unecessary caesarean</strong> sections - with inherent maternal complications like infection, bleeding and bladder damage.</p></li>
-<li><p>Identifying women in whom <strong>forceps or ventouse deliveries would be unsuccessful</strong> and reduce the risk of traumatic assisted vaginal deliveries which lead to adverse neonatal outcomes</p></li>
-<li><p>Focus on <strong>inequalities</strong> in a particular treatment/outcome. Death and disability in pregnancy are much higher in disadvantaged groups. For example, stillbirth is up to four times higher in black than white women in the UK.</p></li>
-</ul>
-</section>
 <section id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Link to this heading">#</a></h2>
 <p><strong>Timing</strong> will be very important in this research. Things to consider will include…</p>
 <blockquote>
 <div><p>How you <strong>model</strong> the evolving risks during labour, and subsequently how you <strong>analyse</strong> data feeding into the model (e.g. analysing CTG data in 15 minute windows, and rerunning predictions)</p>
-<p>How you account for timing when assessing <strong>interevention</strong> effectiveness. The risk-benefit ratio is dynamic and changes during labour depending on how the labour progresses and how events unfold (e.g. caesareans are safer earlier in labour than later).</p>
+<p>How you account for timing when assessing <strong>intervention</strong> effectiveness. The risk-benefit ratio is dynamic and changes during labour depending on how the labour progresses and how events unfold (e.g. caesareans are safer earlier in labour than later).</p>
+<p>How you <strong>measure</strong> the timing during labour. Some possibilities (with limitations):</p>
+<ul class="simple">
+<li><p>Length of labour (Steve: time from start is really variable and inaccurate)</p></li>
+<li><p>Contraction rate/force (Steve: Unfortunately, we cannot determine the force of contraction, only the timing which is really important for any changes in the fetal heart rate)</p></li>
+</ul>
+<p>Some other (perhaps stronger) suggestions:</p>
+<ul class="simple">
+<li><p><strong>Cervical dilation</strong> (Steve: This is the standard method of determining the length of labour)</p></li>
+<li><p><strong>Length of Stage-II labour</strong> - this would eliminate any caesareans prior to stage 2 (although from talking with Rob, the majority happen later, after a prolonged labour)</p></li>
+<li><p><strong>Presence of multiple (𝑘) risk factors</strong> - this is slightly different to the others, and assumes that time itself is not of interest, but instead, what risk factors accumulate over time, are.</p></li>
+</ul>
 </div></blockquote>
 <p>Another methodological consideration is <strong>what variables</strong> are included. This will depend on our chosen focus. Things to consider here include -</p>
 <blockquote>
@@ -579,7 +649,7 @@ document.write(`
 <li><p>Fetal size on scan (if done)</p></li>
 </ul>
 </div></blockquote>
-<p>How <strong>cardiotocograph data</strong> is analysed and incorporated as a predictor is also complex, with a wide range of methods used in the literature, as explored in https://github.com/birth-outcomes/ctg_exploratory and https://github.com/birth-outcomes/fhrma_python. For example:</p>
+<p>How <strong>cardiotocograph data</strong> is analysed and incorporated as a predictor is also complex, with a wide range of methods used in the literature, as explored in <a class="reference external" href="https://github.com/birth-outcomes/ctg_exploratory">CTG exploratory repository</a> and <a class="reference external" href="https://github.com/birth-outcomes/fhrma_python">FHRMA Python repository</a>. For example:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Generating a set of parameters that describe the signal (clinically relevant or others), and the chosen method for that analysis</p></li>
@@ -593,9 +663,38 @@ document.write(`
 <h2>Working with clinicians and parents<a class="headerlink" href="#working-with-clinicians-and-parents" title="Link to this heading">#</a></h2>
 <p>For any chosen study design and focus, involvement of clinicians, as well as public and patient involvement, will be important.</p>
 <ul class="simple">
-<li><p>Clinicians - e.g. how acceptable a live tool would be, and how co-production could be used to inform design</p></li>
 <li><p>Public and patient involvement - e.g. parents of infants who experienced adverse outcomes (short or long-term)</p></li>
+<li><p>Clinicians - e.g. how acceptable a live tool would be, and how co-production could be used to inform design</p></li>
 </ul>
+</section>
+<section id="other-things-to-consider">
+<h2>Other things to consider<a class="headerlink" href="#other-things-to-consider" title="Link to this heading">#</a></h2>
+<section id="sample">
+<h3>Sample<a class="headerlink" href="#sample" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">Cheong-See et al. 2016</a> note that models are population-specific. For the example of pre-eclampsia, it is multisystemic, different predictor groups associated with different outcomes, ‘case mix impacts on the distribution of the predictors and the prevalence of the outcomes, and this in turn impacts on predictor–outcome associations, thereby influencing the accuracy of the model.’ <a class="reference external" href="https://doi.org/10.1111/1471-0528.13859">[Cheong-See et al. 2016]</a></p>
+</section>
+<section id="external-validation">
+<h3>External validation<a class="headerlink" href="#external-validation" title="Link to this heading">#</a></h3>
+<p>It has been commented that - for obstetric models - there is a lack of external validation (many obstetric models perform well when internally validated but few have been externally validated using a population seperate from development).<a class="reference external" href="http://dx.doi.org/10.1111/1471-0528.13860">[Cheong-See et al. 2016]</a></p>
+<ul class="simple">
+<li><p>‘Historically, the field of obstetrics has been successful in developing prediction models but has been poor in fully validating and thus implementing them effectively… Only two thirds of the papers [62.4%, 164/263] in a large systematic review of prognostic models in obstetrics were found to have presented their models in such a way that external validation would be feasible. This has been highlighted as a concern given the importance of validity in the development of such models.’<a class="reference external" href="https://doi.org/10.5772/intechopen.87311">[Murphy et al. 2019]</a></p></li>
+<li><p>‘Certain models can be too complex for routine clinical usage and this may lead to a reluctance on the part of the clinicians to accept them… It is also important that models which have been developed are also validated in a new population as otherwise it may not be possible to generalise them to a different cohort of patients. This is also known as impact analysis and this paper by Reilly et al. highlights that very few prediction models have undergone formal impact analysis or validation. This is essential in order for clinicians to know if the usage of such a model will have a positive or negative effect, i.e. is there a possibility that it will cause harm. The authors highlighted the benefit of having clinicians involved in the development and validation of such models before, during and after implementation.’<a class="reference external" href="https://doi.org/10.5772/intechopen.87311">[Murphy et al. 2019]</a></p></li>
+</ul>
+</section>
+<section id="other-statistical-challenges">
+<h3>Other statistical challenges<a class="headerlink" href="#other-statistical-challenges" title="Link to this heading">#</a></h3>
+<p>As from <a class="reference external" href="http://dx.doi.org/10.1111/1471-0528.13860">Cheong-See et al. 2016</a>:</p>
+<ul class="simple">
+<li><p>The ascertainment of a suitable sample size - this is likely to be a problem, particularly if we choose a specific endpoint like HIE</p></li>
+<li><p>The choice of candidate predictors</p></li>
+<li><p>Reliable measurement of the outcome and predictors</p></li>
+<li><p>The identification of important predictors and their functional form</p></li>
+<li><p>Internal validation, potentially including bootstrap resampling and cross-validation, as well as shrinkage for potential over-optimism in model performance.</p></li>
+<li><p>Lack of external validation (many obstetric models perform well when internally validated but few have been externally validated using a population seperate from development)</p></li>
+<li><p>Lack of evaluation of the impact of models on clinician behaviour and patient outcomes</p></li>
+<li><p><strong>Handling of interventions in the prediction model</strong> <a class="reference external" href="http://dx.doi.org/10.1111/1471-0528.13860">[Cheong-See et al. 2016]</a></p></li>
+</ul>
+</section>
 </section>
 </section>
 
@@ -646,11 +745,21 @@ document.write(`
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stated-aim-of-this-research">Stated aim of this research</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outcome">Outcome</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#treatment-intervention">Treatment/Intervention</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-we-hope-to-learn">What do we hope to learn?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outcome">Outcome</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outcome-why-we-do-perform-caesareans">Outcome: Why we do perform caesareans?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outcome-things-to-consider">Outcome: Things to consider</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#treatment-intervention">Treatment/Intervention</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-clinicians-and-parents">Working with clinicians and parents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-things-to-consider">Other things to consider</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample">Sample</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#external-validation">External validation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-statistical-challenges">Other statistical challenges</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

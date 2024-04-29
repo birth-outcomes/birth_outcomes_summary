@@ -451,9 +451,9 @@ document.write(`
 <h2>What is an instrumental variable?<a class="headerlink" href="#what-is-an-instrumental-variable" title="Link to this heading">#</a></h2>
 <p>An <strong>instrumental variable (IV)</strong> is a variable that satisfies the following assumptions:</p>
 <ol class="arabic simple">
-<li><p>It <strong>causes variation in the exposure/treatment</strong> (i.e. relevance assumption - it is correlated with X, an endogenous explanatory variable)</p></li>
-<li><p>It is <strong>unrelated to the outcome</strong></p></li>
-<li><p>As it is unrelated to the outcome, is is therefore <strong>unrelated to unmeasured confounders</strong> (unmeasured differences in characteristics that affect outcomes) (i.e. <strong>exogeneity</strong> assumption - it is an exogneous variable) <a class="reference external" href="https://doi.org/10.1001/jama.1994.03520110039026">[McClellan et al. 1994]</a><a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a> <a class="reference external" href="https://towardsdatascience.com/instrumental-variables-a-practical-explanation-1a583408a5b9">[source]</a></p></li>
+<li><p>It <strong>causes variation in the exposure/treatment</strong> (i.e. relevance assumption - it is correlated with X, an endogenous explanatory variable) - also known as the <em>strong first stage</em> assumption</p></li>
+<li><p>It is <strong>unrelated to the outcome</strong> (and so any affect on outcome is exclusively via the instruments effect on the exposure) - also known as the <em>exclusion restriction</em></p></li>
+<li><p>As it is unrelated to the outcome, is is therefore <strong>unrelated to unmeasured confounders</strong> (unmeasured differences in characteristics that affect outcomes) (i.e. <strong>exogeneity</strong> assumption - it is an exogneous variable) <a class="reference external" href="https://doi.org/10.1001/jama.1994.03520110039026">[McClellan et al. 1994]</a><a class="reference external" href="https://doi.org/10.1136/jech-2022-219267">[Igelström et al. 2022]</a> <a class="reference external" href="https://towardsdatascience.com/instrumental-variables-a-practical-explanation-1a583408a5b9">[source]</a> <a class="reference external" href="https://medium.com/teconomics-blog/machine-learning-meets-instrumental-variables-c8eecf5cec95">[source]</a></p></li>
 </ol>
 <p>This is illustrated below:</p>
 <div class="mermaid">
@@ -520,7 +520,23 @@ document.write(`
 </section>
 <section id="limitations">
 <h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h2>
-<p>‘A concern with any IV strategy is that the instrumental variable is correlated with unobserved determinants of the outcome of interest.’ Can address by estimating models for held=back risk factors pre-determined at delivery date, looking for correlation with the IV. <a class="reference external" href="http://www.nber.org/papers/w24493">[Card et al. 2018]</a></p>
+<p>‘A concern with any IV strategy is that the instrumental variable is correlated with unobserved determinants of the outcome of interest.’ Can address by estimating models for held-back risk factors pre-determined at delivery date, looking for correlation with the IV. <a class="reference external" href="http://www.nber.org/papers/w24493">[Card et al. 2018]</a></p>
+<p>A <strong>weak instrument</strong> will produce an estimate that is biased and imprecise (and we may then have false confidence in it being unbiased). To help address this…</p>
+<ul class="simple">
+<li><p>Check strong first stage assumption - i.e. want statistically significant relationship when regress X on Z - suggests F-statistic of at least 11 in first stage.</p></li>
+<li><p>Can’t test exclusion restriction assumption - just have to think through any possible ways that the IV could affect the outcome that aren’t via the treatment. <a class="reference external" href="https://medium.com/teconomics-blog/machine-learning-meets-instrumental-variables-c8eecf5cec95">[source]</a></p></li>
+</ul>
+</section>
+<section id="non-parametric-instrumental-variable-methods">
+<h2>Non-parametric instrumental variable methods<a class="headerlink" href="#non-parametric-instrumental-variable-methods" title="Link to this heading">#</a></h2>
+<p>‘<strong>Most IV applications make use of a two-stage least squares</strong> procedure [2SLS; e.g., Angrist et al., 1996] that requires assumptions of linearity and homogeneity (e.g., all airline customers must have the same price sensitivity). <strong>Nonparametric IV methods from the econometrics</strong> literature relax these assumptions [e.g., Newey and Powell, 2003]. However, these methods work by modeling the outcome as an unknown linear combination of a pre-specified set of basis functions of the treatment and other covariates (e.g. Hermite polynomials, wavelets or splines) and then modeling the conditional expectation of each of these basis functions in terms of the instruments (i.e. the number of equations is quadratic in the number of basis functions). This <strong>requires a strong prior understanding of the data generating process</strong> by the researcher, and the <strong>complexity of both specification and estimation</strong> explodes when there are more than a handful of inputs.’ <a class="reference external" href="http://proceedings.mlr.press/v70/hartford17a.html">[Hartford et al. 2017]</a></p>
+<p><a class="reference external" href="http://proceedings.mlr.press/v70/hartford17a.html">Hartford et al. 2017</a> propose the Deep IV framework, which uses ML to perform IV analysis…</p>
+<ul class="simple">
+<li><p>First stage: fit conditional distribution for treatment given instruments and covariates with a deep neural net (stochastic gradient descent (SGD)) <a class="reference external" href="http://proceedings.mlr.press/v70/hartford17a.html">[Hartford et al. 2017]</a></p></li>
+<li><p>Second stage: ‘target a loss function involving integration over the conditional treatment distribution from the first stage’ <a class="reference external" href="http://proceedings.mlr.press/v70/hartford17a.html">[Hartford et al. 2017]</a>… ‘incorporate the fitted conditional distribution to minimize a loss function using a second deep neural net, and use an out-of-sample causal validation procedure to tune the deep network hyper-parameters’ <a class="reference external" href="https://medium.com/teconomics-blog/machine-learning-meets-instrumental-variables-c8eecf5cec95">[source]</a></p></li>
+</ul>
+<p>They provide the <a class="reference external" href="https://github.com/jhartford/DeepIV">package on GitHub</a> for this analysis using Python (broken - only supports Keras 2.0.6) (although there has been non-integrated pull request to make it work with Keras 2.3.1).</p>
+<p><a class="reference external" href="https://openreview.net/forum?id=sy4Kg_ZQmS7">Xu et al. 2021</a> provide another example of IV with deep learning, again <a class="reference external" href="https://github.com/liyuan9988/DeepFeatureIV">sharing code on GitHub</a>. This has open peer review, and so helpfully has some insightful comments around assumptions and theoretical justifications.</p>
 </section>
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
@@ -685,53 +701,6 @@ document.write(`
 </ul>
 <p><strong>Interpretation</strong>: Increased probability of Apgar-5, significant at 5% significance level.</p>
 </section>
-<section id="example-4-samuel">
-<h3>Example 4: SAMueL<a class="headerlink" href="#example-4-samuel" title="Link to this heading">#</a></h3>
-<p>This doesn’t suffer with problem as above, as here, we’re assuming that all patients would simply go to their closest unit.</p>
-<p>You could test that assumption, although we don’t have the data.</p>
-<div class="mermaid">
-              flowchart LR;
-
-    treat(&quot;&lt;b&gt;Thrombolysis&lt;/b&gt;&lt;br&gt;(e.g. catheterisation)&quot;):::green;
-    out(&quot;&lt;b&gt;Stroke outcome&lt;/b&gt;&quot;):::green;
-    con(&quot;NIHSS&lt;br&gt;Pre-stroke disability&lt;br&gt;Atrial fibrillation&quot;):::white;
-    hosp(&quot;Hospital propensity&lt;br&gt;to thrombolyse&quot;):::white;
-
-    hosp --&gt; treat;
-    treat --&gt; out;
-    con --&gt; treat;
-    con --&gt; out;
-  
-    classDef white fill:#FFFFFF, stroke:#FFFFFF;
-    classDef black fill:#FFFFFF, stroke:#000000;
-    classDef empty width:0px,height:0px;
-    classDef green fill:#DDF2D1, stroke: #FFFFFF;
-        </div></section>
-<section id="example-5-neonatal">
-<h3>Example 5: Neonatal<a class="headerlink" href="#example-5-neonatal" title="Link to this heading">#</a></h3>
-<p>We could apply the same logic as in SAMueL - although we anticipate this might be more influenced by patient choice on where they want to give birth - in which case, would you use some kind of distance measure as above?</p>
-<div class="mermaid">
-              flowchart LR;
-
-    treat(&quot;&lt;b&gt;Caesarean&lt;/b&gt;&quot;):::green;
-    out(&quot;&lt;b&gt;HIE&lt;/b&gt;&quot;):::green;
-    con(&quot;Confounders&quot;):::white;
-    hosp(&quot;Hospital propensity&lt;br&gt;to do caesarean&quot;):::white;
-    choice(&quot;Physician and patient choice of hospital&lt;br&gt;(e.g. better candidates for caesarean&lt;br&gt;may be sent to hospitals with more propensity?)&quot;):::white;
-    dist(&quot;Hospital distance measure&quot;):::white;
-
-    choice --&gt; hosp;
-    dist --&gt; hosp;
-    hosp --&gt; treat;
-    treat --&gt; out;
-    con --&gt; treat;
-    con --&gt; out;
-  
-    classDef white fill:#FFFFFF, stroke:#FFFFFF;
-    classDef black fill:#FFFFFF, stroke:#000000;
-    classDef empty width:0px,height:0px;
-    classDef green fill:#DDF2D1, stroke: #FFFFFF;
-        </div></section>
 </section>
 <section id="python-example">
 <h2>Python example<a class="headerlink" href="#python-example" title="Link to this heading">#</a></h2>
@@ -1283,12 +1252,11 @@ P-value: 3.657974700921329e-08
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-stage-least-squares-2sls">Two-stage least squares (2SLS)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-of-instrumental-variable-analysis">Assumptions of instrumental variable analysis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-parametric-instrumental-variable-methods">Non-parametric instrumental variable methods</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-mendelian-randomisation">Example 1: Mendelian randomisation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-effect-of-intensive-treatment-on-mortality-in-patients-with-acute-myocardial-infarction">Example 2: Effect of intensive treatment on mortality in patients with acute myocardial infarction</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-caesarean-section">Example 3: caesarean section</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-samuel">Example 4: SAMueL</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-neonatal">Example 5: Neonatal</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-example">Python example</a><ul class="nav section-nav flex-column">
