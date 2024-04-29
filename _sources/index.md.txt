@@ -26,7 +26,7 @@ There is a further issue - how we **process and use cardiotocograph data** - but
 
 ## Section overview
 
-**Background** - Context of key topics (e.g. stages of pregnancy and labour, interventions during labour, introduction to neonatal encephalopathy)
+**Background** - Context on stages of pregnancy and labour, and on interventions during labour.
 
 **Causal inference** -
 * **Introduction and core concepts:** Introduces causal inference, differentiates it from prediction, goes over the theree "languages", and details about DAGs, estimands, assumptions and target trials.
