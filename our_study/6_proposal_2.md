@@ -60,24 +60,19 @@ My current attempt:
 
 This section discusses some of the possible approaches to this analysis.
 
-#### Option 1: As in SAMUeL-1
+#### Option 1: As in SAMUeL-1 and -2
 
-One possible avenue could be to replicate methods used in [SAMueL-1](https://samuel-book.github.io/samuel-1/introduction/intro.html). SAMueL-1 focussed on variation in thrombolysis use between hospitals, to ask the question *"What treatment would my patient receive at hospitals*"? They also then used clinical pathway simulation to ask the question "*What would happen to a hospital’s thrombolysis use of, and benefit from, thrombolysis by changing key aspects of the pathway?*" (e.g. pathway speed, stroke onset times, what majority of high-thrombolysing hospitals would do for patient). Whilst this is not explicitly assessing the effectiveness of interventions, it does teach us which patients low-thrombolysis units and high-thrombolysis units treat differently, assuming that perhaps they might be patients low-thrombolysis units should consider treating.
+One possible avenue could be to replicate methods used in [SAMueL-1](https://samuel-book.github.io/samuel-1/introduction/intro.html) and [SAMueL-2](https://samuel-book.github.io/stroke_outcome/intro.html).
 
-Applying this to HIE, we could - for example - model **variation in emergency caesarean** use **between hospitals**.
+SAMueL-1 focussed on **variation in thrombolysis use between hospitals**, to ask the question *"What treatment would my patient receive at hospitals*"? They also then used clinical pathway simulation to ask the question "*What would happen to a hospital’s thrombolysis use of, and benefit from, thrombolysis by changing key aspects of the pathway?*" (e.g. pathway speed, stroke onset times, what majority of high-thrombolysing hospitals would do for patient). Applied to this study, we could model **variation in emergency caesarean use between hospitals**
 * This would involve comparing units with low and high caesarean rates and looking whether a similar patient would receive a caesarean at a different hospital. However, this may be difficult to interpret, particularly with no information on timing, which is often the key thing of interest (i.e. caesarean too late).
 * **How do you incorporate timing of caesarean?** I'm not quite sure. Could you focus just on those who receive a caesarean, and see what factors influence time to receive it? However, we're not learning about intervention effectiveness from this but instead, reasons for time to treatment.
-* **What do we learn?**
-  * For SAMueL-1, you start in a scenario where there is a demand to increase thrombolysis use, and so seeing which patients are thrombolysed at high v.s. low thrombolysing units, tells you perhaps where the low thrombolysing units could focus.
-  * However, do we want to learn that here? In this context, there is not a large demand for more caesareans. Instead, there is a case-by-case scenario where some rare (but expensive) cases intervene too late. There are also cases where caesareans are done unnecessarily.
+* **What do we learn?** Which patients are receiving caesareans at high versus low use units, so you can understand the differences (contextualising alot of the comments around how "people do caesareans too much" or "people don't do enough caesareans")
+* There are other examples of variables that lead to variation in caesareans. This might be particularly relevant as our first dataset is **only two hospitals**. Other variables include:
+  * **Time of day** - "*What treatment would my patient receive at a different time of day?*". Steve Thornton comments that "the time of day is important in the rate of delivery. More deliveries tend to happen at night naturally (perhaps because this was safer in long gone times as predators were not around). Also, nowadays because the inductions happen in the morning on the whole, this influences the timing of delivery"
+  * **Day of week** - hence asking, "*What treatment would my patient receive on a different day of the week?*"
 
-There are other examples of variables that lead to variation in caesareans. This might be particularly relevant as our first dataset is **only two hospitals**. Other variables include:
-* **Time of day** - "*What treatment would my patient receive at a different time of day?*". Steve Thornton comments that "the time of day is important in the rate of delivery. More deliveries tend to happen at night naturally (perhaps because this was safer in long gone times as predators were not around). Also, nowadays because the inductions happen in the morning on the whole, this influences the timing of delivery"
-* **Day of week** - hence asking, "*What treatment would my patient receive on a different day of the week?*"
-
-SAMueL-2 incorporates outcomes, although Mike would be better able to reflect on this (as I am not up to speed with how that analysis works).
-
-> Parting remark: Is this appropriate to our context? Caesarean use is a very different context to thrombolysis use. Does it make sense to compare units (or time of day or day of week) with high or low use? Would we want the low use units/times to learn from the high use, or do we actually have issues in both?
+In SAMueL-2, they incorporated outcomes (specifically, disability at discharge). They create models to predict that and had five key features: age, stroke severity, pre-stroke disability, time to thrombolysis, and stroke team. So here, they **predict outcomes** rather than whether people receive thrombolysis. These results were then externally validated through comparison against clinical trials (as can compare the explainability odds ratios). They could then run counterfactuals (predicting outcomes with and without thrombolysis in the model). Hence, you can **look generally at outcomes**, but also link that in with thrombolysis rates and look at **outcomes of high and low thrombolysing units** (e.g. do they thrombolysis people who benefit from it or not, and do they thrombolyse people who don't benefit from it) - hence contextualising what we know about the varying units. You could apply this to here, looking at the outcomes of people with and without caesarean, and the outcomes between units with high and low rates of caesarean.
 
 #### Option 2: Instrumental variable analysis
 
