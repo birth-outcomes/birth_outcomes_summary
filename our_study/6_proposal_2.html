@@ -487,29 +487,22 @@ document.write(`
 <section id="analysis">
 <h3>Analysis<a class="headerlink" href="#analysis" title="Link to this heading">#</a></h3>
 <p>This section discusses some of the possible approaches to this analysis.</p>
-<section id="option-1-as-in-samuel-1">
-<h4>Option 1: As in SAMUeL-1<a class="headerlink" href="#option-1-as-in-samuel-1" title="Link to this heading">#</a></h4>
-<p>One possible avenue could be to replicate methods used in <a class="reference external" href="https://samuel-book.github.io/samuel-1/introduction/intro.html">SAMueL-1</a>. SAMueL-1 focussed on variation in thrombolysis use between hospitals, to ask the question <em>“What treatment would my patient receive at hospitals</em>”? They also then used clinical pathway simulation to ask the question “<em>What would happen to a hospital’s thrombolysis use of, and benefit from, thrombolysis by changing key aspects of the pathway?</em>” (e.g. pathway speed, stroke onset times, what majority of high-thrombolysing hospitals would do for patient). Whilst this is not explicitly assessing the effectiveness of interventions, it does teach us which patients low-thrombolysis units and high-thrombolysis units treat differently, assuming that perhaps they might be patients low-thrombolysis units should consider treating.</p>
-<p>Applying this to HIE, we could - for example - model <strong>variation in emergency caesarean</strong> use <strong>between hospitals</strong>.</p>
+<section id="option-1-as-in-samuel-1-and-2">
+<h4>Option 1: As in SAMUeL-1 and -2<a class="headerlink" href="#option-1-as-in-samuel-1-and-2" title="Link to this heading">#</a></h4>
+<p>One possible avenue could be to replicate methods used in <a class="reference external" href="https://samuel-book.github.io/samuel-1/introduction/intro.html">SAMueL-1</a> and <a class="reference external" href="https://samuel-book.github.io/stroke_outcome/intro.html">SAMueL-2</a>.</p>
+<p>SAMueL-1 focussed on <strong>variation in thrombolysis use between hospitals</strong>, to ask the question <em>“What treatment would my patient receive at hospitals</em>”? They also then used clinical pathway simulation to ask the question “<em>What would happen to a hospital’s thrombolysis use of, and benefit from, thrombolysis by changing key aspects of the pathway?</em>” (e.g. pathway speed, stroke onset times, what majority of high-thrombolysing hospitals would do for patient). Applied to this study, we could model <strong>variation in emergency caesarean use between hospitals</strong></p>
 <ul class="simple">
 <li><p>This would involve comparing units with low and high caesarean rates and looking whether a similar patient would receive a caesarean at a different hospital. However, this may be difficult to interpret, particularly with no information on timing, which is often the key thing of interest (i.e. caesarean too late).</p></li>
 <li><p><strong>How do you incorporate timing of caesarean?</strong> I’m not quite sure. Could you focus just on those who receive a caesarean, and see what factors influence time to receive it? However, we’re not learning about intervention effectiveness from this but instead, reasons for time to treatment.</p></li>
-<li><p><strong>What do we learn?</strong></p>
+<li><p><strong>What do we learn?</strong> Which patients are receiving caesareans at high versus low use units, so you can understand the differences (contextualising alot of the comments around how “people do caesareans too much” or “people don’t do enough caesareans”)</p></li>
+<li><p>There are other examples of variables that lead to variation in caesareans. This might be particularly relevant as our first dataset is <strong>only two hospitals</strong>. Other variables include:</p>
 <ul>
-<li><p>For SAMueL-1, you start in a scenario where there is a demand to increase thrombolysis use, and so seeing which patients are thrombolysed at high v.s. low thrombolysing units, tells you perhaps where the low thrombolysing units could focus.</p></li>
-<li><p>However, do we want to learn that here? In this context, there is not a large demand for more caesareans. Instead, there is a case-by-case scenario where some rare (but expensive) cases intervene too late. There are also cases where caesareans are done unnecessarily.</p></li>
-</ul>
-</li>
-</ul>
-<p>There are other examples of variables that lead to variation in caesareans. This might be particularly relevant as our first dataset is <strong>only two hospitals</strong>. Other variables include:</p>
-<ul class="simple">
 <li><p><strong>Time of day</strong> - “<em>What treatment would my patient receive at a different time of day?</em>”. Steve Thornton comments that “the time of day is important in the rate of delivery. More deliveries tend to happen at night naturally (perhaps because this was safer in long gone times as predators were not around). Also, nowadays because the inductions happen in the morning on the whole, this influences the timing of delivery”</p></li>
 <li><p><strong>Day of week</strong> - hence asking, “<em>What treatment would my patient receive on a different day of the week?</em>”</p></li>
 </ul>
-<p>SAMueL-2 incorporates outcomes, although Mike would be better able to reflect on this (as I am not up to speed with how that analysis works).</p>
-<blockquote>
-<div><p>Parting remark: Is this appropriate to our context? Caesarean use is a very different context to thrombolysis use. Does it make sense to compare units (or time of day or day of week) with high or low use? Would we want the low use units/times to learn from the high use, or do we actually have issues in both?</p>
-</div></blockquote>
+</li>
+</ul>
+<p>In SAMueL-2, they incorporated outcomes (specifically, disability at discharge). They create models to predict that and had five key features: age, stroke severity, pre-stroke disability, time to thrombolysis, and stroke team. So here, they <strong>predict outcomes</strong> rather than whether people receive thrombolysis. These results were then externally validated through comparison against clinical trials (as can compare the explainability odds ratios). They could then run counterfactuals (predicting outcomes with and without thrombolysis in the model). Hence, you can <strong>look generally at outcomes</strong>, but also link that in with thrombolysis rates and look at <strong>outcomes of high and low thrombolysing units</strong> (e.g. do they thrombolysis people who benefit from it or not, and do they thrombolyse people who don’t benefit from it) - hence contextualising what we know about the varying units. You could apply this to here, looking at the outcomes of people with and without caesarean, and the outcomes between units with high and low rates of caesarean.</p>
 </section>
 <section id="option-2-instrumental-variable-analysis">
 <h4>Option 2: Instrumental variable analysis<a class="headerlink" href="#option-2-instrumental-variable-analysis" title="Link to this heading">#</a></h4>
@@ -635,7 +628,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dag">DAG</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-as-in-samuel-1">Option 1: As in SAMUeL-1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-as-in-samuel-1-and-2">Option 1: As in SAMUeL-1 and -2</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-instrumental-variable-analysis">Option 2: Instrumental variable analysis</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#other-options">Other options</a></li>
 </ul>
